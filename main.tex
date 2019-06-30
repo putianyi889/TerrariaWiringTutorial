@@ -1,0 +1,54 @@
+\documentclass[cn,11pt]{elegantbook}
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{longtable}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\title{Terraria 电路文档}
+\subtitle{}
+
+% 这部分不要删掉任何一个属性，否则会导致 "undefined control sequence"
+\author{putianyi888}
+\institute{Terraria 电路爱好者交流群}
+\date{\today}
+\version{2.0}
+
+\extrainfo{}
+
+\logo{logo.png}
+\cover{cover.jpg}
+
+\begin{document}
+
+% 这里会报错，暂时先没啥影响，不过能找到解决方案还是好的。
+\maketitle
+
+\tableofcontents
+
+% \thispagestyle{empty}
+
+\mainmatter
+\hypersetup{pageanchor=true}
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter4}
+\include{chapters/chapter5}
+
+%\nocite{*} 
+
+%\bibliography{reference}
+
+\appendix
+\include{chapters/chapter6.tex}
+
+%\bibliography{reference}
+
+\end{document}
+%\end{lstlisting}
+
+
+%\end{document}
