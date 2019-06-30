@@ -1,7 +1,9 @@
 主文件`main.tex`。
+各章节建议存放在`chapters`。
 游戏贴图建议存放在`figures/`。
 截图建议存放在`images/`并编号。
 模板`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
+`figure`和`image`是原模板使用的。
 
 # 关于模板
 
