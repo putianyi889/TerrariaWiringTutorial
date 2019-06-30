@@ -1,7 +1,9 @@
+# 关于模板
+
 <!-- Author : Dongsheng Deng & Liam Huang-->
 <!-- Program Email: elegantlatex2e@gmail.com -->
 
-# ElegantBook
+## ElegantBook
 
 [Homepage](https://elegantlatex.org/) | [Github](https://github.com/ElegantLaTeX/ElegantBook) | [CTAN](https://ctan.org/pkg/elegantbook) | [Download](https://github.com/ElegantLaTeX/ElegantBook/releases) | [Wiki](https://github.com/ElegantLaTeX/ElegantBook/wiki) | [Weibo](https://weibo.com/elegantlatex)
 
@@ -16,7 +18,7 @@ ElegantBook is designed for books. Just enjoy it! If you have any questions, sug
 
 **注意：** 由于新版本进行了重构，3.x 版本并不兼容 2.x 版本，如果你想把 2.x 版本的文件转为 3.x 版本，请查看[跨版本转换](https://github.com/ElegantLaTeX/ElegantBook/wiki/convert)。
 
-# License
+## License
 
 This work is released under the LaTeX Project Public License, v1.3c or later. 
 
