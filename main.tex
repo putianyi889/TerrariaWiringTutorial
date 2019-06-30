@@ -2,7 +2,7 @@
 
 \usepackage{color}
 \usepackage{graphicx}
-\usepackage[subrefformat=simple]{subfig}
+\usepackage[labelformat=simple,subrefformat=simple]{subfig}
 \usepackage{longtable}
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -11,6 +11,8 @@
 \renewcommand{\sectionautorefname}{节}
 \renewcommand{\subsectionautorefname}{小节}
 \renewcommand{\chapterautorefname}{章}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\newcommand{\subfigureautorefname}{\figureautorefname}
 
 \title{Terraria 电路文档}
 \subtitle{}
@@ -21,7 +23,7 @@
 \date{\today}
 \version{2.0}
 
-\extrainfo{}
+\extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
 
 \logo{logo.png}
 \cover{cover.jpg}
@@ -48,7 +50,7 @@
 %\bibliography{reference}
 
 \appendix
-\include{chapters/chapter6.tex}
+\include{chapters/chapter6}
 
 %\bibliography{reference}
 
