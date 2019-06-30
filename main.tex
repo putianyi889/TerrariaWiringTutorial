@@ -2,10 +2,15 @@
 
 \usepackage{color}
 \usepackage{graphicx}
-\usepackage{subfig}
+\usepackage[subrefformat=simple]{subfig}
 \usepackage{longtable}
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\sectionautorefname}{节}
+\renewcommand{\subsectionautorefname}{小节}
+\renewcommand{\chapterautorefname}{章}
 
 \title{Terraria 电路文档}
 \subtitle{}
