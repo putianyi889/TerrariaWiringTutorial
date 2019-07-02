@@ -1,164 +1,31 @@
 \chapter{从零开始}
 
-\section{准备工作}\label{sec1:1}
+\section{如何使用本书}\label{sec1:1}
 
-本书中的内容仅作为对于泰拉瑞亚wiki和互联网上各种电路装置的解释与补充，因此想要让本书发挥最大作用，需要结合泰拉瑞亚wiki与网上现有的视频食用。
-
-由于泰拉瑞亚本体是英文，所以官方资料都是全英文的，并且几乎所有英文资料都没有翻译。所以在对泰拉瑞亚进行深入研究的时候请务必备好词典以及初中以上的英文水准。
-
-下面将提供我认为值得参考的资料链接，供大家随时参考。
-
-对于泰拉瑞亚中所有道具、机制问题，在没有得到证实的情况下请暂时相信泰拉瑞亚wiki。
-\begin{itemize}
-\item
-英文wiki网址：\url{https://terraria.gamepedia.com/Terraria_Wiki}
-\item
-中文wiki网址：\url{https://terraria-zh.gamepedia.com/Terraria_Wiki}
-\item
-英文wiki安卓apk：\url{https://terraria-wiki.fileplanet.com/apk/download#}
-\item
-中文wiki镜像站：\url{http://terraria.1tu.me/}
-\end{itemize}
-本书中所有游戏名词均采用官方中文版本，即游戏内中文与中文wiki。官方中英文翻译对照表请参阅中文wiki-Terraria\_Wiki:标准译名列表词条。
-
-国外网友主要在泰拉瑞亚官方论坛\url{https://forums.terraria.org/index.php}上讨论。\\
-
-此外，对于想做大型装置的同学，地图编辑器(TEdit)或一些辅助mod是必不可少的，它们可以帮助你快速建造、备份、调试电路。
-\begin{itemize}
-\item
-地图编辑器各版本下载：\url{http://www.binaryconstruct.com/downloads/}
-\item
-usdanger - 地图编辑器教程（共4期）：\\
-\url{http://v.youku.com/v_show/id_XMjYxNTUzOTMyOA} \\
-\url{http://v.youku.com/v_show/id_XMjY0NDYwMTM3Ng}\\
-\url{http://v.youku.com/v_show/id_XMjY1OTIzNjg4OA}\\
-\url{http://v.youku.com/v_show/id_XMjY3ODQwODE1Ng}
-\item
-tModLoader下载与安装教程：\url{https://www.tmodloader.net/}
-\item
-Cheat Sheet Mod 官方论坛发布页：\url{https://forums.terraria.org/index.php?threads/cheat-sheet.41407/}
-\item
-Cheat Sheet Mod 下载：\url{https://github.com/JavidPack/CheatSheet/releases/}
-\item
-HERO's Mod 官方论坛发布页：\url{https://forums.terraria.org/index.php?threads/heros-mod-creative-mode-server-management-and-over-25-tools-1-3-4-4-compatible.44650/}
-\item
-HERO's Mod 下载：\url{https://github.com/JavidPack/HEROsMod/releases}
-\item MechScope Mod 官方论坛发布页：\url{https://forums.terraria.org/index.php?threads/mechscope-wiring-visualized.70665/}
-\item MechScope Mod 下载：\url{https://github.com/DRKV333/MechScope/releases/}
-\end{itemize}
-
-各大视频网站上也有不少泰拉瑞亚的视频，这里仅提供常发电路视频的用户主页，对于偶尔发高质量电路视频的用户，仅在附录中提供电路视频链接。
-\begin{itemize}
-\item 优酷(\url{http://www.youku.com/}：
-\begin{itemize}
-\item usdanger：\url{http://i.youku.com/u/UMTcyMDA1MTY4}
-\item 白霜心：\url{http://i.youku.com/u/UMTMyOTg1ODM4OA}
-\item 机锋哥：\url{http://i.youku.com/u/UMjg3MTI2NDcwOA}
-\end{itemize}
-\item 哔哩哔哩(\url{https://www.bilibili.com/})：
-\begin{itemize}
-\item us\_danger：\url{https://space.bilibili.com/34637318/#/}
-\item dcfhft：\url{https://space.bilibili.com/98605295/#/}
-\item ROOM-屠宰场：\url{https://space.bilibili.com/35610991/#/}
-\item TSPL-沉睡ss：\url{https://space.bilibili.com/22871583}
-\item putianyi888：\url{https://space.bilibili.com/34937101/#/}
-\end{itemize}
-\item YouTube(\url{https://www.youtube.com/})：
-\begin{itemize}
-\item ZeroGravitas：\url{https://www.youtube.com/channel/UCyLQbVwYleCYzgl49dNAeOw}
-\item TheRedstoneCrafter：\url{https://www.youtube.com/channel/UC9ekQoOvO3BgFQsmGdWJpCQ}
-\item Joe Price：\url{https://www.youtube.com/channel/UCllYBm-\underline{ }FbqWuI92o6zPXfw}
-\item Роман Кобылинский：\url{https://www.youtube.com/user/Romixalview}
-\item MappyGaming：\url{https://www.youtube.com/channel/UC-u6c7ppGML6icciJ0Q1oWQ}
-\end{itemize}
-\end{itemize}
-
-\section{本书使用指南}
 本书定位为“文档”，主要用于系统性收录电路理论，因此行文中会先讲理论后讲例子。如果读者觉得理论难以理解，不妨先看例子，再结合例子看理论。
 
-每章后的思考题，有部分是经典电路的分析理解，有部分是因为我懒而没有去做的电路，还有一部分是纯理论推导。它们的共同点就是做不做都无所谓。与思考题相比，正文中用于举例，尤其是自成一节的电路是必须熟练掌握的。
+每章后的思考题，有部分是经典电路的分析理解，有部分是因为我懒而没有去做的电路，还有一部分是纯理论推导。它们的共同点就是做不做都无所谓。与思考题相比，正文中用于举例、自成一节的电路是必须熟练掌握的。
+
+因为泰拉瑞亚官方资料都是全英文的，并且几乎所有英文资料都没有翻译，所以在对泰拉瑞亚进行深入研究的时候请务必备好词典以及初中以上的英文水准。同时，一定的计算机或数学专业知识也会有帮助。
+
+如果你在词典的帮助下仍然看不懂英文，建议找人求助，而不是去使用机翻，机翻基本上没有一句话是准确的。
+
+如果你对于纯文字的内容难以接受，也可以去观看视频教程，链接在附录中。
+
+本书中所有游戏名词首选为Steam正版中的中文，其次是中文wiki。此外，对于想做大型装置的同学，\hyperref[app3]{地图编辑器}与模组\footnote{\hyperref[app4]{tModLoader}、\hyperref[app5]{CheatSheet}、\hyperref[app6]{HERO's mod}}是必不可少的，它们可以帮助你快速建造、备份。
+
+关于游戏机制，如果你有编程基础，看反编译的\hyperref[app8]{c\#源码}是最可靠的方法。否则请参考\hyperref[app2]{Wiki}，对Wiki有疑问的话再求助可以看懂源码的人。
+
+本书正文部分用于集中讨论电路，对于电路以外的信息会在附录中讨论。
 
 \section{一些基本概念与机制}
 
-泰拉瑞亚中大多数游戏机制都在wiki里有详细解释，这一节主要对于本书中会出现但是wiki上没有详细说明的机制，以及容易混淆误解的概念，进行解释补充。读者大可跳过这一节，在将来的阅读过程中出现疑问时再回来查询相关信息。
+\subsection{实体}
+实体指的是可以发生碰撞的物体\footnote{严格地讲，实体是编程术语，这里仅仅是在不影响游戏理解的前提下进行简化。}，包括但不限于\href{https://terraria.gamepedia.com/NPC_IDs}{NPC}、玩家、\href{https://terraria.gamepedia.com/Projectile_IDs}{射弹}、\href{https://terraria.gamepedia.com/Item_IDs}{物品}、\href{https://terraria.gamepedia.com/Tile_IDs}{图格}。
 
-\subsection{物品/图格}
+史莱姆对玩家造成接触伤害，就是史莱姆（NPC）与玩家的碰撞；玩家用弓射出木箭击中了史莱姆，就是史莱姆（NPC）与木箭（射弹）的碰撞；玩家被血肉墙激光击中，就是玩家与激光（射弹）的碰撞；玩家、掉落物、大多数NPC、大多数射弹不能穿墙，是因为玩家、掉落物、NPC、射弹会和图格碰撞。
 
-物品(item)指背包中或掉落在地图中的物品，其获取/掉落方式如下(搬运自wiki-物品(items)词条，有修改)：
-\begin{itemize}
-\item 敌怪/NPC死亡
-\item 挖掘、砍伐、锤击或爆炸摧毁各种物块
-\item 打碎罐子/猩红之心/暗影珠/剑冢
-\item 打开宝箱
-\item 自NPC购买
-\item 玩家右键丢弃
-\item 收割植物
-\item 虫网捕捉小动物
-\item 钓鱼
-\end{itemize}
-
-每种掉落物有其特有的碰撞箱，因此掉落物会受到半砖和传送带的影响。除黑曜石/火焰花/火焰花种子外，所有品质为灰色或白色的掉落物在熔岩触碰其碰撞箱中心时会消失（待验证）。
-
-可堆叠的掉落物在距离足够近时，如果堆叠空间足够，会相互吸引并堆叠成为1个掉落物。
-
-一个地图中掉落物品数量上限为400，超过该数值，最早的掉落物会消失从而为新产生的掉落物提供空间。因此在遇到会产生大量掉落物的情形时，请尽快拾取掉落物，或用手段除去低价值掉落物。
-
-掉落物不属于任何存档，因此退出游戏会将地图中所有掉落物清除。
-
-背包/小猪存钱罐/保险箱/护卫熔炉中的物品属于人物存档。
-\\
-
-泰拉瑞亚的地图分为五个图层：背景、背景墙、液体、图格和电路。
-\begin{itemize}
-\item 背景指不同地层的背景，例如太空层的星空背景、地表层的蓝天白云背景、地下层/洞穴层的土石背景与地狱层的熔岩石块背景。
-\item 背景墙(background wall)指覆盖于背景之上、图格之下的物块，可以被涂漆滚刷上色，用锤子拆除。
-\item 图格(tile)指覆盖于背景墙之上的物块，可以被漆刷上色。
-\item 电路层包括四色电线与制动器，它们只有当手上拿着电路成分或背包里有机械晶状体/精密线控仪时才可见。
-\item 液体(liquid)覆盖于背景物体之上，前景物体之下（背景物体与前景物体的概念见下一小节）。
-\end{itemize}
-
-图格属于地图存档，用挖掘、砍伐或爆炸摧毁图格时可获得对应掉落物。
-
-除了背景墙以外，所有可放置的物品在放置后成为图格。这些物品与图格之间有复杂的对应关系：
-\begin{itemize}
-\item 有些物品对应单个图格，例如计时器。
-\item 有些物品对应多个不同位置的图格，例如传送机分为左/中/右三个图格
-\item 有些物品对应多个不同状态的图格，例如火把的开/关。
-\item 有些物品对应不同形态的图格，例如各种半砖形态。
-\item 有些图格不对应物品，例如杂草与背景石块。
-\end{itemize}
-图格不等同于贴图。程序上拥有相同功能的贴图看作同一个图格。例如，点亮的火把有三种形态，每种形态还有各自的动画，这样点亮的火把就对应很多贴图。然而无论显示的是哪个贴图，该图格都有同样的功能：发光，被破坏掉落物品火把。再例如，工作台有两个贴图（左/右），它们在程序上有一个功能不同：左贴图被破坏时其右边的一格工作台被破坏并掉落物品工作台；右贴图被破坏时其左边一格工作台被破坏并掉落物品工作台。因此工作台对应两个图格（\autoref{i1:2}）。
-
-\begin{figure}
-
-\centering
-\subfloat[]{
-\label{i1}
-\includegraphics[]{images/1.png}
-}
-\subfloat[]{
-\label{i2}
-\includegraphics[]{images/2.png}
-}
-\caption{工作台两个图格的不同性质：\protect\subref{i1}挖掉开关掉落4个工作台；\protect\subref{i2}挖掉开关掉落7个工作台。}
-\label{i1:2}
-\end{figure}
-
-Cheat Sheet Mod 中复制粘贴菜单的翻转功能翻转的是图格：将平台翻转会导致左右图格交换。
-
-关于所有物品和图格的列表，请参阅wiki。
-
-\subsection{前景物体/背景物体/平坦表面}
-
-前景物体、背景物体是对于图格的一个分类。
-
-前景物体即我们平常所说的“实体块”，即会阻碍生物/掉落物/液体的图格。使用制动器虚化前景物体可以使其不阻碍生物/掉落物/液体通过。
-
-背景物体指不阻碍生物、掉落物、液体的图格。请参阅wiki-物体(Objects)词条。
-
-平坦表面是一类特殊的背景物体，它会阻碍生物、掉落物自上而下通过。玩家站在平坦表面上按下方向键即可以通过。平坦表面包括平台、锭、宝匣、砧、工作台、桌子、梳妆台、书架、钢琴、工匠作坊、壁炉。
-
-此外，门在关闭时为前景物体，打开时为背景物体。
+碰撞是通过碰撞箱判定的，例如史莱姆与玩家碰撞，是因为史莱姆的碰撞箱与玩家的碰撞箱有重叠。泰拉瑞亚中所有实体的碰撞箱均为矩形，有宽度和高度两个属性，它们可以在\hyperref[app8]{源码}中查到。
 
 \subsection{图像帧/物理帧}
 
@@ -178,17 +45,6 @@ Cheat Sheet Mod 中复制粘贴菜单的翻转功能翻转的是图格：将平�
 \item 满频驱动指频率等于60Hz的驱动。主流的满频驱动有假人驱动和传送带驱动。之所以叫满频驱动，是因为驱动频率与物理帧率相同。更高的频率也可以通过满频驱动得到相同的效果。例如，120Hz的驱动的输出效果和两个满频驱动同时输出的效果完全相同。
 \item 超频驱动指频率大于60Hz的驱动。此类驱动一般用多个满频驱动同时运行，或者利用加重压力板的超灵敏度。超频驱动可用于驱动计算装置。
 \end{itemize}
-
-\subsection{碰撞箱}
-
-碰撞箱是掉落物、生物、可挥动物品、射弹的固有属性，它决定了对应物体在游戏程序中的实际大小。例如蜂后死亡时的特效显示出了蜂后的碰撞箱（\autoref{i177}）是矩形而不是蜂后的贴图形状。同样，骷髅王的头部的碰撞箱也是矩形而不是圆形，因此在\url{https://www.bilibili.com/video/av14116479/?p=2} 14分开始的战斗中，使用红玉法杖45度斜向攻击骷髅头中心时单发可以造成两次伤害，而横向或竖向攻击时只能造成一次伤害\footnote{红玉法杖是穿透攻击，会引发骷髅头无敌帧。}，这个现象在第二阶段尤其明显。
-
-\begin{figure}[!h]
-\centering
-\includegraphics{images/177.png}
-\caption{图片截取自\protect\url{https://www.bilibili.com/video/av13658918}}
-\label{i177}
-\end{figure}
 
 \subsection{半砖}
 
@@ -222,17 +78,3 @@ Cheat Sheet Mod 中复制粘贴菜单的翻转功能翻转的是图格：将平�
 每个物理帧，游戏会执行一轮射弹刷新过程，即对列表从头到尾扫描，对每个射弹执行其刷新函数。每个射弹的刷新方式取决于射弹的id。射弹刷新第一步是改变射弹的位置，即$$\textrm{新位置}=\textrm{原位置}+\textrm{速度。}$$对于非匀速直线运动的射弹，还需要对其速度进行计算。第二步就要进行碰撞判定，射弹如果与生物碰撞了，就可能要进行伤害计算；如果与前景物块碰撞了，就可能要销毁射弹；如果与青绿压力垫板碰撞了，就可能要插入电路结算。这最后一种情况就是这本书主要关心的内容。
 
 机关射弹的刷新机制列举在附录中。
-
-%Q:我在数电中学到的内容可以应用于泰拉瑞亚中的电路吗？
-%A:视情况而定。数电中的组合逻辑如果没有毛刺的话是可以安全移植到泰拉瑞亚中的。有毛刺的逻辑电路会遇到爆门的问题。另一方面，由于泰拉瑞亚中逻辑门与现实的逻辑门有一些差别，泰拉瑞亚中电信号也与现实的电信号不同，一些逻辑在泰拉瑞亚和现实中的实现难度会有很大不同。例如，在数电中学到的 D 锁存器需要使用6个与非门，而在泰拉瑞亚中实现同样的功能只需要1个概率逻辑门。
-
-%Q:我担心我智商不够看不懂怎么办？
-%A:怂逼。你看不懂是作者的问题，请私信辱骂作者。
-
-%Q:看这本书需要提前准备什么吗？需要专业知识吗？
-%A:首先你需要有1.3.5.3版本的泰拉瑞亚，其次你需要学会使用搜索引擎和谷歌翻译。专业知识对于理解本书的内容有帮助，但并非必需。
-
-%Q:会玩电路有什么用？
-%A:玩游戏有什么用？作业写完了吗？
-
-%Q:电路文档草稿
