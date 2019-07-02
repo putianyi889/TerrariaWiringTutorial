@@ -5,6 +5,8 @@
 模板`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
 `figure`和`image`是原模板使用的。
 
+目前缺少封面图和Logo
+
 # 关于模板
 
 <!-- Author : Dongsheng Deng & Liam Huang-->
