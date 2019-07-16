@@ -9,15 +9,44 @@
 \endfoot
 sWidth&1920像素&标准屏幕宽度\\\hline
 sHeight&1080像素&标准屏幕高度\\\hline
-spawnRangeX&84格&生成区域宽度\\\hline
-spawnRangeY&47格&生成区域高度\\\hline
-safeRangeX&62格&安全区域宽度\\\hline
-safeRangeY&35格&安全区域高度\\\hline
 activeRangeX&4032像素&活跃区域宽度\\\hline
 activeRangeY&2268像素&活跃区域高度
 \end{longtable}
 
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|p{0.2\textwidth}<{\centering}|c|c|c|c|}
+         \hline 变量名&spawnRangeX&spawnRangeY&safeRangeX&safeRangeY  \\\hline
+         意义&生成区域宽度&生成区域高度&安全区域宽度&安全区域高度\\\hline
+         玩家装备着步枪瞄准镜或狙击镜，没有拿狙击步枪&114&77&92&65\\\hline
+         玩家拿着狙击步枪，没有装备步枪瞄准镜或狙击镜&124&87&102&75\\\hline
+         玩家既装备着步枪瞄准镜或狙击镜又拿着狙击步枪&132&95&110&83\\\hline
+         其他&84&47&62&35\\\hline
+    \end{tabular}
+    \caption{生成区域与安全区域}
+    \label{tab4618}
+\end{table}
+
 \section{图格集合}
+\subsection{环境方块}
+\begin{longtable}{|c|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline 环境&图格名称&图格贴图\\\hline
+\endfirsthead
+\hline 环境&图格名称&图格贴图\\\hline
+\endhead
+\hline
+\endfoot
+神圣&神圣草皮、矮小神圣植物、高大神圣植物、珍珠沙块、珍珠石块、粉冰雪块、硬化珍珠沙块、珍珠沙岩块&\\\hline
+腐化&腐化草皮、腐化植物、黑檀石块、腐化多刺灌木、黑檀沙块、紫冰雪块、硬化黑檀沙块、黑檀沙岩块&\\\hline
+猩红&猩红草皮、红冰雪块、猩红石块、猩红沙块、猩红多刺灌木、硬化猩红沙块、猩红沙岩块&\\\hline
+雪原&雪块、雪砖、冰雪块、薄冰、紫冰雪块、粉冰雪块、红冰雪块&\\\hline
+丛林&丛林草皮、矮小丛林植物、丛林蔓藤、高大丛林植物、丛林蜥蜴砖&\\\hline
+蘑菇&蘑菇草、发光蘑菇、地下巨型发光蘑菇&\\\hline
+陨石&陨石&\\\hline
+地牢&蓝砖、绿砖、粉砖&\\\hline
+沙漠&沙块、黑檀沙块、珍珠沙块、猩红沙块、硬化沙块、硬化黑檀沙块、硬化珍珠沙块、硬化猩红沙块、沙岩块、黑檀沙岩块、珍珠沙岩块、猩红沙岩块
+\end{longtable}
+
 \section{背景墙集合}
 \subsection{透光墙}\label{app9}
 天空、玻璃墙、木栅栏、铅栅栏、乌木栅栏、红木栅栏、珍珠木栅栏、暗影木栅栏、铁栅栏、针叶木栅栏、棕榈木栅栏、彩纸墙
