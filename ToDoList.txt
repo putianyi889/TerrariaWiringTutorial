@@ -1,0 +1,6 @@
+统一引用时autoref, hyperref, href, url用法
+增加wiki词条链接，越多越好
+增加游戏贴图，越多越好
+封面图与logo
+一些示意图
+NPC权重表
