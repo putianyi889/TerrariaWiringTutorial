@@ -4,3 +4,5 @@
 封面图与logo
 一些示意图
 NPC权重表
+参考帖子https://forums.terraria.org/index.php?threads/a-reference-guide-for-simple-logic-devices.81751/
+参考帖子https://forums.terraria.org/index.php?threads/world-load-detector.75969/
