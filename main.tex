@@ -5,6 +5,8 @@
 \usepackage[labelformat=simple,subrefformat=simple]{subfig}
 \usepackage{longtable}
 \usepackage[boxed]{algorithm2e}
+\usepackage{minitoc}
+%\usepackage{movie15}
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \renewcommand{\figureautorefname}{图}
@@ -19,6 +21,8 @@
 \newcommand{\wiki}[1]{\href{https://terraria-zh.gamepedia.com/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria-zh.gamepedia.com/#1}{#2}}
 
+\setcounter{totalnumber}{100}
+
 \title{Terraria 电路文档}
 \subtitle{}
 
@@ -26,7 +30,7 @@
 \author{putianyi888}
 \institute{Terraria 电路爱好者交流群（\href{https://jq.qq.com/?_wv=1027\&k=52nFXER}{231355279}）}
 \date{\today}
-\version{2.6.1}
+\version{2.6.2}
 
 \extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
 
@@ -37,7 +41,7 @@
 
 % 这里会报错，暂时先没啥影响，不过能找到解决方案还是好的。
 \maketitle
-
+\dominitoc
 \tableofcontents
 
 % \thispagestyle{empty}

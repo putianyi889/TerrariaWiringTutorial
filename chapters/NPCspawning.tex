@@ -11,6 +11,8 @@
 
 进行正常刷怪时，首先要判断刷怪率和刷怪量，然后决定是否要刷怪，然后决定刷怪点和刷怪面，最后决定刷什么怪。
 
+\minitoc
+
 \section{刷怪率和刷怪量}
 刷怪率用于控制刷怪速度，刷怪量用于控制刷怪上限。
 
@@ -178,7 +180,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{星云柱}
 刷怪为\wiki{星云浮怪}、\wiki{吮脑怪}、\wiki{进化兽}、\wiki{预言帝}。这四个怪的刷怪比例为1:5:3:3。星云浮怪在整个世界中的上限为2个，进化兽在整个世界中的上限为3个，预言帝在整个世界中的上限为2个。这个刷怪比例\&上限的规则是四柱的特色。举例来说，没有任何刷怪的时候，这四个怪的刷怪概率分别是1/12、5/12、1/4、1/4；如果已经刷出了两个星云浮怪，那么不会再刷星云浮怪，剩下三个怪的刷怪概率分别是5/11、3/11、3/11。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[星云浮怪]{\quad\includegraphics{npcs/Nebula_Floater.png}\quad}
     \subfloat[吮脑怪]{\quad\includegraphics{npcs/Brain_Suckler.png}\quad}
@@ -189,7 +191,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{星旋柱}
 刷怪为\wiki{漩泥怪}、\wiki{异星蜂王}、\wiki{异星黄蜂}、\wiki{星旋怪}。刷怪比例为2:1:2:4。漩泥怪上限为3，异星蜂王上限为3，星旋怪上限为4。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[漩泥怪]{\quad\includegraphics{npcs/Storm_Diver.png}\quad}
     \subfloat[异星蜂王]{\quad\includegraphics{npcs/Alien_Queen.png}\quad}
@@ -200,7 +202,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{星尘柱}
 刷怪为\wiki{银河织妖}、\wiki{星细胞}、\wiki{流体入侵怪}、\wiki{闪耀炮手}、\wiki{观星怪}。刷怪比例为1:1:1:2:3。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[银河织妖]{\quad\includegraphics{npcs/Milkyway_Weaver.png}\quad}\\
     \subfloat[星细胞]{\quad\includegraphics{npcs/Star_Cell.png}\quad}
@@ -212,7 +214,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{日曜柱}
 刷怪为\wiki{千足蜈蚣}、\wiki{火龙怪}、\wiki{火龙怪骑士}、\wiki{火滚怪}、\wiki{流星火怪}、\wiki{火月怪}、\wiki{火龙战士}。刷怪比例为1:1:1:1:1:1:1。千足蜈蚣上限为1，火龙怪上限为2，火龙怪骑士上限为1，火龙战士上限为2。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[千足蜈蚣]{\quad\includegraphics{npcs/300px-Crawltipede.png}\quad}\\
     \subfloat[火龙怪]{\quad\includegraphics{npcs/Drakomire.png}\quad}
@@ -244,7 +246,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 没有水蜡烛buff的时候，\wiki{飞龙}的生成概率为1/10；有水蜡烛buff的时候生成概率为19/100。飞龙的上限为1。当禁止穿墙刷怪时不会刷飞龙。
 
 如果火星飞船、火星探测器、飞龙均未生成，那么生成鸟妖。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[火星飞船]{\quad\includegraphics{npcs/Martian_Drone.png}\quad}
     \subfloat[火星探测器]{\quad\includegraphics{npcs/Martian_Probe.png}\quad}
@@ -256,7 +258,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 \subsection{事件刷怪}
 \subsubsection{\wiki{哥布林入侵}}
 1/9概率生成\wiki{哥布林巫士}，8/45概率生成\wiki{哥布林苦力}，32/135概率生成\wiki{哥布林弓箭手}，32/405概率生成\wiki{哥布林盗贼}，64/405概率生成\wiki{哥布林战士}。在困难模式中，有1/30概率生成\wiki{哥布林召唤师}，这会覆盖前面的生成。哥布林召唤师上限为1。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[哥布林巫士]{\qquad\includegraphics{npcs/Goblin_Sorcerer.png}\qquad}
     \subfloat[哥布林苦力]{\qquad\includegraphics{npcs/Goblin_Peon.png}\qquad}
@@ -269,7 +271,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{\wiki{雪人入侵}}
 1/7概率生成\wiki{巴拉雪人}，2/7概率生成\wiki{雪人暴徒}；4/7概率生成\wiki{戳刺先生}。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[巴拉雪人]{\quad\includegraphics{npcs/Snow_Balla.png}\quad}
     \subfloat[雪人暴徒]{\quad\includegraphics{npcs/Snowman_Gangsta.png}\quad}
@@ -283,7 +285,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 \wiki{海盗船长}有1/30概率生成，会覆盖前面的生成。海盗船长上限为1。
 
 \wiki{荷兰飞盗船}生成要求入侵进度超过一半，并且刷怪面的左右各20格，上方10格到40格范围内没有实体块。荷兰飞盗船生成概率是1/20。荷兰飞盗船上限为1。荷兰飞盗船的生成会覆盖其他生成。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[海盗弩手]{\quad\includegraphics{npcs/Pirate_Crossbower.png}\quad}
     \subfloat[鹦鹉]{\quad\includegraphics{npcs/Parrot.png}\quad}
@@ -301,7 +303,7 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 火星飞碟上限为1，\wiki{火星走妖}上限为1。以下是第二段判定。
 
 火星飞碟概率为1/70，\wiki{鳞甲怪}和\wiki{火星工程师}概率均为9/140（火星飞碟达到上限的话，这个概率变为1/14），\wiki{火星飞船}概率为2/35，\wiki{扰脑怪}概率为4/35，\wiki{激光枪手}概率为4/35，\wiki{火星走妖}概率为1/7，\wiki{灰咕噜兽}、\wiki{电击怪}和\wiki{火星军官}概率均为1/7（火星走妖达到上限的话，这个概率为4/21）。
-\begin{figure}
+\begin{figure}[h]
     \centering
     \subfloat[火星飞碟]{\quad\includegraphics{npcs/Martian_Saucer.png}\quad}
     \subfloat[火星走妖]{\includegraphics{npcs/Martian_Walker.png}}
@@ -313,23 +315,53 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
     \subfloat[灰咕噜兽]{\qquad\includegraphics{npcs/Gray_Grunt.png}\qquad}
     \subfloat[电击怪]{\quad\includegraphics{npcs/Gigazapper.png}\quad}
     \subfloat[火星军官]{\quad\includegraphics{npcs/Martian_Officer.png}\quad}
-    \caption{海盗入侵}
+    \caption{火星入侵}
 \end{figure}
 
 \subsection{\wiki{昏迷男子}}
 满足昏迷男子生成条件，并且不是水中刷怪，那么有1/80概率生成昏迷男子。
+\begin{figure}[h]
+    \centering
+    \includegraphics{npcs/Unconscious_Man.png}
+    \caption{昏迷男子}
+\end{figure}
 
 \subsection{\wiki{蜘蛛巢}}
-刷怪面有蜘蛛墙，不高于 rockLayer，距离世界底端大于210格，且不是水中刷怪，未解救过\wiki{发型师}，那么有1/8概率生成\wiki{受缚发型师}。
+刷怪面有蜘蛛墙，不高于 rockLayer，距离世界底端大于210格，且不是水中刷怪，未解救过\wiki{发型师}，那么有1/8概率生成\wiki{织网发型师}。
 
-在未生成受缚发型师的前提下，如果刷怪面有蜘蛛墙或者判定为蜘蛛巢刷怪，那么困难模式生成\wiki{黑隐士}，困难模式前生成\wiki{爬墙蜘蛛}。
+在未生成织网发型师的前提下，如果刷怪面有蜘蛛墙或者判定为蜘蛛巢刷怪，那么困难模式生成\wiki{黑隐士}，困难模式前生成\wiki{爬墙蜘蛛}。
+\begin{figure}[h]
+    \centering
+    \subfloat[织网发型师]{\quad\includegraphics{npcs/Webbed_Stylist.png}\quad}
+    \subfloat[黑隐士]{\quad\includegraphics{npcs/Black_Recluse_(ground).png}\quad}
+    \subfloat[爬墙蜘蛛]{\quad\includegraphics{npcs/Wall_Creeper_(ground).png}\quad}
+    \caption{蜘蛛巢}
+\end{figure}
 
 \subsection{\wiki{地下沙漠}}
 进行地下沙漠刷怪的要求是判定为地下沙漠刷怪，刷怪面在地下，并且刷怪面上的背景墙是硬化沙墙/沙岩墙，或者它们的转化墙\footnote{神圣化、腐化、血腥化}。刷怪优先级是沙虫>墓穴爬虫>困难模式>其他。
 
 \wiki{沙虫}和\wiki{墓穴爬虫}的生成都要求不禁止穿墙刷怪，并且刷怪面在地表下100格以下。沙虫的概率为1/33，墓穴爬虫的概率为1/22。沙虫只会在困难模式生成。
 
-在困难模式中，有4/5的概率进行困难模式刷怪。困难模式的刷怪有\wiki{腐恶食尸鬼}、\wiki{红染食尸鬼}、\wiki{神梦食尸鬼}、\wiki{食尸鬼}、\wiki{沙漠幽魂}、\wiki{邪恶拉弥亚}、\wiki{沙贼}、\wiki{拉弥亚}、\wiki{蛇蜥怪}，它们的刷怪比例为2:2:2:2:1:1:1:1:1，\wiki{腐恶食尸鬼}在腐化环境生成，\wiki{红染食尸鬼}在血腥环境生成，\wiki{神梦食尸鬼}在神圣环境生成，\wiki{食尸鬼}只在纯净环境生成，\wiki{沙漠幽魂}和\wiki{邪恶拉弥亚}在腐化或血腥环境生成，\wiki{沙贼}和\wiki{拉弥亚}在没有腐化和血腥的环境生成，\wiki{蛇蜥怪}不挑环境。举例来说，如果玩家同时处在血腥和神圣环境中，那么可以生成\wiki{红染食尸鬼}、\wiki{神梦食尸鬼}、\wiki{沙漠幽魂}、\wiki{邪恶拉弥亚}、\wiki{蛇蜥怪}，其刷怪比例为2:2:1:1:1。
+在困难模式中，有4/5的概率进行困难模式刷怪。困难模式的刷怪有\wiki{腐恶食尸鬼}、\wiki{红染食尸鬼}、\wiki{神梦食尸鬼}、\wiki{食尸鬼}、\wiki{沙漠幽魂}、\wikii{拉弥亚}{邪恶拉弥亚}、\wiki{沙贼}、\wiki{拉弥亚}、\wiki{蛇蜥怪}，它们的刷怪比例为2:2:2:2:1:1:1:1:1，\wiki{腐恶食尸鬼}在腐化环境生成，\wiki{红染食尸鬼}在血腥环境生成，\wiki{神梦食尸鬼}在神圣环境生成，\wiki{食尸鬼}只在纯净环境生成，\wiki{沙漠幽魂}和\wikii{拉弥亚}{邪恶拉弥亚}在腐化或血腥环境生成，\wiki{沙贼}和\wiki{拉弥亚}在没有腐化和血腥的环境生成，\wiki{蛇蜥怪}不挑环境。举例来说，如果玩家同时处在血腥和神圣环境中，那么可以生成\wiki{红染食尸鬼}、\wiki{神梦食尸鬼}、\wiki{沙漠幽魂}、\wikii{拉弥亚}{邪恶拉弥亚}、\wiki{蛇蜥怪}，其刷怪比例为2:2:1:1:1。
+\begin{figure}[h]
+    \centering
+    \subfloat[沙虫]{\includegraphics{npcs/Dune_Splicer.png}}\\
+    \subfloat[墓穴爬虫]{\includegraphics{npcs/Tomb_Crawler.png}}
+    \subfloat[沙贼]{\quad\includegraphics{npcs/Sand_Poacher.png}\quad}
+    \subfloat[蛇蜥怪]{\quad\includegraphics{npcs/Basilisk.png}\quad}\\
+    \subfloat[食尸鬼]{\quad\includegraphics{npcs/Ghoul.png}\quad}
+    \subfloat[腐恶食尸鬼]{\qquad\includegraphics{npcs/Vile_Ghoul.png}\quad}
+    \subfloat[红染食尸鬼]{\qquad\includegraphics{npcs/Tainted_Ghoul.png}\quad}
+    \subfloat[神梦食尸鬼]{\qquad\includegraphics{npcs/Dreamer_Ghoul.png}\quad}
+    \subfloat[拉弥亚]{\quad\includegraphics{npcs/Lamia.png}\quad}
+    \subfloat[邪恶拉弥亚]{\quad\includegraphics{npcs/Lamia2.png}\quad}\\
+    \subfloat[沙漠幽魂]{\quad\includegraphics{npcs/Desert_Spirit.png}\quad}
+    \subfloat[蚁狮]{\quad\includegraphics{npcs/Antlion.png}\quad}
+    \subfloat[蚁狮马]{\quad\includegraphics{npcs/Antlion_Charger.png}\quad}
+    \subfloat[蚁狮蜂]{\quad\includegraphics{npcs/Antlion_Swarmer.png}\quad}
+    \caption{地下沙漠}
+\end{figure}
 
 既没刷出沙虫或墓穴爬虫，也没有困难模式刷怪，那么刷\wiki{蚁狮}/\wiki{蚁狮马}/\wiki{蚁狮蜂}，刷怪比例为1:3:1。
 
@@ -341,6 +373,13 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsection{\wiki{嗜血怪}}
 困难模式+水中刷怪+血腥环境，2/3概率生成嗜血怪。
+\begin{figure}[h]
+    \centering
+    \subfloat[巨骨舌鱼]{\quad\includegraphics{npcs/Arapaima.png}\quad}
+    \subfloat[血水母]{\quad\includegraphics{npcs/Blood_Jelly.png}\quad}
+    \subfloat[嗜血怪]{\quad\includegraphics{npcs/Blood_Feeder.png}\quad}
+    \caption{}
+\end{figure}
 
 \subsection{\wiki{海洋}}
 要求：水中刷怪，刷怪横坐标距离地图左右边界<250格，刷怪面是沙块或珍珠/黑檀/猩红沙块，刷怪面纵坐标在rockLayer之上。优先级：沉睡渔夫>其他。
@@ -352,6 +391,16 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{其他}
 1/60概率生成\wiki{海蜗牛}，59/1500概率生成\wiki{乌贼}，59/500概率生成\wiki{鲨鱼}，413/1500概率生成\wiki{螃蟹}，413/750概率生成\wiki{粉水母}。
+\begin{figure}[h]
+    \centering
+    \subfloat[沉睡渔夫]{\quad\includegraphics{npcs/Sleeping_Angler.png}\quad}
+    \subfloat[海蜗牛]{\quad\includegraphics{npcs/Sea_Snail.png}\quad}
+    \subfloat[乌贼]{\quad\includegraphics{npcs/Squid.png}\quad}
+    \subfloat[鲨鱼]{\quad\includegraphics{npcs/Shark.png}\quad}
+    \subfloat[螃蟹]{\quad\includegraphics{npcs/Crab.png}\quad}
+    \subfloat[粉水母]{\quad\includegraphics{npcs/Pink_Jellyfish.png}\quad}
+    \caption{海洋}
+\end{figure}
 
 \subsection{沉睡渔夫}
 要求：不是水中刷怪，刷怪横坐标距离地图左右边界<340格，刷怪面是沙块或珍珠/黑檀/猩红沙块刷怪面纵坐标在worldSurface之上，满足沉睡渔夫生成条件。生成沉睡渔夫。
