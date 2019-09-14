@@ -410,6 +410,14 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsection{\wiki{蓝水母}}
 要求：水中刷怪，刷怪面在worldSurface之下。有1/3概率生成蓝水母。困难模式中生成的蓝水母转化为\wiki{绿水母}。
+\begin{figure}[h]
+    \centering
+    \subfloat[食人鱼]{\quad\includegraphics{npcs/Piranha.png}\quad}
+    \subfloat[琵琶鱼]{\quad\includegraphics{npcs/Angler_Fish.png}\quad}
+    \subfloat[蓝水母]{\quad\includegraphics{npcs/Blue_Jellyfish.png}\quad}
+    \subfloat[绿水母]{\quad\includegraphics{npcs/Green_Jellyfish.png}\quad}
+    \caption{}
+\end{figure}
 
 \subsection{水中小动物}
 如果是水中刷怪，在腐化环境有1/4概率生成\wiki{腐化金鱼}。
@@ -417,18 +425,32 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 如果是水中刷怪，不在腐化环境，刷怪面在worldSurface之上，刷怪面距离世界顶端大于50格，在白天，有1/6概率在水面\footnote{这里的水面判定与海洋沉睡渔夫的判定相同。}等概率生成\wiki{鸭}或\wiki{野鸭}。上一句话中没有成功生成的话，生成\wiki{金鱼}。
 
 如果未判定生成小动物，那么生成友好水中小动物的概率额外乘1/4。
+\begin{figure}[h]
+    \centering
+    \subfloat[金鱼]{\quad\includegraphics{npcs/Goldfish_swimming.png}\quad}
+    \subfloat[腐化金鱼]{\quad\includegraphics{npcs/Corrupt_Goldfish.png}\quad}
+    \subfloat[鸭]{\quad\includegraphics{npcs/Duck.png}\quad}
+    \subfloat[野鸭]{\quad\includegraphics{npcs/Mallard_Duck.png}\quad}
+    \caption{水中小动物}
+\end{figure}
 
 \subsection{\wiki{受缚哥布林}}
 要求：满足受缚哥布林生成条件，不是水中刷怪，刷怪面不在rockLayer之上，刷怪面距离世界底端大于210格。有1/20概率生成受缚哥布林。
 
 \subsection{\wiki{受缚巫师}}
 要求：满足受缚巫师生成条件，，不是水中刷怪，刷怪面不在rockLayer之上，刷怪面距离世界底端大于210格。有1/20概率生成受缚巫师。
+\begin{figure}[h]
+    \centering
+    \subfloat[受缚哥布林]{\qquad\includegraphics{npcs/Bound_Goblin.png}\qquad}
+    \subfloat[受缚巫师]{\qquad\includegraphics{npcs/Bound_Wizard.png}\qquad}
+    \caption{}
+\end{figure}
 
 \subsection{\wiki{小动物}}
-要求：判定生成小动物，不是水中刷怪。丛林草皮上有1/150概率生成\wiki{金蛙}，149/150概率生成\wiki{青蛙}。雪块和冰雪块上\wiki{企鹅}和\wiki{蓝企鹅}生成概率各半。在草皮或神圣草皮上的刷怪优先级：雨天>萤火虫>鸟(1)>蝴蝶>鸟(2)>兔兔和松鼠。其他情况下，如果刷怪面不在worldSurface之下，生成失败；否则生成规则与草皮上的生成规则相同，除了在刷怪面是沙块时，兔兔和松鼠会被各1/2概率生成的\wiki{黑蝎子}和\wiki{蝎子}替代。
+要求：判定生成小动物，不是水中刷怪。丛林草皮上有1/150概率生成\wiki{金蛙}，149/150概率生成\wiki{青蛙}。雪块和冰雪块上\wiki{企鹅}和\wikii{企鹅}{蓝企鹅}生成概率各半。在草皮或神圣草皮上的刷怪优先级：雨天>萤火虫>鸟(1)>蝴蝶>鸟(2)>兔兔和松鼠。其他情况下，如果刷怪面不在worldSurface之下，生成失败；否则生成规则与草皮上的生成规则相同，除了在刷怪面是沙块时，兔兔和松鼠会被各1/2概率生成的\wiki{黑蝎子}和\wiki{蝎子}替代。
 
 \subsubsection{\wiki{雨天}}
-在雨天，2/3概率生成\wiki{蠕虫}，1/3概率生成\wiki{步行金鱼}。此外，有1/150的概率它们会被\wiki{金蠕虫}覆盖。
+在雨天，2/3概率生成\wiki{蠕虫}，1/3概率生成\wikii{金鱼}{步行金鱼}。此外，有1/150的概率它们会被\wiki{金蠕虫}覆盖。
 
 \subsubsection{\wiki{萤火虫}}\label{app14}
 要求：在晚上，刷怪面不在worldSurface之下。如果刷怪面是草皮，生成萤火虫；否则生成\wiki{荧光虫}。有1/fireFlyFriendly的概率生成。在成功生成的前提下，在刷怪面的上下左右共4格分别有1/fireFlyMultiple的概率额外生成一个。
@@ -450,6 +472,35 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 
 \subsubsection{兔兔和松鼠}\label{app12}
 各种松鼠要求刷怪面不在worldSurface之下。刷怪优先级：金兔>金松鼠>史莱姆兔兔>圣诞节兔兔>派对兔兔>松鼠=红松鼠>兔兔。\wiki{金兔}概率1/150，\wiki{金松鼠}概率1/150，\wiki{史莱姆兔兔}概率2/3（要求万圣节期间），\wiki{圣诞节兔兔}概率2/3（要求圣诞节期间），\wiki{派对兔兔}概率2/3（要求派对期间），\wiki{松鼠}和\wiki{红松鼠}概率各1/6，以上所有均未成功生成的，生成\wiki{兔兔}。
+\begin{figure}[h]
+    \centering
+    \subfloat[青蛙]{\quad\includegraphics{npcs/Frog.png}\quad}
+    \subfloat[金蛙]{\quad\includegraphics{npcs/Gold_Frog.png}\quad}
+    \subfloat[企鹅]{\quad\includegraphics{npcs/Penguin.png}\quad}
+    \subfloat[蓝企鹅]{\quad\includegraphics{npcs/Penguin_blue.png}\quad}
+    \subfloat[蝎子]{\quad\includegraphics{npcs/Scorpion.png}\quad}
+    \subfloat[黑蝎子]{\quad\includegraphics{npcs/Black_Scorpion.png}\quad}
+    \subfloat[蠕虫]{\quad\includegraphics{npcs/Worm_(NPC).png}\quad}
+    \subfloat[金蠕虫]{\qquad\includegraphics{npcs/Gold_Worm_(NPC).png}\qquad}\\
+    \subfloat[步行金鱼]{\qquad\includegraphics{npcs/Goldfish_upright.png}\qquad}
+    \subfloat[鸟]{\quad\includegraphics{npcs/Bird_(NPC).png}\quad}
+    \subfloat[红雀]{\quad\includegraphics{npcs/Cardinal.png}\quad}
+    \subfloat[冠蓝鸦]{\quad\includegraphics{npcs/Blue_Jay.png}\quad}
+    \subfloat[金鸟]{\quad\includegraphics{npcs/Gold_Bird.png}\quad}
+    \subfloat[松鼠]{\quad\includegraphics{npcs/Squirrel.png}\quad}
+    \subfloat[红松鼠]{\quad\includegraphics{npcs/Red_Squirrel.png}\quad}
+    \subfloat[金松鼠]{\quad\includegraphics{npcs/Gold_Squirrel.png}\quad}\\
+    \subfloat[蝴蝶]{\quad\includegraphics{npcs/Julia_Butterfly.png}\quad\includegraphics{npcs/Monarch_Butterfly.png}\quad\includegraphics{npcs/Purple_Emperor_Butterfly.png}\quad\includegraphics{npcs/Red_Admiral_Butterfly.png}\quad\includegraphics{npcs/Sulphur_Butterfly.png}\quad\includegraphics{npcs/Tree_Nymph_Butterfly.png}\quad\includegraphics{npcs/Ulysses_Butterfly.png}\quad\includegraphics{npcs/Zebra_Swallowtail_Butterfly.png}\quad}
+    \subfloat[金蝴蝶]{\quad\includegraphics{npcs/Gold_Butterfly.png}\quad}\\
+    \subfloat[兔兔]{\quad\includegraphics{npcs/Bunny.png}\quad}
+    \subfloat[史莱姆兔兔]{\qquad\includegraphics{npcs/Slime_Bunny.png}\qquad}
+    \subfloat[圣诞节兔兔]{\qquad\includegraphics{npcs/Santa_Bunny.png}\qquad}
+    \subfloat[派对兔兔]{\quad\includegraphics{npcs/Party_Bunny.png}\quad}
+    \subfloat[金兔]{\quad\includegraphics{npcs/Gold_Bunny.png}\quad}
+    \subfloat[萤火虫]{\quad\includegraphics{npcs/Firefly_(NPC).png}\quad}
+    \subfloat[荧光虫]{\quad\includegraphics{npcs/Lightning_Bug_(NPC).png}\quad}
+    \caption{小动物}
+\end{figure}
 
 \subsection{\wiki{地牢}}
 要求：在地牢环境。刷怪优先级：地牢守卫>受缚机械师>骷髅李小龙>骷髅突击手=骷髅狙击手=骷髅特警>圣骑士=巨型诅咒骷髅头>褴褛邪教徒法师=死灵法师=魔教徒>生锈装甲骷髅=蓝装甲骷髅=地狱装甲骷髅>地牢史莱姆>尖刺球=烈焰火轮=诅咒骷髅头>暗黑法师>愤怒骷髅怪。部分敌怪只会在击败世纪之花后的困难模式出现，而且部分敌怪的生成依赖于刷怪面的背景墙种类，这两个信息下文会省略。
