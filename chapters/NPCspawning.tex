@@ -503,95 +503,151 @@ stepX2是3到6的随机整数; stepY2是3到6的随机整数\;
 \end{figure}
 
 \subsection{\wiki{地牢}}
-要求：在地牢环境。刷怪优先级：地牢守卫>受缚机械师>骷髅李小龙>骷髅突击手=骷髅狙击手=骷髅特警>圣骑士=巨型诅咒骷髅头>褴褛邪教徒法师=死灵法师=魔教徒>生锈装甲骷髅=蓝装甲骷髅=地狱装甲骷髅>地牢史莱姆>尖刺球=烈焰火轮=诅咒骷髅头>暗黑法师>愤怒骷髅怪。部分敌怪只会在击败世纪之花后的困难模式出现，而且部分敌怪的生成依赖于刷怪面的背景墙种类，这两个信息下文会省略。
+要求：在地牢环境。刷怪优先级：\wiki{地牢守卫}>\wiki{受缚机械师}>\wiki{骷髅李小龙}>\wiki{骷髅突击手}=\wiki{骷髅狙击手}=\wiki{骷髅特警}>\wiki{圣骑士}=\wiki{巨型诅咒骷髅头}>\wiki{褴褛邪教徒法师}=\wiki{死灵法师}=\wiki{魔教徒}>\wiki{生锈装甲骷髅}=\wiki{蓝装甲骷髅}=\wiki{地狱装甲骷髅}>\wiki{地牢史莱姆}>\wiki{尖刺球}=\wiki{烈焰火轮}=\wiki{诅咒骷髅头}>\wiki{暗黑法师}>\wiki{愤怒骷髅怪}。部分敌怪只会在击败世纪之花后的困难模式出现，而且部分敌怪的生成依赖于刷怪面的背景墙种类，这两个信息下文会省略。
 
 如果没打过骷髅王，生成\wiki{地牢守卫}。未解救\wiki{机械师}，刷怪面在rockLayer之下，有1/5概率生成\wiki{受缚机械师}。\wiki{骷髅李小龙}概率1/30。\wiki{骷髅突击手}、\wiki{骷髅狙击手}、\wiki{骷髅特警}概率都是1/15。\wiki{圣骑士}概率1/35，世界中只能存在一个。\wiki{巨型诅咒骷髅头}概率1/30。\wiki{褴褛邪教徒法师}、\wiki{死灵法师}、\wiki{魔教徒}概率都是1/20；它们各有两个ID，生成概率均等；世界中分别只能存在一个。\wiki{生锈装甲骷髅}、\wiki{蓝装甲骷髅}、\wiki{地狱装甲骷髅}概率都是2/3；它们各有4个ID，生成概率均等。\wiki{地牢史莱姆}概率1/37。\wiki{尖刺球}概率1/4；要求以刷怪面为中心的边长600像素的正方形与最近的另一个尖刺球的支撑块不相交。\wiki{烈焰火轮}概率1/15。\wiki{诅咒骷髅头}概率1/9。\wiki{暗黑法师}概率1/7。
 
 以上均未生成时，生成\wiki{愤怒骷髅怪}。愤怒骷髅怪一共有6个ID：294、295、296、31、-14、-13，它们的概率分别是1/5、1/5、1/5、6/25、1/10、3/50。
+\begin{figure}[hp]
+    \centering
+    \subfloat[地牢守卫]{\quad\includegraphics{npcs/Dungeon_Guardian.png}\quad}
+    \subfloat[尖刺球]{\quad\includegraphics{npcs/Spike_Ball.png}\quad}
+    \subfloat[受缚机械师]{\qquad\includegraphics{npcs/Bound_Mechanic.png}\qquad}
+    \subfloat[骷髅李小龙]{\quad\includegraphics{npcs/Bone_Lee.png}\quad}\\
+    \subfloat[骷髅突击手]{\quad\includegraphics{npcs/Skeleton_Commando.png}\quad}
+    \subfloat[骷髅狙击手]{\quad\includegraphics{npcs/Skeleton_Sniper.png}\quad}
+    \subfloat[骷髅特警]{\quad\includegraphics{npcs/Tactical_Skeleton.png}\quad}
+    \subfloat[圣骑士]{\quad\includegraphics{npcs/Paladin.png}\quad}
+    \subfloat[巨型诅咒骷髅头]{\quad\includegraphics{npcs/Giant_Cursed_Skull.png}\quad}\\
+    \subfloat[褴褛邪教徒法师]{\quad\includegraphics{npcs/Ragged_Caster_1.png}\quad\includegraphics{npcs/Ragged_Caster_2.png}\quad}
+    \subfloat[死灵法师]{\quad\includegraphics{npcs/Necromancer_1.png}\quad\includegraphics{npcs/Necromancer_2.png}\quad}
+    \subfloat[魔教徒]{\quad\includegraphics{npcs/Diabolist_1.png}\quad\includegraphics{npcs/Diabolist_2.png}\quad}\\
+    \subfloat[生锈装甲骷髅]{\quad\includegraphics{npcs/Rusty_Armored_Bones_1.png}\quad\includegraphics{npcs/Rusty_Armored_Bones_2.png}\quad\includegraphics{npcs/Rusty_Armored_Bones_3.png}\quad\includegraphics{npcs/Rusty_Armored_Bones_4.png}\quad}
+    \subfloat[地牢史莱姆]{\quad\includegraphics{npcs/Dungeon_Slime.png}\quad}\\
+    \subfloat[蓝装甲骷髅]{\quad\includegraphics{npcs/Blue_Armored_Bones_1.png}\quad\includegraphics{npcs/Blue_Armored_Bones_2.png}\quad\includegraphics{npcs/Blue_Armored_Bones_3.png}\quad\includegraphics{npcs/Blue_Armored_Bones_4.png}\quad}
+    \subfloat[烈焰火轮]{\quad\includegraphics{npcs/Blazing_Wheel.png}\quad}\\
+    \subfloat[地狱装甲骷髅]{\quad\includegraphics{npcs/Hell_Armored_Bones_1.png}\quad\includegraphics{npcs/Hell_Armored_Bones_2.png}\quad\includegraphics{npcs/Hell_Armored_Bones_3.png}\quad\includegraphics{npcs/Hell_Armored_Bones_4.png}\quad}
+    \subfloat[诅咒骷髅头]{\quad\includegraphics{npcs/Cursed_Skull.png}\quad}\\
+    \subfloat[愤怒骷髅怪]{\quad\includegraphics{npcs/Angry_Bones_1.png}\quad\includegraphics{npcs/27px-Angry_Bones_1.png}\quad\includegraphics[width=32pt]{npcs/Angry_Bones_1.png}\quad\includegraphics{npcs/Angry_Bones_2.png}\quad\includegraphics{npcs/Angry_Bones_3.png}\quad\includegraphics{npcs/Angry_Bones_4.png}\quad}
+    \subfloat[暗黑法师]{\quad\includegraphics{npcs/Dark_Caster.png}\quad}
+    \caption{地牢}
+\end{figure}
 
 \subsection{\wikii{陨石（生物群落）}{陨石}}
 在陨石环境，生成\wiki{流星头}。
+\begin{figure}[h]
+    \centering
+    \includegraphics{npcs/Meteor_Head.png}
+    \caption{流星头}
+\end{figure}
 
 \subsection{撒旦军队}
 \wiki{撒旦军队}事件在进行时，并且玩家在事件区域内，那么不刷怪。
 
 \subsection{\wiki{霜月}}
-要求：刷怪面不高于worldSurface，在晚上，在霜月中。刷怪优先级：礼物宝箱怪>其他。
+要求：刷怪面不高于worldSurface，在晚上，在霜月中。刷怪优先级：\wiki{礼物宝箱怪}>其他。
 
-与波数无关的是\wiki{礼物宝箱怪}。只要世界中只存在不到4个礼物宝箱怪，它就会以1/30的概率生成。
+与波数无关的是\wiki{礼物宝箱怪}。只要世界中只存在不到4个\wiki{礼物宝箱怪}，它就会以1/30的概率生成。
 
 第20波，\wiki{冰雪女王}、\wiki{圣诞坦克}、\wiki{常绿尖叫怪}概率各1/3。
 
-第19波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>雪兽。\wiki{冰雪女王}概率1/10，上限4个。\wiki{圣诞坦克}概率1/10，上限5个。\wiki{常绿尖叫怪}概率1/10，上限7个。这三个怪都不生成的情况下生成\wiki{雪兽}。
+第19波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>\wiki{雪兽}。\wiki{冰雪女王}概率1/10，上限4个。\wiki{圣诞坦克}概率1/10，上限5个。\wiki{常绿尖叫怪}概率1/10，上限7个。这三个怪都不生成的情况下生成\wiki{雪兽}。
 
-第18波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>其他。\wiki{冰雪女王}概率1/10，上限3个。\wiki{圣诞坦克}概率1/10，上限4个。\wiki{常绿尖叫怪}概率1/10，上限6个。这三个怪都不生成的情况下，\wiki{胡桃夹士}概率1/3，\wiki{坎卜斯}概率2/9，\wiki{雪兽}概率4/9。
+第18波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限3个。\wiki{圣诞坦克}概率1/10，上限4个。\wiki{常绿尖叫怪}概率1/10，上限6个。这三个怪都不生成的情况下，\wiki{胡桃夹士}概率1/3，\wiki{坎卜斯}概率2/9，\wiki{雪兽}概率4/9。
 
-第17波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>其他。冰雪女王概率1/10，上限2个。圣诞坦克概率1/10，上限3个。常绿尖叫怪概率1/10，上限5个。这三个怪都不生成的情况下，精灵直升机(ID:347)概率1/4，坎卜斯概率3/8，雪兽概率3/8。
+第17波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限2个。\wiki{圣诞坦克}概率1/10，上限3个。\wiki{常绿尖叫怪}概率1/10，上限5个。这三个怪都不生成的情况下，\wiki{精灵直升机}概率1/4，\wiki{坎卜斯}概率3/8，\wiki{雪兽}概率3/8。
 
-第16波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>其他。冰雪女王概率1/10，上限2个。圣诞坦克概率1/10，上限2个。常绿尖叫怪概率1/10，上限4个。这三个怪都不生成的情况下，雪花怪(ID:352)概率1/2，雪兽概率1/2。
+第16波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限2个。\wiki{圣诞坦克}概率1/10，上限2个。\wiki{常绿尖叫怪}概率1/10，上限4个。这三个怪都不生成的情况下，\wiki{雪花怪}概率1/2，\wiki{雪兽}概率1/2。
 
-第15波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>其他。冰雪女王概率1/10，上限1个。圣诞坦克概率1/10，上限2个。常绿尖叫怪概率1/10，上限3个。这三个怪都不生成的情况下，精灵直升机概率1/3，雪兽概率2/3。
+第15波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限1个。\wiki{圣诞坦克}概率1/10，上限2个。\wiki{常绿尖叫怪}概率1/10，上限3个。这三个怪都不生成的情况下，\wiki{精灵直升机}概率1/3，\wiki{雪兽}概率2/3。
 
-第14波，刷怪优先级：冰雪女王>圣诞坦克>常绿尖叫怪>其他。冰雪女王概率1/10，上限1个。圣诞坦克概率1/10，上限1个。常绿尖叫怪概率1/10，上限1个。这三个怪都不生成的情况下，雪兽概率1/3，不刷怪概率2/3。
+第14波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限1个。\wiki{圣诞坦克}概率1/10，上限1个。\wiki{常绿尖叫怪}概率1/10，上限1个。这三个怪都不生成的情况下，\wiki{雪兽}概率1/3，不刷怪概率2/3。
 
-第13波，刷怪优先级：冰雪女王>圣诞坦克>其他。冰雪女王概率1/10，上限1个。圣诞坦克概率1/10，上限1个。这两个怪都不生成的情况下，雪花怪概率1/3，雪兽概率1/9，姜饼人(ID:342)概率5/27，精灵直升机概率10/27。
+第13波，刷怪优先级：\wiki{冰雪女王}>\wiki{圣诞坦克}>其他。\wiki{冰雪女王}概率1/10，上限1个。\wiki{圣诞坦克}概率1/10，上限1个。这两个怪都不生成的情况下，\wiki{雪花怪}概率1/3，\wiki{雪兽}概率1/9，\wiki{姜饼人}概率5/27，\wiki{精灵直升机}概率10/27。
 
-第12波，刷怪优先级：冰雪女王>常绿尖叫怪>其他。冰雪女王概率1/10，上限1个。常绿尖叫怪概率1/10，上限1个。这两个怪都不生成的情况下，雪兽概率1/8，姜饼人概率7/24，僵尸精灵(ID:338/339/340)概率7/12。僵尸精灵的三个ID等概率生成。
+第12波，刷怪优先级：\wiki{冰雪女王}>\wiki{常绿尖叫怪}>其他。\wiki{冰雪女王}概率1/10，上限1个。\wiki{常绿尖叫怪}概率1/10，上限1个。这两个怪都不生成的情况下，\wiki{雪兽}概率1/8，\wiki{姜饼人}概率7/24，\wiki{僵尸精灵}概率7/12。\wiki{僵尸精灵}的三个ID等概率生成。
 
-第11波，刷怪优先级：冰雪女王>其他。冰雪女王概率1/10，上限1个。冰雪女王不生成的情况下，雪花怪概率1/6，姜饼人概率5/12，僵尸精灵概率5/12。
+第11波，刷怪优先级：\wiki{冰雪女王}>其他。\wiki{冰雪女王}概率1/10，上限1个。\wiki{冰雪女王}不生成的情况下，\wiki{雪花怪}概率1/6，\wiki{姜饼人}概率5/12，\wiki{僵尸精灵}概率5/12。
 
-第10波，刷怪优先级：圣诞坦克>常绿尖叫怪>其他。圣诞坦克概率1/10，上限1个。常绿尖叫怪概率1/10，上限2个。这两个怪都不生成的情况下，坎卜斯概率1/6，胡桃夹士概率5/18，精灵直升机概率5/27，僵尸精灵概率10/27。
+第10波，刷怪优先级：\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{圣诞坦克}概率1/10，上限1个。\wiki{常绿尖叫怪}概率1/10，上限2个。这两个怪都不生成的情况下，\wiki{坎卜斯}概率1/6，\wiki{胡桃夹士}概率5/18，\wiki{精灵直升机}概率5/27，\wiki{僵尸精灵}概率10/27。
 
-第9波，刷怪优先级：圣诞坦克>常绿尖叫怪>其他。圣诞坦克概率1/10，上限1个。常绿尖叫怪概率1/10，上限1个。这两个怪都不生成的情况下，胡桃夹士概率1/2，精灵直升机概率1/6，姜饼人概率1/3。
+第9波，刷怪优先级：\wiki{圣诞坦克}>\wiki{常绿尖叫怪}>其他。\wiki{圣诞坦克}概率1/10，上限1个。\wiki{常绿尖叫怪}概率1/10，上限1个。这两个怪都不生成的情况下，\wiki{胡桃夹士}概率1/2，\wiki{精灵直升机}概率1/6，\wiki{姜饼人}概率1/3。
 
-第8波，刷怪优先级：圣诞坦克>其他。圣诞坦克概率1/10，上限1个。圣诞坦克不生成的情况下，坎卜斯概率1/8，胡桃夹士概率7/24，精灵直升机概率7/36，精灵弓箭手(ID:350)概率7/18。
+第8波，刷怪优先级：\wiki{圣诞坦克}>其他。\wiki{圣诞坦克}概率1/10，上限1个。\wiki{圣诞坦克}不生成的情况下，\wiki{坎卜斯}概率1/8，\wiki{胡桃夹士}概率7/24，\wiki{精灵直升机}概率7/36，\wiki{精灵弓箭手}概率7/18。
 
-第7波，刷怪优先级：圣诞坦克>其他。圣诞坦克概率1/10，上限1个。圣诞坦克不生成的情况下，姜饼人概率1/3，精灵弓箭手概率1/6，僵尸精灵概率1/2。
+第7波，刷怪优先级：\wiki{圣诞坦克}>其他。\wiki{圣诞坦克}概率1/10，上限1个。\wiki{圣诞坦克}不生成的情况下，\wiki{姜饼人}概率1/3，\wiki{精灵弓箭手}概率1/6，\wiki{僵尸精灵}概率1/2。
 
-第6波，刷怪优先级：常绿尖叫怪>其他。常绿尖叫怪概率1/10，上限2个。常绿尖叫怪不生成的情况下，精灵直升机概率1/4，胡桃夹士概率3/8，精灵弓箭手概率3/8。
+第6波，刷怪优先级：\wiki{常绿尖叫怪}>其他。\wiki{常绿尖叫怪}概率1/10，上限2个。\wiki{常绿尖叫怪}不生成的情况下，\wiki{精灵直升机}概率1/4，wiki{胡桃夹士}概率3/8，\wiki{精灵弓箭手}概率3/8。
 
-第5波，刷怪优先级：常绿尖叫怪>其他。常绿尖叫怪概率1/10，上限1个。常绿尖叫怪不生成的情况下，精灵弓箭手概率1/4，胡桃夹士概率3/32，僵尸精灵概率21/32。
+第5波，刷怪优先级：\wiki{常绿尖叫怪}>其他。\wiki{常绿尖叫怪}概率1/10，上限1个。\wiki{常绿尖叫怪}不生成的情况下，\wiki{精灵弓箭手}概率1/4，wiki{胡桃夹士}概率3/32，\wiki{僵尸精灵}概率21/32。
 
-第4波，刷怪优先级：常绿尖叫怪>其他。常绿尖叫怪概率1/10，上限1个。常绿尖叫怪不生成的情况下，精灵弓箭手概率1/4，姜饼人概率1/4，僵尸精灵概率1/2。
+第4波，刷怪优先级：\wiki{常绿尖叫怪}>其他。\wiki{常绿尖叫怪}概率1/10，上限1个。\wiki{常绿尖叫怪}不生成的情况下，\wiki{精灵弓箭手}概率1/4，\wiki{姜饼人}概率1/4，\wiki{僵尸精灵}概率1/2。
 
-第3波，胡桃夹士概率1/8，精灵弓箭手概率7/32，姜饼人概率7/32，僵尸精灵概率7/16。
+第3波，胡桃夹士概率1/8，\wiki{精灵弓箭手}概率7/32，\wiki{姜饼人}概率7/32，\wiki{僵尸精灵}概率7/16。
 
-第2波，僵尸弓箭手概率1/3，僵尸精灵概率2/3。
+第2波，\wiki{精灵弓箭手}概率1/3，\wiki{僵尸精灵}概率2/3。
 
-第1波，姜饼人概率1/3，僵尸精灵概率2/3。
+第1波，\wiki{姜饼人}概率1/3，\wiki{僵尸精灵}概率2/3。
+\begin{figure}[hp]
+    \centering
+    \subfloat[冰雪女王]{\quad\includegraphics{npcs/Ice_Queen.png}\quad}
+    \subfloat[圣诞坦克]{\quad\includegraphics{npcs/Santa-NK1.png}\quad}\\
+    \subfloat[常绿尖叫怪]{\quad\includegraphics{npcs/Everscream.png}\quad}
+    \subfloat[雪兽]{\quad\includegraphics{npcs/Yeti.png}\quad}
+    \subfloat[胡桃夹士]{\quad\includegraphics{npcs/Nutcracker.png}\quad}
+    \subfloat[坎卜斯]{\quad\includegraphics{npcs/Krampus.png}\quad}\\
+    \subfloat[精灵直升机]{\quad\includegraphics{npcs/Elf_Copter.png}\quad}
+    \subfloat[雪花怪]{\quad\includegraphics{npcs/Flocko.png}\quad}
+    \subfloat[姜饼人]{\quad\includegraphics{npcs/Gingerbread_Man.png}\quad}\\
+    \subfloat[僵尸精灵]{\quad\includegraphics{npcs/Zombie_Elf.png}\quad\includegraphics{npcs/Zombie_Elf_Beard.png}\quad\includegraphics{npcs/Zombie_Elf_Girl.png}\quad}
+    \subfloat[精灵弓箭手]{\quad\includegraphics{npcs/Elf_Archer.png}\quad}
+    \subfloat[礼物宝箱怪]{\quad\includegraphics{npcs/Present_Mimic_Forms.png}\quad}
+    \caption{霜月}
+\end{figure}
 
 \subsection{南瓜月}
 要求：刷怪面不高于worldSurface，在晚上，在南瓜月中。
 
-第1波，生成稻草人(ID:305/306/307/308/309/310/311/312/313/314)，10个ID等概率生成。
+第1波，生成\wiki{稻草人}，10个ID等概率生成。
 
-第2波，树精(ID:326)概率1/3，稻草人概率2/3。
+第2波，\wiki{树精}概率1/3，\wiki{稻草人}概率2/3。
 
-第3波，地狱犬(ID:329)概率1/6，树精概率5/18，稻草人概率5/9。
+第3波，\wiki{地狱犬}概率1/6，\wiki{树精}概率5/18，\wiki{稻草人}概率5/9。
 
-第4波，刷怪优先级：哀木>其他。哀木(ID:325)概率1/10，上限1个。哀木不生成的情况下，地狱犬概率1/10，树精概率9/20，稻草人概率9/20。
+第4波，刷怪优先级：\wiki{哀木}>其他。\wiki{哀木}概率1/10，上限1个。\wiki{哀木}不生成的情况下，\wiki{地狱犬}概率1/10，\wiki{树精}概率9/20，\wiki{稻草人}概率9/20。
 
-第5波，刷怪优先级：哀木>其他。哀木概率1/10，上限1个。哀木不生成的情况下，胡闹鬼(ID:330)概率1/8，地狱犬概率7/40，树精概率7/20，稻草人概率7/20。
+第5波，刷怪优先级：\wiki{哀木}>其他。\wiki{哀木}概率1/10，上限1个。\wiki{哀木}不生成的情况下，\wiki{胡闹鬼}概率1/8，\wiki{地狱犬}概率7/40，\wiki{树精}概率7/20，\wiki{稻草人}概率7/20。
 
-第6波，刷怪优先级：哀木>其他。哀木概率1/7，上限2个。哀木不生成的情况下，胡闹鬼概率1/6，地狱犬概率5/18，树精概率5/9。
+第6波，刷怪优先级：\wiki{哀木}>其他。\wiki{哀木}概率1/7，上限2个。\wiki{哀木}不生成的情况下，\wiki{胡闹鬼}概率1/6，\wiki{地狱犬}概率5/18，\wiki{树精}概率5/9。
 
-第7波，刷怪优先级：南瓜王>其他。南瓜王概率1/10，上限1个。南瓜王不生成的情况下，胡闹鬼概率1/8，地狱犬概率7/40，稻草人概率7/10。
+第7波，刷怪优先级：\wiki{南瓜王}>其他。\wiki{南瓜王}概率1/10，上限1个。\wiki{南瓜王}不生成的情况下，\wiki{胡闹鬼}概率1/8，\wiki{地狱犬}概率7/40，\wiki{稻草人}概率7/10。
 
-第8波，刷怪优先级：南瓜王>其他。南瓜王概率1/10，上限1个。南瓜王不生成的情况下，胡闹鬼概率1/5，地狱犬概率4/15，树精概率8/15。
+第8波，刷怪优先级：\wiki{南瓜王}>其他。\wiki{南瓜王}概率1/10，上限1个。\wiki{南瓜王}不生成的情况下，\wiki{胡闹鬼}概率1/5，\wiki{地狱犬}概率4/15，\wiki{树精}概率8/15。
 
-第9波，刷怪优先级：南瓜王>哀木>无头骑士>其他。南瓜王概率1/8，上限1个。哀木概率1/8，上限1个。无头骑士(ID:315)概率1/10，上限1个。这三个怪都不生成的情况下生成稻草人。
+第9波，刷怪优先级：\wiki{南瓜王}>\wiki{哀木}>\wiki{无头骑士}>其他。\wiki{南瓜王}概率1/8，上限1个。\wiki{哀木}概率1/8，上限1个。\wiki{无头骑士}概率1/10，上限1个。这三个怪都不生成的情况下生成\wiki{稻草人}。
 
-第10波，刷怪优先级：南瓜王>哀木>无头骑士>其他。南瓜王概率1/10，上限1个。哀木概率1/10，上限1个。无头骑士概率1/10，上限1个。这三个怪都不生成的情况下，胡闹鬼概率1/8，地狱犬概率7/40，树精概率7/10。
+第10波，刷怪优先级：\wiki{南瓜王}>\wiki{哀木}>\wiki{无头骑士}>其他。\wiki{南瓜王}概率1/10，上限1个。\wiki{哀木}概率1/10，上限1个。\wiki{无头骑士}概率1/10，上限1个。这三个怪都不生成的情况下，\wiki{胡闹鬼}概率1/8，\wiki{地狱犬}概率7/40，\wiki{树精}概率7/10。
 
-第11波，刷怪优先级：哀木>无头骑士>其他。哀木概率1/7，上限2个。无头骑士概率1/10，上限1个。这两个怪都不生成的情况下，胡闹鬼概率1/10，地狱犬概率9/70，树精概率9/35，稻草人概率18/35。如果世界中没有南瓜王，还有1/10概率额外生成一个南瓜王。
+第11波，刷怪优先级：\wiki{哀木}>\wiki{无头骑士}>其他。\wiki{哀木}概率1/7，上限2个。\wiki{无头骑士}概率1/10，上限1个。这两个怪都不生成的情况下，\wiki{胡闹鬼}概率1/10，\wiki{地狱犬}概率9/70，\wiki{树精}概率9/35，\wiki{稻草人}概率18/35。如果世界中没有\wiki{南瓜王}，还有1/10概率额外生成一个\wiki{南瓜王}。
 
-第12波，刷怪优先级：哀木>无头骑士>其他。哀木概率1/7，上限2个。无头骑士概率1/7，上限2个。这两个怪都不生成的情况下，胡闹鬼概率1/7，地狱犬概率6/35，树精概率24/35。如果世界中南瓜王数量小于2，还有1/7概率额外生成一个南瓜王。
+第12波，刷怪优先级：\wiki{哀木}>\wiki{无头骑士}>其他。\wiki{哀木}概率1/7，上限2个。\wiki{无头骑士}概率1/7，上限2个。这两个怪都不生成的情况下，\wiki{胡闹鬼}概率1/7，\wiki{地狱犬}概率6/35，\wiki{树精}概率24/35。如果世界中\wiki{南瓜王}数量小于2，还有1/7概率额外生成一个\wiki{南瓜王}。
 
-第13波，刷怪优先级：哀木>无头骑士>其他。哀木概率1/5，上限3个。无头骑士概率1/5，上限3个。这两个怪都不生成的情况下，胡闹鬼概率1/3，地狱犬概率2/3。如果世界中南瓜王数量小于2，还有1/7概率额外生成一个南瓜王。
+第13波，刷怪优先级：\wiki{哀木}>\wiki{无头骑士}>其他。\wiki{哀木}概率1/5，上限3个。\wiki{无头骑士}概率1/5，上限3个。这两个怪都不生成的情况下，\wiki{胡闹鬼}概率1/3，\wiki{地狱犬}概率2/3。如果世界中\wiki{南瓜王}数量小于2，还有1/7概率额外生成一个\wiki{南瓜王}。
 
-第14波，刷怪优先级：南瓜王>哀木>其他。南瓜王概率1/5，上限3个。哀木概率1/5，上限3个。这两个怪都不生成的情况下生成无头骑士。
+第14波，刷怪优先级：\wiki{南瓜王}>\wiki{哀木}>其他。\wiki{南瓜王}概率1/5，上限3个。\wiki{哀木}概率1/5，上限3个。这两个怪都不生成的情况下生成\wiki{无头骑士}。
 
-第15波，南瓜王和哀木概率各为1/2。
+第15波，\wiki{南瓜王}和\wiki{哀木}概率各为1/2。
+\begin{figure}[hp]
+    \centering
+    \subfloat[稻草人]{\includegraphics{npcs/Scarecrow_1.png}\quad\includegraphics{npcs/Scarecrow.png}\quad\includegraphics{npcs/Scarecrow_2.png}\quad\includegraphics{npcs/Scarecrow_7.png}\quad\includegraphics{npcs/Scarecrow_3.png}\quad\includegraphics{npcs/Scarecrow_8.png}\quad\includegraphics{npcs/Scarecrow_4.png}\quad\includegraphics{npcs/Scarecrow_9.png}\quad\includegraphics{npcs/Scarecrow_5.png}\quad\includegraphics{npcs/Scarecrow_10.png}}\\
+    \subfloat[地狱犬]{\includegraphics{npcs/Hellhound.png}}
+    \subfloat[哀木]{\includegraphics{npcs/Mourning_Wood.png}}
+    \subfloat[无头骑士]{\quad\includegraphics{npcs/Headless_Horseman.png}}\\
+    \subfloat[树精]{\includegraphics{npcs/Splinterling.png}\quad}
+    \subfloat[南瓜王]{\includegraphics{npcs/Pumpking_Full_Body.png}}
+    \subfloat[胡闹鬼]{\includegraphics{npcs/Poltergeist.png}}
+    \caption{南瓜月}
+\end{figure}
 
 \subsection{日食}
 要求：刷怪面不在worldSurface之下，在白天，在日食中。刷怪优先级：蛾怪>眼怪>变态人>钉头>致命球>吸血鬼>死神>攀爬魔>飞人博士>屠夫>科学怪人=水月怪=弗里茨=沼泽怪。
