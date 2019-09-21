@@ -1,11 +1,12 @@
 主文件`main.tex`。
-各章节建议存放在`chapters`。
-游戏贴图建议存放在`figures/`。
-截图建议存放在`images/`并编号。
-模板`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
-`figure`和`image`是原模板使用的。
+各章节存放在`chapters`。
+物品贴图存放在`figures/`。
+NPC贴图存放在`npcs/`。
+截图存放在`images/`并编号。游戏内截图尽量使用刷白漆的钻石晶莹宝石墙，并且使用CheatSheet或HERO's mod将光照打到100%，以达到白色背景效果。
+模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
+`figure`和`image`存放原模板使用的图片，请勿修改。
 
-目前缺少封面图和Logo
+有任何事情在Issues中提出。
 
 # 关于模板
 
