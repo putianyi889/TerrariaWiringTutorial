@@ -6,6 +6,8 @@ NPC贴图存放在`npcs/`。
 模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
 `figure`和`image`存放原模板使用的图片，请勿修改。
 
+所有修改可以直接提交PR(Pull request)也可以在Issues中询问后提交PR。对于整段整节的贡献请在PR中署名，未署名作匿名处理。小贡献会整理在附录中。
+
 有任何事情在Issues中提出。
 
 # 修改过的文件名
