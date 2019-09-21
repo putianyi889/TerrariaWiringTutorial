@@ -8,6 +8,11 @@ NPC贴图存放在`npcs/`。
 
 有任何事情在Issues中提出。
 
+# 修改过的文件名
+|原文件名|新文件名|
+|:-|:-|
+|Hanging_Jack_'O_Lantern.png|Hanging_Jack_O_Lantern.png|
+
 # 关于模板
 
 <!-- Author : Dongsheng Deng & Liam Huang-->
