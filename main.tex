@@ -20,11 +20,13 @@
 \newcommand{\subfigureautorefname}{\figureautorefname}
 \newcommand{\wiki}[1]{\href{https://terraria-zh.gamepedia.com/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria-zh.gamepedia.com/#1}{#2}}
-
 \setcounter{totalnumber}{100}
+\makeatletter
+\g@addto@macro\UrlBreaks{\do\_}
+\makeatother
 
 \title{Terraria 电路文档}
-\subtitle{}
+%\subtitle{副标题不能为空}
 
 % 这部分不要删掉任何一个属性，否则会导致 "undefined control sequence"
 \author{putianyi888}

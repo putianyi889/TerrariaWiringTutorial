@@ -697,7 +697,7 @@
 	\setstretch{2.5}
 	\hspace{2.5em}
 	\begin{minipage}[c]{0.67\linewidth}
-		{\color{darkgray}\bfseries\Large \the\subtitle\\[2ex]}
+		{\color{darkgray}\bfseries\Large \mbox{}\the\subtitle\\[2ex]}
 		\color{gray}\normalsize
 		{\renewcommand{\arraystretch}{0.618}
 		\begin{tabular}{l} 
