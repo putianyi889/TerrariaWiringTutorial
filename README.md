@@ -14,6 +14,8 @@ NPC贴图存放在`npcs/`。
 |原文件名|新文件名|
 |:-|:-|
 |Hanging_Jack_'O_Lantern.png|Hanging_Jack_O_Lantern.png|
+|Jack_'O_Lantern.png|Jack_O_Lantern.png|
+|Music_Box_(Old_One's_Army).png|Music_Box_(Old_Ones_Army).png|
 
 # 关于模板
 
