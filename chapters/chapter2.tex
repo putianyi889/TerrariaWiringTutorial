@@ -6,7 +6,7 @@
 
 由于电线和图格处于不同图层，它们可以重叠。如果某电线与某图格重叠，我们说该图格在该电线下，该电线在该图格上。
 
-电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。泰拉瑞亚中所有电源及其激活条件见表\ref{dianyuan}，详细信息请参阅\autoref{dianluwupinjieshao}及wiki。
+电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。泰拉瑞亚中所有电源及其激活条件见表\ref{dianyuan}，详细信息请参阅\autoref{sec1}及wiki。
 
 \begin{longtable}{c|c|l}
 电源		&	物品贴图	&	激活条件	\\
@@ -48,7 +48,7 @@
 \caption{泰拉瑞亚中的电源}\label{dianyuan}
 \end{longtable}
 
-用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见表\ref{yongdianqi}，详细信息请参阅\autoref{dianluwupinjieshao}及wiki。
+用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见表\ref{yongdianqi}，详细信息请参阅\autoref{sec2}及wiki。
 
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。
 
@@ -357,6 +357,8 @@
 \label{i32:33}
 \end{figure}
 
+\input{chapters/Sources.tex}
+
 \section{逻辑门灯/逻辑门}
 
 逻辑门灯是用电器，简称为逻辑灯。逻辑灯还可以分为普通逻辑灯和故障逻辑灯。普通逻辑灯被激活时在开/关之间切换，故障逻辑灯被激活时状态被设定为“激活”（无图像效果）。逻辑灯必须堆叠在逻辑门上，我们说这些逻辑灯在该逻辑门上，该逻辑门在这些逻辑灯下。
@@ -460,7 +462,7 @@
 
 现在我们已经把需要学习的范围缩小到了三个门：与门、或门、异或门。接下来我们看\autoref{}，左边是与门，右边是或门，与门上全是亮灯，或门上全是灭灯。现在这两个门也是完全一致的。这是因为，它们上面的逻辑灯初始状态相反，对于相同输入，最终取值也相反。所以，与门亮$\Longleftrightarrow$与门上的所有灯亮$\Longleftrightarrow$或门上的所有灯灭$\Longleftrightarrow$或门灭。这样一来与门和或门的亮灭状态永远是相反的，类似于前面的讨论，这里的两个门也没有区别。
 
-现在只剩下两种门了：与门、异或门。这两个有没有可能绝对等价呢？不可能，因为与门满足结合律，而异或门不满足结合律。具体分析见\autoref{chap7}。读者在这里只需要知道，我们使用与门和异或门就足够了，其他普通逻辑门都可以用这两种门代替。
+现在只剩下两种门了：与门、异或门。这两个有没有可能绝对等价呢？不可能，因为与门满足结合律，而异或门不满足结合律。。读者在这里只需要知道，我们使用与门和异或门就足够了，其他普通逻辑门都可以用这两种门代替。
 
 \subsection{十进制数显}\label{sec2:2}
 
@@ -839,8 +841,8 @@
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c}
-数字变化&$0\rightarrow 1$&$1\rightarrow 2$&$2\rightarrow 3$&$3\rightarrow 4$&$4\rightarrow 5$&$5\rightarrow 6$&$6\rightarrow 7$&$7\rightarrow 8$&$8\rightarrow 9$&$9\rightarrow 0$\\
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+数字变化&0$\to$1&1$\to$2&2$\to$3&3$\to$4&4$\to$5&5$\to$6&6$\to$7&7$\to$8&8$\to$9&9$\to$0\\
 \hline
 激活部分&ad&abdeg&bcfg&abcd&acdf&bc&de&def&bc&bcef
 \end{tabular}
@@ -913,35 +915,35 @@
 \begin{center}
 \subfloat[满月]{
 \label{i61}
-\includegraphics[width=0.12\textwidth]{images/61.png}
+\includegraphics[width=0.11\textwidth]{images/61.png}
 }
 \subfloat[亏凸月]{
 \label{i62}
-\includegraphics[width=0.12\textwidth]{images/62.png}
+\includegraphics[width=0.11\textwidth]{images/62.png}
 }
 \subfloat[下弦月]{
 \label{i63}
-\includegraphics[width=0.12\textwidth]{images/63.png}
+\includegraphics[width=0.11\textwidth]{images/63.png}
 }
 \subfloat[残月]{
 \label{i64}
-\includegraphics[width=0.12\textwidth]{images/64.png}
+\includegraphics[width=0.11\textwidth]{images/64.png}
 }
 \subfloat[新月]{
 \label{i65}
-\includegraphics[width=0.12\textwidth]{images/65.png}
+\includegraphics[width=0.11\textwidth]{images/65.png}
 }
 \subfloat[峨眉月]{
 \label{i66}
-\includegraphics[width=0.12\textwidth]{images/66.png}
+\includegraphics[width=0.11\textwidth]{images/66.png}
 }
 \subfloat[上弦月]{
 \label{i67}
-\includegraphics[width=0.12\textwidth]{images/67.png}
+\includegraphics[width=0.11\textwidth]{images/67.png}
 }
 \subfloat[盈凸月]{
 \label{i68}
-\includegraphics[width=0.12\textwidth]{images/68.png}
+\includegraphics[width=0.11\textwidth]{images/68.png}
 }
 \end{center}
 \caption{}
