@@ -3,6 +3,8 @@
 
 所有修改可以直接提交PR(Pull request)也可以在[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)中询问后提交PR。对于整段整节的贡献请在PR中署名，未署名作匿名处理。小贡献会整理在附录中。
 
+[下载量统计](http://www.somsubhra.com/github-release-stats/?username=putianyi889&repository=TerrariaWiringTutorial)
+
 ## 编辑指引
 主文件`main.tex`。
 各章节存放在`chapters`。
