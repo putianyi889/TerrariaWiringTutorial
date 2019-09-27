@@ -1,3 +1,9 @@
+# Terraria电路文档
+本文档旨在整合目前已知的所有电路知识，为国内的TR玩家提供电路方面全面可靠的参考，节省大家搜索各种教程的时间。我们欢迎任何形式的贡献，包括教程编写、研究成果、文档美化、资料整理、制作插图等。如果你希望贡献但是不知道做什么，在[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)里我们会提供当下的一些任务，这些任务大多是不需要任何游戏知识的。如果你有任何问题、想法和建议，也可以至[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)提。
+
+所有修改可以直接提交PR(Pull request)也可以在[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)中询问后提交PR。对于整段整节的贡献请在PR中署名，未署名作匿名处理。小贡献会整理在附录中。
+
+## 编辑指引
 主文件`main.tex`。
 各章节存放在`chapters`。
 物品贴图存放在`figures/`。
@@ -6,11 +12,7 @@ NPC贴图存放在`npcs/`。
 模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
 `figure`和`image`存放原模板使用的图片，请勿修改。
 
-所有修改可以直接提交PR(Pull request)也可以在Issues中询问后提交PR。对于整段整节的贡献请在PR中署名，未署名作匿名处理。小贡献会整理在附录中。
-
-有任何事情在Issues中提出。
-
-# 修改过的文件名
+## 修改过的文件名
 |原文件名|新文件名|
 |:-|:-|
 |Hanging_Jack_'O_Lantern.png|Hanging_Jack_O_Lantern.png|
