@@ -242,7 +242,7 @@
 
 传送带驱动是结构最简单、占地最小的满频驱动，其电路图见\autoref{i5:6}。在这个电路中，加重压力板是电源，传送带是用电器。要触发此驱动，只需要玩家站在传送带上。传送带使玩家向右移动，玩家进入加重压力板所在格时激活加重压力板，进而激活传送带，传送带变为逆时针，玩家向左移动，移出加重压力板时又激活加重压力板，传送带变为顺时针，玩家向右移动，如此反复。红线上的信号即为驱动信号。需要注意的是，玩家进入压力板的“瞬间”即向左移动，移出压力板的“瞬间”即向右移动，所以该驱动的频率等于电脑判断玩家与压力板是否重叠的频率，即帧率。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics{images/5.png}
 \qquad
@@ -292,7 +292,7 @@
 
 然而改成了加重压力板后并非万事大吉。如果进入多人游戏，两个人站在门的两侧，同时试图到对方一边，那么制动器被激活两次，物块仍实化，除非一个人让步。这是非常不方便的。使用逻辑感应器（玩家）可以解决这个问题（\autoref{i46:47}）。当已经有一个玩家站在感应器的蓝框内时，其他玩家进出不会改变感应器状态，感应器自然就不会激活。因此，当感应器的蓝框内有玩家时门开启，否则门关闭。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics{images/46.png}
 \qquad
@@ -312,7 +312,7 @@
 
 这种构造的刷液体机有一个小缺点，那就是需要手动打开计时器，因为计时器在退出地图时会自动关闭。另一方面，水充满池子的时候，水泵无效，但计时器仍在运行，这对于强迫症来说是一个打击。有一个方法可以解决这个问题，那就是在水泵边上设置液体感应器（\autoref{i9}，\autoref{i10}）。如果水位够高，液体感应器保持为亮，水泵不工作。如果取水使得水位下降低于液体感应器，那么液体感应器熄灭，激活水泵，水泵抽水，抽出的水经过液体感应器时点亮液体感应器，液体感应器又激活水泵，直到水位达到液体感应器时液体感应器才因保持为亮而不激活电路。这个装置不仅做到了智能刷水，而且液体感应器这个驱动频率可以完美适配液体流速。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
 \label{i7}
@@ -486,7 +486,7 @@
 \label{i34:35}
 \end{figure}
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
 显示数值&0		&1	&2		&3		&4		&5		&6		&7		&8			&9\\
@@ -633,49 +633,7 @@
 \label{i72:73}
 \end{figure}
 
-实际应用中的递次电路非常灵活。不仅故障逻辑门的数量可以随意变化，有效逻辑灯的亮灭、接线方式都可以视实际需求变化。递次电路的常见变种见\autoref{i74:85}。使用递次电路时不要死板，要善于针对需求设计最合理的电路。
-
-\begin{figure}[p]
-\begin{center}
-\subfloat[只有3个故障逻辑门的递次电路，为了省一种电线颜色使用了换线器]{
-\label{i74:75}
-\includegraphics{images/74.png}
-\includegraphics{images/75.png}
-}
-\qquad
-\subfloat[有多个有效逻辑灯点亮的递次电路，激活绿线使点亮的逻辑灯右移一位]{
-\label{i76:77}
-\includegraphics{images/76.png}
-\includegraphics{images/77.png}
-}
-\qquad
-\subfloat[斜向的递次电路]{
-\label{i78:79}
-\includegraphics{images/78.png}
-\includegraphics{images/79.png}
-}
-\qquad
-\subfloat[反向的递次电路]{
-\label{i80:81}
-\includegraphics{images/80.png}
-\includegraphics{images/81.png}
-}
-\qquad
-\subfloat[紧凑的递次电路]{
-\label{i82:83}
-\includegraphics{images/82.png}
-\includegraphics{images/83.png}
-}
-\qquad
-\subfloat[注意红线连接了三个有效逻辑灯，这个推广的递次电路会在15个状态之间循环]{
-\label{i84:85}
-\includegraphics{images/84.png}
-\includegraphics{images/85.png}
-}
-\end{center}
-\caption{各种递次电路}
-\label{i74:85}
-\end{figure}
+实际应用中的递次电路非常灵活。不仅故障逻辑门的数量可以随意变化，有效逻辑灯的亮灭、接线方式都可以视实际需求变化。递次电路的常见变种见\autoref{sec2}。使用递次电路时不要死板，要善于针对需求设计最合理的电路。
 
 递次电路的使用非常广泛。它可以与十进制数显结合做成\url{https://www.bilibili.com/video/av22894193}中的十进制计数器，也可以做出\url{https://www.bilibili.com/video/av21009075}中的霓虹灯效果，还可以做出\url{https://www.bilibili.com/video/av6393957}中的回血回蓝大阵，等等等等等等。
 
@@ -713,7 +671,7 @@
 \label{i86:87}
 \end{figure}
 
-是不是只有逻辑灯才有状态？在经典递次电路中，电线也可以有状态。如\autoref{}，如果我们把每根电线接到一个火把，就可以把火把的状态看作电线的状态。那么与其对逻辑灯置0/置1，不如直接对电线置0/置1，电路如\autoref{i88:89}所示。对电线进行赋值的前提是电线状态可以决定逻辑灯的状态。
+是不是只有逻辑灯才有状态？在经典递次电路中，电线也可以有状态。如果我们把每根电线接到一个火把，就可以把火把的状态看作电线的状态。那么与其对逻辑灯置0/置1，不如直接对电线置0/置1，电路如\autoref{i88:89}所示。对电线进行赋值的前提是电线状态可以决定逻辑灯的状态。
 
 \begin{figure}[!h]
 \begin{center}
@@ -747,30 +705,7 @@
 \label{i106:107}
 \end{figure}
 
-另外，偶尔我们可能需要用到双向递次电路，它的各种做法见\autoref{i261:266}。
-
-\begin{figure}[!h]
-\begin{center}
-\subfloat[紧凑的双向递次电路]{
-\label{i261:262}
-\includegraphics{images/261.png}\qquad
-\includegraphics{images/262.png}
-}\qquad
-\subfloat[一般的双向递次电路]{
-\label{i263:264}
-\includegraphics{images/263.png}\qquad
-\includegraphics{images/264.png}
-}
-\qquad
-\subfloat[带复位的双向递次电路]{
-\label{i265:266}
-\includegraphics{images/265.png}\qquad
-\includegraphics{images/266.png}
-}
-\end{center}
-\caption{各种双向递次电路}
-\label{i261:266}
-\end{figure}
+另外，偶尔我们可能需要用到双向递次电路，它的各种做法见\autoref{sec3}。
 
 \subsection{降频电路}\label{sec2:1}
 
