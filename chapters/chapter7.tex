@@ -12,7 +12,7 @@
 \subsection{布尔运算}
 一个数为\textbf{布尔值}，是指这个数的取值只能为0和1。\textbf{布尔运算}是对布尔值进行的运算。我们把表达式中的布尔值与布尔常数1简称为\textbf{字母}。
 
-泰拉瑞亚中一共有四种初等布尔运算，它们在电路中的意义见\autoref{fig1}：
+泰拉瑞亚中一共有四种初等布尔运算，它们的运算规则如下，在电路中的意义见\autoref{fig1}：
 \paragraph*{取反}$\textrm{\~{}} 0=1,\textrm{\~{}} 1=0$
 \paragraph*{连接}$00=0,01=1,10=1,11=0$
 \paragraph*{与}$0\&0=0,0\&1=0,1\&0=0,1\&1=1$
@@ -20,49 +20,56 @@
 
 \begin{figure}[!ht]
     \centering
-    \subfloat[取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$]{\includegraphics{images/348.png}\quad\includegraphics{images/349.png}}\\
-    \subfloat[连接：$B=AC$]{\includegraphics{images/350.png}\quad\includegraphics{images/351.png}}\\
-    \subfloat[与：$C=A\&B$]{\includegraphics{images/352.png}\quad\includegraphics{images/353.png}}\\
-    \subfloat[异或：$D=\textrm{\^{}}(A,B,C)$]{\includegraphics{images/354.png}\quad\includegraphics{images/355.png}}
+    \subfloat[取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$]{\includegraphics{images/348.png}\qquad\includegraphics{images/349.png}}\\
+    \subfloat[连接：$B=AC$]{\includegraphics{images/350.png}\qquad\includegraphics{images/351.png}}\\
+    \subfloat[与：$C=A\&B$]{\includegraphics{images/352.png}\qquad\includegraphics{images/353.png}}\\
+    \subfloat[异或：$D=\textrm{\^{}}(A,B,C)$]{\includegraphics{images/354.png}\qquad\includegraphics{images/355.png}}
     \caption{初等布尔运算对应的电路。注意取反运算和连接运算不需要逻辑门。}
     \label{fig1}
 \end{figure}
 
-此外，在进行分析的时候，为了便于理解，我们也使用其他一些布尔运算，它们都可以由初等布尔运算导出。
-\paragraph*{或}$a|b=\textrm{\~{}}(\textrm{\~{}}a\&\textrm{\~{}}b)$
-\paragraph*{小于}$a<b=\textrm{\~{}}a\&b$
-\paragraph*{大于}$a>b=a\&\textrm{\~{}}b$
-\paragraph*{等于}$a==b=\textrm{\~{}}ab$
+此外，在进行分析的时候，为了便于理解，我们也使用其他一些布尔运算，它们都可以由初等布尔运算导出。\autoref{fig2}展示了使用与运算导出或运算的方法。\autoref{tab2}展示了常用的非初等布尔运算。
 
-\subsection{布尔运算的性质}\label{sec9317}
+\begin{figure}[!ht]
+    \centering
+	\includegraphics{images/356.png}\qquad\includegraphics{images/357.png}
+    \caption{与运算导出的或运算。$C=A|B$}
+    \label{fig2}
+\end{figure}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+运算名称&记号&导出公式\\\hline
+或&$a|b$&$\textrm{\~{}}(\textrm{\~{}}a\&\textrm{\~{}}b)$\\\hline
+小于&$a<b$&$\textrm{\~{}}a\&b$\\\hline
+大于&$a>b$&$a\&\textrm{\~{}}b$\\\hline
+等于&$a==b$&$\textrm{\~{}}ab$\\\hline
+小于等于&$a\le b$&$\textrm{\~{}}(a\&\textrm{\~{}}b)$\\\hline
+大于等于&$a\ge b$&$\textrm{\~{}}(\textrm{\~{}}a\&b)$\\\hline
+不等于&$a!=b$&$ab$\\\hline
+\end{tabular}
+\caption{常用的非初等布尔运算。}\label{tab2}
+\end{table}
+
+\subsection{初等布尔运算的性质}\label{sec9317}
 
 \paragraph*{交换律、分配律、结合律}
 
 连接、与、异或都满足\textbf{交换律}，改变这些运算下的字母顺序，结果不变。连接、与都满足\textbf{结合律}，但是异或不满足结合律，因为$1=\textrm{\^{}}(\textrm{\^{}}(1,1),1)\ne \textrm{\^{}}(1,1,1)=0$。当$a\&b=0$时（这个条件必不可少！），与和连接满足\textbf{分配律}$ab\&c=(a\&c)(b\&c)$。
 
-\paragraph*{与布尔常量的运算}
-\begin{flushleft}
-\begin{tabular}{|c|c|c|}
+\paragraph*{其他常用运算律}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
 \hline
-连接&与&异或\\\hline
-$0a=a$&$0\&a=0$&$\textrm{\^{}}(0,a_1,\cdots,a_n)=\textrm{\^{}}(a_1,\cdots,a_n)$\\\hline
-$1a=\textrm{\~{}} a$&$1\&a=a$&$\textrm{\^{}}(1,a_1,\cdots,a_n)=\textrm{\~{}} a_1\&\cdots\&\textrm{\~{}} a_n$\\\hline
+&连接&与&异或\\\hline
+与0的运算&$0a=a$&$0\&a=0$&$\textrm{\^{}}(0,a_1,\cdots,a_n)=\textrm{\^{}}(a_1,\cdots,a_n)$\\\hline
+与1的运算&$1a=\textrm{\~{}} a$&$1\&a=a$&$\textrm{\^{}}(1,a_1,\cdots,a_n)=\textrm{\~{}} a_1\&\cdots\&\textrm{\~{}} a_n$\\\hline
+与自身的运算&$aa=0$&$\begin{aligned}a\& a&=a\\\textrm{\~{}} a\& a=0\end{aligned}$&\\\hline
+转化运算&$\textrm{\^{}}(a,b)=ab$&$a\&b=\textrm{\~{}} ab\&b$&$\begin{aligned}&\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=\\&\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)\end{aligned}$\\\hline
 \end{tabular}
-\end{flushleft}
-
-\paragraph*{与自身的运算}
-\begin{itemize}
-\item $aa=0$
-\item $a\& a=a$
-\item $\textrm{\~{}} a\& a=0$
-\end{itemize}
-
-\paragraph*{转化运算}
-\begin{itemize}
-\item $a\&b=\textrm{\~{}} ab\&b$
-\item $\textrm{\^{}}(a,b)=ab$
-\item $\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)$
-\end{itemize}
+\end{center}
 
 \paragraph*{其他记号}
 当我们要处理一组布尔值时，我们可以给它们编号。例如一个八位二进制数可以表示为$[a_7,a_6,a_5,a_4,a_3,a_3,a_1,a_0]$，简记为$a_{7:0}$。$a_{7:0}$的最高位是$a_7$，最低位是$a_0$。$a_{7:0}$可以分成两个四位二进制数$a_{3:0}$（可以叫做低四位）和$a_{7:4}$（可以叫做高四位）。
@@ -72,8 +79,9 @@ $1a=\textrm{\~{}} a$&$1\&a=a$&$\textrm{\^{}}(1,a_1,\cdots,a_n)=\textrm{\~{}} a_1
 
 \begin{table}[!h]
 \centering
-\begin{tabular}{cccc}
-a&b&c&输出\\\hline
+\begin{tabular}{|c|c|c||c|}
+\hline
+$a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 0&0&0&0\\\hline
 0&0&1&0\\\hline
 0&1&0&0\\\hline
@@ -81,29 +89,55 @@ a&b&c&输出\\\hline
 1&0&0&0\\\hline
 1&0&1&0\\\hline
 1&1&0&0\\\hline
-1&1&1&1
+1&1&1&1\\\hline
 \end{tabular}
-\caption{}\label{tab2308}
+\caption{$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的真值表。}\label{tab2308}
 \end{table}
 
-从\autoref{tab2308}可以看出来，当且仅当$a,b,c$全为1时，$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的值才为1，这不就是与逻辑吗？所以我们得到$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc=a\&b\&c$，这个逻辑看上去就舒服多了。\autoref{tab2308}就称为$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的\textbf{真值表}。
+从\autoref{tab2308}可以看出来，当且仅当$a,b,c$全为1时，$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的值才为1，这不就是与逻辑吗？所以我们得到$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc=a\&b\&c$，这个逻辑就很好理解了。\autoref{tab2308}就称为$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的\textbf{真值表}。
 
-更多的时候，我们先得到一个真值表，然后希望得出它的逻辑表达式。例如对于显示器而言，我们在一开始只知道每个显示单元对于哪些输入应该亮，哪些输入应该暗，而不知道应该如何搭建这个逻辑。这里遇到的就是已知真值表，求解逻辑表达式的过程。本小节一开始举的那个例子里，因为真值表比较特殊，我们只通过观察就得到了它的逻辑表达式。对于简单观察得不到逻辑表达式的情况，后续一些小节会给出解决方案。
+更多的时候，我们先得到一个真值表，然后希望得出它的逻辑表达式。例如对于显示器而言（\autoref{fig4}），我们在一开始只知道每个显示单元对于哪些输入应该亮，哪些输入应该暗，而不知道应该如何搭建这个逻辑。这里遇到的就是已知真值表，求解逻辑表达式的过程。本小节一开始举的那个例子里，因为真值表比较特殊，我们只通过观察就得到了它的逻辑表达式。对于简单观察得不到逻辑表达式的情况，后续一些小节会给出解决方案。
+\begin{figure}
+\centering
+\subfloat[]{\label{tab4}
+\begin{tabular}{|c|ccccccc|}
+\hline
+输入&$A$&$B$&$C$&$D$&$E$&$F$&$G$\\\hline
+0&1&1&0&1&1&1&1\\
+1&0&0&0&1&0&0&1\\
+2&1&0&1&1&1&1&0\\
+3&1&0&1&1&0&1&1\\
+4&0&1&1&1&0&0&1\\
+5&1&1&1&0&0&1&1\\
+6&1&1&1&0&1&1&1\\
+7&1&0&0&1&0&0&1\\
+8&1&1&1&1&1&1&1\\
+9&1&1&1&1&0&1&1\\\hline
+\end{tabular}}\qquad
+\subfloat[]{\raisebox{-80pt}{\includegraphics{images/35.png}\label{fig3}}}
+\caption{\protect\subref{tab4}十进制数显的真值表；\protect\subref{fig3}七段线接法。}\label{fig4}
+\end{figure}
 
-\subsection{字符串的线性相关性}
-回顾我们把逻辑表达式中的布尔值与布尔常数1简称为字母。我们把由若干字母连接而成的表达式称为\textbf{字符串}，简称\textbf{串}。由0个字母连接成的表达式记作0，称为\textbf{空串}。0和1两个串称为\textbf{平凡串}。
+\subsection{字符串的线性相关与秩}
+回顾我们把逻辑表达式中的布尔值与布尔常数1简称为字母。我们把由若干字母\textbf{连接}而成的表达式称为\textbf{字符串}，简称\textbf{串}。由0个字母连接成的表达式记作0，称为\textbf{空串}。0和1两个串称为\textbf{平凡串}。如果两个串恒等，那么这两个串\textbf{相同}。
 
-注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由1,a,b组成的串有8个\footnote{由n个字母组成的串有多少个？}：0,1,a,b,ab,\~{}a,\~{}b,\~{}ab。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消，所以我们一般忽略这种情况。
+注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由1,a,b组成的不同串有8个\footnote{由n个字母组成的不同的串有多少个？}：0,1,a,b,ab,\~{}a,\~{}b,\~{}ab。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消。
 
 给定一组串$s_1,\cdots,s_r$，任选其中若干串（至少一个）做连接运算，得到的串称为这组串的一个\textbf{线性组合}。如果一组非平凡串有一个平凡的线性组合，那么我们称这组非平凡串\textbf{线性相关}。否则，如果一组非平凡串的所有线性组合都是非平凡串，那么我们称这组非平凡串\textbf{线性无关}。一组非平凡串的最大的线性无关子集的大小称为这组非平凡串的\textbf{秩}。
+\begin{theorem}{}{thm1}
+记一组串的秩为$r$，那么这组串拥有的不同非平凡线性组合数量为$2^r-1$。反之，一组串拥有的不同非平凡线性组合数量一定有形式$2^r-1$，并且在该形式下这组串的秩为$r$。
+\end{theorem}
+\begin{corollary}{}{thm2}
+秩为$r$的一组互不相同的非平凡串至多有$2^r-1$个。$n$个互不相同的非平凡串的秩至少为$\lceil\log_2 (n+1)\rceil$。
+\end{corollary}
 
 \paragraph*{例1：考虑三个串ab,abc,abcd。}
 
-令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以ab,abc,abcd线性无关，\{ab,abc,abcd\}的最大线性无关子集就是它自己，所以ab,abc,abcd的秩是3。
+令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以ab,abc,abcd线性无关，\{ab,abc,abcd\}的最大线性无关子集就是它自己，所以ab,abc,abcd的秩是3。
 
 \paragraph*{例2：考虑三个串bc,ac,ab。}
 
-令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以bc,ac,ab线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以bc,ac线性无关，所以bc,ac,ab的秩为2。
+令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以bc,ac,ab线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以bc,ac线性无关，所以bc,ac,ab的秩为2。
 
 \subsection{简单逻辑及其复杂度}
 \textbf{简单逻辑}指只用一个与门或异或门就可以实现的逻辑。这个概念很好理解，但是其复杂度比我们想象的大得多。

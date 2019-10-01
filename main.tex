@@ -2,7 +2,7 @@
 
 \usepackage{color}
 \usepackage{graphicx}
-\usepackage[labelformat=simple,subrefformat=simple]{subfig}
+\usepackage[labelformat=parens,subrefformat=simple]{subfig}
 \usepackage{longtable}
 \usepackage[boxed]{algorithm2e}
 \usepackage{minitoc}
@@ -18,14 +18,12 @@
 \renewcommand{\chapterautorefname}{章}
 \renewcommand{\algorithmautorefname}{算法}
 \renewcommand{\algorithmcfname}{算法}
-\renewcommand\thesubfigure{(\alph{subfigure})}
-\newcommand{\subfigureautorefname}{\figureautorefname}
+%\renewcommand\thesubfigure{(\alph{subfigure})}
+%\newcommand{\subfigureautorefname}{\figureautorefname}
 \newcommand{\wiki}[1]{\href{https://terraria-zh.gamepedia.com/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria-zh.gamepedia.com/#1}{#2}}
 \setcounter{totalnumber}{100}
-%\makeatletter
-%\g@addto@macro\UrlBreaks{\do\_}
-%\makeatother
+%\setcounter{tocdepth}{3}
 \makeatletter
 \g@addto@macro\UrlBreaks{%
  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%这里没有语法问题，属于分析器bug

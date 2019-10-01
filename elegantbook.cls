@@ -238,7 +238,7 @@
 \AtBeginDocument{
 \setlength{\abovedisplayskip}{3pt}
 \setlength{\belowdisplayskip}{3pt}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{0}
 }
 %% 常用宏包
 \linespread{1.3}
@@ -338,6 +338,7 @@
 	unicode,
 	linktoc=all,
 	bookmarksnumbered=true,
+	bookmarksdepth=5,
 	bookmarksopen=true,
 	pdfkeywords={ElegantBook},
 	colorlinks,
