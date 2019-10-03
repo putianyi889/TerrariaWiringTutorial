@@ -1,14 +1,10 @@
 \documentclass[cn,11pt]{elegantbook}
 
-\usepackage{color}
-\usepackage{graphicx}
+%\usepackage{color}
+%\usepackage{graphicx}
 \usepackage[labelformat=parens,subrefformat=simple]{subfig}
 \usepackage{longtable}
 \usepackage[boxed]{algorithm2e}
-\usepackage{minitoc}
-\usepackage[immediate]{silence}
-
-\WarningFilter{minitoc}{W0023}
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \renewcommand{\figureautorefname}{图}
@@ -48,7 +44,6 @@
 
 % 这里会报错，暂时先没啥影响，不过能找到解决方案还是好的。
 \maketitle
-\dominitoc
 \tableofcontents
 
 % \thispagestyle{empty}
