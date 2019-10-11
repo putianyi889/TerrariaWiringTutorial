@@ -53,11 +53,11 @@ BFS.superclass = Graph.prototype;
 
 BFS.prototype.addControls =  function()
 {		
-	addLabelToAlgorithmBar("Start Vertex: ");
+	addLabelToAlgorithmBar("起始节点：");
 	this.startField = addControlToAlgorithmBar("Text", "");
 	this.startField.onkeydown = this.returnSubmit(this.startField,  this.startCallback.bind(this), 2, true);
 	this.startField.size = 2;
-	this.startButton = addControlToAlgorithmBar("Button", "Run BFS");
+	this.startButton = addControlToAlgorithmBar("Button", "运行 BFS");
 	this.startButton.onclick = this.startCallback.bind(this);
 	BFS.superclass.addControls.call(this);
 }	
@@ -95,9 +95,9 @@ BFS.prototype.setup = function()
 		this.cmd("SetForegroundColor",  this.parentIndexID[i], VERTEX_INDEX_COLOR);
 		
 	}
-	this.cmd("CreateLabel", this.nextIndex++, "Parent", PARENT_START_X - AUX_ARRAY_WIDTH, AUX_ARRAY_START_Y - AUX_ARRAY_HEIGHT * 1.5, 0);
-	this.cmd("CreateLabel", this.nextIndex++, "Visited", VISITED_START_X - AUX_ARRAY_WIDTH, AUX_ARRAY_START_Y - AUX_ARRAY_HEIGHT * 1.5, 0);
-	this.cmd("CreateLabel", this.nextIndex++, "BFS Queue", QUEUE_START_X, QUEUE_START_Y - 30, 0);
+	this.cmd("CreateLabel", this.nextIndex++, "上级节点", PARENT_START_X - AUX_ARRAY_WIDTH, AUX_ARRAY_START_Y - AUX_ARRAY_HEIGHT * 1.5, 0);
+	this.cmd("CreateLabel", this.nextIndex++, "已访问节点", VISITED_START_X - AUX_ARRAY_WIDTH, AUX_ARRAY_START_Y - AUX_ARRAY_HEIGHT * 1.5, 0);
+	this.cmd("CreateLabel", this.nextIndex++, "BFS队列", QUEUE_START_X, QUEUE_START_Y - 30, 0);
 	animationManager.setAllLayers([0, this.currentLayer]);
 	animationManager.StartNewAnimation(this.commands);
 	animationManager.skipForward();
