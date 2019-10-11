@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.cs.usfca.edu/~galles/visualization/BFS.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>
+			Breadth-First Search
+		</title>
+		
+		<!-- css sheet for how the page is laid out -->
+		
+		<link rel="stylesheet" href="./Breadth-First Search_files/visualizationPageStyle.css">
+			
+			
+		<!-- jqueury stuff.  Only used for the animation speed slider. -->
+		<link rel="stylesheet" href="./Breadth-First Search_files/jquery-ui-1.8.11.custom.css">
+				
+		<script src="./Breadth-First Search_files/jquery-1.5.2.min.js.下载"></script>
+		<script src="./Breadth-First Search_files/jquery-ui-1.8.11.custom.min.js.下载"></script>
+				
+		<!-- Javascript for the actual visualization code -->
+		<script type="text/javascript" src="./Breadth-First Search_files/CustomEvents.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/UndoFunctions.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimatedObject.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimatedLabel.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimatedCircle.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimatedRectangle.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimatedLinkedList.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/HighlightCircle.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/Line.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/ObjectManager.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/AnimationMain.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/Algorithm.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/Graph.js.下载"> </script>
+		<script type="text/javascript" src="./Breadth-First Search_files/BFS.js.下载"> </script> 
+				
+			
+	 </head> 
+	
+	<body onload="init();" class="VisualizationMainPage">
+		
+		<div id="container">
+			
+			<div id="header">  
+				<h1>Breadth-First Search</h1>
+			</div>
+			
+			<div id="mainContent"> 
+				
+				<div id="algoControlSection">
+					<!-- Table for buttons to control specific animation (insert/find/etc) -->
+					<!-- (filled in by javascript code specific to the animtion) -->
+					<table id="AlgorithmSpecificControls"> <td>Start Vertex: </td><td><input type="Text" value="" size="2" disabled=""></td><td><input type="Button" value="Run BFS" disabled=""></td><td><input type="Button" value="New Graph" disabled=""></td><td><table><tr><td><input type="radio" name="GraphType" value="Directed Graph" disabled=""> Directed Graph</td></tr><tr><td><input type="radio" name="GraphType" value="Undirected Graph" disabled=""> Undirected Graph</td></tr></table></td><td><table><tr><td><input type="radio" name="GraphSize" value="Small Graph" disabled=""> Small Graph</td></tr><tr><td><input type="radio" name="GraphSize" value="Large Graph" disabled=""> Large Graph</td></tr></table></td><td><table><tr><td><input type="radio" name="GraphRepresentation" value="Logical Representation"> Logical Representation</td></tr><tr><td><input type="radio" name="GraphRepresentation" value="Adjacency List Representation"> Adjacency List Representation</td></tr><tr><td><input type="radio" name="GraphRepresentation" value="Adjacency Matrix Representation"> Adjacency Matrix Representation</td></tr></table></td></table> 
+				</div>
+				
+					<!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+									
+				<canvas id="canvas" width="1000" height="500" style=""></canvas>
+				
+				<div id="generalAnimationControlSection">
+					<!-- Table for buttons to control general animation (play/pause/undo/etc) ->
+					<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
+
+					<table id="GeneralAnimationControls">  <td><input type="Button" value="Skip Back"></td><td><input type="Button" value="Step Back"></td><td><input type="Button" value="play"></td><td><input type="Button" value="Step Forward"></td><td><input type="Button" value="Skip Forward"></td><td><table><tr><td><div display="inline-block" float="left" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="width:200px"><a href="https://www.cs.usfca.edu/~galles/visualization/BFS.html#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 75%;"></a></div></td></tr><tr><td align="center">Animation Speed</td></tr></table></td><td> w:</td><td><input type="Text" value="1000" size="4"></td><td>       h:</td><td><input type="Text" value="500" size="4"></td><td><input type="Button" value="Change Canvas Size"></td><td><input type="Button" value="Move Controls"></td></table>		
+				</div>
+				
+			</div> <!-- mainContent -->
+			
+			<div id="footer">  
+				<p><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">Algorithm Visualizations</a></p>
+			</div>
+
+		</div><!-- container -->
+	
+
+</body></html>
