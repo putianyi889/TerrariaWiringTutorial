@@ -1,8 +1,6 @@
 \documentclass[cn,11pt]{elegantbook}
 
-%\usepackage{color}
-%\usepackage{graphicx}
-\usepackage[labelformat=parens,subrefformat=simple]{subfig}
+\usepackage[labelformat=simple,listofformat=subsimple]{subfig}
 \usepackage{longtable}
 \usepackage[boxed]{algorithm2e}
 \usepackage{makecell}
@@ -15,12 +13,11 @@
 \renewcommand{\chapterautorefname}{章}
 \renewcommand{\algorithmautorefname}{算法}
 \renewcommand{\algorithmcfname}{算法}
-%\renewcommand\thesubfigure{(\alph{subfigure})}
-%\newcommand{\subfigureautorefname}{\figureautorefname}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\newcommand{\subfigureautorefname}{\figureautorefname}
 \newcommand{\wiki}[1]{\href{https://terraria-zh.gamepedia.com/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria-zh.gamepedia.com/#1}{#2}}
 \setcounter{totalnumber}{100}
-%\setcounter{tocdepth}{3}
 \makeatletter
 \g@addto@macro\UrlBreaks{%
  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%这里没有语法问题，属于分析器bug
@@ -35,7 +32,7 @@
 \author{putianyi888}
 \institute{Terraria 电路爱好者交流群（\href{https://jq.qq.com/?_wv=1027\&k=52nFXER}{231355279}）}
 \date{\today}
-\version{2.8.4}
+\version{2.8.5}
 
 \extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
 
