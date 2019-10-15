@@ -77,7 +77,7 @@
 \subsection{真值表}
 对于稍微复杂的逻辑表达式，例如$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$，我们很难一眼看出它们表达的意义。例子里的表达式只包含三种字母，它们只有8种取值的可能性，所以我们可以直接把这8种情况穷举出来，看看每种情况下这个表达式的结果是什么。
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{|c|c|c||c|}
 \hline
@@ -97,7 +97,7 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 从\autoref{tab2308}可以看出来，当且仅当$a,b,c$全为1时，$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的值才为1，这不就是与逻辑吗？所以我们得到$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc=a\&b\&c$，这个逻辑就很好理解了。\autoref{tab2308}就称为$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$的\textbf{真值表}。
 
 更多的时候，我们先得到一个真值表，然后希望得出它的逻辑表达式。例如对于显示器而言（\autoref{fig4}），我们在一开始只知道每个显示单元对于哪些输入应该亮，哪些输入应该暗，而不知道应该如何搭建这个逻辑。这里遇到的就是已知真值表，求解逻辑表达式的过程。本小节一开始举的那个例子里，因为真值表比较特殊，我们只通过观察就得到了它的逻辑表达式。对于简单观察得不到逻辑表达式的情况，后续一些小节会给出解决方案。
-\begin{figure}
+\begin{figure}[!ht]
 \centering
 \subfloat[]{\label{tab4}
 \begin{tabular}{|c|ccccccc|}
@@ -199,7 +199,7 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 
 全加器是什么？我们来看二进制加法的竖式计算。计算$a_{7:0}+b_{7:0}$时，首先列出\autoref{tab1406}所示的竖式并且把两个加数填入。然后计算$a_0+b_0$，这个结果可能是$00,01,10$。结果的低位直接就是和的最低位，写在$s_0$的位置。结果的高位是最低位向前的进位，写在$c_1$的位置。然后计算$a_1+b_1+c_1$，把结果的低位填入$s_1$，高位作为进位填入$c_2$。依此类推，在每一位上计算$a+b+c$，把结果的低位填入$s$，高位填入下一位的进位。这就是全加器的工作。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \begin{tabular}{rccccccccc}
 加数1&&$a_7$&$a_6$&$a_5$&$a_4$&$a_3$&$a_2$&$a_1$&$a_0$\\
@@ -212,7 +212,7 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 
 全加器接收三个输入$a,b,c_i$，其中$a,b$分别是两个加数的对应数位，$c_i$是低位产生的进位。全加器产生两个输出$s,c_o$，其中$s$是和的对应数位，$c_o$是向高位的进位。全加器的真值表如\autoref{tab1819}。
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{ccc|ccc}
 $a$&$b$&$c_i$&$s$&$c_o$&$sc_o$\\\hline
@@ -249,7 +249,7 @@ $a$&$b$&$c_i$&$s$&$c_o$&$sc_o$\\\hline
 \subsection{乘法器（Multiplier）}
 乘法是加法的推广，乘法器也是加法器的推广。我们首先来看二进制乘法的竖式计算。因为乘法规模较大，这里给出4位乘法的例子（\autoref{tab6585}）。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 $$
 \begin{array}{ccccccccc}
 &&&&a_3&a_2&a_1&a_0\\
