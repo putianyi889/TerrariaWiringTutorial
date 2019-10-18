@@ -1,6 +1,12 @@
 \chapter{电路基础}\label{dianlujichu}
 
-\section{电源/电线/用电器}
+\begin{introduction}
+\item \nameref{sec10}
+\item 基础电路示例
+\item 逻辑门基础
+\end{introduction}
+
+\section{电源/电线/用电器}\label{sec10}
 
 在现实生活中，电路的三个基本组成部分为电源、导电回路和用电器，电源产生的电流经回路传导到用电器并驱动用电器。在泰拉瑞亚中，电路的三个基本组成部分为电源、电线和用电器，电源产生的电信号经电线传导到用电器，用电器响应该电信号。wiki上这样描述这个过程：电源激活——电源上的电线激活——电线下的用电器激活。在本书接下来的讨论中，我们采用wiki上的解释，统一使用激活(activate)来表达电路的活跃状态。
 
@@ -17,17 +23,17 @@
 \endhead
 \hline
 \endfoot
-开关/控制杆	&	\raisebox{0pt}{\includegraphics{figures/Switch.png}} \raisebox{0pt}{\includegraphics{figures/Lever.png}}	&	鼠标右击	\\
+开关/控制杆	&&	鼠标右击	\\
 \hline
-灰/棕/蓝/丛林蜥蜴压力板	&	\raisebox{0pt}{\includegraphics{figures/Gray_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Brown_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Blue_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Lihzahrd_Pressure_Plate.png}}	&	玩家踩踏	\\
+灰/棕/蓝/丛林蜥蜴压力板	&&	玩家踩踏	\\
 \hline
-红/绿压力板	&	\raisebox{0pt}{\includegraphics{figures/Red_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Green_Pressure_Plate.png}}	&	玩家/NPC/敌怪踩踏	\\
+红/绿压力板	&&	玩家/NPC/敌怪踩踏	\\
 \hline
-黄压力板	&	\raisebox{0pt}{\includegraphics{figures/Yellow_Pressure_Plate.png}}	&	NPC/敌怪踩踏	\\
+黄压力板	&&	NPC/敌怪踩踏	\\
 \hline
-加重压力板	&	\raisebox{0pt}{\includegraphics{figures/Pink_Weighted_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Orange_Weighted_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Purple_Weighted_Pressure_Plate.png}} \raisebox{0pt}{\includegraphics{figures/Cyan_Weighted_Pressure_Plate.png}}	&	玩家踩上或离开	\\
+加重压力板	&&	玩家踩上或离开	\\
 \hline
-青绿压力垫板	&	\raisebox{0pt}{\includegraphics{figures/Teal_Pressure_Pad.png}}	&	射弹触碰	\\
+青绿压力垫板	&&	射弹触碰	\\
 \hline
 1/3/5秒计时器	&	\raisebox{0pt}{\includegraphics{figures/1_Second_Timer.png}} \raisebox{0pt}{\includegraphics{figures/3_Second_Timer.png}} \raisebox{0pt}{\includegraphics{figures/5_Second_Timer.png}}	&	开启后每隔1/3/5秒激活	\\
 \hline
@@ -48,7 +54,7 @@
 \caption{泰拉瑞亚中的电源}\label{dianyuan}
 \end{longtable}
 
-用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见表\ref{yongdianqi}，详细信息请参阅\autoref{sec4}及wiki。
+用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见表\ref{yongdianqi}，详细信息请参阅\autoref{sec1}及wiki。
 
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。
 
@@ -356,8 +362,6 @@
 \caption{}
 \label{i32:33}
 \end{figure}
-
-\input{chapters/Sources.tex}
 
 \section{逻辑门灯/逻辑门}
 
@@ -850,7 +854,7 @@
 
 绿线等可能地激活0\~{}5次，经过下面的递次电路，就会导致点亮的火把等可能地循环右移0\~{}5个。无论激活顶端黄线之前哪个火把是亮的，这都意味着六个火把有等可能的概率点亮。
 
-\begin{problemset}
+\begin{problemset}[思考题]
 \item 为什么只能由玩家激活的压力板会选用灰/棕/蓝/丛林蜥蜴这四种颜色？
 \item 解释为什么如\autoref{i11:12}所示装置会在世界开启瞬间激活广播盒。该装置里的故障逻辑门有什么作用？
 \begin{figure}[!ht]

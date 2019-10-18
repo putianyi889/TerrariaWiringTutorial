@@ -8,7 +8,7 @@
 %%%%%%%%%%%%%%%%%%%%%
 % % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{elegantbook}[2019/05/26 v3.08 ElegantBook document class]
+\ProvidesClass{elegantbook}[2019/08/18 v3.09 ElegantBook document class]
 
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -25,6 +25,7 @@
 \DeclareStringOption[numbers]{cite}
 \DeclareStringOption[newtxmath]{math}
 \DeclareStringOption[marginfalse]{marginpar}
+\DeclareStringOption[onecol]{toc}
 % ----- backward compatibility
 \DeclareVoidOption{green}{\ekv{color=green}}
 \DeclareVoidOption{cyan}{\ekv{color=cyan}}
@@ -56,6 +57,10 @@
 
 \DeclareVoidOption{margintrue}{\ekv{marginpar=margintrue}}
 \DeclareVoidOption{marginfalse}{\ekv{marginpar=marginfalse}}
+
+\DeclareVoidOption{onecol}{\ekv{toc=onecol}}
+\DeclareVoidOption{twocol}{\ekv{toc=twocol}}
+
 % ----- Math option -----
 \newcommand\mailto[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
@@ -69,11 +74,9 @@
 
 \ProcessKeyvalOptions*\relax
 % \ProcessOptions*\relax
-\LoadClass[a4paper,oneside,openany]{book}
+\LoadClass[a4paper,oneside]{book}
 
 \RequirePackage{indentfirst,comment}
-\setlength\parindent{2em}
-
 % fontsetting
 \ifdefstring{\ELEGANT@math}{mtpro2}{
 \let\Bbbk\relax
@@ -88,45 +91,28 @@
 
 \RequirePackage{ifxetex}
 
-\ifxetex
-	\RequirePackage{fontenc}
-\else
-	\RequirePackage[T1]{fontenc}
-\fi
-
+% \AtBeginDocument{%
+%   \addtocontents{toc}{\protect\pagestyle{empty}}%
+%   \addtocontents{lof}{\protect\thispagestyle{empty}}%
+% }
 
 \RequirePackage{newtxtext}
-\ifdefstring{\ELEGANT@math}{newtxmath}{
-\RequirePackage{newtxmath}
-}{\relax}
-
-
-
-% font setting for text and math
-% \RequirePackage[T1]{fontenc}
-% \RequirePackage{newtxtext}
-% \RequirePackage{newtxmath}
-% \RequirePackage[scale=0.85]{newtxtt}  
 \RequirePackage{anyfontsize}
 \ifdefstring{\ELEGANT@math}{newtxmath}{
-\DeclareSymbolFont{CMletters}     {OML}{cmm} {m}{it}%
-\DeclareSymbolFont{CMsymbols}     {OMS}{cmsy}{m}{n}%
-\DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}%
-% \let\sum\relax
-% \DeclareMathSymbol{\sum}{\mathop}{CMlargesymbols}{"50}%
-% \let\int\relax
-% \DeclareMathSymbol{\int}{\mathop}{CMlargesymbols}{"5A}%
-\let\intop\relax\let\sumop\relax\let\ointop\relax\let\prodop\relax
+\RequirePackage{newtxmath}
+\RequirePackage{esint}
+%%% use yhmath pkg, uncomment following code
+% \let\oldwidering\widering
+% \let\widering\undefined
+% \RequirePackage{yhmath}
+% \let\widering\oldwidering
+
+%%% use esvect pkg, uncomment following code
+% \RequirePackage{esvect}
+\DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
+\let\sumop\relax\let\prodop\relax
 \DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
-\DeclareMathSymbol{\intop}{\mathop}{CMlargesymbols}{"52}
-\DeclareMathSymbol{\ointop}{\mathop}{CMlargesymbols}{"48}
 \DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
-% \let\partial\relax
-% \DeclareMathSymbol{\partial}{\mathord}{CMletters}{"40}%
-% \let\in\relax
-%\DeclareMathSymbol{\in}{\mathrel}{CMsymbols}{"32}%
-% \let\pi\relax
-% \DeclareMathSymbol{\pi}{\mathord}{CMletters}{"19}
 }{\relax}
 
 % ----- Handle Colors -----
@@ -227,7 +213,7 @@
 
 \RequirePackage{enumerate}
 % list/itemize/enumerate setting
-\RequirePackage[shortlabels]{enumitem}
+\RequirePackage[shortlabels,inline]{enumitem}
 \setlist{nolistsep}
 
 % caption settings 
@@ -238,8 +224,21 @@
 \AtBeginDocument{
 \setlength{\abovedisplayskip}{3pt}
 \setlength{\belowdisplayskip}{3pt}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
+\RequirePackage[flushmargin]{footmisc}
+\setlength{\footnotesep}{12pt}
 }
+
+\ifdefstring{\ELEGANT@toc}{twocol}{
+\renewcommand{\tableofcontents}{%
+\setlength{\columnsep}{2em}
+%\setlength{\columnseprule}{.8pt}
+\begin{multicols}{2}[\chapter*{\contentsname}]%
+  \@starttoc{toc}%
+\end{multicols}}
+}{\relax}
+
+
 %% 常用宏包
 \linespread{1.3}
 
@@ -247,37 +246,43 @@
 %\RequirePackage{enumerate}
 \RequirePackage{amsmath,mathrsfs,amsfonts,amssymb}
 \RequirePackage{booktabs}
-\RequirePackage{multicol}
+\RequirePackage{multicol,multirow}
 \RequirePackage{xcolor}
 \RequirePackage{fancyvrb}
 \RequirePackage{makecell,lipsum,hologo,setspace}
 
 %%中文结构名字
 \ifdefstring{\ELEGANT@lang}{cn}{
-\renewcommand{\contentsname}{目\hspace{2em}录}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-\renewcommand{\partname}{\color{structurecolor}}
-\renewcommand{\thepart}{第\zhnumber{\arabic{part}}部分}
-\renewcommand{\listfigurename}{插图目录}
-\renewcommand{\listtablename}{表格目录}
-\renewcommand{\bibname}{参考文献}
-\renewcommand{\appendixname}{附录}
-\renewcommand{\indexname}{索\hspace{2em}引}
-\newcommand\figref[1]{\textbf{图}~\ref{#1}}
-\newcommand\tabref[1]{\textbf{表}~\ref{#1}}
-\renewcommand{\chaptername}{第 \thechapter\;章}
-\ifdefstring{\ELEGANT@cite}{authoryear}{
-\RequirePackage[authoryear]{gbt7714}}{\relax}
-\ifdefstring{\ELEGANT@cite}{numbers}{
-\RequirePackage[numbers]{gbt7714}}{\relax}
-% \bibliographystyle{aer}
+	\setlength\parindent{2\ccwd}
+	\renewcommand{\contentsname}{目\hspace{2em}录}
+	\renewcommand{\figurename}{图}
+	\renewcommand{\tablename}{表}
+	\renewcommand{\partname}{\color{structurecolor}}
+	\renewcommand{\thepart}{第\zhnumber{\arabic{part}}部分}
+	\renewcommand{\listfigurename}{插图目录}
+	\renewcommand{\listtablename}{表格目录}
+	\renewcommand{\bibname}{参考文献}
+	\renewcommand{\appendixname}{附录}
+	\renewcommand{\indexname}{索\hspace{2em}引}
+	\newcommand\figref[1]{\textbf{图}~\ref{#1}}
+	\newcommand\tabref[1]{\textbf{表}~\ref{#1}}
+	\renewcommand{\chaptername}{第 \thechapter\,章}
+	\ifdefstring{\ELEGANT@cite}{authoryear}{
+		\RequirePackage[authoryear]{gbt7714}
+	}{\relax}
+	\ifdefstring{\ELEGANT@cite}{numbers}{
+		\RequirePackage[numbers]{gbt7714}
+	}{\relax}
+	\ifdefstring{\ELEGANT@cite}{super}{
+		\RequirePackage[super]{gbt7714}
+	}{\relax}
 }{\relax}
 \ifdefstring{\ELEGANT@lang}{en}{
-\newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
-\newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
-\renewcommand{\chaptername}{Chapter \thechapter}
-\bibliographystyle{aer}
+	\setlength\parindent{2em}
+	\newcommand\figref[1]{\textbf{Figure}~\ref{#1}}
+	\newcommand\tabref[1]{\textbf{Table}~\ref{#1}}
+	\renewcommand{\chaptername}{Chapter \thechapter}
+	\bibliographystyle{aer}
 }{\relax}
 
 \RequirePackage{xpatch}
@@ -306,7 +311,6 @@
 %% device settings
 
 \RequirePackage{geometry}
-\RequirePackage{marginnote}
 \ifdefstring{\ELEGANT@device}{normal}{
 \geometry{
 	a4paper,
@@ -315,10 +319,11 @@
 	headsep=4mm,
 	footskip=12mm
 }
+
 \ifdefstring{\ELEGANT@marginpar}{margintrue}{
 \geometry{
-	marginparwidth=6cm, marginparsep=5mm,
-	left=1.5cm,right=7.5cm,
+	marginparwidth=5cm, marginparsep=5mm,
+	left=2cm,right=7cm,
 }
 }{\relax}
 }{\relax}
@@ -338,7 +343,6 @@
 	unicode,
 	linktoc=all,
 	bookmarksnumbered=true,
-	bookmarksdepth=5,
 	bookmarksopen=true,
 	pdfkeywords={ElegantBook},
 	colorlinks,
@@ -354,7 +358,7 @@
 \newcommand\email[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 %%   章节设置
-\RequirePackage[center,pagestyles]{titlesec}
+\RequirePackage[center]{titlesec}
 \RequirePackage{apptools}
 \RequirePackage[toc,page]{appendix}
 
@@ -364,13 +368,13 @@
 {\filcenter\LARGE\enspace\bfseries{\color{structurecolor}\IfAppendix{\appendixname}{\chaptername}\enspace}}{1pt}{\bfseries\color{structurecolor}\LARGE\filcenter}[\ifdefstring{\ELEGANT@base}{hide}{}{\filcenter\base{structurecolor}{88}}]
 
 \titleformat{\section}[hang]{\bfseries}
-{\hspace{-2.45em}\Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{\color{structurecolor}\Large\bfseries\filright}
+{\Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{\color{structurecolor}\Large\bfseries\filright}
 
-\titleformat{\subsection}[hang]{\bfseries}
-{\hspace{-2.45em}\large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{\color{structurecolor}\large\bfseries\filright}
+\titleformat{\subsection}[hang]{\bfseries}{
+  \large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{\color{structurecolor}\large\bfseries\filright}
 
 \titleformat{\subsubsection}[hang]{\bfseries}
-{\hspace{-2.45em}\large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{\color{structurecolor}\large\bfseries\filright}
+{\large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{\color{structurecolor}\large\bfseries\filright}
 
 
 \titlespacing{\chapter}{0pt}{-20pt}{1.3\baselineskip}
@@ -383,11 +387,16 @@
 
 
 \RequirePackage[many]{tcolorbox}
+
+% \newlength{\normalparindent}
+% \setlength{\normalparindent}{\parindent}
+
 \ifdefstring{\ELEGANT@mode}{fancy}{
 \tcbset{
     common/.style={
         fontupper=\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\upshape\kaishu},
         lower separated=false,
+        % before upper={\setlength{\parindent}{\normalparindent}},
         coltitle=white,
         colback=gray!5,
         boxrule=0.5pt,
@@ -405,21 +414,21 @@
         colframe=main,  
         colback=main!5,
         colbacktitle=main, 
-        overlay unbroken and last={\node[anchor=south east, outer sep=6pt] at (\textwidth-width,0) {\textcolor{main}{$\clubsuit$}}; }
+        overlay unbroken and last={\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {\textcolor{main}{$\clubsuit$}}; }
     },
     thmstyle/.style={
         common,
         colframe=second,  
         colback=second!5,
         colbacktitle=second, 
-        overlay unbroken and last={\node[anchor=south east, outer sep=6pt] at (\textwidth-width,0) {\textcolor{second}{$\heartsuit$}}; }
+        overlay unbroken and last={\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {\textcolor{second}{$\heartsuit$}}; }
     },
     propstyle/.style={
         common,
         colframe=third,  
         colback=third!5,
         colbacktitle=third, 
-        overlay unbroken and last={\node[anchor=south east, outer sep=6pt] at (\textwidth-width,0) {\textcolor{third}{$\spadesuit$}}; }
+        overlay unbroken and last={\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {\textcolor{third}{$\spadesuit$}}; }
     },
 }
 
@@ -522,9 +531,9 @@
 \setcounter{exam}{0}
 \renewcommand{\theexam}{\thechapter.\arabic{exam}}
 \newenvironment{example}[1][]{
- 		\refstepcounter{exam}\par\noindent\textbf{\color{main}{
+ 		\refstepcounter{exam}\par\noindent\textbf{\color{main}{%
  			\ifdefstring{\ELEGANT@lang}{en}{Example}{例}
- 		}\theexam #1 }\rmfamily %
+ 		}\theexam #1 \,}\rmfamily %
  	}{
  		\par\medskip\ignorespacesafterend %
  	}
@@ -534,9 +543,9 @@
 \setcounter{exer}{0}
 \renewcommand{\theexer}{\thechapter.\arabic{exer}}
 \newenvironment{exercise}[1][]{
- 		\refstepcounter{exer}\par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}\textbf{\color{main}{
+ 		\refstepcounter{exer}\par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}\textbf{\color{main}{%
  			\ifdefstring{\ELEGANT@lang}{en}{Exercise}{练习}
- 		}\theexer #1 }\rmfamily %
+ 		}\theexer #1 \,}\rmfamily %
  	}{
  		\par\medskip\ignorespacesafterend %
  	}
@@ -548,39 +557,39 @@
 \newenvironment{problem}[1][]{
  		\refstepcounter{prob}\par\noindent\textbf{\color{main}{%
  			\ifdefstring{\ELEGANT@lang}{en}{Problem}{例题}
- 		}\theprob #1 }\rmfamily %
+ 		}\theprob #1 \,}\rmfamily %
  	}{
  		\par\medskip\ignorespacesafterend %
  	}
 
 
 
-\newenvironment{note}{\par\noindent{\makebox[0pt][r]{\scriptsize\color{red!90}\textdbend\quad}\textbf{\color{second}
-	\ifdefstring{\ELEGANT@lang}{en}{Note}{注意}
+\newenvironment{note}{\par\noindent{\makebox[0pt][r]{\scriptsize\color{red!90}\textdbend\quad}\textbf{\color{second}%
+	\ifdefstring{\ELEGANT@lang}{en}{Note}{注意}\,
 }}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}}{\par}
 
-\newenvironment{proof}{\par\noindent\textbf{\color{second}
-	\ifdefstring{\ELEGANT@lang}{en}{Proof}{证明}
+\newenvironment{proof}{\par\noindent\textbf{\color{second}%
+	\ifdefstring{\ELEGANT@lang}{en}{Proof}{证明}\;
 }\color{black!90}\small}{
 %\hfill$\Box$\quad
 \par}
-\newenvironment{remark}{\noindent\textbf{\color{second}
-	\ifdefstring{\ELEGANT@lang}{en}{Remark}{注}
+\newenvironment{remark}{\noindent\textbf{\color{second}%
+	\ifdefstring{\ELEGANT@lang}{en}{Remark}{注}\,
 }}{\par}
-\newenvironment{assumption}{\par\noindent\textbf{\color{third}
-	\ifdefstring{\ELEGANT@lang}{en}{Assumption}{假设}
+\newenvironment{assumption}{\par\noindent\textbf{\color{third}%
+	\ifdefstring{\ELEGANT@lang}{en}{Assumption}{假设}\,
 }}{\par}
-\newenvironment{conclusion}{\par\noindent\textbf{\color{third}
-	\ifdefstring{\ELEGANT@lang}{en}{Conclusion}{结论}
+\newenvironment{conclusion}{\par\noindent\textbf{\color{third}%
+	\ifdefstring{\ELEGANT@lang}{en}{Conclusion}{结论}\,
 }}{\par}
-\newenvironment{solution}{\par\noindent\textbf{\color{main}
-	\ifdefstring{\ELEGANT@lang}{en}{Solution}{解}
+\newenvironment{solution}{\par\noindent\textbf{\color{main}%
+	\ifdefstring{\ELEGANT@lang}{en}{Solution}{解}\;
 }\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}}{\vskip2ex\par}
-\newenvironment{property}{\par\noindent\textbf{\color{third}
-	\ifdefstring{\ELEGANT@lang}{en}{Property}{性质}
+\newenvironment{property}{\par\noindent\textbf{\color{third}%
+	\ifdefstring{\ELEGANT@lang}{en}{Property}{性质}\;
 }}{\par}
 \newenvironment{custom}[1]{\par\noindent\textbf{\color{third}
-	\ifdefstring{\ELEGANT@lang}{en}{#1}{#1}
+	\ifdefstring{\ELEGANT@lang}{en}{#1}{#1}\,
 }}{\par}
 
 \RequirePackage{multicol}
@@ -613,12 +622,16 @@
 \end{tcolorbox}}
 
 \RequirePackage{adforn}
-\newenvironment{problemset}[1][\ifdefstring{\ELEGANT@lang}{en}{\textbf{\chaptername\; Exercise}}{\textbf{\chaptername\; 思考题}}]{
+\newenvironment{problemset}[1][\ifdefstring{\ELEGANT@lang}{en}{\textbf{\chaptername\, Exercise}}{\textbf{\chaptername\, 习题}}]{
 \begin{center}
+\ifdefstring{\ELEGANT@lang}{en}{\addcontentsline{toc}{section}{\texorpdfstring{\chaptername\,}{Chapter} Exercise} }{\addcontentsline{toc}{section}{\texorpdfstring{\chaptername\,}{章节}习题}}
 \textcolor{structurecolor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}
 \end{center}
 \begin{enumerate}[label=\textcolor{structurecolor}{\arabic*.}]}{%
 \end{enumerate}}
+
+\def\relsec{\endgroup start}
+\def\endrelsec{end\begingroup\def \@currenvir {relsec}}
 
 \ifdefstring{\ELEGANT@result}{noanswer}{
 	\AtBeginDocument{
@@ -634,23 +647,38 @@
 \RequirePackage{lastpage}
 \fancyhf{}
 
-\if@twoside
-\fancyhead[EL,OR]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}--\thepage/\pageref*{LastPage}--}
-\fancyhead[ER]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\leftmark{}}
-\fancyhead[OL]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
-\else
-\fancyhead[R]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}--\thepage/\pageref*{LastPage}--}
-\fancyhead[L]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
-\fi
 
-\fancyfoot[c]{\base{structurecolor}{88}}
+\ifdefstring{\ELEGANT@base}{hide}{
+	\fancyfoot[c]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\scriptsize--\;\thepage\;--}
+	\if@twoside
+	\fancyhead[ER]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\leftmark}
+	\fancyhead[OL]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
+	\else
+	\fancyhead[R]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
+	\fi
+}{\relax}
+
+
+\ifdefstring{\ELEGANT@base}{show}{
+	\fancyfoot[c]{\catcode`\$=3\relax\base{structurecolor}{88}}
+	\if@twoside
+	\fancyhead[EL,OR]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}--\;\thepage/\pageref*{LastPage}\;--}
+	\fancyhead[ER]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\leftmark}
+	\fancyhead[OL]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
+	\else
+	\fancyhead[R]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}--\;\thepage/\pageref*{LastPage}\;--}
+	\fancyhead[L]{\color{structurecolor}\ifdefstring{\ELEGANT@lang}{en}{\itshape}{\kaishu}\rightmark}
+	\fi
+}{\relax}
+
+
 \renewcommand{\headrule}{\color{structurecolor}\hrule width\textwidth}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{1pt}
 % \renewcommand{\headrule}{}
 \fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}\fancyhf{}\renewcommand{\headrule}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\; #1}{} }
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername \; #1\;}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\, #1}{} }
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername \, #1\,}{}}
 
 %%封面
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
@@ -698,7 +726,7 @@
 	\setstretch{2.5}
 	\hspace{2.5em}
 	\begin{minipage}[c]{0.67\linewidth}
-		{\color{darkgray}\bfseries\Large \mbox{}\the\subtitle\\[2ex]}
+		{\color{darkgray}\bfseries\Large \the\subtitle\\[2ex]}
 		\color{gray}\normalsize
 		{\renewcommand{\arraystretch}{0.618}
 		\begin{tabular}{l} 
@@ -728,7 +756,6 @@
 
 
 
-
 \RequirePackage{listings} 
 \renewcommand{\ttdefault}{cmtt}
 \lstdefinestyle{mystyle}{
@@ -747,9 +774,9 @@
 	breaklines=true,
 	keywordstyle=\color{winered},
 	commentstyle=\color{gray},
-	emph={elegantpaper,fontenc,fontspec,xeCJK,FiraMono,xunicode,newtxmath,figure,fig,image,img,table,itemize,enumerate,newtxtext,newtxtt,ctex,microtype,description,times,newtx,booktabs,tabular,PDFLaTeX,XeLaTeX,type1cm,BibTeX,device,color,mode,lang,amsthm,tcolorbox,titlestyle,cite,marginnote,ctex,listings},
+	emph={elegantpaper,fontenc,fontspec,xeCJK,FiraMono,xunicode,newtxmath,figure,fig,image,img,table,itemize,enumerate,newtxtext,newtxtt,ctex,microtype,description,times,newtx,booktabs,tabular,PDFLaTeX,XeLaTeX,type1cm,BibTeX,device,color,mode,lang,amsthm,tcolorbox,titlestyle,cite,marginnote,ctex,listings,base},
 	emphstyle={\color{frenchplum}},
-	morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institute,version,includegraphics,setmainfont,setsansfont,setmonofont ,setCJKmainfont,setCJKsansfont,setCJKmonofont,RequirePackage,figref,tabref,email,maketitle,keywords,definecolor,extrainfo,logo,cover,subtitle,appendix,chapter,hypersetup,mainmatter,tableofcontents,elegantpar,numbers,authoryear,heiti,kaishu,lstset,pagecolor,zhnumber,marginpar,part,equote},
+	morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institute,version,includegraphics,setmainfont,setsansfont,setmonofont ,setCJKmainfont,setCJKsansfont,setCJKmonofont,RequirePackage,figref,tabref,email,maketitle,keywords,definecolor,extrainfo,logo,cover,subtitle,appendix,chapter,hypersetup,mainmatter,tableofcontents,elegantpar,heiti,kaishu,lstset,pagecolor,zhnumber,marginpar,part,equote,marginnote},
 	frame=single,
 	tabsize=2,
 	rulecolor=\color{structurecolor},
@@ -757,25 +784,5 @@
 	columns=flexible,
 	% backgroundcolor=\color{lightgrey}
 }
-
+\newcommand\bmmax{0}
 \RequirePackage{bm}
-\newif\ifstartedinmathmode
-\newcommand{\elegantpar}[2]{%
- \relax\ifmmode\startedinmathmodetrue\else\startedinmathmodefalse\fi
-  {\color{second}\ifstartedinmathmode \ensuremath{\bm\langle #1 \bm\rangle}\else $\bm\langle$#1$\bm\rangle$\fi}%
-  \begin{tikzpicture}[remember picture, baseline=-0.75ex]%
-    \node[coordinate] (inText) {};%
-  \end{tikzpicture}%
-  \marginnote{%
-    \renewcommand{\baselinestretch}{1.0}%
-    \begin{tikzpicture}[remember picture]%
-      \draw node[fill= third!20, rounded corners,text width=\marginparwidth] (inNote){\footnotesize #2};%
-    \end{tikzpicture}%
-    }%
-  \begin{tikzpicture}[remember picture, overlay]%
-    \draw[draw = second]
-      ([yshift=-0.55em] inText)
-        -| ([xshift=-0.55em] inNote.west)
-        -| (inNote.west);%
-  \end{tikzpicture}%
-}
