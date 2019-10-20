@@ -12,49 +12,49 @@
 
 由于电线和图格处于不同图层，它们可以重叠。如果某电线与某图格重叠，我们说该图格在该电线下，该电线在该图格上。
 
-电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。泰拉瑞亚中所有电源及其激活条件见表\ref{dianyuan}，详细信息请参阅\autoref{sec1}及wiki。
+电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。泰拉瑞亚中所有电源及其激活条件见\autoref{dianyuan}，详细信息请参阅\nameref{sec1}及wiki。
 
-\begin{longtable}{c|c|l}
-电源		&	物品贴图	&	激活条件	\\
+\begin{longtable}{|c|c|}
+\caption{泰拉瑞亚中的电源}\label{dianyuan}\\\hline
+电源					&	激活条件					\\
 \hline
 \endfirsthead
-电源		&	物品贴图	&	激活条件	\\
+\hline
+电源					&	激活条件					\\
 \hline
 \endhead
 \hline
 \endfoot
-开关/控制杆	&&	鼠标右击	\\
+开关/控制杆				&	鼠标右击					\\
 \hline
-灰/棕/蓝/丛林蜥蜴压力板	&&	玩家踩踏	\\
+灰/棕/蓝/丛林蜥蜴压力板	&	玩家踩踏					\\
 \hline
-红/绿压力板	&&	玩家/NPC/敌怪踩踏	\\
+红/绿压力板				&	玩家/NPC/敌怪踩踏			\\
 \hline
-黄压力板	&&	NPC/敌怪踩踏	\\
+黄压力板				&	NPC/敌怪踩踏				\\
 \hline
-加重压力板	&&	玩家踩上或离开	\\
+加重压力板				&	玩家踩上或离开				\\
 \hline
-青绿压力垫板	&&	射弹触碰	\\
+青绿压力垫板			&	射弹触碰					\\
 \hline
-1/3/5秒计时器	&	\raisebox{0pt}{\includegraphics{figures/1_Second_Timer.png}} \raisebox{0pt}{\includegraphics{figures/3_Second_Timer.png}} \raisebox{0pt}{\includegraphics{figures/5_Second_Timer.png}}	&	开启后每隔1/3/5秒激活	\\
+1/3/5秒计时器			&	开启后每隔1/3/5秒激活		\\
 \hline
-引爆器	&	\raisebox{0pt}{\includegraphics{figures/Detonator.png}}	&	玩家自上而下冲击或鼠标右击	\\
+引爆器					&	玩家自上而下冲击或鼠标右击	\\
 \hline
-宝石锁	&	\tabincell{c}{\raisebox{0pt}{\includegraphics{figures/Amethyst_Gem_Lock.png}} \raisebox{0pt}{\includegraphics{figures/Topaz_Gem_Lock.png}} \raisebox{0pt}{\includegraphics{figures/Sapphire_Gem_Lock.png}} \raisebox{0pt}{\includegraphics{figures/Emerald_Gem_Lock.png}}\\ \raisebox{0pt}{\includegraphics{figures/Ruby_Gem_Lock.png}} \raisebox{0pt}{\includegraphics{figures/Diamond_Gem_Lock.png}} \raisebox{0pt}{\includegraphics{figures/Amber_Gem_Lock.png}}}	&	对应的大宝石被嵌入或取出	\\
+宝石锁					&	对应的大宝石被嵌入或取出	\\
 \hline
-受困宝箱	&	\\
+受困宝箱				&	鼠标右击					\\
 \hline
-逻辑感应器（昼/夜）	&	\raisebox{0pt}{\includegraphics{figures/Logic_Sensor_(Day).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Sensor_(Night).png}}	&	入昼/入夜	\\
+逻辑感应器（昼/夜）		&	入昼/入夜					\\
 \hline
-逻辑感应器（玩家）	&	\raisebox{0pt}{\includegraphics{figures/Logic_Sensor_(Player_Above).png}}	&	玩家进或出蓝色方框	\\
+逻辑感应器（玩家）		&	玩家进或出蓝色方框			\\
 \hline
-液体感应器	&	\raisebox{0pt}{\includegraphics{figures/Liquid_Sensor_(Water).png}} \raisebox{0pt}{\includegraphics{figures/Liquid_Sensor_(Lava).png}} \raisebox{0pt}{\includegraphics{figures/Liquid_Sensor_(Honey).png}} \raisebox{0pt}{\includegraphics{figures/Liquid_Sensor_(Any).png}}	&	对应液体触碰	\\
+液体感应器				&	对应液体进入或离开			\\
 \hline
-逻辑门	&	\raisebox{0pt}{\includegraphics{figures/Logic_Gate_(AND).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Gate_(NAND).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Gate_(OR).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Gate_(NOR).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Gate_(XOR).png}} \raisebox{0pt}{\includegraphics{figures/Logic_Gate_(XNOR).png}}	&	详见后文	\\
-\hline
-\caption{泰拉瑞亚中的电源}\label{dianyuan}
+逻辑门					&	详见后文					\\
 \end{longtable}
 
-用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见表\ref{yongdianqi}，详细信息请参阅\autoref{sec1}及wiki。
+用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有用电器及其响应方式见\autoref{yongdianqi}，详细信息请参阅\nameref{sec1}及wiki。
 
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。
 
@@ -62,172 +62,36 @@
 
 有一部分用电器被激活的时候会在两个状态间切换，例如发光物品的亮灭切换，功能物品的开关切换。在涉及到逻辑的时候，可以将两个状态看作1和0。
 
-\begin{longtable}{c|c|c}
-	\caption{泰拉瑞亚中的用电器}\label{yongdianqi}\\
-%\tablefirsthead{
-	用电器		&	物品贴图	&	响应方式	\\
-	\hline \hline
-	\endfirsthead
-%}
-%\tablehead{
-用电器		&	物品贴图	&	响应方式	\\
-\hline \hline
+\begin{longtable}{|c|c|}
+\caption{泰拉瑞亚中的用电器}\label{yongdianqi}\\\hline
+用电器		&	响应方式	\\\hline
+\endfirsthead
+\hline
+用电器		&	响应方式	\\\hline
 \endhead
-%}
-%\tabletail{\hline}
 \hline
 \endfoot
-
-
-火把	&	
-\begin{tabular}{cccccccc}
-\raisebox{0pt}{\includegraphics{figures/Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Purple_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Yellow_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Red_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Orange_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/White_Torch.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Pink_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Ice_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Cursed_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Ichor_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Demon_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Rainbow_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Ultrabright_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Torch.png}}
-\end{tabular}
-	&	亮/灭切换	\\
-\hline
-部分蜡烛	& 
-\begin{tabular}{cccccccc}
-\raisebox{0pt}{\includegraphics{figures/Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Platinum_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Shadewood_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Pearlwood_Candle.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Dynasty_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Cactus_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Mushroom_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Pumpkin_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Candle.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Martian_Hover_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Crystal_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Flesh_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Frozen_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Candle.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Skyware_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Steampunk_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Dungeon_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Dungeon_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Pink_Dungeon_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Obsidian_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Golden_Candle.png}}
-\end{tabular}
-	&	亮/灭切换	\\
-\hline
-部分灯笼&
-\begin{tabular}{cccccccc}
-\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Shadewood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Pearlwood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Dynasty_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Lantern.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Cactus_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Mushroom_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Pumpkin_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Hanging_Jack_O_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Martian_Lantern.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Crystal_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Star_in_a_Bottle.png}}&\raisebox{0pt}{\includegraphics{figures/Heart_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Flesh_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Frozen_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Lantern.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Skyware_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Steampunk_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Chain_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Brass_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Caged_Lantern.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Carriage_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Alchemy_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Diabolist_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Oil_Rag_Sconse.png}}&\raisebox{0pt}{\includegraphics{figures/Obsidian_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Golden_Lantern.png}}
-\end{tabular}
-&	亮/灭切换	\\
-\hline
-灯&
-\begin{tabular}{cccccccc}
-\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Shadewood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Pearlwood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Dynasty_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Lamp.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Cactus_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Mushroom_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Pumpkin_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Tiki_Torch.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Martian_Lamppost.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Crystal_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Golden_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Obsidian_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Flesh_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Frozen_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Lamp.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Skyware_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Steampunk_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Dungeon_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Dungeon_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Pink_Dungeon_Lamp.png}}
-\end{tabular}
-&	亮/灭切换	\\
-\hline
-篝火&
-\begin{tabular}{cccc}
-\raisebox{0pt}{\includegraphics{figures/Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Cursed_Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Demon_Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Frozen_Campfire.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Ichor_Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Rainbow_Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Ultra_Bright_Campfire.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Campfire.png}}
-\end{tabular}
-&	亮/灭切换	\\
-\hline
-烛台&
-\begin{tabular}{cccccc}
-\raisebox{0pt}{\includegraphics{figures/Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Platinum_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Candelabra.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Shadewood_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Pearlwood_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Large_Dynasty_Candle.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Cactus_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Mushroom_Candelabra.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Pumpkin_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Martian_Table_Lamp.png}}&\raisebox{0pt}{\includegraphics{figures/Crystal_Candelabra.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Flesh_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Frozen_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Candelabra.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Skyware_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Steampunk_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Dungeon_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Dungeon_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Pink_Dungeon_Candelabra.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Obsidian_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Golden_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Candelabra.png}}&\raisebox{0pt}{\includegraphics{figures/Jack_O_Lantern.png}}
-\end{tabular}
-&	亮/灭切换	\\
-\hline
-吊灯&
-\begin{tabular}{ccccc}
-\raisebox{0pt}{\includegraphics{figures/Copper_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Tin_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Silver_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Tungsten_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Gold_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Platinum_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Shadewood_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Pearlwood_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Large_Dynasty_Lantern.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Cactus_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Mushroom_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Pumpkin_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Martian_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Crystal_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Flesh_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Frozen_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Skyware_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Steampunk_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Dungeon_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Dungeon_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Pink_Dungeon_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Obsidian_Chandelier.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Golden_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Chandelier.png}}&\raisebox{0pt}{\includegraphics{figures/Jackelier.png}}
-\end{tabular}
-&	亮/灭切换	\\
-\hline
-晶莹宝石块	&
-\tabincell{c}{\raisebox{0pt}{\includegraphics{figures/Amethyst_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Topaz_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Sapphire_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Emerald_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Ruby_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Diamond_Gemspark_Block.png}} \raisebox{0pt}{\includegraphics{figures/Amber_Gemspark_Block.png}}}
-&	亮/灭切换	\\
-\hline
-\tabincell{c}{其他\\单色\\发光物}&
-\tabincell{c}{\raisebox{0pt}{\includegraphics{figures/Chinese_Lantern.png}} \raisebox{0pt}{\includegraphics{figures/Lamp_Post.png}} \raisebox{0pt}{\includegraphics{figures/Disco_Ball.png}} \raisebox{0pt}{\includegraphics{figures/Blue_Light.png}} \raisebox{0pt}{\includegraphics{figures/Red_Light.png}} \raisebox{0pt}{\includegraphics{figures/Green_Light.png}} \raisebox{0pt}{\includegraphics{figures/Fireplace.png}}}
-&	亮/灭切换	\\
-\hline
-门&
-\begin{tabular}{cccccc}
-\raisebox{0pt}{\includegraphics{figures/Wooden_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Boreal_Wood_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Palm_Wood_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Rich_Mahogany_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Ebonwood_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Shadewood_Door.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Pearlwood_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Dynasty_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Spooky_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Pine_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Cactus_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Pumpkin_Door.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Mushroom_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Meteorite_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Marble_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Martian_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Crystal_Door.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Iron_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Lead_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Living_Wood_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Glass_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Steampunk_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Skyware_Door.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Frozen_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Honey_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Flesh_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Lihzahrd_Door.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Dungeon_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Dungeon_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Dungeon_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Pink_Dungeon_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Obsidian_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Golden_Door.png}}
-\end{tabular}
-&	开/关切换	\\
-\hline
-\tabincell{c}{机关门/\\高门}	& \tabincell{cc}{\raisebox{0pt}{\includegraphics{figures/Trap_Door.png}}&\raisebox{0pt}{\includegraphics{figures/Tall_Gate.png}}}&	开/关切换	\\
-\hline
-泵	& \tabincell{cc}{\raisebox{0pt}{\includegraphics{figures/Inlet_Pump.png}}&\raisebox{0pt}{\includegraphics{figures/Outlet_Pump.png}}}&	\tabincell{c}{把入水泵上\\的液体传送\\到出水泵}	\\
-\hline
-机关	& \tabincell{cccccc}{\raisebox{0pt}{\includegraphics{figures/Dart_Trap.png}}&\raisebox{0pt}{\includegraphics{figures/Super_Dart_Trap.png}}&\raisebox{0pt}{\includegraphics{figures/Spear_Trap.png}}&\raisebox{0pt}{\includegraphics{figures/Spiky_Ball_Trap.png}}&\raisebox{0pt}{\includegraphics{figures/Flame_Trap.png}}&\raisebox{0pt}{\includegraphics{figures/Geyser.png}}}&	发射射弹	\\
-\hline
-\tabincell{c}{炸药\\地雷}&\tabincell{cc}{\raisebox{0pt}{\includegraphics{figures/Explosives.png}}&\raisebox{0pt}{\includegraphics{figures/Land_Mine.png}}}&爆炸并消失\\
-\hline
-炮台&\tabincell{ccccc}{\raisebox{0pt}{\includegraphics{figures/Cannon.png}}&\raisebox{0pt}{\includegraphics{figures/Bunny_Cannon.png}}&\raisebox{0pt}{\includegraphics{figures/Confetti_Cannon.png}}&\raisebox{0pt}{\includegraphics{figures/Portal_Gun_Station.png}}&\raisebox{0pt}{\includegraphics{figures/Snowball_Launcher.png}}}&\tabincell{c}{根据激活点\\改变方向/\\射击}\\
-\hline
-\tabincell{c}{烟花喷泉/\\烟花盒}&\tabincell{cc}{\raisebox{0pt}{\includegraphics{figures/Firework_Fountain.png}}&\raisebox{0pt}{\includegraphics{figures/Fireworks_Box.png}}}&产生烟花\\
-\hline
-烟花火箭&\tabincell{cccc}{\raisebox{0pt}{\includegraphics{figures/Red_Rocket.png}}&\raisebox{0pt}{\includegraphics{figures/Green_Rocket.png}}&\raisebox{0pt}{\includegraphics{figures/Blue_Rocket.png}}&\raisebox{0pt}{\includegraphics{figures/Yellow_Rocket.png}}}&发射\\
-\hline
-\tabincell{c}{泡泡机/\\呆萌气球机/\\派对中心}&\tabincell{ccc}{\raisebox{0pt}{\includegraphics{figures/Bubble_Machine.png}}&\raisebox{0pt}{\includegraphics{figures/Silly_Balloon_Machine.png}}&\raisebox{0pt}{\includegraphics{figures/Party_Center.png}}}&开/关切换\\
-\hline
-喷泉&
-\raisebox{0pt}{\includegraphics{figures/Pure_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Desert_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Jungle_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Icy_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Corrupt_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Crimson_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Hallowed_Water_Fountain.png}} \raisebox{0pt}{\includegraphics{figures/Blood_Water_Fountain.png}}
-&开/关切换\\
-\hline
-八音盒&
-\begin{tabular}{ccccc}
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Overworld_Day).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Alt_Overworld_Day).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Night).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Rain).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Snow).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Ice).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Desert).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Ocean).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Space).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Underground).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Alt_Underground).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Mushrooms).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Jungle).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Corruption).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Underground_Corruption).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Crimson).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Underground_Crimson).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(The_Hallow).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Underground_Hallow).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Hell).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Dungeon).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Temple).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Boss_1).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Boss_2).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Boss_3).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Boss_4).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Boss_5).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Plantera).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Eerie).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Eclipse).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(Goblin_Invasion).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Pirate_Invasion).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Martian_Madness).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Pumpkin_Moon).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Frost_Moon).png}}\\
-\raisebox{0pt}{\includegraphics{figures/Music_Box_(The_Towers).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Lunar_Boss).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Sandstorm).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Old_Ones_Army).png}}&\raisebox{0pt}{\includegraphics{figures/Music_Box_(Title).png}}
-\end{tabular}
-&开/关切换\\
-\hline
-部分雕像&
-\begin{tabular}{cccccc}
-\raisebox{0pt}{\includegraphics{figures/Armed_Zombie_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Bat_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Blood_Zombie_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Bone_Skeleton_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Chest_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Crab_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Drippler_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Granite_Golem_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Harpy_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Hoplite_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Jellyfish_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Medusa_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Pigron_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Piranha_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Shark_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Skeleton_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Slime_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Undead_Viking_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Unicorn_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Wall_Creeper_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Wraith_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Bird_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Buggy_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Bunny_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Butterfly_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Duck_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Firefly_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Fish_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Frog_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Grasshopper_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/Mouse_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Penguin_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Scorpion_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Snail_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Squirrel_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Worm_Statue.png}}\\
-\raisebox{0pt}{\includegraphics{figures/King_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Queen_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Bomb_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Heart_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Star_Statue.png}}&\raisebox{0pt}{\includegraphics{figures/Mushroom_Statue.png}}
-\end{tabular}
-&\tabincell{c}{生成物品/\\传送NPC/\\开/关切换/\\生成敌怪/\\生成小动物}\\
-\hline
-烟囱&\tabincell{c}{\raisebox{0pt}{\includegraphics{figures/Chimney.png}}}&\tabincell{c}{三个状态\\切换}\\
-\hline
-传送机&\raisebox{0pt}{\includegraphics{figures/Teleporter.png}}&\tabincell{c}{交换两个\\传送机上\\的生物}\\
-\hline
-天塔柱&\tabincell{cccc}{\raisebox{0pt}{\includegraphics{figures/Vortex_Monolith.png}}&\raisebox{0pt}{\includegraphics{figures/Nebula_Monolith.png}}&\raisebox{0pt}{\includegraphics{figures/Stardust_Monolith.png}}&\raisebox{0pt}{\includegraphics{figures/Solar_Monolith.png}}}&开/关切换\\
-\hline
-广播盒&\tabincell{c}{\raisebox{0pt}{\includegraphics{figures/Announcement_Box.png}}}&\tabincell{c}{显示\\文字信息}\\
-\hline
-传送带&\tabincell{cc}{\raisebox{0pt}{\includegraphics{figures/Conveyor_Belt.png}}&\raisebox{0pt}{\includegraphics{figures/Conveyor_Belt_(Counter_Clockwise).png}}}&改变方向\\
-\hline
-制动器&\raisebox{0pt}{\includegraphics{figures/Actuator.png}}&\tabincell{c}{切换前景\\物块的\\虚化状态}\\
-\hline
-彩线灯泡&\raisebox{0pt}{\includegraphics{figures/Wire_Bulb.png}}&\tabincell{c}{四色电线\\各控制一个\\灯泡的亮灭}\\
-\hline
-像素盒&\raisebox{0pt}{\includegraphics{figures/Pixel_Box.png}}&\tabincell{c}{从上/下激活\\时熄灭，\\同时从上/下\\和左/右\\激活时点亮}\\
-\hline
-逻辑灯&\tabincell{ccc}{\raisebox{0pt}{\includegraphics{figures/Logic_Gate_Lamp_(Off).png}}&\raisebox{0pt}{\includegraphics{figures/Logic_Gate_Lamp_(On).png}}&\raisebox{0pt}{\includegraphics{figures/Logic_Gate_Lamp_(Faulty).png}}}&详见后文\\
-\hline
-\tabincell{c}{矿车轨道\\交叉点}&&\tabincell{c}{在两种\\交叉方式\\中切换}
+部分光源	&	亮/灭切换	\\\hline
+门、机关门、高门&	开/关切换	\\\hline
+泵	&把入水泵上的液体传送到出水泵	\\\hline
+机关	&	发射射弹/爆炸并消失	\\\hline
+炮台&根据激活点改变方向/射击\\\hline
+烟花喷泉、烟花盒&产生烟花\\\hline
+烟花火箭&发射\\\hline
+泡泡机、呆萌气球机、派对中心&开/关切换，生成背景特效\\\hline
+喷泉&开/关切换，改变水的颜色\\\hline
+八音盒&开/关切换，改变背景音乐\\\hline
+部分雕像&\makecell{生成物品/传送城镇NPC/亮灭切换/\\生成敌怪/生成小动物}\\\hline
+烟囱&三个状态切换\\\hline
+传送机&交换两个传送机上的玩家和NPC\\\hline
+天塔柱&开/关切换，改变背景\\\hline
+广播盒&显示文字讯息\\\hline
+传送带&改变方向\\\hline
+制动器&切换图格的虚化状态\\\hline
+彩线灯泡&四色电线各控制一个灯泡的亮灭\\\hline
+像素盒&\makecell{从左/右激活时熄灭，\\同时从上/下和左/右激活时点亮}\\\hline
+逻辑灯&详见后文\\\hline
+矿车轨道交叉点&在两种交叉方式中切换
 \end{longtable}
 
 \subsection{让派对永不停止}
@@ -364,6 +228,12 @@
 \end{figure}
 
 \section{逻辑门灯/逻辑门}
+\begin{figure}[!ht]
+\centering
+\subfloat[逻辑灯]{\includegraphics{figures/Logic_Gate_Lamp_(Off).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(On).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(Faulty).png}}\qquad
+\subfloat[逻辑门]{\includegraphics{figures/Logic_Gate_(AND).png}\quad\includegraphics{figures/Logic_Gate_(NAND).png}\quad\includegraphics{figures/Logic_Gate_(OR).png}\quad\includegraphics{figures/Logic_Gate_(NOR).png}\quad\includegraphics{figures/Logic_Gate_(XOR).png}\quad\includegraphics{figures/Logic_Gate_(XNOR).png}}
+\caption{}
+\end{figure}
 
 逻辑门灯是用电器，简称为逻辑灯。逻辑灯还可以分为普通逻辑灯和故障逻辑灯。普通逻辑灯被激活时在开/关之间切换，故障逻辑灯被激活时状态被设定为“激活”（无图像效果）。逻辑灯必须堆叠在逻辑门上，我们说这些逻辑灯在该逻辑门上，该逻辑门在这些逻辑灯下。
 
@@ -606,7 +476,7 @@
 
 再来看与门和异或门的区别。与门不抗干扰，异或门抗干扰。什么意思呢？如\autoref{fig12}所示，有一根与换线器无关的电线想要横穿换线器。对于异或门，只要用图中的方法就可以避免干扰；对于与门，那么无论如何都没法避免横穿的线带来的干扰。读者可自行分析其中原因。可能你会问，有谁会自找麻烦把一根线穿过去？在实际应用中有时不得不这么做，这时异或门就提供了便利。
 
-\subsection{置1/置0电路}
+\subsection{置1/置0电路}\label{sec14}
 
 泰拉瑞亚中的逻辑电路有个非常大的缺点，就是赋值困难。在数电中，想要给电路赋值0或1，只用连上对应电平的电源即可。然而在泰拉瑞亚中，电线没有电平高低，只有激活，而激活只能改变逻辑灯状态。把一个逻辑灯赋值为0，就需要在这个逻辑灯本来是1的情况下激活一次（或激活奇数次），在逻辑灯本来是0的情况下不激活（或激活偶数次）。如\autoref{i52:53}所示的电路可以做到这一点：当逻辑灯灭时，激活红线会将故障逻辑灯激活，因为逻辑灯灭，逻辑门不激活，逻辑灯保持灭。当逻辑灯亮时，激活红线会将故障逻辑灯激活，因为逻辑灯亮，逻辑门激活蓝线，逻辑灯熄灭。无论如何，激活红线都会使逻辑灯熄灭。
 
@@ -641,6 +511,28 @@
 \caption{左边开关使火把点亮（置1），右边开关使火把关闭（置0）。}
 \label{i59:60}
 \end{figure}
+
+\subsection{D触发器}\label{sec15}
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat{
+\label{i237}
+\includegraphics{images/237.png}
+}
+\qquad
+\subfloat{
+\label{i238}
+\includegraphics{images/238.png}
+}
+\end{center}
+\caption{左边的开关改变A火把的状态，右边的开关将A火把状态更新到B火把。}
+\label{i237:238}
+\end{figure}
+
+D触发器是数电的术语，其功能非常简单，就是存储并发送状态。见\autoref{i237:238}，左边的开关可以随意控制左边的火把，而右边的开关会使得右边的火把和左边的火把状态同步。换言之，D触发器存储了左边火把的值，而右边的开关命令D触发器将它存储的值发出。
+
+回顾\nameref{sec14}，它可以把火把的值设定为一个常数，而该常数可以通过故障逻辑门上的有效逻辑灯来调节。而在\autoref{}中，我们让左边的火把来调节故障逻辑门上的有效逻辑灯，当左边火把为1时，故障逻辑门变成了置1电路；当左边火把为0时，故障逻辑门变成了置0电路。这样一来，这个故障逻辑门的功能实际上是把右边火把的值置为左边火把的值。
 
 \subsection{递次电路}
 

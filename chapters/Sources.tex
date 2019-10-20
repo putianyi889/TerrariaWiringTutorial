@@ -43,13 +43,13 @@
 
 普通压力板包括由玩家触发的灰/棕/蓝/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。加重压力板是误翻译，正确翻译应为“重力压力板”。四种颜色的加重压力板功能完全一样。
 
-\begin{note}
+\begin{remark}
 区分不同颜色普通压力板的方法：只能由玩家触发的是地图中的各种陷阱，颜色非常隐蔽，比如说石块上的灰压力板、土块上的棕压力板、冰雪块上的蓝压力板、丛林蜥蜴砖上的丛林蜥蜴压力板都非常难以辨认；红/黄/绿压力板都非常醒目，它们可以由NPC触发。
-\end{note}
+\end{remark}
 
 普通压力板有自身的碰撞箱，碰撞箱大小是压力板弹起状态时贴图的边框大小。普通压力板激活的判定以每个碰撞箱为准，即每帧判定碰撞箱是否从侧面进入压力板，或从上面掉落到压力板上。因为是以碰撞箱为准，所以一个碰撞箱在一帧内触发两个普通压力板，只会激活一次，而不同碰撞箱在一帧内触发同一个普通压力板，每个碰撞箱都会激活一次（\autoref{i205:208}）。注意到“进入”或“掉落”都是过程，所以直接传送到普通压力板上不会触发压力板。同时，“掉落”要求人物有一个悬空的过程，判断悬空可以通过人物动作（悬空时有跳跃动作）或者翅膀（装备了翅膀的人物悬空时翅膀会打开）。所以从1格高的物块上直接走下来不算掉落，同时碰撞箱也不是从侧面进入，所以不会触发普通压力板（\autoref{i201:202}）。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
 \label{i205:206}
@@ -67,7 +67,7 @@
 \label{i205:208}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
 \label{i201}
@@ -87,7 +87,7 @@
 
 青绿压力垫板的碰撞箱为16*10或10*16，根据其朝向而定。射弹生成后，每次更新位置都会激活碰撞到的青绿压力垫板，这里碰撞的定义是：上次更新时碰撞箱不相交，但是这次更新时相交。如果射弹同时与多个青绿压力垫板碰撞，那么只激活优先级最高的那个（不同行的青绿压力垫板，上面的优先级高；同一行的青绿压力垫板，左边的优先级高）；多个射弹同时碰撞同一个青绿压力垫板，每个射弹都会激活一次（\autoref{i209:212}）。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
 \label{i209:210}
@@ -110,9 +110,14 @@
 压力板轨道是带有压力板的轨道，它只能由矿车触发。
 
 \section{引爆器}
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/Detonator.png}
+\caption{引爆器}
+\end{figure}
 引爆器是一个比较特殊的物品，其有压下和弹起两种状态。鼠标右击或人物以至少3像素/帧的垂直速度经过引爆器上两格时会导致引爆器压下并作为电源激活，随后经过1秒，引爆器自动弹起。可能出于判定原因，当人物以一定速度（既不快也不慢）落在引爆器旁边的支撑物边缘时引爆器也会压下（\autoref{i213:214}）。引爆器处于压下状态时鼠标右击或人物踩踏均无效（贤者模式）。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
 \label{i213}
@@ -136,6 +141,15 @@
 受困宝箱是误翻译，正确翻译应该是“机关宝箱”或“陷阱宝箱”。受困宝箱是电源，当鼠标右击时激活并播放宝箱开启关闭的动画。除了右击效果不同以外，受困宝箱与对应的普通宝箱外观、放置方式完全相同，这使得受困宝箱可以用来做陷阱的触发器。
 
 \section{感应器}
+\begin{figure}[!ht]
+\centering
+\subfloat[逻辑感应器（昼/夜）]{\qquad\includegraphics{figures/Logic_Sensor_(Day).png}\quad\includegraphics{figures/Logic_Sensor_(Night).png}\qquad}
+\qquad
+\subfloat[逻辑感应器（玩家）]{\qquad\qquad\includegraphics{figures/Logic_Sensor_(Player_Above).png}\qquad\qquad}
+\qquad
+\subfloat[液体感应器]{\includegraphics{figures/Liquid_Sensor_(Water).png}\quad\includegraphics{figures/Liquid_Sensor_(Lava).png}\quad\includegraphics{figures/Liquid_Sensor_(Honey).png}\quad\includegraphics{figures/Liquid_Sensor_(Any).png}}
+\caption{感应器}
+\end{figure}
 泰拉瑞亚中共有3种逻辑感应器和4种液体感应器。逻辑感应器（昼）在白天点亮，夜晚熄灭；逻辑感应器（夜）在白天熄灭，夜晚点亮；逻辑感应器（玩家）放置时对应一个电路层的蓝色方框，该方框宽略大于5格，高略大于10格，当框内有玩家时感应器点亮，当框内无玩家时感应器熄灭。液体感应器在所在格中有对应液体时点亮，无对应液体时熄灭。
 
 逻辑感应器（昼）和逻辑感应器（夜）在由灭变亮时激活，其他感应器均在亮灭切换时激活。
@@ -148,6 +162,53 @@
 
 \section{部分光源}
 这里说的光源不是指有效光源，而是指所有能发光的物体。所有可由电路控制的光源如下列举。
+\begin{figure}[!htp]
+\centering
+\subfloat[火把]{\includegraphics{figures/Torch.png}\quad\includegraphics{figures/Purple_Torch.png}\quad\includegraphics{figures/Yellow_Torch.png}\quad\includegraphics{figures/Blue_Torch.png}\quad\includegraphics{figures/Green_Torch.png}\quad\includegraphics{figures/Red_Torch.png}\quad\includegraphics{figures/Orange_Torch.png}\quad\includegraphics{figures/White_Torch.png}\quad\includegraphics{figures/Pink_Torch.png}\quad\includegraphics{figures/Ice_Torch.png}\quad\includegraphics{figures/Cursed_Torch.png}\quad\includegraphics{figures/Ichor_Torch.png}\quad\includegraphics{figures/Demon_Torch.png}\quad\includegraphics{figures/Rainbow_Torch.png}\quad\includegraphics{figures/Ultrabright_Torch.png}\quad\includegraphics{figures/Bone_Torch.png}}%16
+\\
+\subfloat[部分蜡烛]{\begin{tabular}[b]{c}
+	\includegraphics{figures/Candle.png}\quad\includegraphics{figures/Platinum_Candle.png}\quad\includegraphics{figures/Boreal_Wood_Candle.png}\quad\includegraphics{figures/Palm_Wood_Candle.png}\quad\includegraphics{figures/Rich_Mahogany_Candle.png}\quad\includegraphics{figures/Ebonwood_Candle.png}\quad\includegraphics{figures/Shadewood_Candle.png}\quad\includegraphics{figures/Pearlwood_Candle.png}\quad\includegraphics{figures/Dynasty_Candle.png}\quad\includegraphics{figures/Spooky_Candle.png}\quad\includegraphics{figures/Cactus_Candle.png}\quad\includegraphics{figures/Mushroom_Candle.png}\quad\includegraphics{figures/Pumpkin_Candle.png}\quad\includegraphics{figures/Granite_Candle.png}\quad\includegraphics{figures/Marble_Candle.png}\quad\includegraphics{figures/Meteorite_Candle.png}\\
+	\includegraphics{figures/Martian_Hover_Candle.png}\quad\includegraphics{figures/Crystal_Candle.png}\quad\includegraphics{figures/Flesh_Candle.png}\quad\includegraphics{figures/Glass_Candle.png}\quad\includegraphics{figures/Honey_Candle.png}\quad\includegraphics{figures/Frozen_Candle.png}\quad\includegraphics{figures/Lihzahrd_Candle.png}\quad\includegraphics{figures/Living_Wood_Candle.png}\quad\includegraphics{figures/Skyware_Candle.png}\quad\includegraphics{figures/Slime_Candle.png}\quad\includegraphics{figures/Steampunk_Candle.png}\quad\includegraphics{figures/Blue_Dungeon_Candle.png}\quad\includegraphics{figures/Green_Dungeon_Candle.png}\quad\includegraphics{figures/Pink_Dungeon_Candle.png}\quad\includegraphics{figures/Obsidian_Candle.png}\quad\includegraphics{figures/Golden_Candle.png}
+\end{tabular}}%32
+\\
+\subfloat[部分灯笼]{\begin{tabular}[b]{c}
+\includegraphics{figures/Boreal_Wood_Lantern.png}\quad\includegraphics{figures/Palm_Wood_Lantern.png}\quad\includegraphics{figures/Rich_Mahogany_Lantern.png}\quad\includegraphics{figures/Ebonwood_Lantern.png}\quad\includegraphics{figures/Shadewood_Lantern.png}\quad\includegraphics{figures/Pearlwood_Lantern.png}\quad\includegraphics{figures/Dynasty_Lantern.png}\quad\includegraphics{figures/Spooky_Lantern.png}\quad\includegraphics{figures/Cactus_Lantern.png}\quad\includegraphics{figures/Mushroom_Lantern.png}\quad\includegraphics{figures/Pumpkin_Lantern.png}\quad\includegraphics{figures/Hanging_Jack_O_Lantern.png}\quad\includegraphics{figures/Granite_Lantern.png}\\
+\includegraphics{figures/Marble_Lantern.png}\quad\includegraphics{figures/Meteorite_Lantern.png}\quad\includegraphics{figures/Martian_Lantern.png}\quad\includegraphics{figures/Crystal_Lantern.png}\quad\includegraphics{figures/Star_in_a_Bottle.png}\quad\includegraphics{figures/Heart_Lantern.png}\quad\includegraphics{figures/Bone_Lantern.png}\quad\includegraphics{figures/Flesh_Lantern.png}\quad\includegraphics{figures/Frozen_Lantern.png}\quad\includegraphics{figures/Glass_Lantern.png}\quad\includegraphics{figures/Honey_Lantern.png}\quad\includegraphics{figures/Lihzahrd_Lantern.png}\quad\includegraphics{figures/Living_Wood_Lantern.png}\\
+\includegraphics{figures/Skyware_Lantern.png}\quad\includegraphics{figures/Slime_Lantern.png}\quad\includegraphics{figures/Steampunk_Lantern.png}\quad\includegraphics{figures/Chain_Lantern.png}\quad\includegraphics{figures/Brass_Lantern.png}\quad\includegraphics{figures/Caged_Lantern.png}\quad\includegraphics{figures/Carriage_Lantern.png}\quad\includegraphics{figures/Alchemy_Lantern.png}\quad\includegraphics{figures/Diabolist_Lamp.png}\quad\includegraphics{figures/Oil_Rag_Sconse.png}\quad\includegraphics{figures/Obsidian_Lantern.png}\quad\includegraphics{figures/Golden_Lantern.png}
+\end{tabular}}%38
+\\
+\subfloat[灯]{\begin{tabular}[b]{c}
+\includegraphics{figures/Boreal_Wood_Lamp.png}\quad\includegraphics{figures/Palm_Wood_Lamp.png}\quad\includegraphics{figures/Rich_Mahogany_Lamp.png}\quad\includegraphics{figures/Ebonwood_Lamp.png}\quad\includegraphics{figures/Shadewood_Lamp.png}\quad\includegraphics{figures/Pearlwood_Lamp.png}\quad\includegraphics{figures/Dynasty_Lamp.png}\quad\includegraphics{figures/Spooky_Lamp.png}\quad\includegraphics{figures/Cactus_Lamp.png}\quad\includegraphics{figures/Mushroom_Lamp.png}\quad\includegraphics{figures/Pumpkin_Lamp.png}\quad\includegraphics{figures/Tiki_Torch.png}\quad\includegraphics{figures/Granite_Lamp.png}\quad\includegraphics{figures/Marble_Lamp.png}\quad\includegraphics{figures/Meteorite_Lamp.png}\quad\includegraphics{figures/Martian_Lamppost.png}\\
+\includegraphics{figures/Crystal_Lamp.png}\quad\includegraphics{figures/Golden_Lamp.png}\quad\includegraphics{figures/Obsidian_Lamp.png}\quad\includegraphics{figures/Bone_Lamp.png}\quad\includegraphics{figures/Flesh_Lamp.png}\quad\includegraphics{figures/Frozen_Lamp.png}\quad\includegraphics{figures/Glass_Lamp.png}\quad\includegraphics{figures/Honey_Lamp.png}\quad\includegraphics{figures/Lihzahrd_Lamp.png}\quad\includegraphics{figures/Living_Wood_Lamp.png}\quad\includegraphics{figures/Skyware_Lamp.png}\quad\includegraphics{figures/Slime_Lamp.png}\quad\includegraphics{figures/Steampunk_Lamp.png}\quad\includegraphics{figures/Blue_Dungeon_Lamp.png}\quad\includegraphics{figures/Green_Dungeon_Lamp.png}\quad\includegraphics{figures/Pink_Dungeon_Lamp.png}
+\end{tabular}}%32
+\\
+\subfloat[篝火]{\includegraphics{figures/Campfire.png}\quad\includegraphics{figures/Cursed_Campfire.png}\quad\includegraphics{figures/Demon_Campfire.png}\quad\includegraphics{figures/Frozen_Campfire.png}\quad\includegraphics{figures/Ichor_Campfire.png}\quad\includegraphics{figures/Rainbow_Campfire.png}\quad\includegraphics{figures/Ultra_Bright_Campfire.png}\quad\includegraphics{figures/Bone_Campfire.png}}%8
+\\
+\subfloat[烛台]{\begin{tabular}[b]{c}
+\includegraphics{figures/Candelabra.png}\quad\includegraphics{figures/Platinum_Candelabra.png}\quad\includegraphics{figures/Boreal_Wood_Candelabra.png}\quad\includegraphics{figures/Palm_Wood_Candelabra.png}\quad\includegraphics{figures/Rich_Mahogany_Candelabra.png}\quad\includegraphics{figures/Ebonwood_Candelabra.png}\quad\includegraphics{figures/Shadewood_Candelabra.png}\quad\includegraphics{figures/Pearlwood_Candelabra.png}\quad\includegraphics{figures/Large_Dynasty_Candle.png}\quad\includegraphics{figures/Spooky_Candelabra.png}\quad\includegraphics{figures/Cactus_Candelabra.png}\quad\includegraphics{figures/Mushroom_Candelabra.png}\\
+\includegraphics{figures/Pumpkin_Candelabra.png}\quad\includegraphics{figures/Granite_Candelabra.png}\quad\includegraphics{figures/Marble_Candelabra.png}\quad\includegraphics{figures/Meteorite_Candelabra.png}\quad\includegraphics{figures/Martian_Table_Lamp.png}\quad\includegraphics{figures/Crystal_Candelabra.png}\quad\includegraphics{figures/Flesh_Candelabra.png}\quad\includegraphics{figures/Glass_Candelabra.png}\quad\includegraphics{figures/Honey_Candelabra.png}\quad\includegraphics{figures/Frozen_Candelabra.png}\quad\includegraphics{figures/Lihzahrd_Candelabra.png}\\
+\includegraphics{figures/Living_Wood_Candelabra.png}\quad\includegraphics{figures/Skyware_Candelabra.png}\quad\includegraphics{figures/Slime_Candelabra.png}\quad\includegraphics{figures/Steampunk_Candelabra.png}\quad\includegraphics{figures/Blue_Dungeon_Candelabra.png}\quad\includegraphics{figures/Green_Dungeon_Candelabra.png}\quad\includegraphics{figures/Pink_Dungeon_Candelabra.png}\quad\includegraphics{figures/Obsidian_Candelabra.png}\quad\includegraphics{figures/Golden_Candelabra.png}\quad\includegraphics{figures/Bone_Candelabra.png}\quad\includegraphics{figures/Jack_O_Lantern.png}
+\end{tabular}}%34
+\\
+\subfloat[吊灯]{\begin{tabular}[b]{c}
+\includegraphics{figures/Copper_Chandelier.png}\quad\includegraphics{figures/Tin_Chandelier.png}\quad\includegraphics{figures/Silver_Chandelier.png}\quad\includegraphics{figures/Tungsten_Chandelier.png}\quad\includegraphics{figures/Gold_Chandelier.png}\quad\includegraphics{figures/Platinum_Chandelier.png}\quad\includegraphics{figures/Boreal_Wood_Chandelier.png}\quad\includegraphics{figures/Palm_Wood_Chandelier.png}\quad\includegraphics{figures/Rich_Mahogany_Chandelier.png}\quad\includegraphics{figures/Ebonwood_Chandelier.png}\\
+\includegraphics{figures/Shadewood_Chandelier.png}\quad\includegraphics{figures/Pearlwood_Chandelier.png}\quad\includegraphics{figures/Large_Dynasty_Lantern.png}\quad\includegraphics{figures/Spooky_Chandelier.png}\quad\includegraphics{figures/Cactus_Chandelier.png}\quad\includegraphics{figures/Mushroom_Chandelier.png}\quad\includegraphics{figures/Pumpkin_Chandelier.png}\quad\includegraphics{figures/Granite_Chandelier.png}\quad\includegraphics{figures/Marble_Chandelier.png}\quad\includegraphics{figures/Meteorite_Chandelier.png}\\
+\includegraphics{figures/Martian_Chandelier.png}\quad\includegraphics{figures/Crystal_Chandelier.png}\quad\includegraphics{figures/Flesh_Chandelier.png}\quad\includegraphics{figures/Glass_Chandelier.png}\quad\includegraphics{figures/Honey_Chandelier.png}\quad\includegraphics{figures/Frozen_Chandelier.png}\quad\includegraphics{figures/Lihzahrd_Chandelier.png}\quad\includegraphics{figures/Living_Wood_Chandelier.png}\quad\includegraphics{figures/Skyware_Chandelier.png}\quad\includegraphics{figures/Slime_Chandelier.png}\\
+\includegraphics{figures/Steampunk_Chandelier.png}\quad\includegraphics{figures/Blue_Dungeon_Chandelier.png}\quad\includegraphics{figures/Green_Dungeon_Chandelier.png}\quad\includegraphics{figures/Pink_Dungeon_Chandelier.png}\quad\includegraphics{figures/Obsidian_Chandelier.png}\quad\includegraphics{figures/Golden_Chandelier.png}\quad\includegraphics{figures/Bone_Chandelier.png}\quad\includegraphics{figures/Jackelier.png}
+\end{tabular}}%38
+\caption{电路中的光源(1)}
+\end{figure}
+
+\begin{figure}[!htp]
+\centering
+\subfloat[晶莹宝石块]{\includegraphics{figures/Amethyst_Gemspark_Block.png}\quad\includegraphics{figures/Topaz_Gemspark_Block.png}\quad\includegraphics{figures/Sapphire_Gemspark_Block.png}\quad\includegraphics{figures/Emerald_Gemspark_Block.png}\quad\includegraphics{figures/Ruby_Gemspark_Block.png}\quad\includegraphics{figures/Diamond_Gemspark_Block.png}\quad\includegraphics{figures/Amber_Gemspark_Block.png}}\\
+\subfloat[中式灯笼]{\qquad\includegraphics{figures/Chinese_Lantern.png}\qquad}\qquad
+\subfloat[灯柱]{\quad\includegraphics{figures/Lamp_Post.png}\quad}\qquad
+\subfloat[迪斯科灯]{\qquad\includegraphics{figures/Disco_Ball.png}\qquad}\qquad
+\subfloat[圣诞灯]{\includegraphics{figures/Blue_Light.png}\quad\includegraphics{figures/Red_Light.png}\quad\includegraphics{figures/Green_Light.png}}\qquad
+\subfloat[壁炉]{\includegraphics{figures/Fireplace.png}}
+\caption{电路中的光源(2)}
+\end{figure}
 
 \begin{itemize}
 \item 火把：大小1*1，放置在平台上、前景物块上方和两侧、背景墙上。是有效光源。
@@ -168,6 +229,18 @@
 这里需要强调一下常用的两种显示光源：宝石块和火把。一般情况下宝石块显示效果更好，并且其亮灭会显示在小地图中。然而由于火把激活时只是简单改变状态，而每个宝石块激活时还需要更新该块及周围8块的贴图，每次更新贴图时都需要进行大量的判断，这导致大规模使用宝石块的电路与使用火把的电路相比非常卡。
 
 \section{门、机关门、高门}
+\begin{figure}[!ht]
+\centering
+\subfloat[门]{\begin{tabular}[b]{c}
+\includegraphics{figures/Wooden_Door.png}\quad\includegraphics{figures/Boreal_Wood_Door.png}\quad\includegraphics{figures/Palm_Wood_Door.png}\quad\includegraphics{figures/Rich_Mahogany_Door.png}\quad\includegraphics{figures/Ebonwood_Door.png}\quad\includegraphics{figures/Shadewood_Door.png}\quad\includegraphics{figures/Pearlwood_Door.png}\quad\includegraphics{figures/Dynasty_Door.png}\quad\includegraphics{figures/Spooky_Door.png}\quad\includegraphics{figures/Pine_Door.png}\quad\includegraphics{figures/Cactus_Door.png}\quad\includegraphics{figures/Pumpkin_Door.png}\\
+\quad\includegraphics{figures/Mushroom_Door.png}\quad\includegraphics{figures/Meteorite_Door.png}\quad\includegraphics{figures/Granite_Door.png}\quad\includegraphics{figures/Marble_Door.png}\quad\includegraphics{figures/Martian_Door.png}\quad\includegraphics{figures/Crystal_Door.png}\quad\includegraphics{figures/Iron_Door.png}\quad\includegraphics{figures/Lead_Door.png}\quad\includegraphics{figures/Living_Wood_Door.png}\quad\includegraphics{figures/Glass_Door.png}\quad\includegraphics{figures/Steampunk_Door.png}\quad\includegraphics{figures/Skyware_Door.png}\\
+\quad\includegraphics{figures/Frozen_Door.png}\quad\includegraphics{figures/Honey_Door.png}\quad\includegraphics{figures/Slime_Door.png}\quad\includegraphics{figures/Bone_Door.png}\quad\includegraphics{figures/Flesh_Door.png}\quad\includegraphics{figures/Lihzahrd_Door.png}\quad\includegraphics{figures/Dungeon_Door.png}\quad\includegraphics{figures/Blue_Dungeon_Door.png}\quad\includegraphics{figures/Green_Dungeon_Door.png}\quad\includegraphics{figures/Pink_Dungeon_Door.png}\quad\includegraphics{figures/Obsidian_Door.png}\quad\includegraphics{figures/Golden_Door.png}
+\end{tabular}}%36
+\\
+\subfloat[机关门]{\quad\includegraphics{figures/Trap_Door.png}\quad}\qquad
+\subfloat[高门]{\quad\includegraphics{figures/Tall_Gate.png}\quad}
+\caption{}
+\end{figure}
 上锁的丛林蜥蜴门无电路功能（废话）。门放置在上下两个前景物块之间。图格、生物出现在门一侧的开启范围内（1*3）时门不会向这一侧开启；出现在门两侧开启范围内时门无法开启。当门可以向两侧开启时，如果右键开门，那么门向玩家面对方向开启；如果电路开门，那么门似乎是随机向两侧开启。
 
 与门相比，机关门的开启方向是上下。当机关门可以向两侧开启时，使用右键开门，根据玩家与门的相对位置确定开门方向：玩家在相对高处时门向下开启；玩家在相对低处时门向上开启。使用电路开门，固定向下开启。
@@ -175,6 +248,12 @@
 高门没有方向性，开门也不受阻挡。
 
 \section{泵}
+\begin{figure}[!ht]
+\centering
+\subfloat[入水泵]{\quad\includegraphics{figures/Inlet_Pump.png}\quad}\qquad
+\subfloat[出水泵]{\quad\includegraphics{figures/Outlet_Pump.png}\quad}
+\caption{泵}
+\end{figure}
 用一根电线连接一个入水泵和一个出水泵，则电线激活时，入水泵上的液体会尽可能多的转移到出水泵。
 
 为了了解一些奇怪情况下的液体转移结算，这里介绍水泵的内部运行机制。
@@ -186,6 +265,18 @@
 单格入水泵和单格出水泵之间的液体转移，首先要遵循液体一致的原则，即转移液体不会导致不同液体出现在出水泵上。其次，转移的量为入水泵上的液体总量和出水泵上空余液体量的最小值（每格中的液体量为0到255）。
 
 \section{机关}
+\begin{figure}[!ht]
+\centering
+\subfloat[飞镖机关]{\qquad\includegraphics{figures/Dart_Trap.png}\qquad}\qquad
+\subfloat[超级飞镖机关]{\quad\qquad\includegraphics{figures/Super_Dart_Trap.png}\qquad\quad}\qquad
+\subfloat[尖球机关]{\qquad\includegraphics{figures/Spiky_Ball_Trap.png}\qquad}\qquad
+\subfloat[烈焰机关]{\qquad\includegraphics{figures/Flame_Trap.png}\qquad}\qquad
+\subfloat[长矛机关]{\qquad\includegraphics{figures/Spear_Trap.png}\qquad}\qquad
+\subfloat[喷泉（机关）]{\qquad\includegraphics{figures/Geyser.png}\qquad}\qquad
+\subfloat[炸药]{\quad\includegraphics{figures/Explosives.png}\quad}\qquad
+\subfloat[地雷]{\quad\includegraphics{figures/Land_Mine.png}\quad}
+\caption{机关}
+\end{figure}
 这里说的机关指激活会对玩家造成伤害的用电器。
 
 超级飞镖机关、尖球机关、烈焰机关、长矛机关都生成在丛林蜥蜴神庙内。飞镖机关生成在地下其他位置。这5种机关属于前景物块，锤击可以改变射击方向；被激活会生成射弹，可触发青绿压力垫板。
@@ -209,6 +300,15 @@
 地雷被激活时爆炸。与炸药的区别是地雷不破坏图格，伤害也更低。另一方面，地雷被玩家或NPC踩踏时也会爆炸，这使得引爆地雷可以不用电线，因此可以通过刷漆使地雷完全不可见。
 
 \section{炮台}
+\begin{figure}[!ht]
+\centering
+\subfloat[大炮]{\includegraphics{figures/Cannon.png}}\qquad
+\subfloat[兔兔炮]{\quad\includegraphics{figures/Bunny_Cannon.png}\quad}\qquad
+\subfloat[彩纸炮]{\quad\includegraphics{figures/Confetti_Cannon.png}\quad}\qquad
+\subfloat[传送枪站]{\quad\includegraphics{figures/Portal_Gun_Station.png}\quad}\qquad
+\subfloat[雪球发射器]{\qquad\includegraphics{figures/Snowball_Launcher.png}\qquad}
+\caption{炮台}
+\end{figure}
 炮台包括大炮、兔兔炮、彩纸炮、传送枪站和雪球发射器。
 
 炮台大小为4*3，但是可以放置在两格宽的前景物块、平台或锭上。
@@ -221,7 +321,7 @@
 
 大炮和兔兔炮的炮弹射出后，前17帧速度不变，从第18帧开始，每帧纵向速度增加0.28像素/帧（最大16像素/帧），横向速度乘0.99。传送枪台的射弹匀速直线运动，并会按顺序激活路径上的所有青绿压力垫板。彩纸炮发射的射弹匀速直线运行，生存期为2帧，生存期结束后爆炸，生成特效。在这2帧内，射弹只能前进28像素，无法离开炮台4*3的大小，也就无法触发青绿压力垫板。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics{images/215.png}
 \caption{红线右转，蓝线左转，绿线发射，黄线改变射弹颜色。}
@@ -232,28 +332,37 @@
 
 除彩纸炮以外的炮台发射的射弹可以触发青绿压力垫板。冷却时间30帧。
 
-雪球发射器较特殊，其特性与以上描述几乎完全不同。雪球发射器大小3*3，只能放置在三格宽的前景物块、平台或锭上。雪球发射器不可手动转向，背包中有雪球时右击可发射雪球，可连发。发射出的雪球可触发青绿压力垫板。使用电路激活其左三格之一会使其朝向左，激活其右三格之一会使其朝向右，激活中间三格之一会发射不造成伤害的雪球。雪球发射器朝向只有两种：水平向左和水平向右。发射点在雪球发射器中心向左12像素（如果朝向左）或向右12像素（如果朝向右）；发射速度在[12:0.01:16.49]中随机；发射方向随机（见\autoref{e1}）。雪球发出后，前19帧速度不变，从第20帧开始，每帧纵向速度增加0.3（最大16），横向速度乘0.98。冷却时间10帧。
-
-\begin{figure}[h]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/1.eps}
 \caption{雪球发射器的发射方向。O为发射点，在如图所示矩形内随机取一点M，则OM为发射方向。}\label{e1}
 \end{figure}
+雪球发射器较特殊，其特性与以上描述几乎完全不同。雪球发射器大小3*3，只能放置在三格宽的前景物块、平台或锭上。雪球发射器不可手动转向，背包中有雪球时右击可发射雪球，可连发。发射出的雪球可触发青绿压力垫板。使用电路激活其左三格之一会使其朝向左，激活其右三格之一会使其朝向右，激活中间三格之一会发射不造成伤害的雪球。雪球发射器朝向只有两种：水平向左和水平向右。发射点在雪球发射器中心向左12像素（如果朝向左）或向右12像素（如果朝向右）；发射速度在[12:0.01:16.49]中随机；发射方向随机（见\autoref{e1}）。雪球发出后，前19帧速度不变，从第20帧开始，每帧纵向速度增加0.3（最大16），横向速度乘0.98。冷却时间10帧。
 
 \section{烟花火箭}
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/Red_Rocket.png}\quad\includegraphics{figures/Green_Rocket.png}\quad\includegraphics{figures/Blue_Rocket.png}\quad\includegraphics{figures/Yellow_Rocket.png}
+\caption{烟花火箭}
+\end{figure}
 烟花神教主角。关于烟花火箭的信息请参考wiki和\url{https://www.bilibili.com/video/av5050255}。
 
 \section{传送机}\label{chuansongji}
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/Teleporter.png}
+\caption{传送机}
+\end{figure}
 一个传送机分为三个图格。传送机为前景物块，可以敲成半砖。传送机的工作机制中，三个图格分别有自己的传送区域（\autoref{i216}）。
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics{images/216.png}
 \caption{三个图格的传送区域。如果图格被敲成下半砖，则传送区域下移半格，其他半砖形态传送区域不变。}
 \label{i216}
 \end{figure}
 
-当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序请参阅\autoref{sec7}}，然后将两个图格传送区域内的可传送目标互换，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且第一个图格不低于最后一个图格时无法传送\footnote{这解释了为什么传送机不会自身传送。}；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
+当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序见\nameref{sec7}}，然后将两个图格传送区域内的可传送目标互换，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且第一个图格不低于最后一个图格时无法传送\footnote{这解释了为什么传送机不会自身传送。}；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
 
 \begin{figure}[!ht]
 \begin{center}
@@ -263,7 +372,98 @@
 \label{i217:218}
 \end{figure}
 
-\paragraph*{更多细节}\label{sec9}
+利用传送机的特性，我们可以设计出原理各不相同的传送阵。\nameref{sec11}利用了传送机本身的大小；\nameref{sec12}利用了传送区域的大小；\nameref{sec13}利用了一根线经过多个传送机时选取第一个结算和最后一个结算传送的规则。
+
+\subsection{双向1传8}\label{sec11}
+传送机的大小是3*1，因此一个传送机上可以接出两根同色电线，所以简单地就可以做出双向1传8（\autoref{i243:244}）。
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat{
+\label{i243}
+\includegraphics{images/243.png}
+}
+\qquad
+\subfloat{
+\label{i244}
+\includegraphics{images/244.png}
+}
+\end{center}
+\caption{传送机左边图格可以用四色电线接到四个不同传送机，右边图格可以用四色电线接到另外四个不同传送机。}
+\label{i243:244}
+\end{figure}
+
+\subsection{双向1传20}\label{sec12}
+一个传送机上的传送区域大小为3*3，因此多个传送机的传送区域可能重叠，当玩家站在重叠区域时可以被多个传送机传送，从而增加传送目标数（\autoref{i245:246}）。
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat{
+\label{i245}
+\includegraphics[width=0.95\textwidth]{images/245.png}
+}
+\qquad
+\subfloat{
+\label{i246}
+\includegraphics[width=0.95\textwidth]{images/246.png}
+}
+\end{center}
+\caption{三个传送机的传送区域有三格重叠，当玩家站在重叠区域时可以传送到共20个其他传送机上。}
+\label{i245:246}
+\end{figure}
+
+\subsection{单向多传1}\label{sec13}
+当一根线连接了多个传送机图格时，只会在其中的两个图格间传送。至于是在哪两个图格之间传送，则取决于这根电线上的结算顺序，也就是取决于这根电线被激活的位置（具体规则详见\autoref{chuansongji}）。利用这个特性，可以通过激活一根线上的不同位置来达到在指定传送机之间传送的目的（\autoref{i247:248}）。
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat{
+\label{i247}
+\includegraphics[width=0.95\textwidth]{images/247.png}
+}
+\qquad
+\subfloat{
+\label{i248}
+\includegraphics[width=0.95\textwidth]{images/248.png}
+}
+\end{center}
+\caption{单向多传一。无论激活下面哪个传送机上的开关，第一个结算的传送机图格都是该开关正下方的图格，最后一个结算的传送机都是上方传送机的左图格或右图格。因此激活开关时会在上方传送机和下方对应传送机之间传送。}
+\label{i247:248}
+\end{figure}
+
+\subsection{中转传送}
+在\nameref{sec7}中我们介绍了各种情况下电路的结算顺序。在这里我们将利用这些结算顺序来构造结构更复杂、功能更强大的传送阵。\autoref{i249:252}展示了利用结算顺序做中转的两个例子。利用多级中转可以实现非常复杂的传送功能。
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat[]{
+\label{i249:250}
+\includegraphics[width=0.45\textwidth]{images/249.png}
+\qquad
+\includegraphics[width=0.45\textwidth]{images/250.png}
+}
+\qquad
+\subfloat[]{
+\label{i251:252}
+\includegraphics[width=0.45\textwidth]{images/251.png}
+\qquad
+\includegraphics[width=0.45\textwidth]{images/252.png}
+}
+\end{center}
+\caption{\protect\subref{i249:250}人物站在左边传送机上，右击左下开关，四个逻辑门从左到右依次激活，人物被依次传送到最右边；人物站在右边传送机上，右击右下开关或左上开关，四个逻辑门从右到左依次激活，人物被依次传送到最左边；\protect\subref{i251:252}原理与\protect\subref{i249:250}类似，只不过是利用了红蓝绿黄依次结算。}
+\label{i249:252}
+\end{figure}
+
+\subsection{传送链}
+1
+
+\subsection{近-远中继}
+1
+
+\subsection{利用网线}
+1
+
+\subsection{更多细节}\label{sec9}
 每次传送分四步进行：
 \begin{enumerate}
 \item 将A传送区域内的玩家按照玩家数组中的顺序依次传送到B传送区域内。
@@ -274,7 +474,7 @@
 
 每个玩家或NPC进行传送时，会把一个\texttt{teleporting}属性设置为\texttt{true}；传送前会检查该属性，如果为\texttt{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\texttt{teleporting}属性还原为\texttt{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
 
-每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\texttt{blockPlayerTeleportationForOneIteration}设置为\texttt{true}。\texttt{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\texttt{false}。当\texttt{blockPlayerTeleportationForOneIteration}为\texttt{true}时，第1步和第3步会被直接跳过。
+每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\texttt{blockPlayerTeleportationForOneIteration}设置为\texttt{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\texttt{false}。当\path{blockPlayerTeleportationForOneIteration}为\texttt{true}时，第1步和第3步会被直接跳过。
 
 \begin{example}
 电路如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击左边传送机上的开关，那么会在左中两个传送机上进行两次传送，结果是被传回左边传送机；如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
@@ -303,6 +503,11 @@
 \end{example}
 
 \section{像素盒}
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/Pixel_Box.png}
+\caption{像素盒}
+\end{figure}
 像素盒可随意摆放，无需支撑块或背景墙。像素盒有十字状态的分线盒的分线效果。当一个电源激活时，该电源上的所有电线激活，此时如果像素盒上有横向电线激活且无纵向电线激活，那么像素盒熄灭；如果像素盒上既有横向电线激活又有纵向电线激活，那么像素盒点亮；如果无横向电线激活，那么像素盒不响应。
 
 需要注意的是，像素盒的响应是对电源敏感的，即分别结算每个电源发出的信号，这与传送机对电线敏感不同。同时，与一般的光源在亮灭之间切换不同，像素盒响应总是调整到对应状态。
@@ -311,4 +516,37 @@
 交叉点上必须有两个方向的平滑轨道，那么这两个平滑轨道必定是一个覆盖另一个，此时激活交叉点会使两个平滑轨道的覆盖关系改变。需要注意的是激活交叉点可以产生的变化数量远远小于使用锤子可以产生的变化数量。
 
 \section{其他电路物品}
+\begin{figure}[!htp]
+\centering
+\subfloat[增速轨道]{\quad\includegraphics{figures/Booster_Track.png}\quad}\qquad
+\subfloat[喷泉]{\includegraphics{figures/Pure_Water_Fountain.png}\quad\includegraphics{figures/Desert_Water_Fountain.png}\quad\includegraphics{figures/Jungle_Water_Fountain.png}\quad\includegraphics{figures/Icy_Water_Fountain.png}\quad\includegraphics{figures/Corrupt_Water_Fountain.png}\quad\includegraphics{figures/Crimson_Water_Fountain.png}\quad\includegraphics{figures/Hallowed_Water_Fountain.png}\quad\includegraphics{figures/Blood_Water_Fountain.png}}\qquad
+\subfloat[广播盒]{\quad\includegraphics{figures/Announcement_Box.png}\quad}\\
+\subfloat[烟花喷泉]{\qquad\includegraphics{figures/Firework_Fountain.png}\qquad}\qquad
+\subfloat[宝石锁]{\includegraphics{figures/Amethyst_Gem_Lock.png}\quad\includegraphics{figures/Topaz_Gem_Lock.png}\quad\includegraphics{figures/Sapphire_Gem_Lock.png}\quad\includegraphics{figures/Emerald_Gem_Lock.png}\quad\includegraphics{figures/Ruby_Gem_Lock.png}\quad\includegraphics{figures/Diamond_Gem_Lock.png}\quad\includegraphics{figures/Amber_Gem_Lock.png}}\qquad
+\subfloat[彩线灯泡]{\qquad\includegraphics{figures/Wire_Bulb.png}\qquad}\\
+\subfloat[泡泡机]{\includegraphics{figures/Bubble_Machine.png}}\qquad
+\subfloat[烟花盒]{\quad\includegraphics{figures/Fireworks_Box.png}\quad}\qquad
+\subfloat[天塔柱]{\includegraphics{figures/Vortex_Monolith.png}\quad\includegraphics{figures/Nebula_Monolith.png}\quad\includegraphics{figures/Stardust_Monolith.png}\quad\includegraphics{figures/Solar_Monolith.png}}\qquad
+\subfloat[派对中心]{\quad\includegraphics{figures/Party_Center.png}\quad}\qquad
+\subfloat[烟囱]{\quad\includegraphics{figures/Chimney.png}\quad}\\
+\subfloat[呆萌气球机]{\qquad\includegraphics{figures/Silly_Balloon_Machine.png}\qquad}\qquad
+\subfloat[计时器]{\includegraphics{figures/1_Second_Timer.png}\quad\includegraphics{figures/3_Second_Timer.png}\quad\includegraphics{figures/5_Second_Timer.png}}\qquad
+\subfloat[传送带]{\includegraphics{figures/Conveyor_Belt.png}\quad\includegraphics{figures/Conveyor_Belt_(Counter_Clockwise).png}}\qquad
+\subfloat[制动器]{\qquad\includegraphics{figures/Actuator.png}\qquad}
+\\
+\subfloat[部分雕像]{\begin{tabular}[b]{c}
+\includegraphics{figures/Armed_Zombie_Statue.png}\quad\includegraphics{figures/Bat_Statue.png}\quad\includegraphics{figures/Blood_Zombie_Statue.png}\quad\includegraphics{figures/Bone_Skeleton_Statue.png}\quad\includegraphics{figures/Chest_Statue.png}\quad\includegraphics{figures/Crab_Statue.png}\quad\includegraphics{figures/Drippler_Statue.png}\quad\includegraphics{figures/Granite_Golem_Statue.png}\quad\includegraphics{figures/Harpy_Statue.png}\quad\includegraphics{figures/Hoplite_Statue.png}\quad\includegraphics{figures/Jellyfish_Statue.png}\\
+\includegraphics{figures/Medusa_Statue.png}\quad\includegraphics{figures/Pigron_Statue.png}\quad\includegraphics{figures/Piranha_Statue.png}\quad\includegraphics{figures/Shark_Statue.png}\quad\includegraphics{figures/Skeleton_Statue.png}\quad\includegraphics{figures/Slime_Statue.png}\quad\includegraphics{figures/Undead_Viking_Statue.png}\quad\includegraphics{figures/Unicorn_Statue.png}\quad\includegraphics{figures/Wall_Creeper_Statue.png}\quad\includegraphics{figures/Wraith_Statue.png}\quad\includegraphics{figures/Bird_Statue.png}\\
+\includegraphics{figures/Buggy_Statue.png}\quad\includegraphics{figures/Bunny_Statue.png}\quad\includegraphics{figures/Butterfly_Statue.png}\quad\includegraphics{figures/Duck_Statue.png}\quad\includegraphics{figures/Firefly_Statue.png}\quad\includegraphics{figures/Fish_Statue.png}\quad\includegraphics{figures/Frog_Statue.png}\quad\includegraphics{figures/Grasshopper_Statue.png}\quad\includegraphics{figures/Mouse_Statue.png}\quad\includegraphics{figures/Penguin_Statue.png}\quad\includegraphics{figures/Scorpion_Statue.png}\\
+\includegraphics{figures/Snail_Statue.png}\quad\includegraphics{figures/Squirrel_Statue.png}\quad\includegraphics{figures/Worm_Statue.png}\quad\includegraphics{figures/King_Statue.png}\quad\includegraphics{figures/Queen_Statue.png}\quad\includegraphics{figures/Bomb_Statue.png}\quad\includegraphics{figures/Heart_Statue.png}\quad\includegraphics{figures/Star_Statue.png}\quad\includegraphics{figures/Mushroom_Statue.png}
+\end{tabular}}%42
+\\
+\subfloat[八音盒]{\begin{tabular}[b]{c}
+\includegraphics{figures/Music_Box_(Overworld_Day).png}\quad\includegraphics{figures/Music_Box_(Alt_Overworld_Day).png}\quad\includegraphics{figures/Music_Box_(Night).png}\quad\includegraphics{figures/Music_Box_(Rain).png}\quad\includegraphics{figures/Music_Box_(Snow).png}\quad\includegraphics{figures/Music_Box_(Ice).png}\quad\includegraphics{figures/Music_Box_(Desert).png}\quad\includegraphics{figures/Music_Box_(Ocean).png}\quad\includegraphics{figures/Music_Box_(Space).png}\quad\includegraphics{figures/Music_Box_(Underground).png}\\
+\includegraphics{figures/Music_Box_(Alt_Underground).png}\quad\includegraphics{figures/Music_Box_(Mushrooms).png}\quad\includegraphics{figures/Music_Box_(Jungle).png}\quad\includegraphics{figures/Music_Box_(Corruption).png}\quad\includegraphics{figures/Music_Box_(Underground_Corruption).png}\quad\includegraphics{figures/Music_Box_(Crimson).png}\quad\includegraphics{figures/Music_Box_(Underground_Crimson).png}\quad\includegraphics{figures/Music_Box_(The_Hallow).png}\quad\includegraphics{figures/Music_Box_(Underground_Hallow).png}\quad\includegraphics{figures/Music_Box_(Hell).png}\\
+\includegraphics{figures/Music_Box_(Dungeon).png}\quad\includegraphics{figures/Music_Box_(Temple).png}\quad\includegraphics{figures/Music_Box_(Boss_1).png}\quad\includegraphics{figures/Music_Box_(Boss_2).png}\quad\includegraphics{figures/Music_Box_(Boss_3).png}\quad\includegraphics{figures/Music_Box_(Boss_4).png}\quad\includegraphics{figures/Music_Box_(Boss_5).png}\quad\includegraphics{figures/Music_Box_(Plantera).png}\quad\includegraphics{figures/Music_Box_(Eerie).png}\quad\includegraphics{figures/Music_Box_(Eclipse).png}\\
+\includegraphics{figures/Music_Box_(Goblin_Invasion).png}\quad\includegraphics{figures/Music_Box_(Pirate_Invasion).png}\quad\includegraphics{figures/Music_Box_(Martian_Madness).png}\quad\includegraphics{figures/Music_Box_(Pumpkin_Moon).png}\quad\includegraphics{figures/Music_Box_(Frost_Moon).png}\quad\includegraphics{figures/Music_Box_(The_Towers).png}\quad\includegraphics{figures/Music_Box_(Lunar_Boss).png}\quad\includegraphics{figures/Music_Box_(Sandstorm).png}\quad\includegraphics{figures/Music_Box_(Old_Ones_Army).png}\quad\includegraphics{figures/Music_Box_(Title).png}
+\end{tabular}}%40
+\caption{其他电路物品}
+\end{figure}
 剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：计时器、宝石锁、雕像、烟花喷泉、烟花盒、泡泡机、呆萌气球机、派对中心、喷泉、八音盒、烟囱、天塔柱、广播盒、制动器、传送带、彩线灯泡、增速轨道。
