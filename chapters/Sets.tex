@@ -1,5 +1,7 @@
 \chapter{泰拉瑞亚中的常用变量与特殊集合}
 \section{常用变量}
+
+\subsection{矩形区域}
 \begin{longtable}{ccc}
 变量名&变量值&意义\\\hline
 \endfirsthead
@@ -7,12 +9,12 @@
 \endhead
 \hline
 \endfoot
-sWidth&1920像素&标准屏幕宽度\\\hline
-sHeight&1080像素&标准屏幕高度\\\hline
 activeRangeX&4032像素&活跃区域宽度\\\hline
 activeRangeY&2268像素&活跃区域高度\\\hline
+LogicCheckScreenHeight&1200像素&逻辑屏幕高度\\\hline
 LogicCheckScreenWidth&1920像素&逻辑屏幕宽度\\\hline
-LogicCheckScreenHeight&1200像素&逻辑屏幕高度
+sHeight&1080像素&标准屏幕高度\\\hline
+sWidth&1920像素&标准屏幕宽度\\\hline
 \end{longtable}
 
 \begin{table}[!h]
@@ -28,6 +30,12 @@ LogicCheckScreenHeight&1200像素&逻辑屏幕高度
     \caption{生成区域与安全区域}
     \label{tab4618}
 \end{table}
+
+\subsection{\texttt{gfxQuality}}\label{app34}
+\begin{note}
+本小节结果来自\href{https://github.com/sgkoishi}{sgkoishi}在\href{https://github.com/putianyi889/TerrariaWiringTutorial/issues/11#issuecomment-544567689}{项目Issues}中的贡献。
+\end{note}
+\path{gfxQuality}在每个物理帧刷新。$\mathtt{gfxQuality}=\mathrm{FPS}/30-1$，最小为0，最大为1。FPS是图像帧率。
 
 \section{图格集合}
 \subsection{环境方块}
