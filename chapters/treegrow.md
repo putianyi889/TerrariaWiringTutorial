@@ -1,8 +1,8 @@
 ### 树木生长规律
 
-<sup>玩家附近：指任意玩家中心的左右**sWidth * 0.6**（默认72格），上下**sHeight * 0.6**（默认40.5格）范围内。</sup>
+<sup>玩家附近：指任意玩家中心的左右**sWidth * 0.6**（默认72格），上下**sHeight * 0.6**（默认40.5格）范围内。相关代码位于`bool Terraria.WorldGen.PlayerLOS(int, int)`</sup>
 
-树木生长只会发生在地图中的矩形区域内。
+树木生长只会发生在地图中的矩形区域内。<sup>相关代码位于`void Terraria.WorldGen.UpdateWorld()`</sup>
 
 地表树类的矩形区域左右端和上端均距离地图边缘10格，下端为地表（worldSurface）。
 
@@ -57,6 +57,8 @@
 
 #### 各类树木（普通、腐化、丛林、神圣、猩红、地表蘑菇、雪地）
 
+<sup>相关代码位于`bool Terraria.WorldGen.GrowTree(int, int)`</sup>
+
 丛林木高度上限为**21**，其余树木高度上限为**16**。
 
 * 树根下方方块长有对应类型的草地，或是雪块。
@@ -77,6 +79,8 @@
 
 #### 棕榈木
 
+<sup>相关代码位于`bool Terraria.WorldGen.GrowPalmTree(int, int)`</sup>
+
 * 树根下方方块为沙块（普通、腐化、神圣、猩红之一）。
 
 * 树根所在图格没有任何液体，也没有任何背景墙。
@@ -86,6 +90,8 @@
 符合上述条件后，将会生成一棵树，高度为**10 - 21**中的随机数值。
 
 #### 地下蘑菇树
+
+<sup>相关代码位于`bool Terraria.WorldGen.GrowShroom(int, int)`</sup>
 
 * 所选取图格左上方和右上方没有岩浆（对正上方无要求，疑似Bug）。
 
