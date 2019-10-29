@@ -26,7 +26,91 @@
 水晶农场面积越小，对收集速度的要求就越低。当规模较小时，可以使用\autoref{}最大化生成速率；当规模较大时，需要优先考虑便于半砖与传送器运输的结构以增加收集速度。
 
 \section{全自动树场}
-1
+\subsection{树的生成机制}
+\begin{note}
+本小节内容来自\href{https://github.com/sgkoishi}{sgkoishi}在\href{https://github.com/putianyi889/TerrariaWiringTutorial/pull/16}{项目PR}中的贡献。
+\end{note}
+本小节中，“玩家附近”指玩家中心的左右0.6sWidth（默认72格），上下0.6sHeight（默认40.5格）范围内。\footnote{相关代码位于\path{bool Terraria.WorldGen.PlayerLOS(int, int)}。}
+
+树木生长只会发生在地图中的矩形区域内。\footnote{相关代码位于\path{void Terraria.WorldGen.UpdateWorld()}。}
+
+地表树类的矩形区域左右端和上端均距离地图边缘10格，下端为\path{worldSurface}。
+
+每次更新中，重复以下步骤（$\textnormal{世界宽度}\times\textnormal{世界高度}\times 0.00003$）次：
+\begin{itemize}
+\item 随机选取地表矩形区域内的一个图格。
+\item 如果该图格为橡树种（ID 20）：
+	\begin{itemize}
+	\item 该格内液体量不超过32（约八分之一）。
+	\item 位于玩家附近'
+	\item 如果满足了本步骤中所有条件，则有1/20的几率长出树木。游戏会根据该图格的位置向下寻找最高的非橡树种方块，并将其标记为树根下方的方块。
+	\end{itemize}
+\item 如果该图格为丛林草地（ID 60）：
+	\begin{itemize}
+	\item 有1/7的几率检测该图格上方有没有方块，如果没有，则长出丛林草。
+	\item 如果符合以下条件，则有1/500的几率长出树木（该格视为树根下方的方块）：
+		\begin{itemize}
+		\item 上一步中没有触发检测。
+		\item 该图格上方没有方块，或只有丛林草/刺。
+		\item 位于玩家附近。
+		\end{itemize}
+	\end{itemize}
+\item 如果该格内方块类型为蘑菇草（ID 70）：
+	\begin{itemize}
+	\item 有1/10的几率长出小蘑菇。
+	\item 如果位于玩家附近，则有1 / 100的几率长出地表蘑菇树。
+		\begin{itemize}
+		\item 该格视为树根下方的方块。
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+树根下的方块上方相邻的方块标记为树根。
+
+地下树类的矩形区域左右端均距离地图边缘10格，上端为\path{worldSurface}，下端为距离地图边缘20格。
+
+每次更新中，重复以下步骤（$\textnormal{世界宽度}\times\textnormal{世界高度}\times 0.000015$）次：
+\begin{itemize}
+\item 随机选取地下矩形区域内的一个图格。
+\item 如果该格内方块类型为蘑菇草（ID 70）：
+	\begin{itemize}
+	\item 有1/10的几率长出小蘑菇。
+	\item 如果位于玩家附近，则有1/200的几率长出地下蘑菇树。
+	\end{itemize}
+\end{itemize}
+
+以上提到的所有“长出树木”的过程，分为棕榈木、地下蘑菇树、其他树木。
+
+\paragraph*{其他树木\footnote{相关代码位于\path{bool Terraria.WorldGen.GrowTree(int, int)}。}}
+包括普通、丛林、腐化、猩红、神圣、地表蘑菇、苔原七种树。丛林木高度上限为21，其余树木高度上限为16。
+
+\begin{itemize}
+\item 树根下方方块长有对应类型的草皮，或是雪块。
+\item 树根下方的图格，其左右相邻的方块之一也符合该条件。
+\item 树根所在图格完全没有液体，除非树根下的方块为丛林草地。
+\item 树根所在格的背景墙为栅栏（各种木栅栏或金属栅栏），或无背景墙。
+\item 树根左右2格、上方高度上限格（包括树根）的矩形区域内没有方块。
+\end{itemize}
+符合上述条件后，将会生成一棵树，高度为5-高度上限中的随机数值。
+
+从树根往上，每个图格都有几率出现树枝。只有左边有、只有右边有和左右都有树枝的几率均为1/10。同一边不会出现两个上下相邻的树枝。
+
+树根下方左右相邻的图格里，符合第一点（长草或雪地）的方块上将会长出另一块树根。
+
+\paragraph*{棕榈木\footnote{相关代码位于\path{bool Terraria.WorldGen.GrowPalmTree(int, int)}。}}
+\begin{itemize}
+\item 树根下方方块为沙块（普通、腐化、神圣、猩红之一）。
+\item 树根所在图格没有任何液体，也没有任何背景墙。
+\item 树根左右1格、上方30格（包括树根）的矩形区域内没有方块。
+\end{itemize}
+符合上述条件后，将会生成一棵树，高度为10-21中的随机数值。
+
+\paragraph*{地下蘑菇树\footnote{相关代码位于\path{bool Terraria.WorldGen.GrowShroom(int, int)}。}}
+\begin{itemize}
+\item 树根左右两格没有岩浆。
+\item 树根下方左右相邻的方块均为蘑菇草地。
+\item 树根左右2格，上方13格（包括树根）的矩形区域内没有方块，自然生长的蘑菇（ID 71）除外。
+\end{itemize}
+符合上述条件后，将会生成一棵树，高度为4-11中的随机数值。
 
 \section{生命果/世花农场}
 1
