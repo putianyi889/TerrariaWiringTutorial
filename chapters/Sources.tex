@@ -1,6 +1,10 @@
 \chapter{电路物品详解}\label{sec1}
 
-本章仅提供wiki上没有的知识或者需要特别关注的知识。
+\begin{introduction}
+\item \nameref{sec20}
+\item \hyperref[chuansongji]{传送阵}
+\item \nameref{sec21}
+\end{introduction}
 
 \section{开关/控制杆}
 \begin{figure}[!ht]
@@ -83,7 +87,7 @@
 \label{i201:202}
 \end{figure}
 
-加重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内，直接传送到加重压力板上可以触发加重压力板。
+加重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内。
 
 青绿压力垫板的碰撞箱为16*10或10*16，根据其朝向而定。射弹生成后，每次更新位置都会激活碰撞到的青绿压力垫板，这里碰撞的定义是：上次更新时碰撞箱不相交，但是这次更新时相交。如果射弹同时与多个青绿压力垫板碰撞，那么只激活优先级最高的那个（不同行的青绿压力垫板，上面的优先级高；同一行的青绿压力垫板，左边的优先级高）；多个射弹同时碰撞同一个青绿压力垫板，每个射弹都会激活一次（\autoref{i209:212}）。
 
@@ -118,7 +122,7 @@
 
 计时器受\nameref{app35}的影响，但是当倒计时达到0时，会重置倒计时而不是被删除\footnote{实际上程序处理有出入，这里的说法只是在不改变特性的前提下便于理解。}。使用右键或者电路激活关闭计时器时，计时器并不会被直接从冷却列表里删除，而是会留到下一次刷新到这个计时器时删除。
 
-\subsection{串联计时器}
+\subsection{串联计时器}\label{sec20}
 \begin{figure}[!ht]
 \begin{center}
 \subfloat{
@@ -291,7 +295,7 @@
 \subfloat[出水泵]{\quad\includegraphics{figures/Outlet_Pump.png}\quad}
 \caption{泵}
 \end{figure}
-用一根电线连接一个入水泵和一个出水泵，则电线激活时，入水泵上的液体会尽可能多的转移到出水泵。
+用一根电线连接一个入水泵和一个出水泵，则电线激活时，入水泵上的液体会尽可能多的转移到出水泵。虚化泵下方的实体块，泵不会崩坏。
 
 为了了解一些奇怪情况下的液体转移结算，这里介绍水泵的内部运行机制。
 
@@ -399,7 +403,11 @@
 \label{i216}
 \end{figure}
 
-当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序见\nameref{sec7}}，然后将两个图格传送区域内的可传送目标互换，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且第一个图格不低于最后一个图格时无法传送\footnote{这解释了为什么传送机不会自身传送。}；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
+当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序见\nameref{sec7}}，然后将两个图格传送区域内的可传送目标\textbf{互换}，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且第一个图格不低于最后一个图格时无法传送\footnote{这解释了为什么传送机不会自身传送。}；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
+
+\begin{remark}
+互换！{\LARGE 互换！}{\huge 互换！}老想着把几个NPC传送到一起的把这个词抄100遍！其他人怎么做到的？在目标传送机上放半砖把NPC推走，几个传送之间设置延迟。
+\end{remark}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -544,9 +552,9 @@
 \item 将B传送区域内的NPC按照NPC数组中的顺序依次传送到A传送区域内。
 \end{enumerate}
 
-每个玩家或NPC进行传送时，会把一个\texttt{teleporting}属性设置为\texttt{true}；传送前会检查该属性，如果为\texttt{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\texttt{teleporting}属性还原为\texttt{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
+每个玩家或NPC进行传送时，会把一个\lstinline{teleporting}属性设置为\lstinline{true}；传送前会检查该属性，如果为\lstinline{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\lstinline{teleporting}属性还原为\lstinline{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
 
-每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\texttt{blockPlayerTeleportationForOneIteration}设置为\texttt{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\texttt{false}。当\path{blockPlayerTeleportationForOneIteration}为\texttt{true}时，第1步和第3步会被直接跳过。
+每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\lstinline{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\lstinline{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\lstinline{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
 
 \begin{example}
 电路如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击左边传送机上的开关，那么会在左中两个传送机上进行两次传送，结果是被传回左边传送机；如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
@@ -559,19 +567,19 @@
 \caption{}\label{fig19}
 \end{figure}
 
-右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活加重压力板。需要注意的是，加重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}加重压力板将\texttt{blockPlayerTeleportationForOneIteration}设置为\texttt{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\texttt{teleporting}属性还原为\texttt{false}。蓝线的逻辑结算结束时，将\texttt{blockPlayerTeleportationForOneIteration}还原为\texttt{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\texttt{teleporting}属性在中右传送机的传送后被还原为\texttt{false}，玩家会被传送回A。
+右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活加重压力板。需要注意的是，加重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}加重压力板将\lstinline{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\lstinline{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\lstinline{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\lstinline{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
 \end{example}
 
 \begin{example}
 电路仍如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
-这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活加重压力板，执行与之前的一系列步骤。虽然玩家的\texttt{teleporting}属性仍被还原为\texttt{false}，但是不会继续传送了，玩家留在A上。
+这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活加重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
 \end{example}
 
 \begin{example}
 在\autoref{fig19}中，将蓝线剪断，使蓝线只经过一个传送机，如\autoref{}所示。无论右击哪个开关，玩家都会被传送到中间传送机。
 
-这次，因为蓝线没有触发传送的过程，所以玩家的\texttt{teleporting}属性就会保持为\texttt{true}，从而会跳过AB传送的第3步，玩家留在中间传送机。
+这次，因为蓝线没有触发传送的过程，所以玩家的\lstinline{teleporting}属性就会保持为\lstinline{true}，从而会跳过AB传送的第3步，玩家留在中间传送机。
 \end{example}
 
 \section{像素盒}
@@ -583,6 +591,39 @@
 像素盒可随意摆放，无需支撑块或背景墙。像素盒有十字状态的分线盒的分线效果。当一个电源激活时，该电源上的所有电线激活，此时如果像素盒上有横向电线激活且无纵向电线激活，那么像素盒熄灭；如果像素盒上既有横向电线激活又有纵向电线激活，那么像素盒点亮；如果无横向电线激活，那么像素盒不响应。
 
 需要注意的是，像素盒的响应是对电源敏感的，即分别结算每个电源发出的信号，这与传送机对电线敏感不同。同时，与一般的光源在亮灭之间切换不同，像素盒响应总是调整到对应状态。
+
+\subsection{像素盒显示器}\label{sec21}
+
+使用像素盒可以实现宽至多为24的密集矩阵显示器。因为其电路复杂，这里不给出电路图，仅给出原理。
+
+首先来看如何更新屏幕状态。根据像素盒特性，显然每个像素盒都需要两个方向各一条线来控制，其中横向的线激活才会导致像素盒响应，仅纵向激活是不会响应的，这样一来屏幕的每行是独立的，可以逐行更新。
+
+然后来看如何更新一行。当一行中的横向电线激活时，需要点亮的像素盒上的纵向电线必须被同一个电源激活，这意味着每个横向电线只能控制至多3个像素盒（\autoref{i258:259}）。
+
+\begin{figure}[!ht]
+\begin{center}
+\subfloat{
+\label{i258}
+\includegraphics{images/258.png}
+}
+\qquad
+\subfloat{
+\label{i259}
+\includegraphics{images/259.png}
+}
+\end{center}
+\caption{八个开关分别将像素盒状态变为000，001，010，011，100，101，110，111。}
+\label{i258:259}
+\end{figure}
+
+幸亏像素盒本身就有分线盒的作用，这样一来每行可以安排八个横向电线，更新这一行时从中间向两侧，每三个为一组更新（\autoref{i260}）。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/260.png}
+\caption{更新一行时，左边12个像素盒以3个为一组从右向左更新，右边12个像素盒以3个为一组从左向右更新。}
+\label{i260}
+\end{figure}
 
 \section{矿车轨道交叉点}
 交叉点上必须有两个方向的平滑轨道，那么这两个平滑轨道必定是一个覆盖另一个，此时激活交叉点会使两个平滑轨道的覆盖关系改变。需要注意的是激活交叉点可以产生的变化数量远远小于使用锤子可以产生的变化数量。
