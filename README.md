@@ -7,14 +7,37 @@
 
 ## 编辑指引
 主文件`main.tex`。
+
 各章节存放在`chapters`。
+
 物品贴图存放在`figures/`。
+
 NPC贴图存放在`npcs/`。
+
 截图存放在`images/`并编号。游戏内截图尽量使用刷白漆的钻石晶莹宝石墙，并且使用CheatSheet或HERO's mod将光照打到100%，以达到白色背景效果。
+
 模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
+
 `figure`和`image`存放原模板使用的图片，请勿修改。
 
-## 修改过的文件名
+### 生成wiki链接
+使用`\wiki{词条}`将生成指向中文wiki的链接，例如`\wiki{铜短剑}`将生成[铜短剑](https://terraria-zh.gamepedia.com/铜短剑)。
+
+使用`\wikii{词条}{文本}`将生成词条与文本不一致的链接，例如`\wikii{铜短剑}{同志短剑}`将生成[同志短剑](https://terraria-zh.gamepedia.com/铜短剑)。
+
+### 代码环境
+涉及源码中的数据、变量名、函数名等，请使用代码环境。行内的代码环境为`\lstinline{代码}`。表格中代码环境为`{\lstinline!代码!}`，注意外面要大括号。数学公式中代码环境为`\mathtt{代码}`。需断词换行的代码环境为`\path{代码}`。
+
+### 交叉引用
+所有使用过的label列举在`label used.txt`中，以防止label重复。早期文档使用的label并未列举出，包括插图的i+数字格式和其他一些拼音格式，请注意规避。目前常用的引用方式有`\hyperref`、`\href`、`\autoref`、`\nameref`、`\url`、`\subref`。除`\subref`属于`subfig`宏包，其他命令均属于`hyperref`宏包。
+
+### 浮动体
+除特殊情况下使用`[!htp]`，所有浮动体的放置方式统一为`[!ht]`。浮动体建议插入在对应文本之前以防止被放置在过于靠后的位置。
+
+### 其他
+关于单元格内的换行，请参考`makecell`宏包相关。关于可分页的表格，请参考`longtable`宏包相关。关于算法环境，请参考`algorithm2e`宏包相关。关于子浮动体生成，请参考`subfig`宏包相关。其余问题请参考`LaTeX`教程和模板文档。
+
+### 修改过的文件名
 |原文件名|新文件名|
 |:-|:-|
 |Hanging_Jack_'O_Lantern.png|Hanging_Jack_O_Lantern.png|
