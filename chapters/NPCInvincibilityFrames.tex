@@ -33,42 +33,36 @@ NPC不仅包含电工妹和哥布林工匠等城镇NPC，还包含所有的怪�
 \item 用剑等近战武器挥砍。
 \end{itemize}
 
-\subsection{普通NPC无敌帧的实现机制}
-游戏中每个NPC都拥有一个计时器Immune，这是一个长度为$256$的自然数列。每帧，数列中的每个值都会下降1，直到0为止。玩家$k$的许多（具体见下文）攻击方式击中NPC时，会检测当前的NPC的Immune的第$k$个位置是否为$0$，是$0$才能伤害到敌人。于是NPC的Immune中的第$k$个数$n$表示该NPC对玩家$k$的无敌帧还会持续$n$帧。
+\subsection{普通NPC无敌帧的实现机制}\label{sec24}
+游戏中每个NPC都拥有一个计时器\lstinline{Immune}，这是一个长度为$256$的自然数列。每帧，数列中的每个值都会下降1，直到0为止。玩家$k$的许多（具体见下文）攻击方式击中NPC时，会检测当前的NPC的\lstinline{Immune}的第$k$个位置是否为$0$，是$0$才能伤害到敌人。于是NPC的\lstinline{Immune}中的第$k$个数$n$表示该NPC对玩家$k$的无敌帧还会持续$n$帧。
 
 所以游戏中不同玩家对NPC（即使是同一个NPC）造成的普通无敌帧是独立计算，互不影响的。这是游戏中最普遍的无敌帧。
 
 当然，游戏里还有两类无敌帧，这两类无敌帧与下面会说到的两类特殊射弹绑定，所以详细的之后再说。
 
-\section{射弹造成的NPC无敌帧}
-与无敌帧有关的射弹属性主要是射弹的穿透能力，在源码里相应的变量是Penetrate。游戏中的每个射弹都拥有自己的Penetrate值，Penetrate若为正数$k$，则表明它能击中$k$个NPC（穿透$k-1$个），如果是$-1$，则表明它能击中在自己行进路线上的所有NPC。
+\section{射弹造成的NPC无敌帧}\label{sec25}
+与无敌帧有关的射弹属性主要是射弹的穿透能力，在源码里相应的变量是\lstinline{penetrate}。游戏中的每个射弹都拥有自己的\lstinline{penetrate}值，\lstinline{penetrate}若为正数$k$，则表明它能击中$k$个NPC（穿透$k-1$个），如果是$-1$，则表明它能击中在自己行进路线上的所有NPC。
 
-Penetrate为正数时，每击中一次NPC都会下降$1$，到$0$的时候这个射弹就会被销毁。
+\lstinline{penetrate}为正数时，每击中一次NPC都会下降$1$，到$0$的时候这个射弹就会被销毁。
 
-从这一方面能把射弹分成两类——穿透的（初始的Penetrate不为1）和不穿透的（初始的Penetrate=1）。注意，虽然穿透的射弹在还剩一次击中NPC的能力时penetrate=1，但还是被认为是穿透型射弹。
+从这一方面能把射弹分成两类——穿透的（初始的\lstinline{penetrate}不为1）和不穿透的（初始的\lstinline{penetrate}=1）。注意，虽然穿透的射弹在还剩一次击中NPC的能力时\lstinline{penetrate}=1，但还是被认为是穿透型射弹。
 
-射弹还有两个标签：
+射弹还有两个属性：\lstinline{usesLocalNPCImmunity}和\lstinline{usesIDStaticNPCImmunity}。游戏中的700多种射弹可以根据这两个属性的值被分成三类：
 \begin{itemize}
-\item usesLocalNPCImmunity
-\item usesIDStaticNPCImmunity
-\end{itemize}
-
-游戏中的700多种射弹可以根据这俩标签的有无被分成三类：
-\begin{itemize}
-\item 第一类是这俩标签都没有（被设定为False）的。
-\item 第二类是usesLocalNPCImmunity=True的。
-\item 第三类是usesIDStaticNPCImmunity=True的。
+\item 第一类是这两个属性都为\lstinline{False}的。
+\item 第二类是\lstinline{usesLocalNPCImmunity=True}的。
+\item 第三类是\lstinline{usesIDStaticNPCImmunity=True}的。
 \end{itemize}
 
 第一类射弹占了绝大多数，第二类仅仅有一小部分，第三类仅有一种：即699号射弹，食人魔掉落的关刀的本体。这三类射弹计算无敌帧、以及被无敌帧影响时的机制不尽相同。
 
 \subsection{第一类射弹}
-第一类射弹内的大多数穿透射弹在穿透NPC（击中当前NPC的时候Penetrate不是1）时，会对NPC造成10帧的无敌帧。但有一些例外，见下表：
+第一类射弹内的大多数穿透射弹在穿透NPC（击中当前NPC的时候\lstinline{penetrate}不是1）时，会对NPC造成10帧的无敌帧。但有一些例外，见下表：
 \begin{longtable}{|c|c|c|}
 \caption{特殊的第一类射弹}\\ \hline
-射弹ID&射弹&Immune(帧)\\ \hline
+射弹ID&射弹&{\lstinline!Immune!}(帧)\\ \hline
 \endfirsthead
-\hline 射弹ID&射弹&Immune(帧)\\\hline
+\hline 射弹ID&射弹&{\lstinline!Immune!}(帧)\\\hline
 \endhead
 \hline
 \endfoot
@@ -92,14 +86,14 @@ Penetrate为正数时，每击中一次NPC都会下降$1$，到$0$的时候这�
 
 注意鲨龙卷召唤物指的是鲨龙卷本体的碰撞。至于它发射出的小鲨鱼，那东西不穿透也不造成无敌帧。
 
-当第一类射弹碰到NPC时，如果NPC对当前玩家的Immune为0，或者射弹是不穿透型射弹，那么就能击中NPC，否则不行。第一类射弹的特点是互相影响，比如陨石子弹A对NPC造成的无敌帧会影响陨石子弹B的杀伤。当然，非穿透射弹不受影响，所以如果你用泡泡枪站撸世花，就不需要担心世花骗伤的问题；用枪械配合叶绿弹打月总时，召唤一条星尘龙出来也不会影响输出。
+当第一类射弹碰到NPC时，如果NPC对当前玩家的\lstinline{Immune}为0，或者射弹是不穿透型射弹，那么就能击中NPC，否则不行。第一类射弹的特点是互相影响，比如陨石子弹A对NPC造成的无敌帧会影响陨石子弹B的杀伤。当然，非穿透射弹不受影响，所以如果你用泡泡枪站撸世花，就不需要担心世花骗伤的问题；用枪械配合叶绿弹打月总时，召唤一条星尘龙出来也不会影响输出。
 
-\subsection{第二类射弹}
+\subsection{第二类射弹}\label{sec26}
 \begin{longtable}{|c|c|c|c|}
 \caption{第二类射弹}\\ \hline
-射弹ID & 射弹 & LocalNPCImmunity & Immune\\\hline
+射弹ID & 射弹 & {\lstinline!localNPCImmunity!} & {\lstinline!Immune!}\\\hline
 \endfirsthead
-\hline 射弹ID & 射弹 & LocalNPCImmunity & Immune\\\hline
+\hline 射弹ID & 射弹 & {\lstinline!localNPCImmunity!} & {\lstinline!Immune!}\\\hline
 \endhead
 \hline
 \endfoot
@@ -129,25 +123,25 @@ Penetrate为正数时，每击中一次NPC都会下降$1$，到$0$的时候这�
 711 & 贝特西之怒 & -1 & 0
 \end{longtable}
 
-第二类射弹被发射出去后，会拥有一个计时器localNPCImmunity，这是一个长度为200的整数列，其中的第$k$个值表明这个射弹对序号为$k$的NPC的“局部无敌时间”。这个整数列中的所有大于0的值每帧都会减少1，直到0为止。而小于0的值则不变。当第二类射弹碰到NPC时，游戏会首先检测这个射弹对这只NPC的局部无敌时间是否为0。如果不是，则无法击中；如果是，则继续检测NPC对发射这枚射弹的玩家的Immune（即普通的无敌帧）是不是0，以及这个射弹是不是非穿透射弹，如果以上至少有一个是成立的，则最终击中NPC。第二类射弹击中NPC时，绝大多数不会给NPC造成普通无敌帧，唯一的例外是喷发剑，上表里已经显示出来了。
+第二类射弹被发射出去后，会拥有一个计时器\lstinline{localNPCImmunity}，这是一个长度为200的整数列，其中的第$k$个值表明这个射弹对序号为$k$的NPC的“局部无敌时间”。这个整数列中的所有大于0的值每帧都会减少1，直到0为止。而小于0的值则不变。当第二类射弹碰到NPC时，游戏会首先检测这个射弹对这只NPC的局部无敌时间是否为0。如果不是，则无法击中；如果是，则继续检测NPC对发射这枚射弹的玩家的\lstinline{Immune}（即普通的无敌帧）是不是0，以及这个射弹是不是非穿透射弹，如果以上至少有一个是成立的，则最终击中NPC。第二类射弹击中NPC时，绝大多数不会给NPC造成普通无敌帧，唯一的例外是喷发剑，上表里已经显示出来了。
 
 注意，局部无敌时间是射弹的属性（而普通的无敌帧是NPC的属性），游戏中每一个射弹都拥有独立计算的局部无敌时间，加之绝大多数第二类射弹不会造成普通的无敌帧，这意味着第二类射弹基本上不会互相影响（唯一的例外是喷发剑）。所以说虽然月明弹是穿透的，但它们并不会像陨石弹那样连续发射的两发子弹只能击中一发。
 
-此外，还可以注意到一部分第二类射弹的localNPCImmunity是-1，这意味着这个射弹无法再次击中已经击中过的NPC，而那些localNPCImmunity大于0的抛射体，则表明它在击中某个NPC之后一段时间，可以再次击中这只NPC（典型的就是星云奥秘）。
+此外，还可以注意到一部分第二类射弹的\lstinline{localNPCImmunity}是-1，这意味着这个射弹无法再次击中已经击中过的NPC，而那些\lstinline{localNPCImmunity}大于0的抛射体，则表明它在击中某个NPC之后一段时间，可以再次击中这只NPC（典型的就是星云奥秘）。
 
-以及由于第二类射弹碰到NPC时仍然会检测NPC的Immune，所以普通无敌帧还是会影响第二类射弹的输出。简单来说，虽然第二类射弹基本不会互相影响，但它们会受到第一类射弹的影响。
+以及由于第二类射弹碰到NPC时仍然会检测NPC的\lstinline{Immune}，所以普通无敌帧还是会影响第二类射弹的输出。简单来说，虽然第二类射弹基本不会互相影响，但它们会受到第一类射弹的影响。
 
-\subsection{第三类射弹}
+\subsection{第三类射弹}\label{sec27}
 只有那个ID为699的大关刀的本体。
 
-与那个东西有关的是perIDStaticNPCImmunity，这个变量是个714（游戏内射弹总种类数）$\times$200的整数矩阵，这是个游戏的内置变量，不属于任何一个NPC或者射弹。关刀碰到序号为$k$的NPC时，会检测矩阵第700行，第$k+1$列的数字是否小于等于GameUpdateCount，如果是则继续检测NPC对发射这枚射弹的玩家的Immune是不是0，以及这个射弹是不是非穿透抛射体，如果以上至少有一个是成立的，则关刀最终击中NPC。
+与那个东西有关的是perIDStaticNPCImmunity，这个变量是个714（游戏内射弹总种类数）$\times$200的整数矩阵，这是个游戏的内置变量，不属于任何一个NPC或者射弹。关刀碰到序号为$k$的NPC时，会检测矩阵第700行，第$k+1$列的数字是否小于等于GameUpdateCount，如果是则继续检测NPC对发射这枚射弹的玩家的\lstinline{Immune}是不是0，以及这个射弹是不是非穿透抛射体，如果以上至少有一个是成立的，则关刀最终击中NPC。
 
-关刀击中NPC后，也会在矩阵的相应位置赋值GameUpdateCount+36。这个大矩阵内的数值本身是不会下跌的（不像Immune和localNPCImmunity），但因为GameUpdateCount会上涨（速率应该也是每帧1），所以起到的倒计时效果一样。
+关刀击中NPC后，也会在矩阵的相应位置赋值GameUpdateCount+36。这个大矩阵内的数值本身是不会下跌的（不像\lstinline{Immune}和\lstinline{localNPCImmunity}），但因为GameUpdateCount会上涨（速率应该也是每帧1），所以起到的倒计时效果一样。
 
 所以关刀的特性和第二类射弹差不多，但有一点不一样：不同玩家的关刀会互相影响输出。
 
-\section{近战武器造成的NPC无敌帧}
-游戏每帧都会检测每个NPC对某个玩家的Immune是不是0，以及玩家的attackCD是不是0，如果以上都成立，并且武器碰到了NPC，则对NPC造成伤害。玩家的attackCD=玩家itemAnimationMax/3。而itemAnimationMax是对应武器的useAnimation*玩家的meleespeed（为实际近战攻速的倒数），useAnimation是武器的自身属性。所以实战中，挥舞一次剑能打到的NPC数量是有限的。并且挥舞武器受普通无敌帧的影响。
+\section{近战武器造成的NPC无敌帧}\label{sec28}
+游戏每帧都会检测每个NPC对某个玩家的\lstinline{Immune}是不是0，以及玩家的attackCD是不是0，如果以上都成立，并且武器碰到了NPC，则对NPC造成伤害。玩家的attackCD=玩家itemAnimationMax/3。而itemAnimationMax是对应武器的useAnimation*玩家的meleespeed（为实际近战攻速的倒数），useAnimation是武器的自身属性。所以实战中，挥舞一次剑能打到的NPC数量是有限的。并且挥舞武器受普通无敌帧的影响。
 
 此外，当挥舞武器给NPC造成伤害时，会给NPC对当前玩家的一个比较短的普通无敌帧，持续时间是当前玩家的itemAnimation。这个数值在你刚开始挥舞武器的时候与itemAnimationMax一样，然后下降，如果没理解错的话，当你挥舞完成的时候，这个值会降到0.这个无敌帧的存在应当只是为了保证玩家每一次挥砍，对同一个NPC只能造成一次伤害。
 
@@ -155,12 +149,12 @@ Penetrate为正数时，每击中一次NPC都会下降$1$，到$0$的时候这�
 以下是一些零散内容：
 \begin{itemize}
 \item 着火、诅咒焰以至于星尘细胞吸附、破晓等烧血\wiki{减益}通过\path{NPC.UpdateNPC_BuffApplyDOTs}函数直接作用于NPC生命值，不受无敌帧影响也不造成无敌帧。
-\item 部分射弹在击中NPC后属性会改变——主要是那些击中目标后爆炸的射弹比如爆炸子弹、月耀等。改变的属性主要是射弹的大小，不过有时候Penetrate属性也会变，这造成了一些有趣的现象：爆炸子弹自身Penetrate是1，但击中NPC后Penetrate变成-1，长宽变成80像素然后再造成一下伤害。于是爆炸子弹本体伤害不受无敌帧影响，但是爆炸的范围伤害会受到无敌帧影响。同样的现象在星云烈焰上也能观察到（星云烈焰的爆炸是范围伤害，范围是50*50像素）。
-\item 岩浆对NPC造成30帧的普通无敌帧，用NPC的Immune列表的第256个数储存并计算，游戏中能存在的玩家总数为255因此不会影响玩家的输出。
+\item 部分射弹在击中NPC后属性会改变——主要是那些击中目标后爆炸的射弹比如爆炸子弹、月耀等。改变的属性主要是射弹的大小，不过有时候\lstinline{penetrate}属性也会变，这造成了一些有趣的现象：爆炸子弹自身\lstinline{penetrate}是1，但击中NPC后\lstinline{penetrate}变成-1，长宽变成80像素然后再造成一下伤害。于是爆炸子弹本体伤害不受无敌帧影响，但是爆炸的范围伤害会受到无敌帧影响。同样的现象在星云烈焰上也能观察到（星云烈焰的爆炸是范围伤害，范围是50*50像素）。
+\item 岩浆对NPC造成30帧的普通无敌帧，用NPC的\lstinline{Immune}列表的第256个数储存并计算，游戏中能存在的玩家总数为255因此不会影响玩家的输出。
 \item 陷阱也会对NPC造成无敌帧，并且会被算到玩家头上，因此会影响玩家的输出。
 \end{itemize}
 
-\section{人物无敌帧}
+\section{人物无敌帧}\label{sec29}
 \wiki{人物}受到伤害，或在其他的某些情况下也会有无敌帧。这一般是为了使人物不会因为撞到\wiki{敌怪}或\wiki{机关}而暴毙。但玩家们利用某些无敌帧机制制作出了骗伤装置，可以广泛用于速通等各种场景。
 
 人物无敌帧相对NPC无敌帧来说简单很多。
@@ -177,4 +171,4 @@ Penetrate为正数时，每击中一次NPC都会下降$1$，到$0$的时候这�
 
 这两种无敌帧与普通无敌帧互不影响。即使有普通无敌帧也挡不住\wiki{月亮领主}的伤害，有月亮领主的无敌帧也挡不住普通伤害，尖刺亦然。例外是\wiki{钛金盔甲}触发暗影躲避\wiki{增益}或闪避效果，它们给予的无敌帧同时作用于普通无敌帧与这两种特殊无敌帧。
 
-两种特殊无敌帧在游戏源码里对应的变量是\lstinline{hurtCooldowns},是长度为\lstinline{2}的列表。从\lstinline{UpdateImmunity}函数、\lstinline{Hurt}函数、\lstinline{ShadowDodge}与\lstinline{NinjaDodge}函数对应片段的写法来看，开发组特意对\lstinline{hurtCooldowns}的长度做了一些变通处理，这意味着未来(1.4?)，特殊无敌帧可能不止包含月总与各种尖刺。
+两种特殊无敌帧在游戏源码里对应的变量是\lstinline{hurtCooldowns},是长度为\lstinline{2}的列表。从\path{UpdateImmunity}函数、\lstinline{Hurt}函数、\lstinline{ShadowDodge}与\lstinline{NinjaDodge}函数对应片段的写法来看，开发组特意对\path{hurtCooldowns}的长度做了一些变通处理，这意味着未来(1.4?)，特殊无敌帧可能不止包含月总与各种尖刺。
