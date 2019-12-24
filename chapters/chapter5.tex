@@ -2,6 +2,28 @@
 
 在前面我们已经学习了所有电路原理。在这一章中我们以电路功能分类，介绍一些常用的电路模块。
 
+\section{递次电路}\label{sec2}
+在\autoref{sec35}中我们已经介绍了传统递次电路的原理，这里我们来看一下各式各样的递次电路。
+
+\subsection{传统递次电路}
+“传统”递次电路即为在多个故障逻辑门中简单循环的电路。我们在后面的推广递次和多级递次中可以看到递次电路的其他思路。
+
+\begin{figure}[!ht]
+    \centering
+	\subfloat[传统递次]{\label{fig52}\includegraphics{images/72.png}\quad\includegraphics{images/73.png}}
+	\qquad
+	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics{images/106.png}\quad\includegraphics{images/107.png}}
+	\qquad
+    \subfloat[斜式传统递次]{\label{fig54}\includegraphics{images/78.png}\quad\includegraphics{images/79.png}}
+	\qquad
+	\subfloat[密排传统递次]{\label{fig55}\includegraphics{images/82.png}\quad\includegraphics{images/83.png}}
+	\qquad
+	\subfloat[密排带复位传统递次]{\label{fig56}\includegraphics{images/317.png}\quad\includegraphics{images/318.png}}
+	\caption{常用的传统递次电路}
+\end{figure}
+
+\autoref{fig52}和\autoref{fig53}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。\autoref{fig56}的复位部分相当有趣，我们会在下次更新文档时解释它。
+
 \section{驱动}
 
 \subsection{自定义半砖驱动}

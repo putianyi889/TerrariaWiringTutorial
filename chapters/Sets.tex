@@ -86,11 +86,9 @@
 }
 \end{multicols}
 
-\subsection{地图基本信息}
+\subsection{地图基本信息}\label{tab8}
 \begin{longtable}{|c|c|}
-\hline \label{tab8}变量名&意义\\\hline
-\endfirsthead
-变量名&意义\\\hline
+\hline 变量名&意义\\\hline
 \endhead
 \hline
 \endfoot
@@ -100,11 +98,9 @@
 {\lstinline!rockLayer!}&地下层与洞穴层分界纵坐标/格\\
 \end{longtable}
 
-\subsection{矩形区域}
+\subsection{矩形区域}\label{tab9}
 \begin{longtable}{|c|c|c|}
-\hline \label{tab9}变量名&变量值&意义\\\hline
-\endfirsthead
-变量名&变量值&意义\\\hline
+\hline 变量名&变量值&意义\\\hline
 \endhead
 \hline
 \endfoot
@@ -130,14 +126,12 @@
     \label{tab4618}
 \end{table}
 
-\subsection{液体相关}
+\subsection{液体相关}\label{tab10}
 \begin{longtable}{|c|c|}
-\hline \label{tab10}变量名&意义\\\hline
-\endfirsthead
-变量名&意义\\\hline
+\hline 变量名&意义\\\hline
 \endhead
-\hline
-\endfoot
+%\hline
+%\endfoot
 {\lstinline!maxLiquid!}&活跃液体上限\\\hline
 {\lstinline!numLiquid!}&活跃液体格数\\\hline
 {\lstinline!cycles!}&液体刷新周期\\\hline
@@ -145,7 +139,7 @@
 {\lstinline!stuckCount!}&阻塞时间\\\hline
 {\lstinline!stuckAmount!}&阻塞格数\\\hline
 {\lstinline!delay!}（属性）&延迟刷新次数\\\hline
-{\lstinline!kill!}（属性）&不活跃指数\\
+{\lstinline!kill!}（属性）&不活跃指数\\\hline
 \end{longtable}
 
 \subsection{\lstinline{gfxQuality}}\label{app34}
@@ -156,22 +150,53 @@
 
 \section{图格集合}
 \subsection{环境方块}
-\begin{longtable}{|c|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline 环境&图格名称&图格贴图\\\hline
-\endfirsthead
-\hline 环境&图格名称&图格贴图\\\hline
+\begin{longtable}{|c|p{3cm}|c|}
+\hline 环境&\makecell[cc]{图格名称}&\makecell[cc]{图格贴图}\\\hline
 \endhead
 \hline
 \endfoot
-神圣&神圣草皮、矮小神圣植物、高大神圣植物、珍珠沙块、珍珠石块、粉冰雪块、硬化珍珠沙块、珍珠沙岩块&\\\hline
-腐化&腐化草皮、腐化植物、黑檀石块、腐化多刺灌木、黑檀沙块、紫冰雪块、硬化黑檀沙块、黑檀沙岩块&\\\hline
-猩红&猩红草皮、红冰雪块、猩红石块、猩红沙块、猩红多刺灌木、硬化猩红沙块、猩红沙岩块&\\\hline
-雪原&雪块、雪砖、冰雪块、薄冰、紫冰雪块、粉冰雪块、红冰雪块&\\\hline
-丛林&丛林草皮、矮小丛林植物、丛林蔓藤、高大丛林植物、丛林蜥蜴砖&\\\hline
-蘑菇&蘑菇草、发光蘑菇、地下巨型发光蘑菇&\\\hline
-陨石&陨石&\\\hline
-地牢&蓝砖、绿砖、粉砖&\\\hline
-沙漠&沙块、黑檀沙块、珍珠沙块、猩红沙块、硬化沙块、硬化黑檀沙块、硬化珍珠沙块、硬化猩红沙块、沙岩块、黑檀沙岩块、珍珠沙岩块、猩红沙岩块
+神圣&\makecell[cc]{神圣草皮\\ 高大神圣植物\\ 矮小神圣植物\\ 珍珠沙块\\ 珍珠石块\\ 粉冰雪块\\ 硬化珍珠沙块\\ 珍珠沙岩块}&
+$\begin{array}{c}
+\includegraphics[scale=0.65]{tiles/Short_Hallowed_Plants.png}\\
+\includegraphics[width=48pt]{tiles/Hallowed_grass.png}\quad\includegraphics{tiles/Tall_Hallowed_Plants.png}\quad\includegraphics{tiles/Pearlsand_Block_(placed).png}\\
+\includegraphics{tiles/Pearlstone_Block_(placed).png}\quad\includegraphics{tiles/Pink_Ice_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Pearlsand_Block_(placed).png}\quad\includegraphics{tiles/Pearlsandstone_Block_(placed).png}
+\end{array}$\\\hline
+腐化&\makecell[cc]{腐化草皮\\ 腐化多刺灌木\\ 腐化植物\\ 黑檀石块\\ 黑檀沙块\\ 紫冰雪块\\ 硬化黑檀沙块\\ 黑檀沙岩块}&
+$\begin{array}{c}
+\includegraphics[scale=0.65]{tiles/Corruption_Plants.png}\\
+\includegraphics[width=48pt]{tiles/Corrupt_grass.png}\quad\includegraphics{tiles/Corruption_Thorny_Bush.png}\quad\includegraphics{tiles/Growing_vile_mushroom.png}\quad\includegraphics{tiles/Ebonsand_Block_(placed).png}\\
+\includegraphics{tiles/Ebonstone_Block_(placed).png}\quad\includegraphics{tiles/Purple_Ice_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Ebonsand_Block_(placed).png}\quad\includegraphics{tiles/Ebonsandstone_Block_(placed).png}
+\end{array}$\\\hline
+猩红&\makecell[cc]{猩红草皮\\ 猩红多刺灌木\\ 红冰雪块\\ 猩红石块\\ 猩红沙块\\ 硬化猩红沙块\\ 猩红沙岩块}&
+$\begin{array}{c}
+\includegraphics[width=48pt]{tiles/Crimson_grass.png}\quad\includegraphics[width=16pt]{tiles/Crimson_Thorny_Bush.png}\quad\includegraphics[width=48pt]{tiles/Crimsand_Block_(placed).png}\\
+\includegraphics[width=48pt]{tiles/Crimstone_Block_(placed).png}\quad\includegraphics{tiles/Red_Ice_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Crimsand_Block_(placed).png}\quad\includegraphics{tiles/Crimsandstone_Block_(placed).png}\end{array}$\\\hline
+雪原&\makecell[cc]{雪块\quad 雪砖\\ 冰雪块\quad 薄冰\\ 紫冰雪块\\ 粉冰雪块\\ 红冰雪块}&
+$\begin{array}{c}
+\includegraphics{tiles/Snow_Block_(placed).png}\quad\includegraphics{tiles/Snow_Brick_(placed).png}\quad\includegraphics{tiles/Ice_Block_(placed).png}\quad\includegraphics{tiles/Thin_Ice_(placed).png}\\
+\includegraphics{tiles/Purple_Ice_Block_(placed).png}\quad\includegraphics{tiles/Pink_Ice_Block_(placed).png}\quad\includegraphics{tiles/Red_Ice_Block_(placed).png}
+\end{array}$\\\hline
+丛林&\makecell[cc]{丛林草皮\\ 矮小丛林植物\\ 丛林蔓藤\\ 高大丛林植物\\ 丛林蜥蜴砖}&
+$\begin{array}{c}
+\includegraphics[width=48pt]{tiles/Jungle_grass.png}\quad\includegraphics{tiles/Jungle_Spores_(placed).png}\quad\includegraphics{tiles/Nature's_Gift_(placed).png}\quad\includegraphics{tiles/Jungle_vines}\quad\includegraphics{tiles/Lihzahrd_Brick_(placed).png}\\
+\includegraphics[scale=0.85]{tiles/Tall_Jungle_Plants.png}\\
+\includegraphics[scale=0.65]{tiles/Short_Jungle_Plants.png}\\
+\end{array}$\\\hline
+蘑菇&$\vcenter{\makecell{蘑菇草\quad 发光蘑菇\\ 地下巨型发光蘑菇}}$&
+$\begin{array}{c}
+\includegraphics{tiles/Mushroom_grass.png}\quad\includegraphics{tiles/Glowing_Mushrooms.png}\quad\includegraphics{tiles/Giant_Glowing_Mushroom.png}
+\end{array}$\\\hline
+陨石&\makecell[cc]{陨石}&$\begin{array}{c}\includegraphics[width=48pt]{tiles/Meteorite_(placed)}\end{array}$\\\hline
+地牢&\makecell[cc]{蓝砖\\ 绿砖\\ 粉砖}&
+$\begin{array}{c}
+\includegraphics{tiles/Blue_Brick_(placed).png}\quad\includegraphics{tiles/Green_Brick_(placed).png}\quad\includegraphics{tiles/Pink_Brick_(placed).png}
+\end{array}$\\\hline
+沙漠&\makecell[cc]{沙块\quad 黑檀沙块\\ 珍珠沙块\\ 猩红沙块\\ 硬化沙块\\ 硬化黑檀沙块\\ 硬化珍珠沙块\\ 硬化猩红沙块\\ 沙岩块\\ 黑檀沙岩块\\ 珍珠沙岩块\\ 猩红沙岩块}&
+$\begin{array}{c}
+\includegraphics[width=48pt]{tiles/Sand_Block_(placed).png}\quad\includegraphics{tiles/Ebonsand_Block_(placed).png}\quad\includegraphics{tiles/Pearlsand_Block_(placed).png}\quad\includegraphics[width=48pt]{tiles/Crimsand_Block_(placed).png}\\
+\includegraphics{tiles/Hardened_Sand_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Ebonsand_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Pearlsand_Block_(placed).png}\quad\includegraphics{tiles/Hardened_Crimsand_Block_(placed).png}\\
+\includegraphics{tiles/Sandstone_Block_(placed).png}\quad\includegraphics{tiles/Ebonsandstone_Block_(placed).png}\quad\includegraphics{tiles/Pearlsandstone_Block_(placed).png}\quad\includegraphics{tiles/Crimsandstone_Block_(placed).png}\\
+\end{array}$
 \end{longtable}
 
 \subsection{实体块}
