@@ -10,19 +10,300 @@
 
 \begin{figure}[!ht]
     \centering
-	\subfloat[传统递次]{\label{fig52}\includegraphics{images/72.png}\quad\includegraphics{images/73.png}}
+	\subfloat[传统递次]{\label{fig52}\includegraphics{images/72.png}\qquad\includegraphics{images/73.png}}
 	\qquad
-	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics{images/106.png}\quad\includegraphics{images/107.png}}
+	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics{images/106.png}\qquad\includegraphics{images/107.png}}
 	\qquad
-    \subfloat[斜式传统递次]{\label{fig54}\includegraphics{images/78.png}\quad\includegraphics{images/79.png}}
+    \subfloat[斜式传统递次]{\label{fig54}\includegraphics{images/78.png}\qquad\includegraphics{images/79.png}}
 	\qquad
-	\subfloat[密排传统递次]{\label{fig55}\includegraphics{images/82.png}\quad\includegraphics{images/83.png}}
+	\subfloat[密排传统递次]{\label{fig55}\includegraphics{images/82.png}\qquad\includegraphics{images/83.png}}
 	\qquad
-	\subfloat[密排带复位传统递次]{\label{fig56}\includegraphics{images/317.png}\quad\includegraphics{images/318.png}}
+	\subfloat[密排带复位传统递次]{\label{fig56}\includegraphics{images/317.png}\qquad\includegraphics{images/318.png}}
 	\caption{常用的传统递次电路}
 \end{figure}
 
-\autoref{fig52}和\autoref{fig53}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。\autoref{fig56}的复位部分相当有趣，我们会在下次更新文档时解释它。
+\autoref{fig52}和\autoref{fig53}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。
+
+\autoref{fig56}的复位部分使用了\nameref{sec37}。
+
+\subsection{传统双向递次电路}\label{sec3}
+双向递次电路就是可以正反两个方向循环的递次电路。正反分别用两根线控制。
+
+\begin{figure}[!ht]
+    \centering
+    \subfloat[传统双向递次]{\includegraphics{images/263.png}\qquad\includegraphics{images/264.png}}
+	\qquad
+    \subfloat[密排传统双向递次]{\includegraphics{images/261.png}\qquad\includegraphics{images/262.png}}
+	\qquad
+    \subfloat[带复位的传统双向递次]{\includegraphics{images/265.png}\qquad\includegraphics{images/266.png}}
+	\caption{传统双向递次电路}
+\end{figure}
+
+\subsection{推广递次电路}
+递次电路能形成循环，是靠的故障逻辑门改变逻辑灯状态，而逻辑灯状态又能反过来决定故障逻辑门是否激活。换言之，每一步中电路的状态都可以决定下一步的状态。这样依次下去，就形成了一个状态链。我们有理由相信，在某些特定的接线方式下，状态链会形成循环。
+
+\begin{example}
+分析如\autoref{fig59}所示的4-传统递次电路。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/416.png}
+\caption{}\label{fig59}
+\end{figure}
+\end{example}
+\begin{solution}
+4-传统递次总共有16种状态，它们对应的后继如\autoref{tab14}所示。
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+当前状态&下一状态\\\hline
+0000&0000\\\hline
+0001&1000\\\hline
+0010&0001\\\hline
+0011&1001\\\hline
+0100&0010\\\hline
+0101&1010\\\hline
+0110&0011\\\hline
+0111&1011\\\hline
+1000&0100\\\hline
+1001&1100\\\hline
+1010&0101\\\hline
+1011&1101\\\hline
+1100&0110\\\hline
+1101&1110\\\hline
+1110&0111\\\hline
+1111&1111\\\hline
+\end{tabular}
+\caption{}\label{tab14}
+\end{table}
+
+根据\autoref{tab14}，我们得出4-传统递次的所有循环：
+\begin{align*}
+0000&\to 0000\\
+1000&\to 0100\to 0010\to 0001\to 1000\\
+0110&\to 0011\to 1001\to 1100\to 0110\\
+0101&\to 1010\to 0101\\
+0111&\to 1011\to 1101\to 1110\to 0111\\
+1111&\to 1111
+\end{align*}
+4-传统递次一共有6个循环，其中2个1循环、1个2循环、3个4循环。
+\end{solution}
+
+\begin{example}
+分析如\autoref{fig57}所示的推广递次电路。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/426.png}
+\caption{}\label{fig57}
+\end{figure}
+\end{example}
+\begin{solution}
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+当前状态&下一状态\\\hline
+0000&0000\\\hline
+0001&1000\\\hline
+0010&0001\\\hline
+0011&1001\\\hline
+0100&0010\\\hline
+0101&1010\\\hline
+0110&0011\\\hline
+0111&1011\\\hline
+1000&0110\\\hline
+1001&1110\\\hline
+1010&0111\\\hline
+1011&1111\\\hline
+1100&0100\\\hline
+1101&1100\\\hline
+1110&0101\\\hline
+1111&1101\\\hline
+\end{tabular}
+\caption{}\label{tab15}
+\end{table}
+根据\autoref{tab15}，我们得出该推广递次的所有循环：
+\begin{align*}
+0000\to &0000\\
+0001\to &1000\to 0110\to 0011\to 1001\to 1110\to 0101\to 1010\to \\
+        &0111\to 1011\to 1111\to 1101\to 1100\to 0100\to 0010\to 0001
+\end{align*}
+该推广递次一共有2个循环，其中1个1循环、1个15循环。
+\end{solution}
+
+不难看出，无论推广递次如何连接，$0000\to 0000$的1循环是不会变的，我们把这个循环叫做\textbf{平凡循环}并在之后的讨论中忽略它。如果一个推广递次的所有非零状态共同构成了一个循环，那么我们把这个循环叫做\textbf{全循环}。推广递次连接的多样化、状态的多样化、循环的多样化带来了更多的可能性。
+
+\begin{example}
+分析\autoref{fig58}中的降频电路。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/332.png}
+\caption{}\label{fig58}
+\end{figure}
+\end{example}
+\begin{solution}
+该电路分为两部分：左边两个门为2-推广递次电路，右边一个门为2-降频电路，2-推广递次的绿线接到2-降频电路的输入。
+
+分析推广递次的输出时，不光要分析各个灯的状态，还要分析各根线的状态。本例中2-推广递次的两个灯与两根线的状态如\autoref{tab16}所示，其中两根线的初始状态设为0。
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+状态编号&两灯状态&蓝线状态&绿线状态\\\hline
+0&10&0&0\\\hline
+1&01&1&0\\\hline
+2&11&0&1\\\hline
+\end{tabular}
+\caption{}\label{tab16}
+\end{table}
+
+这个推广递次的循环为3，而且每个循环中绿线激活两次，通过2-降频电路后，每个循环中火把被激活一次。所以\autoref{fig58}中的降频电路是3-降频电路。
+
+如果使用3-传统递次电路实现降频，因为摆线的原因，电路的宽或高至少要增加一格。推广递次在这种简单功能上有体积的优势。
+
+如果去掉最右边的2-降频电路，左边的2-推广递次就会变成一个不均匀降频电路，或者说，(1,2)-降频电路，即周期在1与2切换。改变推广递次的门数与接线就可以得到各种各样的不均匀降频电路。串联不均匀降频电路可以得到输出更复杂的不均匀降频电路，例如串联两个(1,2)-降频电路，可以得到(1,3,2,3)-降频电路，其推导过程留给读者。
+
+\end{solution}
+
+并非所有推广递次都可以产生非平凡循环。
+
+\begin{example}
+\autoref{fig60}所示推广递次的状态链见\autoref{fig61}。这个状态链是一棵树，不包含任何一个非平凡循环。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/414.png}
+\caption{}\label{fig60}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\begin{forest} for tree={edge={<-},grow=west},
+	[0000,name=s
+		[0001
+			[0010
+				[0100
+					[1000]
+					[1001]]
+				[0101
+					[1010]
+					[1011]]]
+			[0011
+				[0110
+					[1100]
+					[1101]]
+				[0111
+					[1110]
+					[1111]]]]]
+	\draw[->] (s) to[out=45,in=-45,looseness=3] (s);
+\end{forest}
+\caption{}\label{fig61}
+\end{figure}
+\end{example}
+
+\begin{example}
+\autoref{fig62}所示推广递次的状态链见\autoref{fig63}。这个状态链由两棵树组成。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/415.png}
+\caption{}\label{fig62}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\begin{forest} for tree={edge={<-},grow=west},
+	[0000,name=s
+		[0001
+			[0010
+				[0100]
+				[0101]]
+			[0011
+				[0110]
+				[0111]]]]
+	\draw[->] (s) to[out=45,in=-45,looseness=3] (s);
+\end{forest}
+\quad
+\begin{forest} for tree={edge={<-},grow=east},
+	[1111,name=s
+		[1110
+			[1101
+				[1011]
+				[1010]]
+			[1100
+				[1001]
+				[1000]]]]
+	\draw[->] (s) to[out=135,in=-135,looseness=3] (s);
+\end{forest}
+\caption{}\label{fig63}
+\end{figure}
+
+\end{example}
+
+\begin{example}
+\autoref{fig65}所示推广递次的状态链见\autoref{fig64}，其中既有环结构也有树结构。
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/427.png}
+\caption{}\label{fig65}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+\newdimen\R
+\R=1.5cm;
+\node (s1) at (0:\R) {0001};
+\node (se) at (120:\R) {1110};
+\node (sf) at (240:\R) {1111};
+\node (s2) at (300:\R) {0010};
+\node (s3) at (180:\R) {0011};
+\node (sc) at (60:\R) {1100};
+\path [->]
+    (s1) edge (se)
+    (se) edge (sf)
+    (sf) edge (s1)
+    (s2) edge (s1)
+    (s3) edge (sf)
+    (sc) edge (se);
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+\newdimen\R
+\R=1.5cm;
+\node (s1) at (0:\R) {0100};
+\node (se) at (120:\R) {1010};
+\node (sf) at (240:\R) {0101};
+\node (s2) at (300:\R) {1000};
+\node (s3) at (180:\R) {0111};
+\node (sc) at (60:\R) {1001};
+\path [->]
+    (s1) edge (se)
+    (se) edge (sf)
+    (sf) edge (s1)
+    (s2) edge (s1)
+    (s3) edge (sf)
+    (sc) edge (se);
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+\newdimen\R
+\R=1.3cm;
+\node (se) at (120:\R) {0110};
+\node (sf) at (240:\R) {1011};
+\path [->] (se) edge (sf);
+\draw [->] (sf) to[out=-135,in=-45,looseness=3] (sf);
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+\newdimen\R
+\R=1.3cm;
+\node (se) at (120:\R) {1101};
+\node (sf) at (240:\R) {0000};
+\path [->] (se) edge (sf);
+\draw [->] (sf) to[out=-135,in=-45,looseness=3] (sf);
+\end{tikzpicture}
+\caption{}\label{fig64}
+\end{figure}
+\end{example}
+
+目前除了暴力穷举之外尚无法预测推广递次的行为，设计推广递次靠尝试与经验。
 
 \section{驱动}
 

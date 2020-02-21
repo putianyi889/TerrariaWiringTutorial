@@ -89,6 +89,20 @@
 \end{tabular}
 \end{center}
 
+这里我们证明一下异或的转化运算。
+\begin{proof}
+令$b=a_1a_2\cdots a_n$，则$a_1a_3\cdots a_n=ba_2$，$a_2a_3\cdots a_n=ba_1$。
+
+假设$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$，那么$a_1,\cdots,a_n$中有且只有1个1，所以$b=1$。从而
+\[\begin{split}
+&\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)\\
+=&\textrm{\^{}}(\textrm{\~{}}ba_2,\textrm{\~{}}ba_1,a_3,\cdots,a_n)\\
+=&\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1.
+\end{split}\]
+
+反过来，假设$\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。令$b_1=\textrm{\~{}} a_1a_3\cdots a_n$，$b_2=\textrm{\~{}} a_2a_3\cdots a_n$，则$\textrm{\^{}}(b_1,b_2,a_3,\cdots,a_n)=1$。与前面同理可推出$\textrm{\^{}}(\textrm{\~{}} b_1a_3\cdots a_n,\textrm{\~{}} b_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。简单计算可知$\textrm{\~{}} b_1a_3\cdots a_n=a_1$，$\textrm{\~{}} b_2a_3\cdots a_n=a_2$，所以$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$。$\hfill\blacksquare$
+\end{proof}
+
 \paragraph*{其他记号}
 当我们要处理一组布尔值时，我们可以给它们编号。例如一个八位二进制数可以表示为$[a_7,a_6,a_5,a_4,a_3,a_3,a_1,a_0]$，简记为$a_{7:0}$。$a_{7:0}$的最高位是$a_7$，最低位是$a_0$。$a_{7:0}$可以分成两个四位二进制数$a_{3:0}$（可以叫做低四位）和$a_{7:4}$（可以叫做高四位）。
 

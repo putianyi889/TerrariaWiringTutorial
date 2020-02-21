@@ -132,7 +132,7 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \caption{}\label{i290:296}
 \end{figure}
 
-我们一般把\textbf{物理电源}\footnote{物理电源是除逻辑门以外的电源。}激活时的逻辑帧记作第0个逻辑帧（\autoref{i291}），往后每个逻辑帧都进行逻辑门激活，电线激活，逻辑灯激活，逻辑门判断。在\autoref{i290:296}中，从\subref{i291}到\subref{i296}分别是第0个逻辑帧到第5个逻辑帧，每个逻辑帧中都用加粗方框标出了激活的逻辑门，滤镜标出了激活的电线，“×”标出了已经激活过的逻辑门，“○”标出了在下一逻辑帧将要激活的逻辑门。
+我们一般把物理电源激活时的逻辑帧记作第0个逻辑帧（\autoref{i291}），往后每个逻辑帧都进行逻辑门激活，电线激活，逻辑灯激活，逻辑门判断。在\autoref{i290:296}中，从\subref{i291}到\subref{i296}分别是第0个逻辑帧到第5个逻辑帧，每个逻辑帧中都用加粗方框标出了激活的逻辑门，滤镜标出了激活的电线，“×”标出了已经激活过的逻辑门，“○”标出了在下一逻辑帧将要激活的逻辑门。
 
 \begin{figure}
 \begin{center}
@@ -398,6 +398,21 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \end{figure}
 
 例如\autoref{i138:141}中的两个电路，只当蓝线和红线在一个逻辑帧激活时，右侧的逻辑门才会激活。换个思路，也可以认为这里的一根线对另一根线实现了精确到逻辑帧的信号检测。这两个电路也有细微差别。故障逻辑门上的有效逻辑灯是灭的情况下故障逻辑灯怎么激活都不会爆门，而双激活电路是一次性的，所以\autoref{i138:139}的激活条件实际上是蓝线与红线的第一次激活在同一个逻辑帧；\autoref{i140:141}的激活条件是红线第一次激活的同一个逻辑帧蓝线也激活。
+
+\subsection{嵌入式赋值电路}\label{sec37}
+我们已经知道如何用故障逻辑门做\nameref{sec14}。有了\nameref{sec33}以后，我们可以用普通逻辑门做\nameref{sec14}。
+
+\begin{figure}[!ht]
+\centering
+\subfloat[嵌入式赋0]{\label{fig66}\includegraphics{images/428.png}\quad\includegraphics{images/429.png}}
+\qquad
+\subfloat[故障门赋0]{\label{fig67}\includegraphics{images/430.png}\quad\includegraphics{images/431.png}}
+\caption{两种赋值方式。红线改变火把状态，蓝线将火把赋0。}
+\end{figure}
+
+\autoref{fig66}和\autoref{fig67}分别是嵌入式赋值电路和我们之前学过的故障逻辑门赋值电路。嵌入式赋值电路中，默认状态下上灯灭、下灯亮，对下灯执行一次双激活，不会发生任何事。如果红线状态切换了，那么变成上灯亮、下灯灭，对下灯执行一次双激活，第一次激活时与门点亮激活，将上下灯都熄灭，第二次激活时把下灯点亮，电路恢复到默认状态。
+
+用嵌入式赋值电路可以实现\autoref{fig56}。“嵌入式”名称来自于\href{https://forums.terraria.org/index.php?threads/a-reference-guide-for-simple-logic-devices.81751/}{DRKV}。
 
 \section{随机分两组}\label{sec36}
 
