@@ -1,5 +1,5 @@
 # Terraria电路文档
-[pdf下载](https://github.com/putianyi889/TerrariaWiringTutorial/releases) | [下载量统计](http://www.somsubhra.com/github-release-stats/?username=putianyi889&repository=TerrariaWiringTutorial)
+[pdf下载](https://github.com/putianyi889/TerrariaWiringTutorial/releases) | [下载量统计](http://www.somsubhra.com/github-release-stats/?username=putianyi889&repository=TerrariaWiringTutorial) | [中文论坛页](https://www.bbstr.net/threads/terraria.353/) | [bilibili专栏](https://www.bilibili.com/read/cv3639805)
 
 本文档旨在整合目前已知的所有电路知识，为国内的TR玩家提供电路方面全面可靠的参考，节省大家搜索各种教程的时间。我们欢迎任何形式的贡献，包括教程编写、研究成果、文档美化、资料整理、制作插图等。如果你希望贡献但是不知道做什么，在[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)里我们会提供当下的一些任务，这些任务大多是不需要任何游戏知识的。如果你有任何问题、想法和建议，也可以至[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)提。
 
