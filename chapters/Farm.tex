@@ -232,11 +232,155 @@
 
 
 \section{天梯神教}
-1
-\subsection{南瓜月天梯神教}
-1
-\subsection{霜月天梯神教}
-1
+天梯是已知最高效，并且结构相当简单的刷怪场。天梯神教的结构如\autoref{fig68}所示，由四个部分组成：天梯（蓝色）、人物活动区域（红色）、背景墙（绿色）、封刷怪（黄色）。
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+\fill[yellow] (0,0) -- (-3.4,-3.4) -- (5.9,-3.4) -- (5.9,4) -- (0.9,4) -- (0.9,0) -- (0,0);
+\fill[green] (-4,-4) -- (-4,4) -- (-3,4) -- (-3,-3) -- (-4,-4);
+\draw[ultra thick, blue] (-5,-5) -- (0,0);
+\fill[red] (0,0) rectangle (0.9,0.6);
+
+\draw[dotted] (-3,4) -- (0.9,4);
+\node (h) at (0.75,2.3) {$h$};
+\path[->] (h) edge (0.75,0.6) edge (0.75,4);
+\node (h1) at (0.75,-1.7) {$h$};
+\path[->] (h1) edge (0.75,0) edge (0.75,-3.4);
+
+\node (d) at (-1.5,0.3) {$d$};
+\path[->] (d) edge (-3,0.3) edge (0,0.3);
+\node (w) at (-3.5,0.3) {$w$};
+\path[->] (w) edge (-4,0.3) edge (-3,0.3);
+
+\draw (0,-5.3) -- (0,-5) -- (0.3,-5);
+\node (L) at (0.15,-2.5) {$L$};
+\path[->] (L) edge (0.15,0) edge (0.15,-5);
+\draw (-5,-5) -- (-5,-5.3);
+\node (L1) at (-2.5,-5.15) {$L$};
+\path[->] (L1) edge (-5,-5.15) edge (0,-5.15);
+\node (L2) at (3.4,0.3) {$L$};
+\path[->] (L2) edge (0.9,0.3) edge (5.9,0.3);
+\end{tikzpicture}
+\caption{天梯神教示意图。红色为人物活动区域及配套装置，蓝色为天梯刷怪面，绿色为人工背景墙，黄色为防止刷怪区域。}\label{fig68}
+\end{figure}
+
+天梯神教的思路是让所有敌怪刷在天梯上，然后用\wiki{终极棱镜}扫射天梯消灭所有敌怪。为了让所有敌怪刷在天梯上，天梯需要足够长，并且要对黄色区域进行封刷怪处理。所以$L$必须大于生成区域宽度\lstinline{spawnRangeX}，$h$必须大于生成区域高度\lstinline{spawnRangeY}。
+
+天梯必须是从左下到右上，而不能从右下到左上，这是因为刷怪的一个非对称机制。在\nameref{app43}中我们知道，选取刷怪面后，要判断其上6格是否有阻挡刷怪的实体块。如果天梯方向是从右下到左上，那么天梯上的图格实际上是不满足刷怪要求的（\autoref{fig71}）。
+
+\begin{figure}[!ht]
+\centering
+\subfloat[]{\label{fig69}
+\begin{tikzpicture}
+\fill[cyan!30!white] (0,1) rectangle (2,-2);
+\fill[brown] (0,0) -- (2,-2) -- (1.5,-2) -- (0,-0.5);
+\draw[step=0.5] (0,1) grid (2,-2);
+\draw[blue,ultra thick] (0.5,0.5) rectangle (1.5,-1);
+\fill[blue,opacity=0.5] (0.5,-0.5) -- (1,-1) -- (0.5,-1);
+\draw[red,ultra thick] (1,-1) rectangle (1.5,-1.5);
+\fill[red,opacity=0.5] (1,-1) -- (1.5,-1.5) -- (1,-1.5);
+\end{tikzpicture}
+}
+\qquad
+\subfloat[]{\label{fig70}
+\begin{tikzpicture}
+\fill[cyan!30!white] (0,1) rectangle (-2,-2);
+\fill[brown] (0,-0.5) -- (-1.5,-2) -- (-1,-2) -- (0,-1);
+\draw[step=0.5] (0,1) grid (-2,-2);
+\draw[blue,ultra thick] (-0.5,0.5) rectangle (-1.5,-1);
+\draw[red,ultra thick] (-0.5,-1) rectangle (-1,-1.5);
+\fill[red,opacity=0.5] (-0.5,-1) -- (-1,-1.5) -- (-0.5,-1.5);
+\end{tikzpicture}
+}
+\caption{\protect\subref{fig69}从右下到左上的天梯，刷怪面（红色）上方6格（蓝色）包含一个实体块（蓝色左下角），所以无法刷怪。\protect\subref{fig70}从左下到右上的天梯，刷怪面上方6格不包含实体块，可以刷怪。}\label{fig71}
+\end{figure}
+
+在\wiki{南瓜月}和\wiki{霜月}中，有些敌怪生命值与移动速度都非常高，即使使用\wiki{终极棱镜}的极限配置也可能无法在敌怪接近人物之前杀死敌怪。这时就需要防止天梯某一段的刷怪，让怪刷在远端，留出更多输出时间。影响较小的防刷怪方法是使用\hyperref[app39]{人工墙}。
+
+为了阻止刷怪，人工墙区域顶端到人物的垂直距离显然也要大于\lstinline{spawnRangeY}，所以\autoref{fig68}中把这个距离也取为$h$。
+
+很多人可能以为$d$只要小于安全区域宽度\lstinline{safeRangeX}即可，但实际上$d$必须小于安全区域高度\lstinline{safeRangeY}。
+
+确定人工墙区域左端的位置更困难，因为人工墙区域如果过窄，那么刷怪就可能距离人物太近，来不及杀死；人工墙区域如果过宽，就会封掉更大的生成区域，使刷怪速度降低。在这个问题上我们必须进行计算与取舍。
+
+\begin{problem}\label{exa4}
+设$\mathtt{spawnRangeX}=84$，$\mathtt{spawnRangeY}=47$，$\mathtt{safeRangeX}=62$，$\mathtt{safeRangeY}=35$，刷怪率为60，刷怪速度为$n$个/秒，固定$d=35$，求$n$与$w$的关系。
+\end{problem}
+\begin{solution}
+实际可刷怪区域为人工墙区域左侧，天梯之上的生成区域，如\autoref{fig72}所示。
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=0.6,transform shape]
+\fill[yellow] (-8.4,4.7) rectangle (8.4,-4.7);
+\fill[green,opacity=0.3] (-8.4,4.7) -- (-3.5,4.7) -- (-3.5,-3.5) -- (-4.7,-4.7) -- (-8.4,-4.7);
+\draw[ultra thick, blue] (-8.4,-8.4) -- (0,0);
+
+\draw (-8.7,0) -- (8.7,0);
+\draw (0,-5) -- (0,5);
+\draw (-8.7,4.7) -- (-8.4,4.7) -- (-8.4,5);
+\draw (-8.7,-4.7) -- (-8.4,-4.7);
+\draw (8.4,4.7) -- (8.4,5);
+\draw (-4.7,-4.7) -- (-4.7,-5);
+
+\node (a) at (-4.2,4.85) {84};
+\path[->] (a) edge (-8.4,4.85) edge (0,4.85);
+\node (b) at (4.2,4.85) {84};
+\path[->] (b) edge (8.4,4.85) edge (0,4.85);
+
+\node (c) at (-8.55,2.35) {47};
+\path[->] (c) edge (-8.55,4.7) edge (-8.55,0);
+\node (d) at (-8.55,-2.35) {47};
+\path[->] (d) edge (-8.55,-4.7) edge (-8.55,0);
+
+\node (e) at (-2.35,-4.85) {47};
+\path[->] (e) edge (-4.7,-4.85) edge (0,-4.85);
+
+\draw[green,ultra thick] (-3.5,-3.5) -- (-3.5,4.7);
+
+\node (f) at (-1.75,1) {$w+d$};
+\path[->,red,ultra thick] (f) edge (-3.5,1) edge (0,1);
+\end{tikzpicture}
+\caption{中央横线和中央竖线自带一格宽度，黄色区域是宽169格，高95格的生成区域。人工墙区域左侧，天梯之上的生成区域以绿色标记。}\label{fig72}
+\end{figure}
+
+设该区域的面积为$S$格，则
+\begin{equation}\label{eq1}
+S=
+\begin{cases}{}
+95(49-w), & 12\le w\le 49 \\
+95(49-w)-\frac{1}{2}(12-w)(13-w). & 0\le w\le 11
+\end{cases}
+\end{equation}
+
+每次刷怪尝试时，在生成区域中随机选取位置，如果50次都未能选取到可刷怪区域则刷怪失败。所以刷怪失败的概率$P$为
+\begin{equation}\label{eq2}
+P=\left(1-\frac{S}{16055}\right)^{50}.
+\end{equation}
+
+刷怪率为60，意味着平均1秒1次刷怪尝试；每次刷怪尝试成功概率为$1-P$，意味着平均每秒刷$1-P$个怪，即
+\begin{equation}\label{eq3}
+n=1-P.
+\end{equation}
+
+\eqref{eq1}、\eqref{eq2}、\eqref{eq3}共同给出的$n$与$w$的关系如\autoref{fig73}所示。$\hfill\blacksquare$
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=0,xmax=50,ymin=0,ymax=1,samples=50,xlabel=$w$,ylabel=$n$,grid=major]
+  \addplot[red,thick,domain=0:49] {1-(1-95*(49-x)/16055)^50};
+\end{axis}
+\end{tikzpicture}
+\caption{}\label{fig73}
+\end{figure}
+\end{solution}
+
+在正常情况下，生成区域与安全区域的参数与\autoref{exa4}中的条件一样。从\autoref{fig73}中我们发现，只有当$w$非常大，使可刷怪区域宽度只有不到10格时，刷怪速度才会显著降低。对抗不同的敌怪，需要不同的天梯长度，所以人工墙具体要铺多少，留给读者思考。
+
+配置极限伤害并不是本书关心的内容，这里略去。读者可以通过MappyGaming的演示视频学习这方面的细节：\href{https://www.bilibili.com/video/av5356226/?p=5}{南瓜月}、\href{https://www.bilibili.com/video/av5356226/?p=6}{霜月}。
+
 
 \section{南瓜神教}
 1

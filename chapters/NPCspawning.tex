@@ -52,7 +52,7 @@
     \end{tabular}
 \end{enumerate}
 
-\section{刷怪点和刷怪面}
+\section{刷怪点和刷怪面}\label{app43}
 在通过了$\frac{1}{\textrm{刷怪率}}$的基础刷怪概率后，会选取刷怪位置。刷怪位置的选取有一定随机性，如果选取失败就重新选取，直到选取成功为止。如果选了50次还没有成功，这次刷怪就取消。选取刷怪位置的过程中，首先要选取一个刷怪点，然后根据刷怪点计算出刷怪面，刷怪位置就在刷怪面上面1格。
 
 刷怪点是在一个矩形范围内随机选取的，这个矩形中图格的横坐标从$\textnormal{玩家横坐标}-\mathtt{spawnRangeX}$取到$\textnormal{玩家横坐标}+\mathtt{spawnRangeX}$，纵坐标从$\textnormal{玩家纵坐标}-\mathtt{spawnRangeY}$取到$\textnormal{玩家纵坐标}+\mathtt{spawnRangeY}$。如果矩形范围超出了世界边界，那么按照世界边界对矩形进行裁剪。
