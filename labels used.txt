@@ -15,7 +15,7 @@ fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10,
 	fig41, fig42, fig43, fig44, fig45, fig46, fig47, fig48, fig49, fig50, 
 	fig51, fig52, fig53, fig54, fig55, fig56, fig57, fig58, fig59, fig60,
 	fig61, fig62, fig63, fig64, fig65, fig66, fig67, fig68, fig69, fig70,
-	fig71, fig72, fig73
+	fig71, fig72, fig73, fig74
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, 
 	tab11, tab12, tab13, tab14, tab15, tab16
 	tab1406, 
@@ -25,5 +25,5 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10,
 	tab8928, 
 	tab9400, 
 thm1, thm2
-exa1, exa2, exa3, exa4
+exa1, exa2, exa3, exa4, exa5
 eq1, eq2, eq3
