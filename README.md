@@ -6,19 +6,14 @@
 所有修改可以直接提交PR([Pull request](https://github.com/putianyi889/TerrariaWiringTutorial/pulls))也可以在[Issues](https://github.com/putianyi889/TerrariaWiringTutorial/issues)中询问后提交PR。对于整段整节的贡献请在PR中署名，未署名作匿名处理。小贡献会整理在附录中。
 
 ## 编辑指引
-主文件`main.tex`。
+主文件`main.tex`。各章节存放在`chapters`。物品贴图存放在`figures/`。NPC贴图存放在`npcs/`。截图存放在`images/`并编号。有墙的区域尽量使用刷白漆的钻石晶莹宝石墙，并且使用CheatSheet或HERO's mod将光照打到100%，以达到白色背景效果。无墙的区域，可以在截图设置里关闭背景以达到透明背景效果。模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。`figure`和`image`存放原模板使用的图片，请勿修改。
 
-各章节存放在`chapters`。
+### 游戏名词模板
+从3.0版本开始，为了更容易适应翻译导致的名称变化，对于游戏专有名词，使用特殊命令生成文本。目前可用的命令：
 
-物品贴图存放在`figures/`。
-
-NPC贴图存放在`npcs/`。
-
-截图存放在`images/`并编号。有墙的区域尽量使用刷白漆的钻石晶莹宝石墙，并且使用CheatSheet或HERO's mod将光照打到100%，以达到白色背景效果。无墙的区域，可以在截图设置里关闭背景以达到透明背景效果。
-
-模板在`elegantbook-cn`和`elegantbook-en`，请勿编辑模板。
-
-`figure`和`image`存放原模板使用的图片，请勿修改。
+|命令|英文名|中文名|
+|:-|-:|-:|
+|`\DMC`|Dead Man's Chest|暂无|
 
 ### 生成wiki链接
 使用`\wiki{词条}`将生成指向中文wiki的链接，例如`\wiki{铜短剑}`将生成[铜短剑](https://terraria-zh.gamepedia.com/铜短剑)。
@@ -44,6 +39,7 @@ NPC贴图存放在`npcs/`。
 |Jack_'O_Lantern.png|Jack_O_Lantern.png|
 |Music_Box_(Old_One's_Army).png|Music_Box_(Old_Ones_Army).png|
 |Nature's_Gift_(placed).png|Natures_Gift_(placed).png|
+|Dead_Man's_Chest.png|Dead_Mans_Chest.png|
 
 # 关于模板
 
