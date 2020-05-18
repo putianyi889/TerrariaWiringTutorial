@@ -214,9 +214,9 @@
 \centering
 \subfloat[火把]{\includegraphics{figures/Torch.png}\quad\includegraphics{figures/Purple_Torch.png}\quad\includegraphics{figures/Yellow_Torch.png}\quad\includegraphics{figures/Blue_Torch.png}\quad\includegraphics{figures/Green_Torch.png}\quad\includegraphics{figures/Red_Torch.png}\quad\includegraphics{figures/Orange_Torch.png}\quad\includegraphics{figures/White_Torch.png}\quad\includegraphics{figures/Pink_Torch.png}\quad\includegraphics{figures/Ice_Torch.png}\quad\includegraphics{figures/Cursed_Torch.png}\quad\includegraphics{figures/Ichor_Torch.png}\quad\includegraphics{figures/Demon_Torch.png}\quad\includegraphics{figures/Rainbow_Torch.png}\quad\includegraphics{figures/Ultrabright_Torch.png}\quad\includegraphics{figures/Bone_Torch.png}}%16
 \\
-\subfloat[部分蜡烛]{\begin{tabular}[b]{c}
-	\includegraphics{figures/Candle.png}\quad\includegraphics{figures/Platinum_Candle.png}\quad\includegraphics{figures/Boreal_Wood_Candle.png}\quad\includegraphics{figures/Palm_Wood_Candle.png}\quad\includegraphics{figures/Rich_Mahogany_Candle.png}\quad\includegraphics{figures/Ebonwood_Candle.png}\quad\includegraphics{figures/Shadewood_Candle.png}\quad\includegraphics{figures/Pearlwood_Candle.png}\quad\includegraphics{figures/Dynasty_Candle.png}\quad\includegraphics{figures/Spooky_Candle.png}\quad\includegraphics{figures/Cactus_Candle.png}\quad\includegraphics{figures/Mushroom_Candle.png}\quad\includegraphics{figures/Pumpkin_Candle.png}\quad\includegraphics{figures/Granite_Candle.png}\quad\includegraphics{figures/Marble_Candle.png}\quad\includegraphics{figures/Meteorite_Candle.png}\\
-	\includegraphics{figures/Martian_Hover_Candle.png}\quad\includegraphics{figures/Crystal_Candle.png}\quad\includegraphics{figures/Flesh_Candle.png}\quad\includegraphics{figures/Glass_Candle.png}\quad\includegraphics{figures/Honey_Candle.png}\quad\includegraphics{figures/Frozen_Candle.png}\quad\includegraphics{figures/Lihzahrd_Candle.png}\quad\includegraphics{figures/Living_Wood_Candle.png}\quad\includegraphics{figures/Skyware_Candle.png}\quad\includegraphics{figures/Slime_Candle.png}\quad\includegraphics{figures/Steampunk_Candle.png}\quad\includegraphics{figures/Blue_Dungeon_Candle.png}\quad\includegraphics{figures/Green_Dungeon_Candle.png}\quad\includegraphics{figures/Pink_Dungeon_Candle.png}\quad\includegraphics{figures/Obsidian_Candle.png}\quad\includegraphics{figures/Golden_Candle.png}
+\subfloat[蜡烛]{\begin{tabular}[b]{c}
+	\includegraphics{figures/Candle.png}\quad\includegraphics{figures/Platinum_Candle.png}\quad\includegraphics{figures/Boreal_Wood_Candle.png}\quad\includegraphics{figures/Palm_Wood_Candle.png}\quad\includegraphics{figures/Rich_Mahogany_Candle.png}\quad\includegraphics{figures/Ebonwood_Candle.png}\quad\includegraphics{figures/Shadewood_Candle.png}\quad\includegraphics{figures/Pearlwood_Candle.png}\quad\includegraphics{figures/Dynasty_Candle.png}\quad\includegraphics{figures/Spooky_Candle.png}\quad\includegraphics{figures/Cactus_Candle.png}\quad\includegraphics{figures/Mushroom_Candle.png}\quad\includegraphics{figures/Pumpkin_Candle.png}\quad\includegraphics{figures/Granite_Candle.png}\quad\includegraphics{figures/Marble_Candle.png}\quad\includegraphics{figures/Meteorite_Candle.png}\quad\includegraphics{figures/Water_Candle.png}\\
+	\includegraphics{figures/Martian_Hover_Candle.png}\quad\includegraphics{figures/Crystal_Candle.png}\quad\includegraphics{figures/Flesh_Candle.png}\quad\includegraphics{figures/Glass_Candle.png}\quad\includegraphics{figures/Honey_Candle.png}\quad\includegraphics{figures/Frozen_Candle.png}\quad\includegraphics{figures/Lihzahrd_Candle.png}\quad\includegraphics{figures/Living_Wood_Candle.png}\quad\includegraphics{figures/Skyware_Candle.png}\quad\includegraphics{figures/Slime_Candle.png}\quad\includegraphics{figures/Steampunk_Candle.png}\quad\includegraphics{figures/Blue_Dungeon_Candle.png}\quad\includegraphics{figures/Green_Dungeon_Candle.png}\quad\includegraphics{figures/Pink_Dungeon_Candle.png}\quad\includegraphics{figures/Obsidian_Candle.png}\quad\includegraphics{figures/Golden_Candle.png}\quad\includegraphics{figures/Peace_Candle.png}
 \end{tabular}}%32
 \\
 \subfloat[部分灯笼]{\begin{tabular}[b]{c}
@@ -255,15 +255,17 @@
 \subfloat[迪斯科灯]{\qquad\includegraphics{figures/Disco_Ball.png}\qquad}\qquad
 \subfloat[圣诞灯]{\includegraphics{figures/Blue_Light.png}\quad\includegraphics{figures/Red_Light.png}\quad\includegraphics{figures/Green_Light.png}}\qquad
 \subfloat[壁炉]{\includegraphics{figures/Fireplace.png}}
+\qquad
+\subfloat[\PL]{\includegraphics{figures/Plasma_Lamp.png}}
 \caption{电路中的光源(2)}
 \end{figure}
 
 \begin{itemize}
 \item 火把：大小1*1，放置在平台上、前景物块上方和两侧、背景墙上。是有效光源。
-\item 蜡烛：大小1*1，放置在除砧以外的平坦表面上，可以放置在锭上但会立刻掉落。水蜡烛和和平蜡烛无电路功能。是有效光源。
-\item 灯笼：大小1*2，悬挂在前景物块下。萤火虫瓶和荧光虫瓶无电路功能。星星瓶和红心灯笼熄灭时不提供buff。是有效光源。
+\item 蜡烛：大小1*1，放置在除砧以外的平坦表面上，可以放置在锭上但会立刻掉落。水蜡烛和和平蜡烛熄灭时不提供增益。是有效光源。
+\item 灯笼：大小1*2，悬挂在前景物块下。萤火虫瓶和荧光虫瓶无电路功能。星星瓶和红心灯笼熄灭时不提供增益。是有效光源。
 \item 灯：大小1*3，放置在平台上、锭上、前景物块上。是有效光源。
-\item 篝火：大小3*2，放置在平台上、锭上、前景物块上。熄灭时不提供buff。是有效光源。
+\item 篝火：大小3*2，放置在平台上、锭上、前景物块上。熄灭时不提供增益。是有效光源。
 \item 烛台：大小2*2，放置在除砧以外的平坦表面上、前景物块上。是有效光源。
 \item 吊灯：大小3*3，悬挂在前景物块下。是有效光源。
 \item 晶莹宝石块：属于前景物块。不是有效光源。
