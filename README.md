@@ -15,6 +15,7 @@
 |:-|-:|-:|
 |`\DMC`|Dead Man's Chest|暂无|
 |`\PL`|Plasma Lamp|暂无|
+|`\Grate`|Grate|暂无|
 
 ### 生成wiki链接
 使用`\wiki{词条}`将生成指向中文wiki的链接，例如`\wiki{铜短剑}`将生成[铜短剑](https://terraria-zh.gamepedia.com/铜短剑)。

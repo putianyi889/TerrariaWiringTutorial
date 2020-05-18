@@ -278,7 +278,7 @@
 
 这里需要强调一下常用的两种显示光源：宝石块和火把。一般情况下宝石块显示效果更好，并且其亮灭会显示在小地图中。然而由于火把激活时只是简单改变状态，而每个宝石块激活时还需要更新该块及周围8块的贴图，每次更新贴图时都需要进行大量的判断，这导致大规模使用宝石块的电路与使用火把的电路相比更卡。
 
-\section{门、机关门、高门}
+\section{门/机关门/高门}
 \begin{figure}[!ht]
 \centering
 \subfloat[门]{\begin{tabular}[b]{c}
@@ -293,9 +293,11 @@
 \end{figure}
 上锁的丛林蜥蜴门无电路功能（废话）。门放置在上下两个前景物块之间。图格、生物出现在门一侧的开启范围内（1*3）时门不会向这一侧开启；出现在门两侧开启范围内时门无法开启。当门可以向两侧开启时，如果右键开门，那么门向玩家面对方向开启；如果电路开门，那么门似乎是随机向两侧开启。
 
-与门相比，机关门的开启方向是上下。当机关门可以向两侧开启时，使用右键开门，根据玩家与门的相对位置确定开门方向：玩家在相对高处时门向下开启；玩家在相对低处时门向上开启。使用电路开门，固定向下开启。
+和门相比，机关门的开启方向是上下。当机关门可以向两侧开启时，使用右键开门，根据玩家与门的相对位置确定开门方向：玩家在相对高处时门向下开启；玩家在相对低处时门向上开启。使用电路开门，固定向下开启。
 
 高门没有方向性，开门也不受阻挡。
+
+不使用电路开关门时，门会做为电源激活。如果在设置里打开自动开关门，那么门可以起到玩家感应器的作用。
 
 \section{泵}
 \begin{figure}[!ht]
@@ -673,7 +675,8 @@
 \subfloat[呆萌气球机]{\qquad\includegraphics{figures/Silly_Balloon_Machine.png}\qquad}\qquad
 \subfloat[计时器]{\includegraphics{figures/1_Second_Timer.png}\quad\includegraphics{figures/3_Second_Timer.png}\quad\includegraphics{figures/5_Second_Timer.png}}\qquad
 \subfloat[传送带]{\includegraphics{figures/Conveyor_Belt.png}\quad\includegraphics{figures/Conveyor_Belt_(Counter_Clockwise).png}}\qquad
-\subfloat[制动器]{\qquad\includegraphics{figures/Actuator.png}\qquad}
+\subfloat[制动器]{\qquad\includegraphics{figures/Actuator.png}\qquad}\qquad
+\subfloat[\Grate]{\qquad\includegraphics{figures/Grate.png}\qquad}
 \\
 \subfloat[部分雕像]{\begin{tabular}[b]{c}
 \includegraphics{figures/Armed_Zombie_Statue.png}\quad\includegraphics{figures/Bat_Statue.png}\quad\includegraphics{figures/Blood_Zombie_Statue.png}\quad\includegraphics{figures/Bone_Skeleton_Statue.png}\quad\includegraphics{figures/Chest_Statue.png}\quad\includegraphics{figures/Crab_Statue.png}\quad\includegraphics{figures/Drippler_Statue.png}\quad\includegraphics{figures/Granite_Golem_Statue.png}\quad\includegraphics{figures/Harpy_Statue.png}\quad\includegraphics{figures/Hoplite_Statue.png}\quad\includegraphics{figures/Jellyfish_Statue.png}\\
@@ -690,4 +693,4 @@
 \end{tabular}}%40
 \caption{其他电路物品}
 \end{figure}
-剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：计时器、宝石锁、雕像、烟花喷泉、烟花盒、泡泡机、呆萌气球机、派对中心、喷泉、八音盒、烟囱、天塔柱、广播盒、制动器、传送带、彩线灯泡、增速轨道。
+剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：计时器、宝石锁、雕像、烟花喷泉、烟花盒、泡泡机、呆萌气球机、派对中心、喷泉、八音盒、烟囱、天塔柱、广播盒、制动器、传送带、彩线灯泡、增速轨道、\Grate 。
