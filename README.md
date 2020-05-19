@@ -16,6 +16,8 @@
 |`\DMC`|Dead Man's Chest|暂无|
 |`\PL`|Plasma Lamp|暂无|
 |`\Grate`|Grate|暂无|
+|`\Volcano`|Volcano|暂无|
+|`\FM`|Fog Machine|暂无|
 
 ### 生成wiki链接
 使用`\wiki{词条}`将生成指向中文wiki的链接，例如`\wiki{铜短剑}`将生成[铜短剑](https://terraria-zh.gamepedia.com/铜短剑)。
@@ -42,6 +44,7 @@
 |Music_Box_(Old_One's_Army).png|Music_Box_(Old_Ones_Army).png|
 |Nature's_Gift_(placed).png|Natures_Gift_(placed).png|
 |Dead_Man's_Chest.png|Dead_Mans_Chest.png|
+|Music_Box_(Journey's_End).png|Music_Box_(Journeys_End).png|
 
 # 关于模板
 

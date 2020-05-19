@@ -116,7 +116,7 @@
 \section{计时器}
 \begin{figure}[!ht]
 \centering
-\includegraphics{figures/1_Second_Timer.png}\quad\includegraphics{figures/3_Second_Timer.png}\quad\includegraphics{figures/5_Second_Timer.png}
+\includegraphics{figures/1_Second_Timer.png}\quad\includegraphics{figures/3_Second_Timer.png}\quad\includegraphics{figures/5_Second_Timer.png}\quad\includegraphics{figures/1_2_Second_Timer.png}\quad\includegraphics{figures/1_4_Second_Timer.png}
 \caption{计时器}
 \end{figure}
 
@@ -148,7 +148,7 @@
 \label{i233:234}
 \end{figure}
 
-由于加入冷却列表是从前向后，而刷新冷却列表是从后向前，这就导致了后加入冷却列表的计时器反而可能会先激活。因此相同时间的计时器连接在一起也可以得到它们的时间之和（\autoref{i233:234}）。灵活结合这个技术与\nameref{sec18}就可以得到占用体积相当小的整数秒计时器。
+由于加入冷却列表是从前向后，而刷新冷却列表是从后向前，这就导致了后加入冷却列表的计时器反而可能会先激活。因此相同时间的计时器连接在一起也可以得到它们的时间之和（\autoref{i233:234}）。灵活结合这个技术与\nameref{sec18}就可以得到占用体积相当小的，周期为1/4秒的整数倍的计时器。
 
 \section{引爆器}
 \begin{figure}[!ht]
@@ -187,6 +187,8 @@
 受困宝箱是误翻译，正确翻译应该是“机关宝箱”或“陷阱宝箱”。受困宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和受困宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC和普通的金箱完全无法区分。
 
 受困宝箱和\DMC 都是电源，当鼠标右击时激活。受困宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
+
+\DMC 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DMC。
 
 \section{感应器}
 \begin{figure}[!ht]
@@ -257,6 +259,8 @@
 \subfloat[壁炉]{\includegraphics{figures/Fireplace.png}}
 \qquad
 \subfloat[\PL]{\includegraphics{figures/Plasma_Lamp.png}}
+\qquad
+\subfloat[\Volcano]{\includegraphics{figures/Mini_Volcano.png}\quad\includegraphics{figures/Large_Volcano.png}}
 \caption{电路中的光源(2)}
 \end{figure}
 
@@ -291,6 +295,8 @@
 \subfloat[高门]{\quad\includegraphics{figures/Tall_Gate.png}\quad}
 \caption{}
 \end{figure}
+门/机关门/高门既是电源也是用电器。
+
 上锁的丛林蜥蜴门无电路功能（废话）。门放置在上下两个前景物块之间。图格、生物出现在门一侧的开启范围内（1*3）时门不会向这一侧开启；出现在门两侧开启范围内时门无法开启。当门可以向两侧开启时，如果右键开门，那么门向玩家面对方向开启；如果电路开门，那么门似乎是随机向两侧开启。
 
 和门相比，机关门的开启方向是上下。当机关门可以向两侧开启时，使用右键开门，根据玩家与门的相对位置确定开门方向：玩家在相对高处时门向下开启；玩家在相对低处时门向上开启。使用电路开门，固定向下开启。
@@ -676,21 +682,27 @@
 \subfloat[计时器]{\includegraphics{figures/1_Second_Timer.png}\quad\includegraphics{figures/3_Second_Timer.png}\quad\includegraphics{figures/5_Second_Timer.png}}\qquad
 \subfloat[传送带]{\includegraphics{figures/Conveyor_Belt.png}\quad\includegraphics{figures/Conveyor_Belt_(Counter_Clockwise).png}}\qquad
 \subfloat[制动器]{\qquad\includegraphics{figures/Actuator.png}\qquad}\qquad
-\subfloat[\Grate]{\qquad\includegraphics{figures/Grate.png}\qquad}
+\subfloat[\Grate]{\qquad\includegraphics{figures/Grate.png}\qquad}\qquad
+\subfloat[\FM]{\qquad\includegraphics{figures/Fog_Machine.png}
 \\
 \subfloat[部分雕像]{\begin{tabular}[b]{c}
 \includegraphics{figures/Armed_Zombie_Statue.png}\quad\includegraphics{figures/Bat_Statue.png}\quad\includegraphics{figures/Blood_Zombie_Statue.png}\quad\includegraphics{figures/Bone_Skeleton_Statue.png}\quad\includegraphics{figures/Chest_Statue.png}\quad\includegraphics{figures/Crab_Statue.png}\quad\includegraphics{figures/Drippler_Statue.png}\quad\includegraphics{figures/Granite_Golem_Statue.png}\quad\includegraphics{figures/Harpy_Statue.png}\quad\includegraphics{figures/Hoplite_Statue.png}\quad\includegraphics{figures/Jellyfish_Statue.png}\\
 \includegraphics{figures/Medusa_Statue.png}\quad\includegraphics{figures/Pigron_Statue.png}\quad\includegraphics{figures/Piranha_Statue.png}\quad\includegraphics{figures/Shark_Statue.png}\quad\includegraphics{figures/Skeleton_Statue.png}\quad\includegraphics{figures/Slime_Statue.png}\quad\includegraphics{figures/Undead_Viking_Statue.png}\quad\includegraphics{figures/Unicorn_Statue.png}\quad\includegraphics{figures/Wall_Creeper_Statue.png}\quad\includegraphics{figures/Wraith_Statue.png}\quad\includegraphics{figures/Bird_Statue.png}\\
 \includegraphics{figures/Buggy_Statue.png}\quad\includegraphics{figures/Bunny_Statue.png}\quad\includegraphics{figures/Butterfly_Statue.png}\quad\includegraphics{figures/Duck_Statue.png}\quad\includegraphics{figures/Firefly_Statue.png}\quad\includegraphics{figures/Fish_Statue.png}\quad\includegraphics{figures/Frog_Statue.png}\quad\includegraphics{figures/Grasshopper_Statue.png}\quad\includegraphics{figures/Mouse_Statue.png}\quad\includegraphics{figures/Penguin_Statue.png}\quad\includegraphics{figures/Scorpion_Statue.png}\\
-\includegraphics{figures/Snail_Statue.png}\quad\includegraphics{figures/Squirrel_Statue.png}\quad\includegraphics{figures/Worm_Statue.png}\quad\includegraphics{figures/King_Statue.png}\quad\includegraphics{figures/Queen_Statue.png}\quad\includegraphics{figures/Bomb_Statue.png}\quad\includegraphics{figures/Heart_Statue.png}\quad\includegraphics{figures/Star_Statue.png}\quad\includegraphics{figures/Mushroom_Statue.png}
-\end{tabular}}%42
+\includegraphics{figures/Snail_Statue.png}\quad\includegraphics{figures/Squirrel_Statue.png}\quad\includegraphics{figures/Worm_Statue.png}\quad\includegraphics{figures/King_Statue.png}\quad\includegraphics{figures/Queen_Statue.png}\quad\includegraphics{figures/Bomb_Statue.png}\quad\includegraphics{figures/Heart_Statue.png}\quad\includegraphics{figures/Star_Statue.png}\quad\includegraphics{figures/Mushroom_Statue.png}\quad\includegraphics{figures/Bast_Statue.png}\quad\includegraphics{figures/Boulder_Statue.png}
+\end{tabular}}%43
 \\
 \subfloat[八音盒]{\begin{tabular}[b]{c}
 \includegraphics{figures/Music_Box_(Overworld_Day).png}\quad\includegraphics{figures/Music_Box_(Alt_Overworld_Day).png}\quad\includegraphics{figures/Music_Box_(Night).png}\quad\includegraphics{figures/Music_Box_(Rain).png}\quad\includegraphics{figures/Music_Box_(Snow).png}\quad\includegraphics{figures/Music_Box_(Ice).png}\quad\includegraphics{figures/Music_Box_(Desert).png}\quad\includegraphics{figures/Music_Box_(Ocean).png}\quad\includegraphics{figures/Music_Box_(Space).png}\quad\includegraphics{figures/Music_Box_(Underground).png}\\
 \includegraphics{figures/Music_Box_(Alt_Underground).png}\quad\includegraphics{figures/Music_Box_(Mushrooms).png}\quad\includegraphics{figures/Music_Box_(Jungle).png}\quad\includegraphics{figures/Music_Box_(Corruption).png}\quad\includegraphics{figures/Music_Box_(Underground_Corruption).png}\quad\includegraphics{figures/Music_Box_(Crimson).png}\quad\includegraphics{figures/Music_Box_(Underground_Crimson).png}\quad\includegraphics{figures/Music_Box_(The_Hallow).png}\quad\includegraphics{figures/Music_Box_(Underground_Hallow).png}\quad\includegraphics{figures/Music_Box_(Hell).png}\\
 \includegraphics{figures/Music_Box_(Dungeon).png}\quad\includegraphics{figures/Music_Box_(Temple).png}\quad\includegraphics{figures/Music_Box_(Boss_1).png}\quad\includegraphics{figures/Music_Box_(Boss_2).png}\quad\includegraphics{figures/Music_Box_(Boss_3).png}\quad\includegraphics{figures/Music_Box_(Boss_4).png}\quad\includegraphics{figures/Music_Box_(Boss_5).png}\quad\includegraphics{figures/Music_Box_(Plantera).png}\quad\includegraphics{figures/Music_Box_(Eerie).png}\quad\includegraphics{figures/Music_Box_(Eclipse).png}\\
-\includegraphics{figures/Music_Box_(Goblin_Invasion).png}\quad\includegraphics{figures/Music_Box_(Pirate_Invasion).png}\quad\includegraphics{figures/Music_Box_(Martian_Madness).png}\quad\includegraphics{figures/Music_Box_(Pumpkin_Moon).png}\quad\includegraphics{figures/Music_Box_(Frost_Moon).png}\quad\includegraphics{figures/Music_Box_(The_Towers).png}\quad\includegraphics{figures/Music_Box_(Lunar_Boss).png}\quad\includegraphics{figures/Music_Box_(Sandstorm).png}\quad\includegraphics{figures/Music_Box_(Old_Ones_Army).png}\quad\includegraphics{figures/Music_Box_(Title).png}
-\end{tabular}}%40
+\includegraphics{figures/Music_Box_(Goblin_Invasion).png}\quad\includegraphics{figures/Music_Box_(Pirate_Invasion).png}\quad\includegraphics{figures/Music_Box_(Martian_Madness).png}\quad\includegraphics{figures/Music_Box_(Pumpkin_Moon).png}\quad\includegraphics{figures/Music_Box_(Frost_Moon).png}\quad\includegraphics{figures/Music_Box_(The_Towers).png}\quad\includegraphics{figures/Music_Box_(Lunar_Boss).png}\quad\includegraphics{figures/Music_Box_(Sandstorm).png}\quad\includegraphics{figures/Music_Box_(Old_Ones_Army).png}\quad\includegraphics{figures/Music_Box_(Title).png}\\
+\includegraphics{figures/Music_Box_(Ocean_Night).png}\quad\includegraphics{figures/Music_Box_(Slime_Rain).png}\quad\includegraphics{figures/Music_Box_(Space_Day).png}\quad\includegraphics{figures/Music_Box_(Town_Day).png}\quad\includegraphics{figures/Music_Box_(Town_Night).png}\quad\includegraphics{figures/Music_Box_(Windy_Day).png}\quad\includegraphics{figures/Music_Box_(Day_Remix).png}\quad\includegraphics{figures/Music_Box_(Journeys_End).png}\quad\includegraphics{figures/Music_Box_(Storm).png}\quad\includegraphics{figures/Music_Box_(Graveyard).png}\\
+\includegraphics{figures/Music_Box_(Underground_Jungle).png}\quad\includegraphics{figures/Music_Box_(Jungle_Night).png}\quad\includegraphics{figures/Music_Box_(Queen_Slime).png}\quad\includegraphics{figures/Music_Box_(Empress_Of_Light).png}\quad\includegraphics{figures/Music_Box_(Duke_Fishron).png}\quad\includegraphics{figures/Music_Box_(Morning_Rain).png}\quad\includegraphics{figures/Music_Box_(Alt_Title).png}\quad\includegraphics{figures/Music_Box_(Underground_Desert).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Rain).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Overworld_Day).png}\\
+\includegraphics{figures/Otherworldly_Music_Box_(Night).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Underground).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Desert).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Ocean).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Mushrooms).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Dungeon).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Space).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Underworld).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Snow).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Corruption).png}\\
+\includegraphics{figures/Otherworldly_Music_Box_(Underground_Corruption).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Crimson).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Underground_Crimson).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Ice).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Underground_Hallow).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Eerie).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Boss_2).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Boss_1).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Invasion).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(The_Towers).png}\\
+\includegraphics{figures/Otherworldly_Music_Box_(Lunar_Boss).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Plantera).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Jungle).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Wall_Of_Flesh).png}\quad\includegraphics{figures/Otherworldly_Music_Box_(Hallow).png}
+\end{tabular}}%85
 \caption{其他电路物品}
 \end{figure}
-剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：计时器、宝石锁、雕像、烟花喷泉、烟花盒、泡泡机、呆萌气球机、派对中心、喷泉、八音盒、烟囱、天塔柱、广播盒、制动器、传送带、彩线灯泡、增速轨道、\Grate 。
+剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：计时器、宝石锁、雕像、烟花喷泉、烟花盒、泡泡机、呆萌气球机、派对中心、喷泉、八音盒、烟囱、天塔柱、广播盒、制动器、传送带、彩线灯泡、增速轨道、\Grate 、\FM 。
