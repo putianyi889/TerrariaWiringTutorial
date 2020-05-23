@@ -13,11 +13,14 @@
 
 |命令|英文名|中文名|
 |:-|-:|-:|
-|`\DMC`|Dead Man's Chest|暂无|
-|`\PL`|Plasma Lamp|暂无|
-|`\Grate`|Grate|暂无|
-|`\Volcano`|Volcano|暂无|
+|`\DMC`|Dead Man's Chest|死人的宝箱|
 |`\FM`|Fog Machine|暂无|
+|`\GC`|Golf Cup|高尔夫球洞|
+|`\Grate`|Grate|格栅|
+|`\PL`|Plasma Lamp|暂无|
+|`\Volcano`|Volcano|暂无|
+|`\Lesion`|Lesion|损伤|
+|`\Bamboo`|Bamboo|竹|
 
 ### 生成wiki链接
 使用`\wiki{词条}`将生成指向中文wiki的链接，例如`\wiki{铜短剑}`将生成[铜短剑](https://terraria-zh.gamepedia.com/铜短剑)。
