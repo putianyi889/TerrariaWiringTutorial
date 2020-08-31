@@ -2,7 +2,7 @@ app1, app2, app3, app4, app5, app6, app7, app8, app9, app10,
 	app11, app12, app13, app14, app15, app16, app17, app18, app19, app20, 
 	app21, app22, app23, app24, app25, app26, app27, app28, app29, app30, 
 	app31, app32, app33, app34, app35, app36, app37, app38, app39, app40, 
-	app41, app42, app43, app44
+	app41, app42, app43, app44, app45, app46, app47, app48, app49
 algo1
 sec1, sec2, sec3, sec5, sec6, sec7, sec8, sec9, sec10, 
 	sec11, sec12, sec13, sec14, sec15, sec16, sec17, sec18, sec19, sec20, 
@@ -15,9 +15,9 @@ fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10,
 	fig41, fig42, fig43, fig44, fig45, fig46, fig47, fig48, fig49, fig50, 
 	fig51, fig52, fig53, fig54, fig55, fig56, fig57, fig58, fig59, fig60,
 	fig61, fig62, fig63, fig64, fig65, fig66, fig67, fig68, fig69, fig70,
-	fig71, fig72, fig73, fig74, fig75
+	fig71, fig72, fig73, fig74, fig75, fig76, fig77
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, 
-	tab11, tab12, tab13, tab14, tab15, tab16
+	tab11, tab12, tab13, tab14, tab15, tab16, tab17, tab18
 	tab1406, 
 	tab1819, 
 	tab2308, 

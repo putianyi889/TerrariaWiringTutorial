@@ -10,6 +10,8 @@
 \usepackage{tikz}
 \usepackage{forest}
 \usepackage{pgfplots}
+\usepackage{multirow}
+\usepackage{verbatim}
 
 \pgfplotsset{compat=1.6}
 \hypersetup{bookmarksdepth=5}
@@ -30,6 +32,8 @@
 \newcommand{\probautorefname}{例题}
 \renewcommand\thesubfigure{(\alph{subfigure})}
 \newcommand{\subfigureautorefname}{\figureautorefname}
+\renewcommand\thesubtable{(\alph{subtable})}
+\newcommand{\subtableautorefname}{\tableautorefname}
 \newcommand{\wiki}[1]{\href{https://terraria-zh.gamepedia.com/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria-zh.gamepedia.com/#1}{#2}}
 \setcounter{totalnumber}{100}
@@ -48,6 +52,8 @@
 \newcommand{\Lesion}{损伤}
 \newcommand{\Bamboo}{竹}
 
+\input{ids}
+
 \title{Terraria 电路文档}
 \subtitle{最全面的Terraria电路参考资料}
 
@@ -55,7 +61,7 @@
 \author{putianyi888}
 \institute{Terraria 电路爱好者交流群（\href{https://jq.qq.com/?_wv=1027\&k=52nFXER}{231355279}）}
 \date{\today}
-\version{3.0}
+\version{3.0.1}
 
 \extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
 
@@ -76,7 +82,7 @@
 \include{chapters/Sources}
 %\include{chapters/chapter8}
 \include{chapters/chapter5}
-\include{chapters/Farm}
+%\include{chapters/Farm}
 
 %\nocite{*} 
 
@@ -84,15 +90,8 @@
 
 \appendix
 \include{chapters/Furnitures}
-\include{chapters/NPCspawning}
-\include{chapters/Liquid}
-\include{chapters/NPCInvincibilityFrames}
-\include{chapters/traps}
-\include{chapters/Sets}
-\include{chapters/Environments}
 \include{chapters/cooldown}
 \include{chapters/knowledge}
-\include{chapters/miscellaneous}
 \include{chapters/chapter6}
 
 %\bibliography{reference}
