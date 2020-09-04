@@ -250,20 +250,35 @@ $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\
 \subsection{加法器（Adder）}
 加法器的输入是两个整数，输出是两个输入之和。加法器的解决方案有很多，一个最直接的方法就是串联全加器。
 
-全加器是什么？我们来看二进制加法的竖式计算。计算$a_{7:0}+b_{7:0}$时，首先列出\autoref{tab1406}所示的竖式并且把两个加数填入。然后计算$a_0+b_0$，这个结果可能是$00,01,10$。结果的低位直接就是和的最低位，写在$s_0$的位置。结果的高位是最低位向前的进位，写在$c_1$的位置。然后计算$a_1+b_1+c_1$，把结果的低位填入$s_1$，高位作为进位填入$c_2$。依此类推，在每一位上计算$a+b+c$，把结果的低位填入$s$，高位填入下一位的进位。这就是全加器的工作。
+全加器是什么？我们来看二进制加法的竖式计算。计算$a_{7:0}+b_{7:0}$时，首先列出\autoref{tab1406}所示的竖式并且把两个加数填入。然后计算$a_0+b_0$，这个结果可能是$00,01,10$。结果的低位直接就是和的最低位，写在$s_0$的位置。结果的高位是最低位向前的进位，写在$c_1$的位置。然后计算$a_1+b_1+c_1$，把结果的低位填入$s_1$，高位作为进位填入$c_2$，依此类推。这整个加法过程可以用\autoref{fig78}所示的电路模拟，这个电路由八个小模块构成，每个小模块计算$a_i+b_i+c_i$，把结果的低位输出为$s_i$，高位输出到下一个小模块$c_{i+1}$。这每个小模块叫做全加器。
 
 \begin{figure}[!ht]
 \centering
+\subfloat[加法竖式示意图。一般情况下$c_0=0$]{\label{tab1406}
 \begin{tabular}{rccccccccc}
 加数1&&$a_7$&$a_6$&$a_5$&$a_4$&$a_3$&$a_2$&$a_1$&$a_0$\\
 加数2&&$b_7$&$b_6$&$b_5$&$b_4$&$b_3$&$b_2$&$b_1$&$b_0$\\
 进位&&$c_7$&$c_6$&$c_5$&$c_4$&$c_3$&$c_2$&$c_1$&$c_0$\\\hline
 和&$s_8$&$s_7$&$s_6$&$s_5$&$s_4$&$s_3$&$s_2$&$s_1$&$s_0$
 \end{tabular}
-\caption{加法竖式示意图。一般情况下$c_0=0$}\label{tab1406}
+}\\
+\subfloat[电路执行加法运算]{\label{fig78}
+\begin{tikzpicture}[scale=0.5]
+    \foreach \x [evaluate={\y=int(7-\x);\z=int(8-\x)}] in {0,1,...,7}
+    {
+        \draw (3*\x,0) rectangle (3*\x+2,2);
+        \draw[->] (3*\x+1,0)  -- (3*\x+1,-1) node[anchor=north] {$s_\y$};
+        \draw[->] (3*\x+3,1) -- node[midway,anchor=south] {$c_\y$} (3*\x+2,1);
+        \draw[->] (3*\x+0.6,3) node[anchor=south] {$a_\y$} -- (3*\x+0.6,2) ;
+        \draw[->] (3*\x+1.4,3) node[anchor=south] {$b_\y$} -- (3*\x+1.4,2) ;
+    }
+    \draw[->] (0,1) node[anchor=west] {$c_8$} -- (-1,1) -- (-1,-1) node[anchor=north] {$s_8$};
+\end{tikzpicture}
+}
+\caption{}
 \end{figure}
 
-全加器接收三个输入$a,b,c_i$，其中$a,b$分别是两个加数的对应数位，$c_i$是低位产生的进位。全加器产生两个输出$s,c_o$，其中$s$是和的对应数位，$c_o$是向高位的进位。全加器的真值表如\autoref{tab1819}。这个逻辑我们在\autoref{exa3}中已经讨论了。
+全加器接收三个输入$a,b,c_i$，其中$a,b$分别是两个加数，$c_i$是输入进位。全加器产生两个输出$s,c_o$，其中$s$是和，$c_o$是输出进位。全加器的真值表如\autoref{tab1819}。这个逻辑我们在\autoref{exa3}中已经讨论了。
 
 \begin{table}[!ht]
 \centering
@@ -314,7 +329,7 @@ $a$&$b$&$c_i$&$c_o$&$s$\\\hline
 \caption{四位加减法器。顶端黄线控制加减法，0为加法，1为减法。计算加法时红线和蓝线分别表示两个加数。计算减法时蓝线为被减数，红线为减数。黄线为和，底端绿线为溢出位。上面低位下面高位。}\label{fig39}
 \end{figure}
 
-时序逻辑的减法器同样是使用补码运算，这里不详细给出具体实现。
+时序逻辑的减法器同样是使用补码运算，这里不给出具体实现。
 
 \subsection{比较器（Comparator）}
 比较两个数的大小，最简单的就是从高位向低位逐位比较。例如比较$a_{[7:0]}$和$b_{[7:0]}$两个8位二进制数，首先比较最高位$a_7$和$b_7$，如果它们相等再比较$a_6$和$b_6$，依此类推。最后我们可以得到一个逻辑表达式：
@@ -359,13 +374,85 @@ $$
 &&&b_1\&a_3&b_1\&a_2&b_1\&a_1&b_1\&a_0\\
 &&b_2\&a_3&b_2\&a_2&b_2\&a_1&b_2\&a_0\\
 &b_3\&a_3&b_3\&a_2&b_3\&a_1&b_3\&a_0\\\hline
-h_3&h_2&h_1&h_0&l_3&l_2&l_1&l_0
+H_3&H_2&H_1&H_0&l_3&l_2&l_1&l_0
 \end{array}
 $$
 \caption{乘法竖式计算}\label{tab6585}
 \end{figure}
 
-从\autoref{tab6585}可以看出来，做一个4位乘法实际上就是做4个数的加法。两个数的加法我们会了，四个数怎么加？这里又有两种选择，一种是直接重新设计一个四个加数的加法器，另一种是把两个数的加法器串联起来。
+从\autoref{tab6585}可以看出来，做一个4位乘法实际上就是做4个数的加法。4个数的加法，可以按照运算顺序拆分成三次2个数的加法，如\autoref{fig79}所示。
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+    \draw (0,0) rectangle node{加法器} (5,1);
+    \draw (0,2) rectangle node{加法器} (5,3);
+    \draw (0,4) rectangle node{加法器} (5,5);
+    
+    \draw[->] (2,6) node[anchor=south]{$a_1$} -- (2,5);
+    \draw[->] (3,6) node[anchor=south]{$a_2$} -- (3,5);
+    \draw[->] (2,4)  -- node[midway,anchor=east]{$a_1+a_2$} (2,3);
+    \draw[->] (6,3.5) node[anchor=west]{$a_3$} -- (3,3.5) -- (3,3);
+    \draw[->] (2,2)  -- node[midway,anchor=east]{$a_1+a_2+a_3$} (2,1);
+    \draw[->] (6,1.5) node[anchor=west]{$a_4$} -- (3,1.5) -- (3,1);
+    \draw[->] (2.5,0) -- (2.5,-1) node[anchor=north]{$a_1+a_2+a_3+a_4$};
+\end{tikzpicture}
+\caption{四个加数$a_1,a_2,a_3,a_4$连加}\label{fig79}
+\end{figure}
+
+把\autoref{fig79}中的加法器展开成串联的全加器，就得到了四位乘法器的结构示意图（\autoref{fig80}）。
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}
+    \foreach \x [evaluate={\z=int(3-\x)}] in {0,1,2,3}
+        \foreach \y [evaluate={\w=int(3-\y)}] in {0,1,2,3} {
+            \draw (3*\x,3*\y) rectangle node {$+$} (3*\x+2,3*\y+2); % 全加器框架
+            \draw[dashed] (3*\x+1.6,3*\y+2.2) rectangle node {\&} (3*\x+2,3*\y+2.6);
+            \draw[->] (3*\x+1.6,3*\y+2.4) -- (3*\x+1,3*\y+2.4) -- (3*\x+1,3*\y+2);
+            \draw[blue] (3*\x+1.8,3*\y+2.6) -- (3*\x+1.8,3*\y+2.8);
+            \draw[red] (3*\x+2,3*\y+2.4) -- (3*\x+2.2,3*\y+2.4);
+            \draw[->] (3*\x+2,3*\y) node[anchor=south east] {$s$} -- (3*\x+3,3*\y-1); % 和输出
+        }
+    \foreach \x in {1,2,3}
+        \foreach \y in {0,1,2,3}
+            \draw[->] (3*\x,3*\y+1) node[anchor=west] {$c_o$} -- (3*\x-1,3*\y+1); % 进位连接
+    \foreach \x [evaluate={\z=int(3-\x)}] in {0,1,2,3}{
+        \draw[->,] (3*\x-1,12) node[anchor=south east] {$0$} -- (3*\x,11); % 第一排缺省加数
+        \draw (3*\x,-1) node[anchor=north west] {$H_\z$}; % 结果高四位
+        \draw[red] (3*\x+2.2,12) node[anchor=south] {$a_\z$} -- (3*\x+2.2,-1); %乘数1输入
+    }
+    \foreach \y [evaluate={\w=int(3-\y)}] in {0,1,2,3}{
+        \draw (12,3*\y-1) node[anchor=north west] {$I_\w$}; % 结果低四位
+        \draw[->] (0,3*\y+1) node[anchor=west] {$c_o$} -- (-1,3*\y+1) -- (-1,3*\y) -- (0,3*\y-1); % 左边一列进位输出
+        \draw[->] (12,3*\y+1) node[anchor=west] {$0$} -- (11,3*\y+1); % 右边一列进位输入
+        \draw[blue] (12,3*\y+2.8) node[anchor=west] {$b_\w$}-- (-1,3*\y+2.8); % 乘数2输入
+    }
+\end{tikzpicture}
+\caption{四位乘法器结构示意图。大的实线方框表示全加器，$c_o$表示进位输出，$s$表示和输出。小的虚线方框表示与门，红蓝线输入，黑线输出。两个乘数分别从上方和右方输入，乘积的低位从右边输出，高位从下边输出。全加器缺少的输入补零。左右相邻的两个全加器，右边的早一个逻辑帧；上下相邻的两个全加器，上边的早两个逻辑帧。}\label{fig80}
+\end{figure}
+
+乘法器的单个单元电路见\autoref{fig81}，其中用不同颜色的背景墙标记区域和线路。橙色区域为全加器。黄色区域是与门。蓝色线路是从右边输入的乘数，每经过一个单元要延迟1个逻辑帧。红色线路是从上边输入的乘数，每经过一个单元要延迟2个逻辑帧。紫色线路是横向的进位传递。绿色线路是从左上到右下的和传递。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{images/436.png}
+\caption{乘法器单个单元的结构}\label{fig81}
+\end{figure}
+
+单元堆叠后的效果见\autoref{fig82}，其中每个单元大小3*7。优化过程用到了如下的接线技巧：
+\begin{itemize}
+	\item 左右方向上红蓝线循环，便于接线。
+	\item 相邻两列错位，便于进位和横向乘数的传递。
+	\item 纵向的逻辑延迟用到了一个异或门，从而这个门不需要为经过的绿线让路。
+	\item 与门利用了等式$a\&b=\textrm{\~{}} ab\&b$，便于接线。
+\end{itemize}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{images/437.png}
+\caption{堆叠优化后的效果}\label{fig82}
+\end{figure}
 
 \subsection{除法器（Divider）}
 1
