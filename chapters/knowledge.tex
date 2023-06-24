@@ -168,7 +168,8 @@ $$(?1)^{(1)}\times (1+0.1110\,0000\,0000\,0000\,0000\,000)\times 2^1=(?1)^{(1)}\
 于是，符号位$S=1$，尾数$M$为$1110\,0000\,0000\,0000\,0000\,000$，阶码$E$为$128_{10}=1000\,0000_2$，则最终的32位单精度浮点数为
 $$1\,1000\,0000\,1110\,0000\,0000\,0000\,0000\,000$$
 
-\section{BCD码}
+\section{BCD码与二进制码的转换}
+\subsection{BCD码简介}
 \begin{note}
 本节系摘编。
 
@@ -199,7 +200,7 @@ Binary-Coded Decimal，简称BCD，称BCD码或二-十进制代码，亦称二�
 \caption{常见的BCD编码。通常开发使用8421，8421对于新手能一看就懂。}\label{tab3}
 \end{table}
 
-\section{BCD码转二进制}\label{sec30}
+\subsection{BCD码转二进制}\label{sec30}
 BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也就是十进制转二进制的算法。这里我们介绍短除法，该算法是高中课程的内容。
 
 短除法将一个数反复除以2直到商为0，取余数倒序为二进制结果。
@@ -302,7 +303,7 @@ XXX1&100X&1001&$18,19\div 2=9$\\\hline
 \end{center}
 \end{example}
 
-\section{二进制转BCD码}\label{sec31}
+\subsection{二进制转BCD码}\label{sec31}
 回顾\autoref{exa1}中的算法。每一步中，进行分离最后一位、分组、查表三个操作，最终从第一行的BCD码推到了最后一行的二进制。每一步都是由\autoref{tab5}唯一确定的，所以可以作为一个可靠的算法。反过来想，如果先知道了最后一行的二进制，是否可以反推到第一行的BCD码呢？我们来试试。
 \begin{example}
 将二进制1111011转为BCD码。尝试将\autoref{exa2}中的步骤反向。
@@ -331,3 +332,43 @@ XXX1&100X&1001&$18,19\div 2=9$\\\hline
 \end{tabular}
 \end{center}
 \end{example}
+
+\section{$\mathbb{Z}_2$上的线性代数}
+\subsection{域$\mathbb{Z}_2$简介}
+把整数分成奇数和偶数，则有如下运算规律：
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+$+$&偶&奇\\\hline
+偶&偶&奇\\
+奇&奇&偶\\\hline
+\end{tabular}
+\begin{tabular}{|c|cc|}
+\hline
+$\times$&偶&奇\\\hline
+偶&偶&偶\\
+奇&偶&奇\\\hline
+\end{tabular}
+\end{center}
+
+$\mathbb{Z}_2=\{0,1\}$表示整数除2所得余数的集合，则0代表偶数，1代表奇数，0和1之间的加法和乘法运算遵守上述奇偶的运算规律，即
+\begin{center}
+\begin{tabular}{|c|cc|}
+\hline
+$+$&0&1\\\hline
+0&0&1\\
+1&1&0\\\hline
+\end{tabular}
+\begin{tabular}{|c|cc|}
+\hline
+$\times$&0&1\\\hline
+0&0&0\\
+1&0&1\\\hline
+\end{tabular}
+\end{center}
+
+另外，定义除法为乘法的逆运算，即$0\div 1=0$、$1\div 1=1$，除数不能为0。定义减法为加法的逆运算，由于$\mathbb{Z}_2$的特殊性，减法和加法的运算规则完全一样。
+
+如果将0和1又看作逻辑中的真和假，则加法对应的是异或，乘法对应的是与，所以可以用$\mathbb{Z}_2$上的运算来描述逻辑。
+
+\subsection{向量与线性组合}
