@@ -10,3 +10,4 @@ main.synctex.gz
 *.mtc*
 *.log
 *.maf
+*.synctex(busy)
