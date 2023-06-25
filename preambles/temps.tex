@@ -4,15 +4,18 @@
 \definecolor{bilibiliblue}{RGB}{35,173,229}
 \definecolor{terrariaforumback}{RGB}{47, 50, 81}
 \definecolor{terrariaforumtext}{RGB}{247, 232, 209}
+\definecolor{bbstrtext}{RGB}{35, 52, 91}
+\definecolor{bbstrback}{RGB}{241, 250, 245}
 
 \usepackage{tcolorbox}
 
 \newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
 \newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
 
-\newcommand{\bilibili}[1]{\href{https://www.bilibili.com/video/#1}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#1}}}}
+\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
 \newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
 \newcommand{\trforum}[1]{\href{https://forums.terraria.org/index.php?threads/#1}{\tcbox[on line, boxsep=1pt, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{threads/#1}}}}
 \newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\tcbox[on line, boxsep=1pt, colframe=blue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/tieba.png} \footnotesize\sffamily\textcolor{black}{#1}}}}
 
+\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bbstrtext, colback=bbstrback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bbstr.png} \footnotesize\sffamily\textcolor{bbstrtext}{#1/#2}}}}
 \NewDocumentCommand{\vipbox}{mmm}{\href{#3}{\tcbox[on line, sharp corners=all, boxrule=0pt, boxsep=0pt, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=12pt]{figure/#1}\hspace{1pt}\small\sffamily#2}}\ }
