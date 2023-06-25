@@ -371,4 +371,111 @@ $\times$&0&1\\\hline
 
 如果将0和1又看作逻辑中的真和假，则加法对应的是异或，乘法对应的是与，所以可以用$\mathbb{Z}_2$上的运算来描述逻辑。
 
-\subsection{向量与线性组合}
+\subsection{向量与矩阵}
+$\mathbb{Z}_2$上的向量即为一组有序的$\mathbb{Z}_2$元素。向量组成向量空间。
+\begin{definition}
+$\mathbb{Z}_2^n=\{(x_1,\dots,x_n): x_k\in\mathbb{Z}_2\}$是$\mathbb{Z}_2$上的$n$维向量空间。$\mathbb{Z}_2^n$中的元素是$\mathbb{Z}_2$上的$n$维向量。
+\end{definition}
+
+向量的加减法定义为对应元素加减：
+\[
+	(x_1,\dots,x_n) + (y_1,\dots,y_n) = (x_1+y_1,\dots,x_n+y_n).
+\]
+
+数字乘向量定义为用数字乘向量中的每个元素：
+\[
+	\lambda(x_1,\dots,x_n) = (\lambda x_1,\dots,\lambda x_n).
+\]
+由于$\mathbb{Z}_2$中仅有0和1两个数字，所以向量的数乘可以列举为
+\[
+	1\mathbf{x}=\mathbf{x},\qquad 0\mathbf{x}=\mathbf{0},
+\]
+其中粗体小写字母表示向量，$\mathbf{0}$表示零向量，即向量中所有元素都是0。
+
+$\mathbb{Z}_2$元素也可以有序地组成矩阵。矩阵组成矩阵空间。
+\begin{definition}
+$\mathbb{Z}_2^{m\times n}=\left\{\begin{pmatrix}
+	x_{11}&x_{12}&\cdots&x_{1n}\\
+	x_{21}&x_{22}&\cdots&x_{2n}\\
+	\vdots&\vdots&\ddots&\vdots\\
+	x_{m1}&x_{m2}&\cdots&x_{mn}
+\end{pmatrix}: x_{jk}\in\mathbb{Z}_2\right\}$是$\mathbb{Z}_2$上的$m\times n$维矩阵空间。$\mathbb{Z}_2^{m\times n}$中的元素是$\mathbb{Z}_2$上的$m\times n$维矩阵。
+\end{definition}
+
+矩阵也可以看作向量的向量。一个$m\times n$维矩阵既可以理解为由$m$个$n$维行向量组成的列向量也可以理解为由$n$个$m$维列向量组成的行向量。$n$维行向量也可以看作$1\times n$维矩阵，$m$维列向量也可以看作$m\times 1$维矩阵。
+
+按照向量加减法与数乘的定义，矩阵加减法也定义成对应元素加减，矩阵数乘也定义成用数字乘矩阵中的每个元素。
+
+矩阵一般用粗体大写字母表示。零矩阵用$\mathbf{O}$表示。
+
+\subsection{线性组合}
+将若干向量用数乘然后相加，得到的结果可以叫做这些向量的\emph{线性组合}。
+\begin{definition}
+设$\mathbf{x_1},\dots,\mathbf{x_n}\in\mathbb{Z}_2^m$，$\lambda_1,\dots,\lambda_n\in\mathbb{Z}_2$，则$\lambda_1\mathbf{x_1}+\dots+\lambda_n\mathbf{x_n}\in\mathbb{Z}_2^m$是向量$\mathbf{x_1},\dots,\mathbf{x_n}$的一个线性组合。
+\end{definition}
+将$\mathbf{x_1},\dots,\mathbf{x_n}$排列成矩阵，$\lambda_1,\dots,\lambda_n$排列成向量，则该线性组合可以描述为
+\[
+	(\mathbf{x_1},\cdots,\mathbf{x_n})\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}=\lambda_1\mathbf{x_1}+\dots+\lambda_n\mathbf{x_n}\in\mathbb{Z}_2^m.
+\]
+其中$\mathbf{x_1},\dots,\mathbf{x_n}$是矩阵中的列向量，$\lambda_1,\dots,\lambda_n$也排列成列向量。以上就是矩阵和列向量相乘的定义。
+\begin{definition}
+设$\mathbf{A}\in\mathbb{Z}_2^{m\times n}$，$\mathbf{x}\in\mathbb{Z}_2^n$，则$\mathbf{A}\mathbf{x}\in\mathbb{Z}_2^m$定义为
+\[
+	\mathbf{A}\mathbf{x}=\begin{pmatrix}
+		a_{11}&a_{12}&\cdots&a_{1n}\\
+		a_{21}&a_{22}&\cdots&a_{2n}\\
+		\vdots&\vdots&\ddots&\vdots\\
+		a_{m1}&a_{m2}&\cdots&a_{mn}
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1}\\
+		x_{2}\\
+		\vdots\\
+		x_{n}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}\\
+		a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}\\
+		\vdots\\
+		a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}
+	\end{pmatrix}
+\]
+\end{definition}
+
+\subsection{解线性方程组}
+利用矩阵和列向量的乘法可以描述\emph{线性方程组}。例如方程组
+\[
+	\begin{cases}
+		a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1\\
+		a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2\\
+		\vdots\\
+		a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}=b_m
+	\end{cases}
+\]
+可以描述为
+\[
+	\underbrace{\begin{pmatrix}
+		a_{11}&a_{12}&\cdots&a_{1n}\\
+		a_{21}&a_{22}&\cdots&a_{2n}\\
+		\vdots&\vdots&\ddots&\vdots\\
+		a_{m1}&a_{m2}&\cdots&a_{mn}
+	\end{pmatrix}}_\mathbf{A}
+	\underbrace{\begin{pmatrix}
+		x_{1}\\
+		x_{2}\\
+		\vdots\\
+		x_{n}
+	\end{pmatrix}}_\mathbf{x}
+	=
+	\underbrace{\begin{pmatrix}
+		b_{1}\\
+		b_{2}\\
+		\vdots\\
+		b_{m}
+	\end{pmatrix}}_\mathbf{b}.
+\]
+
+解线性方程组可以用高斯消元法。
+
+\subsection{线性变换与矩阵代数}
