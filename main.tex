@@ -12,39 +12,17 @@
 \usepackage{pgfplots}
 \usepackage{multirow}
 \usepackage{verbatim}
-\usepackage{hyperref}
 \usepackage{listings}
-\usepackage{amsthm}
 
 \pgfplotsset{compat=1.6}
-\hypersetup{bookmarksdepth=5}
+
 \lstset{language={C++}}
 
 \AtBeginDocument{
 	\setcounter{tocdepth}{0}
 }
 
-\renewcommand{\figureautorefname}{图}
-\renewcommand{\tableautorefname}{表}
-\renewcommand{\sectionautorefname}{节}
-\renewcommand{\subsectionautorefname}{小节}
-\renewcommand{\chapterautorefname}{章}
-\renewcommand{\algorithmautorefname}{算法}
-\renewcommand{\algorithmcfname}{算法}
-\newcommand{\examautorefname}{例}
-\newcommand{\probautorefname}{例题}
-\renewcommand\thesubfigure{(\alph{subfigure})}
-\newcommand{\subfigureautorefname}{\figureautorefname}
-\renewcommand\thesubtable{(\alph{subtable})}
-\newcommand{\subtableautorefname}{\tableautorefname}
-\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
-\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
 \setcounter{totalnumber}{100}
-\makeatletter
-\g@addto@macro\UrlBreaks{%
- \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%这里没有语法问题，属于分析器bug
- \do\)\do\,\do\?\do\&\do\'\do+\do\=\do\#}
-\makeatother
 
 \newcommand{\DMC}{死人的宝箱}
 \newcommand{\FM}{Fog Machine}
@@ -55,10 +33,8 @@
 \newcommand{\Lesion}{损伤}
 \newcommand{\Bamboo}{竹}
 
-\newtheorem{note}{注意}
-\newtheorem{example}{例}
-\newtheorem{remark}{附注}
 
+\input{preamble}
 \input{ids}
 
 \title{Terraria 电路文档}
@@ -67,7 +43,7 @@
 \author{putianyi888}
 %\institute{Terraria 电路爱好者交流群（\href{https://jq.qq.com/?_wv=1027\&k=52nFXER}{231355279}）}
 \date{\today}
-\version{3.2}
+%\version{3.2}
 
 %\extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
 

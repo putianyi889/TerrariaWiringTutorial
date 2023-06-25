@@ -1,0 +1,15 @@
+% 小型模板
+
+\usepackage{xcolor}
+\definecolor{bilibiliblue}{RGB}{35,173,229}
+\definecolor{terrariaforumback}{RGB}{47, 50, 81}
+\definecolor{terrariaforumtext}{RGB}{247, 232, 209}
+
+\usepackage{tcolorbox}
+
+\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
+\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
+
+\newcommand{\bilibili}[1]{\href{https://www.bilibili.com/video/#1}{\tcbox[on line, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#1}}}}
+\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
+\newcommand{\trforum}[1]{\href{https://forums.terraria.org/index.php?threads/#1}{\tcbox[on line, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{threads/#1}}}}

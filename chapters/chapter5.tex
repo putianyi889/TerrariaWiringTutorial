@@ -50,7 +50,7 @@
 \caption{}\label{fig59}
 \end{figure}
 \end{example}
-\begin{solution}
+\begin{proof}解
 4-传统递次总共有16种状态，它们对应的后继如\autoref{tab14}所示。
 \begin{table}[!ht]
 \centering
@@ -87,7 +87,7 @@
 1111&\to 1111
 \end{align*}
 4-传统递次一共有6个循环，其中2个1循环、1个2循环、3个4循环。
-\end{solution}
+\end{proof}
 
 \begin{example}
 分析如\autoref{fig57}所示的推广递次电路。
@@ -97,7 +97,7 @@
 \caption{}\label{fig57}
 \end{figure}
 \end{example}
-\begin{solution}
+\begin{proof}[解]
 \begin{table}[!ht]
 \centering
 \begin{tabular}{|c|c|}
@@ -129,7 +129,7 @@
         &0111\to 1011\to 1111\to 1101\to 1100\to 0100\to 0010\to 0001
 \end{align*}
 该推广递次一共有2个循环，其中1个1循环、1个15循环。
-\end{solution}
+\end{proof}
 
 不难看出，无论推广递次如何连接，$0000\to 0000$的1循环是不会变的，我们把这个循环叫做\textbf{平凡循环}并在之后的讨论中忽略它。如果一个推广递次的所有非零状态共同构成了一个循环，那么我们把这个循环叫做\textbf{全循环}。推广递次连接的多样化、状态的多样化、循环的多样化带来了更多的可能性。
 
@@ -141,7 +141,7 @@
 \caption{}\label{fig58}
 \end{figure}
 \end{example}
-\begin{solution}
+\begin{proof}[解]
 该电路分为两部分：左边两个门为2-推广递次电路，右边一个门为2-降频电路，2-推广递次的绿线接到2-降频电路的输入。
 
 分析推广递次的输出时，不光要分析各个灯的状态，还要分析各根线的状态。本例中2-推广递次的两个灯与两根线的状态如\autoref{tab16}所示，其中两根线的初始状态设为0。
@@ -164,7 +164,7 @@
 
 如果去掉最右边的2-降频电路，左边的2-推广递次就会变成一个不均匀降频电路，或者说，(1,2)-降频电路，即周期在1与2切换。改变推广递次的门数与接线就可以得到各种各样的不均匀降频电路。串联不均匀降频电路可以得到输出更复杂的不均匀降频电路，例如串联两个(1,2)-降频电路，可以得到(1,3,2,3)-降频电路，其推导过程留给读者。
 
-\end{solution}
+\end{proof}
 
 并非所有推广递次都可以产生非平凡循环。
 
@@ -725,7 +725,7 @@
 
 \section{自动化}
 
-\begin{problemset}[思考题]
+\begin{enumerate}
 \item 为什么在分段显示器的化简中对矩阵进行初等列变换时需要对列标做对称差？
 \item 为什么两边长都大于4的非像素盒密集矩形随机显示器不存在？
-\end{problemset}
+\end{enumerate}
