@@ -9,8 +9,13 @@
 
 \usepackage{tcolorbox}
 
-\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}\index{#1}}
-\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}\index{#2}}
+\if\rendermode{1}
+	\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
+	\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
+\else
+	\newcommand{\wiki}[1]{#1\index{#1}\footnote{https://terraria.wiki.gg/zh/wiki/#1}}
+	\newcommand{\wikii}[2]{#2\index{#2}\footnote{https://terraria.wiki.gg/zh/wiki/#1}}
+\fi
 
 \NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
 \newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}

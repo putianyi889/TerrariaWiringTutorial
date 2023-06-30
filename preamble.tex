@@ -6,9 +6,13 @@
 \usepackage[colorlinks]{hyperref}
 \hypersetup{bookmarksdepth=5}
 
-\usepackage{imakeidx}
-\makeindex
-\NewDocumentCommand{\myind}{m}{#1\index{#1}}
+\if\rendermode{1}
+	\NewDocumentCommand{\myind}{m}{#1}
+\else
+	\usepackage{imakeidx}
+	\makeindex
+	\NewDocumentCommand{\myind}{m}{#1\index{#1}}
+\fi
 
 \input{preambles/envs}
 \input{preambles/temps}
