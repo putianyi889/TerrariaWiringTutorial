@@ -11,3 +11,6 @@ main.synctex.gz
 *.log
 *.maf
 *.synctex(busy)
+*.idx
+*.ilg
+*.ind

@@ -32,15 +32,15 @@
 \subfloat[黄压力板]{\qquad\includegraphics{figures/Yellow_Pressure_Plate.png}\qquad}
 \subfloat[橙压力板]{\qquad\includegraphics{figures/Orange_Pressure_Plate.png}\qquad}
 \\
-\subfloat[加重压力板]{\includegraphics{figures/Pink_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Orange_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Purple_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Cyan_Weighted_Pressure_Plate.png}}
+\subfloat[测重压力板]{\includegraphics{figures/Pink_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Orange_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Purple_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Cyan_Weighted_Pressure_Plate.png}}
 \qquad
 \subfloat[青绿压力垫板]{\qquad\includegraphics{figures/Teal_Pressure_Pad.png}\qquad}
 \caption{压力板}
 \end{figure}
 
-压力板分为普通压力板、加重压力板、青绿压力垫板。
+压力板分为普通压力板、测重压力板、青绿压力垫板。
 
-普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。加重压力板是误翻译，正确翻译应为“重力压力板”。四种颜色的加重压力板功能完全一样。
+普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。测重压力板是误翻译，正确翻译应为“重力压力板”。四种颜色的测重压力板功能完全一样。
 
 \begin{remark}
 区分不同颜色普通压力板的方法：只能由玩家触发的是地图中的各种陷阱，颜色非常隐蔽，比如说石块上的灰压力板、土块上的棕压力板、冰雪块上的蓝压力板、丛林蜥蜴砖上的丛林蜥蜴压力板都非常难以辨认；橙压力板连接的机关是一次性高伤害的滚石和炸药，所以橙压力板相对醒目，并且也是一次性的。红/黄/绿压力板都非常醒目，它们可以由NPC触发。
@@ -82,7 +82,7 @@
 \label{i201:202}
 \end{figure}
 
-加重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内。
+测重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内。
 
 青绿压力垫板的碰撞箱为16*10或10*16，根据其朝向而定。射弹生成后，每次更新位置都会激活碰撞到的青绿压力垫板，这里碰撞的定义是：上次更新时碰撞箱不相交，但是这次更新时相交。如果射弹同时与多个青绿压力垫板碰撞，那么只激活优先级最高的那个（不同行的青绿压力垫板，上面的优先级高；同一行的青绿压力垫板，左边的优先级高）；多个射弹同时碰撞同一个青绿压力垫板，每个射弹都会激活一次（\autoref{i209:212}）。
 
@@ -104,7 +104,7 @@
 \label{i209:212}
 \end{figure}
 
-普通压力板和加重压力板可以放在平台和锭上而青绿压力垫板不能；青绿压力垫板可以放在实体块侧面和下方而普通压力板和加重压力板不能。
+普通压力板和测重压力板可以放在平台和锭上而青绿压力垫板不能；青绿压力垫板可以放在实体块侧面和下方而普通压力板和测重压力板不能。
 
 压力板轨道是带有压力板的轨道，它只能由矿车触发。
 
@@ -203,7 +203,7 @@
 
 逻辑感应器（昼）和逻辑感应器（夜）在由灭变亮时激活，其他感应器均在亮灭切换时激活。
 
-逻辑感应器（玩家）可以看作感应范围更大，但是对传送不敏感，仅在每帧进行判断的加重压力板。逻辑感应器（玩家）的激活信号及以该信号触发的逻辑结算产生的激活信号不会触发传送机。
+逻辑感应器（玩家）可以看作感应范围更大，但是对传送不敏感，仅在每帧进行判断的测重压力板。逻辑感应器（玩家）的激活信号及以该信号触发的逻辑结算产生的激活信号不会触发传送机。
 
 所有感应器均可随意放置，无需支撑块或背景墙。
 
@@ -584,7 +584,7 @@
 
 每个玩家或NPC进行传送时，会把一个\lstinline{teleporting}属性设置为\lstinline{true}；传送前会检查该属性，如果为\lstinline{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\lstinline{teleporting}属性还原为\lstinline{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
 
-每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\path{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
+每个玩家传送后会立即检查并激活测重压力板。如果有测重压力板被激活，那么会将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\path{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
 
 \begin{example}
 电路如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击左边传送机上的开关，那么会在左中两个传送机上进行两次传送，结果是被传回左边传送机；如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
@@ -597,13 +597,13 @@
 \caption{}\label{fig19}
 \end{figure}
 
-右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活加重压力板。需要注意的是，加重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}加重压力板将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\lstinline{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\path{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\lstinline{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
+右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活测重压力板。需要注意的是，测重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}测重压力板将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\lstinline{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\path{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\lstinline{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
 \end{example}
 
 \begin{example}
 电路仍如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
-这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活加重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
+这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活测重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
 \end{example}
 
 \begin{example}

@@ -6,6 +6,10 @@
 \usepackage[colorlinks]{hyperref}
 \hypersetup{bookmarksdepth=5}
 
+\usepackage{imakeidx}
+\makeindex
+\NewDocumentCommand{\myind}{m}{#1\index{#1}}
+
 \input{preambles/envs}
 \input{preambles/temps}
 \input{preambles/terms}
