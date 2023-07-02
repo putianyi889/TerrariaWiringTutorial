@@ -11,28 +11,29 @@
 \usepackage{tcolorbox}
 
 \if\rendermode1
-	\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
-	\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
+	\NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
-	\newcommand{\trforum}[1]{\href{https://forums.terraria.org/index.php?threads/#1}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
+	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?/#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
 	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
 	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
 	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubicon.pdf}}}
 	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
 \else
-	\newcommand{\wiki}[1]{#1\index{#1}\footnote{\url{https://terraria.wiki.gg/zh/wiki/#1}}}
-	\newcommand{\wikii}[2]{#2\index{#2}\footnote{\url{https://terraria.wiki.gg/zh/wiki/#1}}}
+	\NewDocumentCommand{\myhref}{mm}{#2\index{#2}\footnote{\url{#1}}}
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
-	\newcommand{\trforum}[1]{\href{https://forums.terraria.org/index.php?threads/#1}{\tcbox[on line, boxsep=1pt, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{threads/#1}}}}
+	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\tcbox[on line, boxsep=1pt, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{#1/#2}}}}
 	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\tcbox[on line, boxsep=1pt, colframe=blue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/tieba.png} \footnotesize\sffamily\textcolor{black}{#1}}}}
 	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bbstrtext, colback=bbstrback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bbstr.png} \footnotesize\sffamily\textcolor{bbstrtext}{#1/#2}}}}
 	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/github.pdf} \footnotesize\sffamily #1}}}
-	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/github.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
+	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youku.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
 \fi
+
+\newcommand{\wiki}[1]{\myhref{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
+\newcommand{\wikii}[2]{\myhref{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
 
 \NewDocumentCommand{\vipbox}{mmm}{\href{#3}{\tcbox[on line, sharp corners=all, boxrule=0pt, boxsep=0pt, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=12pt]{figure/#1}\hspace{1pt}\small\sffamily#2}}\ }
 \NewDocumentCommand{\notvip}{m}{{\small\sffamily#1\ }}
