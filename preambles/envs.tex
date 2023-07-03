@@ -1,12 +1,20 @@
 \usepackage{amsthm}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
 
-\newtheorem{theorem}{定理}
-\newtheorem{corollary}{推论}
+\tcbset{label separator={}}
+
+\newtcbtheorem{theorem}{定理}{}{}
+\newtcbtheorem{corollary}{推论}{}{}
 
 \theoremstyle{definition}
-\newtheorem{example}{例}
-\newtheorem{problem}{问题}
+\newtcbtheorem{example}{例}{breakable, colback=white, colframe=dirtblock, skin=enhanced, parbox=false}{}
+\newtcbtheorem{problem}{问题}{}{}
 
 \theoremstyle{remark}
-\newtheorem{note}{注意}
-\newtheorem{remark}{附注}
+\newtcbtheorem{note}{注意}{}{}
+\newtcbtheorem{remark}{注}{}{}
+
+\newcommand{\exampleautorefname}{例}

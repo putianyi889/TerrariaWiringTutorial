@@ -42,9 +42,9 @@
 \subsection{推广递次电路}
 递次电路能形成循环，是靠的故障逻辑门改变逻辑灯状态，而逻辑灯状态又能反过来决定故障逻辑门是否激活。换言之，每一步中电路的状态都可以决定下一步的状态。这样依次下去，就形成了一个状态链。我们有理由相信，在某些特定的接线方式下，状态链会形成循环。
 
-\begin{example}
+\begin{example}{}{}
 分析如\autoref{fig59}所示的4-传统递次电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/416.png}
 \caption{}\label{fig59}
@@ -89,9 +89,9 @@
 4-传统递次一共有6个循环，其中2个1循环、1个2循环、3个4循环。
 \end{proof}
 
-\begin{example}
+\begin{example}{}{}
 分析如\autoref{fig57}所示的推广递次电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/426.png}
 \caption{}\label{fig57}
@@ -133,9 +133,9 @@
 
 不难看出，无论推广递次如何连接，$0000\to 0000$的1循环是不会变的，我们把这个循环叫做\textbf{平凡循环}并在之后的讨论中忽略它。如果一个推广递次的所有非零状态共同构成了一个循环，那么我们把这个循环叫做\textbf{全循环}。推广递次连接的多样化、状态的多样化、循环的多样化带来了更多的可能性。
 
-\begin{example}
+\begin{example}{}{}
 分析\autoref{fig58}中的降频电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/332.png}
 \caption{}\label{fig58}
@@ -168,14 +168,14 @@
 
 并非所有推广递次都可以产生非平凡循环。
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig60}所示推广递次的状态链见\autoref{fig61}。这个状态链是一棵树，不包含任何一个非平凡循环。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/414.png}
 \caption{}\label{fig60}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
 	[0000,name=s
@@ -200,14 +200,14 @@
 \end{figure}
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig62}所示推广递次的状态链见\autoref{fig63}。这个状态链由两棵树组成。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/415.png}
 \caption{}\label{fig62}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
 	[0000,name=s
@@ -237,14 +237,14 @@
 
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig65}所示推广递次的状态链见\autoref{fig64}，其中既有环结构也有树结构。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/427.png}
 \caption{}\label{fig65}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \newdimen\R
@@ -719,8 +719,8 @@
 
 还有一个非常巧妙的办法可以减少显示单元的面积，那就是使用小地图。半透明的小地图中每格2.5像素，在屏幕上是2像素和3像素交替排列。有很多使用小地图显示的例子：
 \begin{itemize}
-\item 【Terraria】做贪吃蛇—TheRedstoneCrafter \url{https://www.bilibili.com/video/av32265379}
-\item 在Terraria中玩俄罗斯方块!? \url{https://www.bilibili.com/video/av38924330}
+\item 【Terraria】做贪吃蛇—TheRedstoneCrafter \bilibili{av32265379}
+\item 在Terraria中玩俄罗斯方块!? \bilibili{av38924330}
 \end{itemize}
 
 \section{自动化}

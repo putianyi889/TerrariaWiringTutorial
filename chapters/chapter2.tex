@@ -84,10 +84,10 @@
 
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。读者可以尝试用电线连接各种各样的电源和用电器，然后尝试激活电源，看看会发生什么。
 
-\begin{example}
+\begin{example}{}{}
 用火把摆出数字“0”（\autoref{i32}），然后用电线连接一个开关和“0”左边三条边（\autoref{i33}）。在这个电路中，开关是电源，“0”的左边三条边上的火把是用电器。因为开关的激活条件是右击，我们右击开关就能激活它，然后开关上的红线激活，于是红线下“0”的左边三条边被激活。火把的激活响应是亮灭切换，所以这三条边就会灭，显示数字“1”（\autoref{fig74}）。反复右击开关，这些火把就会在亮灭之间切换，从而显示的数字在“0”和“1”之间切换。这就是最简单的二进制\textbf{数显}，\myind{数显}是数字显示器的简称。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \subfloat[]{
 \label{i32}
@@ -107,14 +107,14 @@
 \caption{}
 \label{i32:33}
 \end{figure}
-\begin{remark}
+\begin{remark}{}{}
 如果想要显示效果更醒目，可以将背景墙和火把都涂上\wiki{暗影漆}，也可以尝试其他的光源，甚至\myind{制动器}与实体块的组合。
 \end{remark}
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 如\autoref{i3:4}所示，用电线连接\myind{逻辑感应器（夜）}和\myind{派对中心}。这个电路中，\myind{逻辑感应器}（夜）为电源，派对中心为用电器。入夜时，\myind{派对}事件结束，派对中心自动关闭，然后逻辑感应器（夜）激活，派对中心激活，又重新打开，进入派对事件。每天入夜时重复这个过程，地图就会保持在派对事件中。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/3.png}
 \qquad
@@ -123,15 +123,15 @@
 \caption{}
 \label{i3:4}
 \end{figure}
-\begin{remark}
+\begin{remark}{}{}
 需要注意的是该装置能够实现所需功能，依赖于入夜时事件结算先于感应器结算。
 \end{remark}
 \end{example}
 
-\begin{example}[\myind{传送带驱动}]
+\begin{example}{\myind{传送带驱动}}{}
 
 如\autoref{i5:6}所示，用电线连接\myind{传送带}（顺时针）和\myind{测重压力板}。在这个电路中，测重压力板是电源，传送带是用电器。人物站在传送带上。传送带使人物向右移动，人物进入测重压力板所在格时测重压力板激活，进而激活传送带，传送带变为逆时针，人物向左移动，移出测重压力板时测重压力板又激活，传送带变为顺时针，人物向右移动，如此反复。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/5.png}
 \qquad
@@ -150,11 +150,11 @@
 
 有一部分用电器被激活的时候会在两个状态间切换，例如发光物品的亮灭切换，功能物品的开关切换。在涉及到逻辑的时候，可以将两个状态看作1和0。
 
-\begin{example}[\myind{自动门}]\label{exa5}
+\begin{example}{\myind{自动门}}{exa5}
 
 很多人刚开始玩泰拉瑞亚的时候，盖房子都会造门。普通的门是非常不方便的，不仅出入都需要操作，而且有些时候并不能阻止敌怪进入。解救了机械师后，有些人就开始把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/38.png}
 \qquad
@@ -168,7 +168,7 @@
 
 使用两个压力板就可以完成这个功能。如\autoref{i40:41}所示，当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/40.png}
 \qquad
@@ -180,7 +180,7 @@
 
 这个门的漏洞比较明显，那就是如果人走到门口，又回去，门就会保持开启状态。为了解决这个问题，需要把普通压力板改成\myind{测重压力板}（\autoref{i44:45}）。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/44.png}
 \qquad
@@ -192,7 +192,7 @@
 
 然而改成了测重压力板后并非万事大吉。如果进入多人游戏，两个人站在门的两侧，同时试图到对方一边，那么制动器被激活两次，物块仍实化，除非一个人让步。这是非常不方便的。使用\myind{逻辑感应器（玩家）}可以解决这个问题（\autoref{i46:47}）。当已经有一个玩家站在感应器的蓝框内时，其他玩家进出不会改变感应器状态，感应器自然就不会激活。因此，当感应器的蓝框内有玩家时门开启，否则门关闭。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/46.png}
 \qquad
@@ -204,7 +204,7 @@
 \end{example}
 
 \section{逻辑门灯/逻辑门}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \subfloat[逻辑灯]{\includegraphics{figures/Logic_Gate_Lamp_(Off).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(On).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(Faulty).png}}\qquad
 \subfloat[逻辑门]{\includegraphics{figures/Logic_Gate_(AND).png}\quad\includegraphics{figures/Logic_Gate_(NAND).png}\quad\includegraphics{figures/Logic_Gate_(OR).png}\quad\includegraphics{figures/Logic_Gate_(NOR).png}\quad\includegraphics{figures/Logic_Gate_(XOR).png}\quad\includegraphics{figures/Logic_Gate_(XNOR).png}}
@@ -217,11 +217,11 @@
 
 六种普通逻辑门的逻辑判定规则见物品描述和wiki。
 
-\begin{example}[改进自动门]
+\begin{example}{改进自动门}{}
 
 \autoref{exa5}中我们使用逻辑感应器（玩家）实现了\myind{自动门}的功能。这个自动门仍有缺点，那就是感应器的感应范围太大，导致玩家在很远的地方，甚至不想开门的地方（门的上方和下方）门也会打开。测重压力板的感应范围合适，但是当门两边同时站人时会导致门关闭。我们需要实现的功能是：当门的左边站人\textbf{或}右边站人时门开启。因此使用\myind{或门}可以达到我们的要求。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \subfloat{
 \label{i50}
@@ -250,7 +250,7 @@
 \end{itemize}
 
 在之前的电路分析中，我们都是使用的“激活”来分析。使用激活分析总是没错的，但是在有时不如\myind{状态分析}来的简单。在\autoref{i50:51}中，所有的电源与用电器都是两状态的：测重压力板有踩下和弹起两个状态，逻辑灯、逻辑门有亮灭两个状态，制动器有实化和虚化两个状态。同时，所有电源会在状态改变时激活电路，所有用电器会在电路激活时状态改变。在这种情况下，电源和用电器的状态始终是同步的，例如逻辑门亮时制动器一定是虚化状态，逻辑门灭时制动器一定是实化状态；压力板踩下时对应的逻辑灯一定亮，压力板弹起时对应的逻辑灯一定灭。
-\begin{remark}
+\begin{remark}{}{}
 并非所有的电源和用电器都是两状态切换的。开关没有状态区别；烟囱是三状态的；普通压力板只在踩下激活，弹起时不激活；等等。状态分析并非万能，它只适用于电源和用电器都是两状态切换的情况下。在多数情况下仍需要用激活分析。
 \end{remark}
 \end{example}
@@ -304,13 +304,13 @@
 
 在另外一些时候，我们会用到换线器。例如我们已经预先做了一个计数器（计数器会在后面讲），它是使用蓝线输入的。同时我们做了一个驱动，该驱动使用红线输出。想用计数器来测量驱动的频率，就需要把计数器改成红线输入或者把驱动改成蓝线输出。当电路较复杂的时候，这个修改可能是非常困难的，这时就需要利用到换线器。由于这里驱动和计数器之间只是单向的信号传递，所以可以用\autoref{i13:15}中的二极管充当换线器，这样一来就解决了电线颜色不一致的问题。
 
-\begin{example}[延时器]
+\begin{example}{延时器}{}
 
 打开1秒计时器后计时器每隔1秒激活一次电路。我们希望做一个1秒延时，打开1秒\myind{延时器}后，经过1秒，1秒延时器激活一次，然后关闭。
 
 装置如\autoref{i48:49}所示。打开1秒计时器，经过1秒，计时器激活电路，然后逻辑灯被激活，进而逻辑门激活，把1秒计时器关闭。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics{images/48.png}
 \qquad
@@ -321,7 +321,7 @@
 \end{figure}
 \end{example}
 
-\begin{example}[\myind{门驱}]
+\begin{example}{\myind{门驱}}{}
 
 我们知道，如果换线器上的逻辑灯被激活了，那么逻辑门就会激活。如果把逻辑门和逻辑灯连到一起，那么逻辑门又会激活逻辑灯，逻辑灯又会激活逻辑门，这样就做成了一个高频驱动。在游戏里试试看，并在\nameref{sec7}寻求解释。
 \end{example}
@@ -509,9 +509,9 @@
 \label{i59:60}
 \end{figure}
 
-\begin{example}[\myind{D触发器}]\label{sec15}
+\begin{example}{\myind{D触发器}}{sec15}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \begin{center}
 \subfloat{
 \label{i237}

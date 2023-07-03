@@ -433,9 +433,9 @@
 
 当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序见\nameref{sec7}}，然后将两个图格传送区域内的可传送目标\textbf{互换}，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且A的传送区域高于B的传送区域时无法传送；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
 
-为了行文流畅，上面的描述省略了一个关键的过程。如果A不是下半砖，那么后续的结算中将忽略这个传送机的另外两个图格，避免自身传送。反过来，如果A是下半砖，那么将有可能实现自身传送（\autoref{}）。
+为了行文流畅，上面的描述省略了一个关键的过程。如果A不是下半砖，那么后续的结算中将忽略这个传送机的另外两个图格，避免自身传送。反过来，如果A是下半砖，那么将有可能实现自身传送。
 
-\begin{remark}
+\begin{remark}{}{}
 互换！{\LARGE 互换！}{\huge 互换！}老想着把几个NPC传送到一起的把这个词抄100遍！其他人怎么做到的？在目标传送机上放半砖把NPC推走，几个传送之间设置延迟。
 \end{remark}
 
@@ -586,10 +586,10 @@
 
 每个玩家传送后会立即检查并激活测重压力板。如果有测重压力板被激活，那么会将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\path{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
 
-\begin{example}
+\begin{example}{}{}
 电路如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击左边传送机上的开关，那么会在左中两个传送机上进行两次传送，结果是被传回左边传送机；如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/379.png}
 \qquad
@@ -600,13 +600,13 @@
 右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活测重压力板。需要注意的是，测重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}测重压力板将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\lstinline{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\path{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\lstinline{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 电路仍如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
 这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活测重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 在\autoref{fig19}中，将蓝线剪断，使蓝线只经过中间传送机。无论右击哪个开关，玩家都会被传送到中间传送机。
 
 这次，因为蓝线没有触发传送的过程，所以玩家的\lstinline{teleporting}属性就会保持为\lstinline{true}，从而会跳过AB传送的第3步，玩家留在中间传送机。

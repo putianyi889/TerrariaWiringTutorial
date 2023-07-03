@@ -2,6 +2,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{graphbox}
+\usepackage{float}
 
 \usepackage[colorlinks]{hyperref}
 \hypersetup{bookmarksdepth=5}
@@ -14,6 +15,7 @@
 	\NewDocumentCommand{\myind}{m}{#1\index{#1}}
 \fi
 
+\input{preambles/skin}
 \input{preambles/envs}
 \input{preambles/temps}
 \input{preambles/terms}
@@ -25,7 +27,6 @@
 \renewcommand{\chapterautorefname}{章}
 \renewcommand{\algorithmautorefname}{算法}
 \renewcommand{\algorithmcfname}{算法}
-\newcommand{\examautorefname}{例}
 \newcommand{\probautorefname}{例题}
 \renewcommand\thesubfigure{(\alph{subfigure})}
 \newcommand{\subfigureautorefname}{\figureautorefname}
