@@ -1,5 +1,3 @@
-\PassOptionsToPackage{obeyspaces}{url}
-\documentclass[cn,11pt]{elegantbook}
 
 \usepackage[labelformat=simple,listofformat=subsimple]{subfig}
 \usepackage{longtable}
@@ -12,61 +10,43 @@
 \usepackage{pgfplots}
 \usepackage{multirow}
 \usepackage{verbatim}
+\usepackage{listings}
 
 \pgfplotsset{compat=1.6}
-\hypersetup{bookmarksdepth=5}
+
 \lstset{language={C++}}
 
 \AtBeginDocument{
 	\setcounter{tocdepth}{0}
 }
 
-\renewcommand{\figureautorefname}{图}
-\renewcommand{\tableautorefname}{表}
-\renewcommand{\sectionautorefname}{节}
-\renewcommand{\subsectionautorefname}{小节}
-\renewcommand{\chapterautorefname}{章}
-\renewcommand{\algorithmautorefname}{算法}
-\renewcommand{\algorithmcfname}{算法}
-\newcommand{\examautorefname}{例}
-\newcommand{\probautorefname}{例题}
-\renewcommand\thesubfigure{(\alph{subfigure})}
-\newcommand{\subfigureautorefname}{\figureautorefname}
-\renewcommand\thesubtable{(\alph{subtable})}
-\newcommand{\subtableautorefname}{\tableautorefname}
-\newcommand{\wiki}[1]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#1}}
-\newcommand{\wikii}[2]{\href{https://terraria.wiki.gg/zh/wiki/#1}{#2}}
 \setcounter{totalnumber}{100}
-\makeatletter
-\g@addto@macro\UrlBreaks{%
- \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%这里没有语法问题，属于分析器bug
- \do\)\do\,\do\?\do\&\do\'\do+\do\=\do\#}
-\makeatother
 
 \newcommand{\DMC}{死人的宝箱}
-\newcommand{\FM}{Fog Machine}
+\newcommand{\FM}{造雾机}
 \newcommand{\Grate}{格栅}
-\newcommand{\PL}{Plasma Lamp}
-\newcommand{\Volcano}{Volcano}
+\newcommand{\PL}{等离子灯}
+\newcommand{\Volcano}{火山}
 \newcommand{\GC}{高尔夫球洞}
 \newcommand{\Lesion}{损伤}
 \newcommand{\Bamboo}{竹}
 
+
+\input{preamble}
 \input{ids}
 
-\title{Terraria 电路文档}
-\subtitle{最全面的Terraria电路参考资料}
+\title{
+	\includegraphics[width=0.7\textwidth]{figure/terraria.png}\\
+	电路文档\\
+	v3.2
+}
 
-% 这部分不要删掉任何一个属性，否则会导致 "undefined control sequence"
 \author{putianyi888}
-\institute{Terraria 电路爱好者交流群（\href{https://jq.qq.com/?_wv=1027\&k=52nFXER}{231355279}）}
-\date{\today}
-\version{3.2}
+\date{
+	\today\\
+	项目地址 \github{putianyi888/TerrariaWiringTutorial}
+}
 
-\extrainfo{\LaTeX 模板：\href{https://github.com/ElegantLaTeX/}{ElegantBook}}
-
-\logo{logo.png}
-\cover{cover1.jpg}
 \begin{document}
 
 \maketitle
@@ -84,10 +64,6 @@
 \include{chapters/chapter5}
 %\include{chapters/Farm}
 
-%\nocite{*} 
-
-%\bibliography{reference}
-
 \appendix
 \include{chapters/deprecated}
 \include{chapters/Furnitures}
@@ -95,10 +71,3 @@
 \include{chapters/knowledge}
 \include{chapters/chapter6}
 
-%\bibliography{reference}
-
-\end{document}
-%\end{lstlisting}
-
-
-%\end{document}

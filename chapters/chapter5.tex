@@ -10,9 +10,9 @@
 
 \begin{figure}[!ht]
     \centering
-	\subfloat[传统递次]{\label{fig52}\includegraphics{images/72.png}\qquad\includegraphics{images/73.png}}
+	\subfloat[传统递次]{\label{fig52}\includegraphics[width=0.4\textwidth]{images/72.png}\quad\includegraphics[width=0.4\textwidth]{images/73.png}}
 	\qquad
-	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics{images/106.png}\qquad\includegraphics{images/107.png}}
+	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics[width=0.4\textwidth]{images/106.png}\quad\includegraphics[width=0.4\textwidth]{images/107.png}}
 	\qquad
     \subfloat[斜式传统递次]{\label{fig54}\includegraphics{images/78.png}\qquad\includegraphics{images/79.png}}
 	\qquad
@@ -35,24 +35,23 @@
 	\qquad
     \subfloat[密排传统双向递次]{\includegraphics{images/261.png}\qquad\includegraphics{images/262.png}}
 	\qquad
-    \subfloat[带复位的传统双向递次]{\includegraphics{images/265.png}\qquad\includegraphics{images/266.png}}
+    \subfloat[带复位的传统双向递次]{\includegraphics[width=0.4\textwidth]{images/265.png}\quad\includegraphics[width=0.4\textwidth]{images/266.png}}
 	\caption{传统双向递次电路}
 \end{figure}
 
 \subsection{推广递次电路}
 递次电路能形成循环，是靠的故障逻辑门改变逻辑灯状态，而逻辑灯状态又能反过来决定故障逻辑门是否激活。换言之，每一步中电路的状态都可以决定下一步的状态。这样依次下去，就形成了一个状态链。我们有理由相信，在某些特定的接线方式下，状态链会形成循环。
 
-\begin{example}
+\begin{example}{}{}
 分析如\autoref{fig59}所示的4-传统递次电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/416.png}
 \caption{}\label{fig59}
 \end{figure}
-\end{example}
-\begin{solution}
+\begin{proof}[解]
 4-传统递次总共有16种状态，它们对应的后继如\autoref{tab14}所示。
-\begin{table}[!ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \hline
@@ -87,18 +86,19 @@
 1111&\to 1111
 \end{align*}
 4-传统递次一共有6个循环，其中2个1循环、1个2循环、3个4循环。
-\end{solution}
+\end{proof}
+\end{example}
 
-\begin{example}
+
+\begin{example}{}{}
 分析如\autoref{fig57}所示的推广递次电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/426.png}
 \caption{}\label{fig57}
 \end{figure}
-\end{example}
-\begin{solution}
-\begin{table}[!ht]
+\begin{proof}[解]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \hline
@@ -129,24 +129,25 @@
         &0111\to 1011\to 1111\to 1101\to 1100\to 0100\to 0010\to 0001
 \end{align*}
 该推广递次一共有2个循环，其中1个1循环、1个15循环。
-\end{solution}
+\end{proof}
+\end{example}
+
 
 不难看出，无论推广递次如何连接，$0000\to 0000$的1循环是不会变的，我们把这个循环叫做\textbf{平凡循环}并在之后的讨论中忽略它。如果一个推广递次的所有非零状态共同构成了一个循环，那么我们把这个循环叫做\textbf{全循环}。推广递次连接的多样化、状态的多样化、循环的多样化带来了更多的可能性。
 
-\begin{example}
+\begin{example}{}{}
 分析\autoref{fig58}中的降频电路。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/332.png}
 \caption{}\label{fig58}
 \end{figure}
-\end{example}
-\begin{solution}
+\begin{proof}[解]
 该电路分为两部分：左边两个门为2-推广递次电路，右边一个门为2-降频电路，2-推广递次的绿线接到2-降频电路的输入。
 
 分析推广递次的输出时，不光要分析各个灯的状态，还要分析各根线的状态。本例中2-推广递次的两个灯与两根线的状态如\autoref{tab16}所示，其中两根线的初始状态设为0。
 
-\begin{table}
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -164,18 +165,20 @@
 
 如果去掉最右边的2-降频电路，左边的2-推广递次就会变成一个不均匀降频电路，或者说，(1,2)-降频电路，即周期在1与2切换。改变推广递次的门数与接线就可以得到各种各样的不均匀降频电路。串联不均匀降频电路可以得到输出更复杂的不均匀降频电路，例如串联两个(1,2)-降频电路，可以得到(1,3,2,3)-降频电路，其推导过程留给读者。
 
-\end{solution}
+\end{proof}
+\end{example}
+
 
 并非所有推广递次都可以产生非平凡循环。
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig60}所示推广递次的状态链见\autoref{fig61}。这个状态链是一棵树，不包含任何一个非平凡循环。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/414.png}
 \caption{}\label{fig60}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
 	[0000,name=s
@@ -200,14 +203,14 @@
 \end{figure}
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig62}所示推广递次的状态链见\autoref{fig63}。这个状态链由两棵树组成。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/415.png}
 \caption{}\label{fig62}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
 	[0000,name=s
@@ -237,14 +240,14 @@
 
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 \autoref{fig65}所示推广递次的状态链见\autoref{fig64}，其中既有环结构也有树结构。
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/427.png}
 \caption{}\label{fig65}
 \end{figure}
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \newdimen\R
@@ -329,8 +332,8 @@
 \subsection{其他驱动摘要}
 由于使用计时器和假人驱动已经可以随意控制时间，其他驱动也就逐步淡出。但是为了保留思路，仍介绍这些驱动，说不定什么时候有奇效。
 \begin{itemize}
-\item 生物驱动：利用生物行走速度固定构造的驱动。往往利用雕像刷怪。与玩家距离不能太远，否则生物会消失。雕像怪物速度测试\url{https://www.bilibili.com/video/av22739934}。在1.3.0.1版本引入傀儡之前，半砖驱动一般使用骷髅雕像生成的骷髅。
-\item 柱形驱动：利用下层叠平台的稳定间隔构造的驱动。链接\url{https://www.bilibili.com/video/av23028215}。
+\item 生物驱动：利用生物行走速度固定构造的驱动。往往利用雕像刷怪。与玩家距离不能太远，否则生物会消失。雕像怪物速度测试\bilibili{av22739934}。在1.3.0.1版本引入傀儡之前，半砖驱动一般使用骷髅雕像生成的骷髅。
+\item 柱形驱动：利用下层叠平台的稳定间隔构造的驱动。链接\bilibili{av23028215}。
 \item 传送带驱动：已介绍。虽然仍为满频驱动，但是需要限制玩家自由。
 \item 机关驱动：利用各种可以发射射弹的电路物品与青绿压力垫板构造的驱动。由于射弹速度各不相同，并且还受液体减速影响，控制不如假人驱动简单。但是由于占用空间可以很小，该类驱动仍有一定价值。
 \item 传送机驱动：利用传送机传送对象相对于传送区域位置不变的特性。见\autoref{i219:220}
@@ -359,7 +362,7 @@
 \subsection{开服感应器}
 所谓开服感应器，就是在打开地图时激活的电源。只要地图不关闭，该电源就不会再次激活。
 
-最容易想到的就是在重生点放上玩家感应器，并把玩家传送走。但是这样一来，在玩家回程时会再次激活。使用\href{https://v.youku.com/v_show/id_XMTg0NzYxNDg0OA}{床传送技术}可以避免这一点，但是无法在退出地图时自动重置。
+最容易想到的就是在重生点放上玩家感应器，并把玩家传送走。但是这样一来，在玩家回程时会再次激活。使用床传送技术\youku{XMTg0NzYxNDg0OA}可以避免这一点，但是无法在退出地图时自动重置。
 
 从打开地图开始，玩家第一次接近傀儡时傀儡影子会在傀儡上生成。傀儡是家具而傀儡影子是敌怪，它们分开结算：家具是固定的，而影子可以移动、受伤害、受debuff。虽然影子不会主动移动，但是会被动移动，例如坠落、传送机传送、半砖传送。当影子受伤害时家具播放动画。影子与家具所在格由于各自的原因均不能摆放前景物块\footnote{前景物块不能摆放在家具图格上或生物碰撞箱上。}。
 
@@ -383,12 +386,12 @@
 \label{i222}
 \end{figure}
 
-上面的装置中，传送机激活后1帧，傀儡影子就被半砖推离传送机并触发红压力板，从而不会再传回。但是玩家感应器和加重压力板不会触发传送机，玩家出生在重生点处也不会触发普通压力板。只能用玩家感应器或加重压力板触发机关，然后用青绿压力垫板激活传送机，这样一来在触发机关到青绿压力垫板激活之间又有一个短延迟。
+上面的装置中，传送机激活后1帧，傀儡影子就被半砖推离传送机并触发红压力板，从而不会再传回。但是玩家感应器和测重压力板不会触发传送机，玩家出生在重生点处也不会触发普通压力板。只能用玩家感应器或测重压力板触发机关，然后用青绿压力垫板激活传送机，这样一来在触发机关到青绿压力垫板激活之间又有一个短延迟。
 
 利用液体可以实现无延迟的开服感应器。打开地图的等待界面中有一项是“正在摆放液体”。这一步是将地图中所有不稳定的液体转移到最低处。在\autoref{i11:12}中，刷水机不断地生成水，水进入到左边的细长通道，并被下面的熔岩轨道吸收。当通道足够长并且刷水速度足够快时，通道中始终有水存在。此时退出地图并重新加载地图时，通道中的水被自动放置到最低处的液体感应器上，从而液体感应器激活。其余部分的功能是：将液体感应器上的水排走；打开刷水的1秒计时器。这个装置的触发是没有延迟的，但是会在游戏中一直运行刷水机，可能影响电脑性能。
 
 \subsection{方向感应器}
-方向感应器被广泛地使用在电路游戏中，它可以检测到玩家的上下左右移动操作。方向感应器的一种方案如\autoref{i253:254}所示。另一种方案请参考\url{https://www.bilibili.com/video/av23633364/?p=7}。
+方向感应器被广泛地使用在电路游戏中，它可以检测到玩家的上下左右移动操作。方向感应器的一种方案如\autoref{i253:254}所示。另一种方案请参考\bilibili{av23633364/?p=7}。
 
 \begin{figure}[!ht]
 \begin{center}
@@ -651,6 +654,10 @@
 \caption{}\label{tab1}
 \end{table}
 
+\begin{problem}{}{}
+为什么在分段显示器的化简中对矩阵进行初等列变换时需要对列标做对称差？
+\end{problem}
+
 此外，还有一些方法可以作为化简手段：
 \begin{itemize}
 \item 交换矩阵的行。在之前的操作中，控制0\~{}9的十个逻辑门是按照数字顺序排列的。在减少可读性的情况下，可以改变它们的顺序，而改变它们的顺序可能会使矩阵的列分离开。因为顺序改变了，所以由递次电路控制的数显不能用这种方法。
@@ -679,8 +686,12 @@
 
 用\nameref{sec21}可以实现任意尺寸的密集矩阵显示器。
 
+\begin{problem}{}{}
+为什么两边长都大于4的非像素盒密集矩形随机显示器不存在？
+\end{problem}
+
 \subsection{稀疏矩阵显示器}
-稀疏矩阵显示器主要有两个参数：每个像素的光源面积与占用面积。稀疏矩阵显示器的大小不受限，一个典型的稀疏矩阵显示器如\autoref{i267:268}所示，当红线和蓝线在同一个逻辑帧输入时，火把响应，切换状态。显示器更新时，各行的红线逐次在各个逻辑帧激活，每列的蓝线在该逻辑帧选择性激活，用来控制该行的显示。这个例子中每个光源面积是4，占用面积是12，简称4占12，或4/12。目前使用这种显示器最杰出的作品是\url{https://www.bilibili.com/video/av22343683}。
+稀疏矩阵显示器主要有两个参数：每个像素的光源面积与占用面积。稀疏矩阵显示器的大小不受限，一个典型的稀疏矩阵显示器如\autoref{i267:268}所示，当红线和蓝线在同一个逻辑帧输入时，火把响应，切换状态。显示器更新时，各行的红线逐次在各个逻辑帧激活，每列的蓝线在该逻辑帧选择性激活，用来控制该行的显示。这个例子中每个光源面积是4，占用面积是12，简称4占12，或4/12。目前使用这种显示器最杰出的作品是\bilibili{av22343683}。
 \begin{figure}[!ht]
 \centering
 \includegraphics{images/267.png}
@@ -719,13 +730,9 @@
 
 还有一个非常巧妙的办法可以减少显示单元的面积，那就是使用小地图。半透明的小地图中每格2.5像素，在屏幕上是2像素和3像素交替排列。有很多使用小地图显示的例子：
 \begin{itemize}
-\item 【Terraria】做贪吃蛇—TheRedstoneCrafter \url{https://www.bilibili.com/video/av32265379}
-\item 在Terraria中玩俄罗斯方块!? \url{https://www.bilibili.com/video/av38924330}
+\item 【Terraria】做贪吃蛇—TheRedstoneCrafter \bilibili{av32265379}
+\item 在Terraria中玩俄罗斯方块!? \bilibili{av38924330}
 \end{itemize}
 
 \section{自动化}
-
-\begin{problemset}[思考题]
-\item 为什么在分段显示器的化简中对矩阵进行初等列变换时需要对列标做对称差？
-\item 为什么两边长都大于4的非像素盒密集矩形随机显示器不存在？
-\end{problemset}
+TODO

@@ -1,0 +1,54 @@
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+
+\tcbset{label separator={}}
+\newcommand{\addwireframe}[1]{
+	\expandafter\tcbset{#1frame/.style={
+		borderline={1pt}{2pt}{#1wirelightborder},
+		borderline={1pt}{-1pt}{#1wiredarkborder},
+		borderline={1pt}{0pt}{#1wiredark, dash pattern= on 1pt off 1pt},
+		borderline={1pt}{1pt}{#1wirelight, dash pattern= on 1pt off 1pt},
+		borderline={1pt}{0pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt},
+		borderline={1pt}{1pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt}
+	}}
+}
+\addwireframe{blue}
+\addwireframe{red}
+\addwireframe{green}
+\addwireframe{yellow}
+
+\newtcbtheorem{theorem}{定理}{
+	enhanced, sharp corners=all, colframe=greenwiremiddle, colback=white, fonttitle=\bfseries,
+	greenframe
+}{}
+\newtcbtheorem{corollary}{推论}{
+	enhanced, sharp corners=all, colframe=greenwiremiddle, colback=white, fonttitle=\bfseries,
+	greenframe
+}{}
+
+\theoremstyle{definition}
+\newtcbtheorem{example}{例}{
+	breakable, colback=white, colframe=bluewiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
+	fonttitle=\bfseries, blueframe
+}{}
+\newtcbtheorem{problem}{思考题}{
+	breakable, colback=white, colframe=yellowwiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
+	fonttitle=\bfseries, yellowframe
+}{}
+
+\theoremstyle{remark}
+\newtcbtheorem{note}{注意}{
+	enhanced, sharp corners=all, colframe=redwiremiddle, colback=white, fonttitle=\bfseries,
+	redframe
+}{}
+\newtcbtheorem{remark}{注}{
+	enhanced, sharp corners=all, colframe=redwiremiddle, colback=white, fonttitle=\bfseries,
+	redframe
+}{}
+
+\makeatletter
+\newcommand{\tcb@cnt@exampleautorefname}{例}
+\makeatother

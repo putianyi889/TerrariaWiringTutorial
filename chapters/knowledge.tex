@@ -1,7 +1,7 @@
 \chapter{专业知识}
 
 \section{原码, 反码, 补码}
-\begin{note}
+\begin{note}{}{}
 本节系转载。转载经过了不改变原意的格式修改，并且删去了原文最后一部分《原码，反码，补码 再深入》。
 
 作者：\href{http://www.cnblogs.com/zhangziqiu/}{张子秋}
@@ -17,7 +17,7 @@
 
 \paragraph*{真值}\label{sec6}
 因为第一位是符号位，所以机器数的形式值就不等于真正的数值。例如上面的有符号数10000011，其最高位1代表负，其真正数值是$-3$而不是形式值131（10000011转换成十进制等于131）。所以，为区别起见，将带符号位的机器数对应的真正数值称为机器数的真值。
-\begin{example}
+\begin{example}{}{}
 $00000001\textnormal{的真值}=+0000001=+1$，$10000001\textnormal{的真值} = -0000001= -1$。
 \end{example}
 
@@ -91,7 +91,7 @@ $-1-127$的结果应该是$-128$，在用补码运算的结果中，$[1000 0000]
 因为机器使用补码，所以对于编程中常用到的32位int类型，可以表示范围是：$[-2^{31},2^{31}-1]$ 因为第一位表示的是符号位，而使用补码表示时又可以多保存一个最小值。
 
 \section{浮点数}
-\begin{note}
+\begin{note}{}{}
 本节系摘编。
 
 版权声明：本小节为博主原创文章，遵循\href{http://creativecommons.org/licenses/by-sa/4.0/}{CC 4.0 BY-SA}版权协议，转载请附上原文出处链接和本声明。
@@ -169,7 +169,7 @@ $$(?1)^{(1)}\times (1+0.1110\,0000\,0000\,0000\,0000\,000)\times 2^1=(?1)^{(1)}\
 $$1\,1000\,0000\,1110\,0000\,0000\,0000\,0000\,000$$
 
 \section{BCD码}
-\begin{note}
+\begin{note}{}{}
 本节系摘编。
 
 版权声明：本小节为博主原创文章，遵循\href{http://creativecommons.org/licenses/by-sa/4.0/}{CC 4.0 BY-SA}版权协议，转载请附上原文出处链接和本声明。
@@ -203,7 +203,7 @@ Binary-Coded Decimal，简称BCD，称BCD码或二-十进制代码，亦称二�
 BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也就是十进制转二进制的算法。这里我们介绍短除法，该算法是高中课程的内容。
 
 短除法将一个数反复除以2直到商为0，取余数倒序为二进制结果。
-\begin{example}
+\begin{example}{}{}
 将19转为二进制。
 \begin{align*}
 19&\div2=9\cdots1\\
@@ -216,10 +216,9 @@ BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也�
 \end{example}
 
 对于BCD而言，我们可以通过一些简单的运算来代替除以2，取商和余数的运算。除法是复杂运算，所以用简单运算代替除法的收益很高。为了理解这种方法，我们先来回顾一下小学学过的长除法。
-\begin{example}
+\begin{example}{}{}
 用BCD码长除法计算123456789除以2的商和余数。
-$$\begin{array}{|r|rrrrrrrrr|}
-\hline
+$$\begin{array}{r|rrrrrrrrr}
 \textnormal{商}&0000&0110&0001&0111&0010&1000&0011&1001&0100\\\hline
 \textnormal{被除数}&0001&0010&0011&0100&0101&0110&0111&1000&1001\\
 &0000&&&&&&&&\\\cline{2-2}
@@ -239,7 +238,7 @@ $$\begin{array}{|r|rrrrrrrrr|}
 	&&	 &	  &	   &	&	 &	 1&1000&\\\cline{8-9}
 	&&	 &	  &	   &	&	 &	  &	  0&1001\\
 	&&	 &	  &	   &	&	 &	  &	  0&1000\\\hline
-\textnormal{余数}&&	 &	  &	   &	&	 &	  &	   &   1\\\hline
+\textnormal{余数}&&	 &	  &	   &	&	 &	  &	   &   1
 \end{array}$$
 \end{example}
 
@@ -270,7 +269,7 @@ XXX1&100X&1001&$18,19\div 2=9$\\\hline
 
 在这个除法中，商的每个十进制的4位BCD码由被除数BCD码中错位的4位唯一确定，其对应关系已经由\autoref{tab5}给出。而余数就是被除数BCD码的最后一位。至此，我们已经得到了不通过除法运算直接得到商和余数的方法。反复执行该方法，就可以将BCD转换为二进制。
 
-\begin{example}\label{exa2}
+\begin{example}{}{}\label{exa2}
 将十进制数123转为二进制。
 \begin{enumerate}
 \item 写下123的BCD码1 0010 0011；
@@ -286,7 +285,7 @@ XXX1&100X&1001&$18,19\div 2=9$\\\hline
 \end{example}
 
 以上每一步中，执行取余、分组、查表三步，我们把这三步合并，用竖式简单地表达出来：
-\begin{example}\label{exa1}
+\begin{example}{}{}\label{exa1}
 将BCD码100100011转为二进制。
 \begin{center}
 \begin{tabular}{|ccccccccc|}
@@ -304,7 +303,7 @@ XXX1&100X&1001&$18,19\div 2=9$\\\hline
 
 \section{二进制转BCD码}\label{sec31}
 回顾\autoref{exa1}中的算法。每一步中，进行分离最后一位、分组、查表三个操作，最终从第一行的BCD码推到了最后一行的二进制。每一步都是由\autoref{tab5}唯一确定的，所以可以作为一个可靠的算法。反过来想，如果先知道了最后一行的二进制，是否可以反推到第一行的BCD码呢？我们来试试。
-\begin{example}
+\begin{example}{}{}
 将二进制1111011转为BCD码。尝试将\autoref{exa2}中的步骤反向。
 \begin{enumerate}
 \item 二进制数是1111011。
