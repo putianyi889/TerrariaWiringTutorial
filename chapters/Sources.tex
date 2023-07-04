@@ -1,11 +1,5 @@
 \chapter{电路物品详解}\label{sec1}
 
-\begin{introduction}
-\item \nameref{sec20}
-\item \hyperref[chuansongji]{传送阵}
-\item \nameref{sec21}
-\end{introduction}
-
 \section{开关/控制杆}
 \begin{figure}[!ht]
 \centering
@@ -38,19 +32,19 @@
 \subfloat[黄压力板]{\qquad\includegraphics{figures/Yellow_Pressure_Plate.png}\qquad}
 \subfloat[橙压力板]{\qquad\includegraphics{figures/Orange_Pressure_Plate.png}\qquad}
 \\
-\subfloat[加重压力板]{\includegraphics{figures/Pink_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Orange_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Purple_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Cyan_Weighted_Pressure_Plate.png}}
+\subfloat[测重压力板]{\includegraphics{figures/Pink_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Orange_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Purple_Weighted_Pressure_Plate.png}\quad\includegraphics{figures/Cyan_Weighted_Pressure_Plate.png}}
 \qquad
 \subfloat[青绿压力垫板]{\qquad\includegraphics{figures/Teal_Pressure_Pad.png}\qquad}
 \caption{压力板}
 \end{figure}
 
-压力板分为普通压力板、加重压力板、青绿压力垫板。
+压力板分为普通压力板、测重压力板、青绿压力垫板。
 
-普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。加重压力板是误翻译，正确翻译应为“重力压力板”。四种颜色的加重压力板功能完全一样。
+普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。四种颜色的测重压力板功能完全一样。
 
-\begin{remark}
+\begin{remark*}{}{}
 区分不同颜色普通压力板的方法：只能由玩家触发的是地图中的各种陷阱，颜色非常隐蔽，比如说石块上的灰压力板、土块上的棕压力板、冰雪块上的蓝压力板、丛林蜥蜴砖上的丛林蜥蜴压力板都非常难以辨认；橙压力板连接的机关是一次性高伤害的滚石和炸药，所以橙压力板相对醒目，并且也是一次性的。红/黄/绿压力板都非常醒目，它们可以由NPC触发。
-\end{remark}
+\end{remark*}
 
 普通压力板有自身的碰撞箱，碰撞箱大小是压力板弹起状态时贴图的边框大小。普通压力板激活的判定以每个碰撞箱为准，即每帧判定碰撞箱是否从侧面进入压力板，或从上面掉落到压力板上。因为是以碰撞箱为准，所以一个碰撞箱在一帧内触发两个普通压力板，只会激活一次，而不同碰撞箱在一帧内触发同一个普通压力板，每个碰撞箱都会激活一次（\autoref{i205:208}）。注意到“进入”或“掉落”都是过程，所以直接传送到普通压力板上不会触发压力板。同时，“掉落”要求人物有一个悬空的过程，判断悬空可以通过人物动作（悬空时有跳跃动作）或者翅膀（装备了翅膀的人物悬空时翅膀会打开）。所以从1格高的物块上直接走下来不算掉落，同时碰撞箱也不是从侧面进入，所以不会触发普通压力板（\autoref{i201:202}）。
 
@@ -88,7 +82,7 @@
 \label{i201:202}
 \end{figure}
 
-加重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内。
+测重压力板没有碰撞箱，判定以压力板本身为准，即每帧判定\footnote{另一种情况的判定非常复杂，会在\hyperref[sec9]{传送机部分}讲到。}是否有人物在压力板所在格内。
 
 青绿压力垫板的碰撞箱为16*10或10*16，根据其朝向而定。射弹生成后，每次更新位置都会激活碰撞到的青绿压力垫板，这里碰撞的定义是：上次更新时碰撞箱不相交，但是这次更新时相交。如果射弹同时与多个青绿压力垫板碰撞，那么只激活优先级最高的那个（不同行的青绿压力垫板，上面的优先级高；同一行的青绿压力垫板，左边的优先级高）；多个射弹同时碰撞同一个青绿压力垫板，每个射弹都会激活一次（\autoref{i209:212}）。
 
@@ -110,7 +104,7 @@
 \label{i209:212}
 \end{figure}
 
-普通压力板和加重压力板可以放在平台和锭上而青绿压力垫板不能；青绿压力垫板可以放在实体块侧面和下方而普通压力板和加重压力板不能。
+普通压力板和测重压力板可以放在平台和锭上而青绿压力垫板不能；青绿压力垫板可以放在实体块侧面和下方而普通压力板和测重压力板不能。
 
 压力板轨道是带有压力板的轨道，它只能由矿车触发。
 
@@ -179,19 +173,19 @@
 
 引爆器可以放在几乎所有平坦表面上。与控制杆不同的是，引爆器不是悬挂家具，所以不能放在砧上。
 
-\section{受困宝箱/\DMC}
+\section{机关宝箱\DMC}
 \begin{figure}[!ht]
 \centering
-\subfloat[{非主题受困宝箱。主题受困宝箱见\hyperref[app44]{附录}}]{\begin{tabular}[b]{c}
+\subfloat[{非主题机关宝箱。主题机关宝箱见\hyperref[app44]{附录}}]{\begin{tabular}[b]{c}
 \includegraphics{figures/Corruption_Chest.png}\quad\includegraphics{figures/Crimson_Chest.png}\quad\includegraphics{figures/Hallowed_Chest.png}\quad\includegraphics{figures/Desert_Chest.png}\quad\includegraphics{figures/Frozen_Chest.png}\quad\includegraphics{figures/Jungle_Chest.png}\\
 \includegraphics{figures/Gold_Chest.png}\quad\includegraphics{figures/Shadow_Chest.png}\quad\includegraphics{figures/Ivy_Chest.png}\quad\includegraphics{figures/Water_Chest.png}\quad\includegraphics{figures/Web_Covered_Chest.png}\quad\includegraphics{figures/Golf_Chest.png}
 \end{tabular}}
 \qquad
 \subfloat[\DMC]{\includegraphics{figures/Dead_Mans_Chest.png}}
 \end{figure}
-受困宝箱是误翻译，正确翻译应该是“机关宝箱”或“陷阱宝箱”。受困宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和受困宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC 和普通的金箱完全无法区分。
+机关宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和机关宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC 和普通的金箱完全无法区分。
 
-受困宝箱和\DMC 都是电源，当鼠标右击时激活。受困宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
+机关宝箱和\DMC 都是电源，当鼠标右击时激活。机关宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
 
 \DMC 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DMC 。
 
@@ -209,7 +203,7 @@
 
 逻辑感应器（昼）和逻辑感应器（夜）在由灭变亮时激活，其他感应器均在亮灭切换时激活。
 
-逻辑感应器（玩家）可以看作感应范围更大，但是对传送不敏感，仅在每帧进行判断的加重压力板。逻辑感应器（玩家）的激活信号及以该信号触发的逻辑结算产生的激活信号不会触发传送机。
+逻辑感应器（玩家）可以看作感应范围更大，但是对传送不敏感，仅在每帧进行判断的测重压力板。逻辑感应器（玩家）的激活信号及以该信号触发的逻辑结算产生的激活信号不会触发传送机。
 
 所有感应器均可随意放置，无需支撑块或背景墙。
 
@@ -225,29 +219,30 @@
 \end{tabular}}%11+11
 \qquad
 \subfloat[蜡烛]{\includegraphics{figures/Platinum_Candle.png}\quad\includegraphics{figures/Water_Candle.png}\quad\includegraphics{figures/Peace_Candle.png}}
-\\
-\subfloat[\PL]{\qquad\includegraphics{figures/Plasma_Lamp.png}\qquad}
-\subfloat[灯笼]{\begin{tabular}[b]{c}
-\includegraphics{figures/Hanging_Jack_O_Lantern.png}\quad\includegraphics{figures/Chain_Lantern.png}\quad\includegraphics{figures/Brass_Lantern.png}\quad\includegraphics{figures/Caged_Lantern.png}\quad\includegraphics{figures/Carriage_Lantern.png}\\
-\includegraphics{figures/Alchemy_Lantern.png}\quad\includegraphics{figures/Diabolist_Lamp.png}\quad\includegraphics{figures/Oil_Rag_Sconse.png}\quad\includegraphics{figures/Heart_Lantern.png}\quad\includegraphics{figures/Star_in_a_Bottle.png}
-\end{tabular}}%8+9
-\qquad
-\subfloat[烛台]{\quad\begin{tabular}[b]{c}\includegraphics{figures/Platinum_Candelabra.png}\\\includegraphics{figures/Jack_O_Lantern.png}\end{tabular}\quad}
-\\
-\subfloat[灯柱]{\quad\includegraphics{figures/Lamp_Post.png}\quad}
+
 \subfloat[篝火]{\begin{tabular}[b]{c}
 \includegraphics{figures/Campfire.png}\quad\includegraphics{figures/Cursed_Campfire.png}\quad\includegraphics{figures/Demon_Campfire.png}\quad\includegraphics{figures/Frozen_Campfire.png}\quad\includegraphics{figures/Ichor_Campfire.png}\quad\includegraphics{figures/Rainbow_Campfire.png}\quad\includegraphics{figures/Ultra_Bright_Campfire.png}\\
 \includegraphics{figures/Bone_Campfire.png}\quad\includegraphics{figures/Coral_Campfire.png}\quad\includegraphics{figures/Corrupt_Campfire.png}\quad\includegraphics{figures/Crimson_Campfire.png}\quad\includegraphics{figures/Desert_Campfire.png}\quad\includegraphics{figures/Hallowed_Campfire.png}\quad\includegraphics{figures/Jungle_Campfire.png}
-\end{tabular}}\qquad
-\subfloat[壁炉]{\ \includegraphics{figures/Fireplace.png}\ }
-\\
-\subfloat[中式灯笼]{\quad\ \includegraphics{figures/Chinese_Lantern.png}\quad\ }
+\end{tabular}}
+
 \subfloat[吊灯]{\begin{tabular}[b]{c}
 \includegraphics{figures/Copper_Chandelier.png}\quad\includegraphics{figures/Tin_Chandelier.png}\quad\includegraphics{figures/Silver_Chandelier.png}\quad\includegraphics{figures/Tungsten_Chandelier.png}\quad\includegraphics{figures/Gold_Chandelier.png}\quad\includegraphics{figures/Platinum_Chandelier.png}\quad\includegraphics{figures/Jackelier.png}
-\end{tabular}}\quad
-\subfloat[迪斯科灯]{\quad\ \includegraphics{figures/Disco_Ball.png}\quad\ }\\
-\subfloat[\Volcano]{\includegraphics{figures/Mini_Volcano.png}\quad\includegraphics{figures/Large_Volcano.png}}\qquad
-\subfloat[晶莹宝石块]{\includegraphics{figures/Amethyst_Gemspark_Block.png}\quad\includegraphics{figures/Topaz_Gemspark_Block.png}\quad\includegraphics{figures/Sapphire_Gemspark_Block.png}\quad\includegraphics{figures/Emerald_Gemspark_Block.png}\quad\includegraphics{figures/Ruby_Gemspark_Block.png}\quad\includegraphics{figures/Diamond_Gemspark_Block.png}\quad\includegraphics{figures/Amber_Gemspark_Block.png}}\qquad
+\end{tabular}}
+
+\subfloat[晶莹宝石块]{\includegraphics{figures/Amethyst_Gemspark_Block.png}\quad\includegraphics{figures/Topaz_Gemspark_Block.png}\quad\includegraphics{figures/Sapphire_Gemspark_Block.png}\quad\includegraphics{figures/Emerald_Gemspark_Block.png}\quad\includegraphics{figures/Ruby_Gemspark_Block.png}\quad\includegraphics{figures/Diamond_Gemspark_Block.png}\quad\includegraphics{figures/Amber_Gemspark_Block.png}}
+
+\subfloat[\PL]{\quad\includegraphics{figures/Plasma_Lamp.png}\quad}
+\subfloat[\Volcano]{\begin{tabular}[b]{c}\includegraphics{figures/Mini_Volcano.png}\\\includegraphics{figures/Large_Volcano.png}\end{tabular}}
+\subfloat[灯笼]{\begin{tabular}[b]{c}
+\includegraphics{figures/Hanging_Jack_O_Lantern.png}\quad\includegraphics{figures/Chain_Lantern.png}\quad\includegraphics{figures/Brass_Lantern.png}\quad\includegraphics{figures/Caged_Lantern.png}\quad\includegraphics{figures/Carriage_Lantern.png}\\
+\includegraphics{figures/Alchemy_Lantern.png}\quad\includegraphics{figures/Diabolist_Lamp.png}\quad\includegraphics{figures/Oil_Rag_Sconse.png}\quad\includegraphics{figures/Heart_Lantern.png}\quad\includegraphics{figures/Star_in_a_Bottle.png}
+\end{tabular}}
+\subfloat[烛台]{\quad\begin{tabular}[b]{c}\includegraphics{figures/Platinum_Candelabra.png}\\\includegraphics{figures/Jack_O_Lantern.png}\end{tabular}\quad}
+\subfloat[壁炉]{\ \includegraphics{figures/Fireplace.png}\ }
+
+\subfloat[灯柱]{\quad\includegraphics{figures/Lamp_Post.png}\quad}
+\subfloat[中式灯笼]{\quad\ \includegraphics{figures/Chinese_Lantern.png}\quad\ }
+\subfloat[迪斯科灯]{\quad\ \includegraphics{figures/Disco_Ball.png}\quad\ }
 \subfloat[圣诞灯]{\includegraphics{figures/Blue_Light.png}\quad\includegraphics{figures/Red_Light.png}\quad\includegraphics{figures/Green_Light.png}}
 \caption{电路中的光源。主题家具中的光源列举在\hyperref[app44]{附录}中。}
 \end{figure}
@@ -310,7 +305,7 @@
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.95\textwidth]{images/435.png}
-\caption{很多马桶连上驱动后的场景。图片来源：沉睡}\label{fig75}
+\caption{很多马桶连上驱动后的场景。图片来源：\protect\vip{yfd}}\label{fig75}
 \end{figure}
 
 \section{泵}
@@ -338,7 +333,7 @@
 \subfloat[尖球机关]{\qquad\includegraphics{figures/Spiky_Ball_Trap.png}\qquad}\qquad
 \subfloat[烈焰机关]{\qquad\includegraphics{figures/Flame_Trap.png}\qquad}\qquad
 \subfloat[长矛机关]{\qquad\includegraphics{figures/Spear_Trap.png}\qquad}\qquad
-\subfloat[喷泉（机关）]{\qquad\includegraphics{figures/Geyser.png}\qquad}\qquad
+\subfloat[热喷泉]{\qquad\includegraphics{figures/Geyser.png}\qquad}\qquad
 \subfloat[炸药]{\quad\includegraphics{figures/Explosives.png}\quad}\qquad
 \subfloat[地雷]{\quad\includegraphics{figures/Land_Mine.png}\quad}
 \caption{机关}
@@ -351,15 +346,13 @@
 
 飞镖在真空中的速度是每秒45格，生存时间60秒。飞镖机关、超级飞镖机关和烈焰机关的冷却时间是200帧。
 
-长矛机关射程19.5格\footnote{由@dcfhft 验证。}，冷却时间90帧。
+长矛机关射程19.5格\footnote{由\vip{dcf}验证。}，冷却时间90帧。
 
 烈焰机关射程20格，冷却时间200帧。尽管烈焰机关的特效较宽，其射弹仍只在机关正前方生成。
 
 尖球机关冷却时间300帧，有生成限制。其限制规则较复杂，请参阅wiki。
 
-因为翻译原因，喷泉（机关）在中文wiki中无法查到，因为与喷泉（装饰）冲突\footnote{喷泉(Geyser)是自然景观，喷泉(Fountain)是人造景观，官中并未区分翻译。}。请在英文wiki中查阅Geyser词条。
-
-喷泉（机关）可放置在实体块上或下，其朝向也根据放置位置分为朝上和朝下。冷却时间200帧。不会触发青绿压力垫板。射程20格，射程从喷射方向29格内遇到的第一个2*4开放空间（没有实体块和液体）开始，其后会被障碍物阻挡。
+热喷泉可放置在实体块上或下，其朝向也根据放置位置分为朝上和朝下。冷却时间200帧。不会触发青绿压力垫板。射程20格，射程从喷射方向29格内遇到的第一个2*4开放空间（没有实体块和液体）开始，其后会被障碍物阻挡。
 
 炸药被激活时爆炸，爆炸半径10格。炸药是一次性的，所以在电路中应用有限。使用地图编辑器或Mod可以将炸药放在宝箱下，由于宝箱下的物块无敌，炸药可以被无限引爆。
 
@@ -377,9 +370,9 @@
 \end{figure}
 炮台包括大炮、兔兔炮、彩纸炮、传送枪站和雪球发射器。
 
-炮台大小为4*3，但是可以放置在两格宽的实体块、平台或锭上。炮台可以使用传送机浮空\footnote{由@WIAADC 验证}。
+炮台大小为4*3，但是可以放置在两格宽的实体块、平台或锭上。炮台可以使用传送机浮空\footnote{由\vip{adc}验证}。
 
-鼠标右击炮台左/右部分可转向，拿着对应炮弹左击可发射。使用电线激活时，激活炮台的不同位置有不同效果（\autoref{i215}）。使用电线激活发射的炮弹不造成伤害。手动激活发射的炮弹造成伤害不产生无敌帧\footnote{由@WIAADC 验证}。
+鼠标右击炮台左/右部分可转向，拿着对应炮弹左击可发射。使用电线激活时，激活炮台的不同位置有不同效果（\autoref{i215}）。使用电线激活发射的炮弹不造成伤害。手动激活发射的炮弹造成伤害不产生无敌帧\footnote{由\vip{adc}验证}。
 
 炮台生成射弹的位置横坐标在中间两列的交界，纵坐标在下面一格与中间一格的交界。对于传送枪台，生成位置还要向下移5像素；如果传送枪台朝向垂直向上，生成位置还要向右移5像素。
 
@@ -387,7 +380,7 @@
 
 大炮和兔兔炮的炮弹射出后，前17帧速度不变，从第18帧开始，每帧纵向速度增加0.28像素/帧（最大16像素/帧），横向速度乘0.99。传送枪台的射弹匀速直线运动，并会按顺序激活路径上的所有青绿压力垫板。彩纸炮发射的射弹匀速直线运行，生存期为2帧，生存期结束后爆炸，生成特效。在这2帧内，射弹只能前进28像素，无法离开炮台4*3的大小，也就无法触发青绿压力垫板。
 
-兔兔炮的炮弹会在实体块上反弹。水平射出的兔兔炮弹在同高度的水平实体块平面上停下时，距离炮口93格\footnote{由@WIAADC 验证}。
+兔兔炮的炮弹会在实体块上反弹。水平射出的兔兔炮弹在同高度的水平实体块平面上停下时，距离炮口93格\footnote{由\vip{adc}验证}。
 
 \begin{figure}[!ht]
 \centering
@@ -439,11 +432,11 @@
 
 当一根电线激活时，记录下该电线下第一个结算的传送机图格（以下称A）与最后一个结算的传送机图格（以下称B）\footnote{同一根电线上的结算顺序见\nameref{sec7}}，然后将两个图格传送区域内的可传送目标\textbf{互换}，互换后它们的速度不变，位置相对于传送区域不变。当两个图格的传送区域有重合并且A的传送区域高于B的传送区域时无法传送；当A和B的传送区域有重合并且A低于B时可以传送，此时两传送区域重叠部分属于A的传送区域（\autoref{i217:218}）。
 
-为了行文流畅，上面的描述省略了一个关键的过程。如果A不是下半砖，那么后续的结算中将忽略这个传送机的另外两个图格，避免自身传送。反过来，如果A是下半砖，那么将有可能实现自身传送（\autoref{}）。
+为了行文流畅，上面的描述省略了一个关键的过程。如果A不是下半砖，那么后续的结算中将忽略这个传送机的另外两个图格，避免自身传送。反过来，如果A是下半砖，那么将有可能实现自身传送。
 
-\begin{remark}
+\begin{remark*}{}{}
 互换！{\LARGE 互换！}{\huge 互换！}老想着把几个NPC传送到一起的把这个词抄100遍！其他人怎么做到的？在目标传送机上放半砖把NPC推走，几个传送之间设置延迟。
-\end{remark}
+\end{remark*}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -571,9 +564,9 @@
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/389.png}\\
+\includegraphics[width=\textwidth]{images/389.png}\\
 \mbox{}\\
-\includegraphics{images/390.png}
+\includegraphics[width=\textwidth]{images/390.png}
 \caption{双向1传11传送阵。无论下面有多少传送机，都只用向上接两根线。}\label{fig25}
 \end{figure}
 
@@ -588,14 +581,14 @@
 \item 将B传送区域内的NPC按照NPC数组中的顺序依次传送到A传送区域内。
 \end{enumerate}
 
-每个玩家或NPC进行传送时，会把一个\lstinline{teleporting}属性设置为\lstinline{true}；传送前会检查该属性，如果为\lstinline{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\lstinline{teleporting}属性还原为\lstinline{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
+每个玩家或NPC进行传送时，会把一个\trvar{teleporting}属性设置为\lstinline{true}；传送前会检查该属性，如果为\lstinline{true}就不会传送。全部4步结束以后，会把所有玩家和NPC的\trvar{teleporting}属性还原为\lstinline{false}，这样就防止了在前两步中被传送的玩家和NPC在后两步中又被传回的情况。
 
-每个玩家传送后会立即检查并激活加重压力板。如果有加重压力板被激活，那么会将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\path{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\path{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
+每个玩家传送后会立即检查并激活测重压力板。如果有测重压力板被激活，那么会将\trvar{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}。\trvar{blockPlayerTeleportationForOneIteration}会在逻辑结算结束时被还原为\lstinline{false}。当\trvar{blockPlayerTeleportationForOneIteration}为\lstinline{true}时，第1步和第3步会被直接跳过。
 
-\begin{example}
+\begin{example}{}{}
 电路如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击左边传送机上的开关，那么会在左中两个传送机上进行两次传送，结果是被传回左边传送机；如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/379.png}
 \qquad
@@ -603,16 +596,16 @@
 \caption{}\label{fig19}
 \end{figure}
 
-右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活加重压力板。需要注意的是，加重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}加重压力板将\path{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\lstinline{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\path{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\lstinline{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
+右击左边传送机上的开关，左边传送机离开关近，所以A是左边传送机，B是中间传送机。首先，玩家被从A传到B，激活测重压力板。需要注意的是，测重压力板激活时，\textbf{AB的传送步骤仍在第1步中！}测重压力板将\trvar{blockPlayerTeleportationForOneIteration}设置为\lstinline{true}并触发了中右传送机的传送，该传送不会传送玩家，所以玩家仍留在中间传送机上。中右传送机传送结束时，将玩家的\trvar{teleporting}属性还原为\lstinline{false}。蓝线的逻辑结算结束时，将\trvar{blockPlayerTeleportationForOneIteration}还原为\lstinline{false}。此时，\textbf{继续执行AB的传送步骤}。在第3步中，因为玩家的\trvar{teleporting}属性在中右传送机的传送后被还原为\lstinline{false}，玩家会被传送回A。
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 电路仍如\autoref{fig19}所示，玩家站在左边传送机中间。如果右击中间传送机上的开关，那么会在左中两个传送机上进行一次传送，结果是被传到中间传送机。
 
-这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活加重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
+这次，中间传送机离开关近，所以A是中间传送机，B是左边传送机。玩家在AB传送的第3步被从B传到A，激活测重压力板，执行与之前的一系列步骤。虽然玩家的\lstinline{teleporting}属性仍被还原为\lstinline{false}，但是不会继续传送了，玩家留在A上。
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 在\autoref{fig19}中，将蓝线剪断，使蓝线只经过中间传送机。无论右击哪个开关，玩家都会被传送到中间传送机。
 
 这次，因为蓝线没有触发传送的过程，所以玩家的\lstinline{teleporting}属性就会保持为\lstinline{true}，从而会跳过AB传送的第3步，玩家留在中间传送机。

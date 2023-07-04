@@ -21,7 +21,7 @@
 \item 为了逻辑同步，复杂的电路中经常会用到逻辑延迟器。组合逻辑电路中每个数据都需要设计一个独立的逻辑延迟器，而时序逻辑电路中可以让所有数据共享一个逻辑延迟器。将所有待传输的数据暂时存储起来，然后由中央逻辑延迟器发送信号释放这个数据。这一点现在很难看明白，后面在除法器部分会体现的很清楚。
 \end{itemize}
 
-很多电路概念都分为状态和激活两种情况，也可以分别归类为组合逻辑和时序逻辑。例如加重压力板属于组合逻辑电源，而普通压力板属于时序逻辑电源；火把属于组合逻辑用电器，而像素盒属于时序逻辑用电器。
+很多电路概念都分为状态和激活两种情况，也可以分别归类为组合逻辑和时序逻辑。例如测重压力板属于组合逻辑电源，而普通压力板属于时序逻辑电源；火把属于组合逻辑用电器，而像素盒属于时序逻辑用电器。
 
 组合逻辑电路的设计需要用到布尔代数知识。
 
@@ -100,7 +100,7 @@
 =&\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1.
 \end{split}\]
 
-反过来，假设$\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。令$b_1=\textrm{\~{}} a_1a_3\cdots a_n$，$b_2=\textrm{\~{}} a_2a_3\cdots a_n$，则$\textrm{\^{}}(b_1,b_2,a_3,\cdots,a_n)=1$。与前面同理可推出$\textrm{\^{}}(\textrm{\~{}} b_1a_3\cdots a_n,\textrm{\~{}} b_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。简单计算可知$\textrm{\~{}} b_1a_3\cdots a_n=a_1$，$\textrm{\~{}} b_2a_3\cdots a_n=a_2$，所以$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$。$\hfill\blacksquare$
+反过来，假设$\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。令$b_1=\textrm{\~{}} a_1a_3\cdots a_n$，$b_2=\textrm{\~{}} a_2a_3\cdots a_n$，则$\textrm{\^{}}(b_1,b_2,a_3,\cdots,a_n)=1$。与前面同理可推出$\textrm{\^{}}(\textrm{\~{}} b_1a_3\cdots a_n,\textrm{\~{}} b_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。简单计算可知$\textrm{\~{}} b_1a_3\cdots a_n=a_1$，$\textrm{\~{}} b_2a_3\cdots a_n=a_2$，所以$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$。
 \end{proof}
 
 \paragraph*{其他记号}
@@ -163,13 +163,13 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 秩为$r$的一组互不相同的非平凡串至多有$2^r-1$个。$n$个互不相同的非平凡串的秩至少为$\lceil\log_2 (n+1)\rceil$。
 \end{corollary}
 
-\begin{example}
+\begin{example}{}{}
 考虑三个串$ab$,$abc$,$abcd$。
 
 令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以ab,abc,abcd线性无关，\{ab,abc,abcd\}的最大线性无关子集就是它自己，所以ab,abc,abcd的秩是3。
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
 考虑三个串bc,ac,ab。
 
 令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以bc,ac,ab线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以bc,ac线性无关，所以bc,ac,ab的秩为2。
@@ -183,7 +183,7 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 类似的，$a\&b\&c$的等价三灯简单逻辑有168个，不考虑交换律则有28个。对于异或逻辑，用转化运算中的另一个公式也可以得到其等价逻辑。
 每一个逻辑都对应一种接线，这么多种等价逻辑就会带来很多种接线方式，也就会增加我们考虑问题的复杂度。一般情况下这么多种接线方式中总有一些可以满足要求，但是一旦不行，我们就需要引入复杂度还要高得多的单步逻辑。
 
-168种等价逻辑是怎么算出来的呢？如此的工作量对于人工来说，即使再有技巧都是无法接受的，更不提人工可能漏算错算的情况。对于简单逻辑，我们开发了软件TCLC(Terraria Combinational Logic Calculator)，你只需要输入这个逻辑的\textbf{真值表}，它就会用穷举法找出那些满足要求的逻辑。程序下载\url{https://www.bbstr.net/threads/154/}。这个软件只进行了初步开发，因为目前还没有多少实际需求。如果你有更多的需求或想法，可以联系我。
+168种等价逻辑是怎么算出来的呢？如此的工作量对于人工来说，即使再有技巧都是无法接受的，更不提人工可能漏算错算的情况。对于简单逻辑，我们开发了软件TCLC(Terraria Combinational Logic Calculator)，你只需要输入这个逻辑的\textbf{真值表}，它就会用穷举法找出那些满足要求的逻辑。程序下载\trforum{154}。这个软件只进行了初步开发，因为目前还没有多少实际需求。如果你有更多的需求或想法，可以联系我。
 
 \subsection{单步逻辑及其复杂度}
 \textbf{单步逻辑}是若干简单逻辑连接而成的结果。“单步”的意思是这个逻辑在一个逻辑帧内就可以结算完毕，或者说输入与输出只间隔一个逻辑帧。类似的我们也有$k$步逻辑。
@@ -193,18 +193,18 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 \begin{figure}[!htp]
 \centering
 \subfloat[可密堆叠的数显]{\label{fig27}
-\makecell{\includegraphics[width=0.99\textwidth]{images/321.png}\\
-\includegraphics[width=0.99\textwidth]{images/322.png}}}\\
-\subfloat[控制部分]{\includegraphics[width=0.99\textwidth]{images/323.png}}\\
+\makecell{\includegraphics[width=0.9\textwidth]{images/321.png}\\
+\includegraphics[width=0.9\textwidth]{images/322.png}}}\\
+\subfloat[控制部分]{\includegraphics[width=0.9\textwidth]{images/323.png}}\\
 \subfloat[显示部分]{\includegraphics{images/324.png}}
 \caption{}\label{fig26}
 \end{figure}
 
 \autoref{fig26}展示了一个BCD数显。这个数显是目前发现的唯一一个可密堆叠（\autoref{fig27}）的BCD数显。可密堆叠的要求是极其苛刻的。首先，因为下方显示器的宽度相当小，控制电路的宽度也非常有限；其次，上层和下层控制单元需要可以挨在一起但是线不能连接。这些条件看上去非常不可思议，但是数显能做出来，得益于单步逻辑的超高复杂度。这个数显一共有7个输出，并且因为它们的秩为7，至少需要7个逻辑门。输入接进来时，在逻辑灯上可以有各种接线可能；逻辑门可以选取与和异或，逻辑灯数量也可以改变；输出时，多个逻辑门可以输出到同一根线上实现连接运算；电线在显示器上也可以连接若干段。这么算下来，不考虑正确性的情况下，一个简单数显的接线排列组合可以有成千上万种。从这么复杂的情况中找出一种可行方案不算太困难，但是也需要相当的观察力与经验。
 
-\begin{example}\label{exa3}
+\begin{example}{}{}\label{exa3}
 某组合逻辑有三个输入$a,b,c$和两个输出$d,e$，其真值表如\autoref{tab13}所示，试设计电路。
-\begin{table}[!ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|ccc|cc|c|}
 \hline
@@ -220,8 +220,7 @@ $a$&$b$&$c$&$d$&$e$&$de$\\\hline
 \end{tabular}
 \caption{}\label{tab13}
 \end{table}
-\end{example}
-\begin{solution}
+\begin{proof}[解]
 利用TCLC，我们可以算出$d$有四灯表示，$e$有单灯表示：
 \begin{align*}
 d&=\textnormal{\^{}}(abc,\textnormal{\~{}}c,\textnormal{\~{}}b,\textnormal{\~{}}a)=\textnormal{\~{}}\textnormal{\^{}}(c,b,a,\textnormal{\~{}}abc)\\
@@ -232,16 +231,17 @@ e&=abc
 考虑$de$的真值表（\autoref{tab13}的最右边一列），我们可以算出$de$有双灯表示：
 $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\~{}}ac$$
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{images/406.png}
 \qquad
 \includegraphics{images/407.png}
 \caption{}\label{fig36}
 \end{figure}
-
+	
 这样一来，$e$仍用单灯表示，而$d$使用双灯与单灯的连接：$d=dee=(de)e$，我们就得到了\autoref{fig36}所示的电路。在这个例子中，我们通过考虑输出之间的连接减少了灯数。另一方面，考虑连接的逻辑为我们开阔了思路，增加了更多可能性，让我们更有希望设计出满足苛刻条件的电路。
-\end{solution}
+\end{proof}
+\end{example}
 
 类似的例子还有使用加三移位法做的二进制与十进制互化的逻辑单元，相关内容会在后面讲到。
 
@@ -263,7 +263,7 @@ $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\
 \end{tabular}
 }\\
 \subfloat[电路执行加法运算]{\label{fig78}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.4]
     \foreach \x [evaluate={\y=int(7-\x);\z=int(8-\x)}] in {0,1,...,7}
     {
         \draw (3*\x,0) rectangle (3*\x+2,2);
@@ -316,7 +316,7 @@ $a$&$b$&$c_i$&$c_o$&$s$\\\hline
 
 除了用组合逻辑，我们还可以用时序逻辑做加法器。降频电路有逢二进一的特性，所以可以直接用降频电路做一个加法器（\autoref{fig38}）。与组合逻辑加法器不同，时序逻辑加法器实质上是累加器，如果不复位，那么每次输入都会直接累加到上一次的结果上。在时序逻辑加法器中，第二个加数各位要在同一个逻辑帧输入，或者低位延迟输入，这与组合逻辑加法器恰好相反。
 
-在加法器上，时序逻辑的另一个优点是，把降频电路改成递次电路，就可以直接做任何进制的累加。\url{https://www.bilibili.com/video/av40474377/}中的进制转换实际上就是做了一个十进制累加器，每修改一个二进制数位就向累加器中加一个值或减一个值。
+在加法器上，时序逻辑的另一个优点是，把降频电路改成递次电路，就可以直接做任何进制的累加。\bilibili{av40474377/}中的进制转换实际上就是做了一个十进制累加器，每修改一个二进制数位就向累加器中加一个值或减一个值。
 
 \subsection{减法器（Subtractor）}
 有了补码这个工具，减法器和加法器就可以共用一个电路，我们只需要增加一些部件将其中一个加数取反加一。取反的操作是容易的，而加一的操作正好可以借用\autoref{tab1406}中我们没有用到的$c_0$。做出的组合逻辑加减法器如\autoref{fig39}所示，需要注意的是加法器的输入从低位到高位延迟一个逻辑帧，所以对每个数位取反的时候也要从低位到高位延迟一个逻辑帧，完成这项工作的是\autoref{fig39}中最右边一列逻辑门。
@@ -404,7 +404,7 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
     \foreach \x [evaluate={\z=int(3-\x)}] in {0,1,2,3}
         \foreach \y [evaluate={\w=int(3-\y)}] in {0,1,2,3} {
             \draw (3*\x,3*\y) rectangle node {$+$} (3*\x+2,3*\y+2); % 全加器框架
@@ -485,9 +485,8 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/417.png}
-\qquad
-\includegraphics{images/418.png}
+\includegraphics[width=\textwidth]{images/417.png}
+\includegraphics[width=\textwidth]{images/418.png}
 \caption{移位器。纵向的红蓝线输入待移位的数。横向红蓝线输入移位的位数。通过顶端的逻辑灯激活对应的输出。底端绿线用于切换逻辑移位和算术移位。}\label{fig41}
 \end{figure}
 
@@ -501,7 +500,7 @@ $$
 
 \subsection{进制转换}
 
-\paragraph*{方法一} 直接用定义式$a_{n:0}=a_n2^n+a_{n-1}2^{n-1}+\cdots+a_02^0$。要利用这个式子将二进制转换为十进制，需要做一个十进制加法器，然后存储2的各次幂的十进制值。\url{https://www.bilibili.com/video/av40474377/}就是用的这种方法。
+\paragraph*{方法一} 直接用定义式$a_{n:0}=a_n2^n+a_{n-1}2^{n-1}+\cdots+a_02^0$。要利用这个式子将二进制转换为十进制，需要做一个十进制加法器，然后存储2的各次幂的十进制值。\bilibili{av40474377}就是用的这种方法。
 
 十进制转二进制可以用同样的原理，做一个二进制加法器，然后存储10的各次幂的二进制值。
 
@@ -548,11 +547,11 @@ $$
 只读存储器用于存储事先设计好的、固定的数据。这些数据不需要在使用时修改，所以一般是通过物理方式直接做在电路中。
 \begin{figure}[!ht]
     \centering
-	\subfloat[横向输入纵向输出]{\label{fig49}\includegraphics{images/342.png}\quad\includegraphics{images/341.png}}
+	\subfloat[横向输入纵向输出]{\label{fig49}\includegraphics[scale=0.6]{images/342.png}\includegraphics[scale=0.6]{images/341.png}}
     \qquad
-	\subfloat[纵向输入横向输出]{\label{fig50}\includegraphics{images/343.png}\quad\includegraphics{images/344.png}}
+	\subfloat[纵向输入横向输出]{\label{fig50}\includegraphics[scale=0.6]{images/343.png}\includegraphics[scale=0.6]{images/344.png}}
     \qquad
-	\subfloat[纵向输入横向输出]{\label{fig51}\includegraphics{images/346.png}\quad\includegraphics{images/345.png}}
+	\subfloat[纵向输入横向输出]{\label{fig51}\includegraphics[scale=0.6]{images/346.png}\includegraphics[scale=0.6]{images/345.png}}
     \caption{ROM的三种设计。}\label{fig48}
 \end{figure}
 \autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与多路选择器配合，而多路选择器是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。
