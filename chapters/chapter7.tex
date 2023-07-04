@@ -100,7 +100,7 @@
 =&\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1.
 \end{split}\]
 
-反过来，假设$\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。令$b_1=\textrm{\~{}} a_1a_3\cdots a_n$，$b_2=\textrm{\~{}} a_2a_3\cdots a_n$，则$\textrm{\^{}}(b_1,b_2,a_3,\cdots,a_n)=1$。与前面同理可推出$\textrm{\^{}}(\textrm{\~{}} b_1a_3\cdots a_n,\textrm{\~{}} b_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。简单计算可知$\textrm{\~{}} b_1a_3\cdots a_n=a_1$，$\textrm{\~{}} b_2a_3\cdots a_n=a_2$，所以$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$。$\hfill\blacksquare$
+反过来，假设$\textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。令$b_1=\textrm{\~{}} a_1a_3\cdots a_n$，$b_2=\textrm{\~{}} a_2a_3\cdots a_n$，则$\textrm{\^{}}(b_1,b_2,a_3,\cdots,a_n)=1$。与前面同理可推出$\textrm{\^{}}(\textrm{\~{}} b_1a_3\cdots a_n,\textrm{\~{}} b_2a_3\cdots a_n,a_3,\cdots,a_n)=1$。简单计算可知$\textrm{\~{}} b_1a_3\cdots a_n=a_1$，$\textrm{\~{}} b_2a_3\cdots a_n=a_2$，所以$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$。
 \end{proof}
 
 \paragraph*{其他记号}
@@ -193,9 +193,9 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 \begin{figure}[!htp]
 \centering
 \subfloat[可密堆叠的数显]{\label{fig27}
-\makecell{\includegraphics[width=0.99\textwidth]{images/321.png}\\
-\includegraphics[width=0.99\textwidth]{images/322.png}}}\\
-\subfloat[控制部分]{\includegraphics[width=0.99\textwidth]{images/323.png}}\\
+\makecell{\includegraphics[width=0.9\textwidth]{images/321.png}\\
+\includegraphics[width=0.9\textwidth]{images/322.png}}}\\
+\subfloat[控制部分]{\includegraphics[width=0.9\textwidth]{images/323.png}}\\
 \subfloat[显示部分]{\includegraphics{images/324.png}}
 \caption{}\label{fig26}
 \end{figure}
@@ -263,7 +263,7 @@ $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\
 \end{tabular}
 }\\
 \subfloat[电路执行加法运算]{\label{fig78}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.4]
     \foreach \x [evaluate={\y=int(7-\x);\z=int(8-\x)}] in {0,1,...,7}
     {
         \draw (3*\x,0) rectangle (3*\x+2,2);
@@ -404,7 +404,7 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
     \foreach \x [evaluate={\z=int(3-\x)}] in {0,1,2,3}
         \foreach \y [evaluate={\w=int(3-\y)}] in {0,1,2,3} {
             \draw (3*\x,3*\y) rectangle node {$+$} (3*\x+2,3*\y+2); % 全加器框架
@@ -485,9 +485,8 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/417.png}
-\qquad
-\includegraphics{images/418.png}
+\includegraphics[width=\textwidth]{images/417.png}
+\includegraphics[width=\textwidth]{images/418.png}
 \caption{移位器。纵向的红蓝线输入待移位的数。横向红蓝线输入移位的位数。通过顶端的逻辑灯激活对应的输出。底端绿线用于切换逻辑移位和算术移位。}\label{fig41}
 \end{figure}
 
@@ -548,11 +547,11 @@ $$
 只读存储器用于存储事先设计好的、固定的数据。这些数据不需要在使用时修改，所以一般是通过物理方式直接做在电路中。
 \begin{figure}[!ht]
     \centering
-	\subfloat[横向输入纵向输出]{\label{fig49}\includegraphics{images/342.png}\quad\includegraphics{images/341.png}}
+	\subfloat[横向输入纵向输出]{\label{fig49}\includegraphics[scale=0.6]{images/342.png}\includegraphics[scale=0.6]{images/341.png}}
     \qquad
-	\subfloat[纵向输入横向输出]{\label{fig50}\includegraphics{images/343.png}\quad\includegraphics{images/344.png}}
+	\subfloat[纵向输入横向输出]{\label{fig50}\includegraphics[scale=0.6]{images/343.png}\includegraphics[scale=0.6]{images/344.png}}
     \qquad
-	\subfloat[纵向输入横向输出]{\label{fig51}\includegraphics{images/346.png}\quad\includegraphics{images/345.png}}
+	\subfloat[纵向输入横向输出]{\label{fig51}\includegraphics[scale=0.6]{images/346.png}\includegraphics[scale=0.6]{images/345.png}}
     \caption{ROM的三种设计。}\label{fig48}
 \end{figure}
 \autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与多路选择器配合，而多路选择器是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。

@@ -388,10 +388,15 @@
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
-显示数值&0		&1	&2		&3		&4		&5		&6		&7		&8			&9\\
+\begin{tabular}{|cc||cc|}
 \hline
-点亮部分&abcefg	&cg	&acdef	&acdfg	&bcdg	&abdfg	&abdefg	&acg	&abcdefg	&abcdfg
+显示数值&点亮部分&显示数值&点亮部分\\
+0&abcefg&5&abdfg\\
+1&cg&6&abdefg\\
+2&acdef&7&acg\\
+3&acdfg&8&abcdefg\\
+4&bcdg&9&abcdfg\\
+\hline
 \end{tabular}
 \caption{}
 \label{qiduanxian}
@@ -558,16 +563,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 移位寄存器（\myind{shift register}），俗称\myind{递次电路}，是使用频率非常高的电路。传统的递次电路如\autoref{i72:73}所示。当激活绿线时，一排故障逻辑灯被激活。但是由于只有第一个有效逻辑灯是亮的，只有第一个故障逻辑门激活，从而第一个有效逻辑灯熄灭，第二个有效逻辑灯被点亮。当再次激活绿线时，同理，第二个故障逻辑门激活，第二个有效逻辑灯熄灭，第三个有效逻辑灯点亮。依此进行，当反复激活绿线时，六个故障逻辑门依次激活并循环。将每个故障逻辑门接出一个电路，就可以实现六个电路依次运行并循环。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i72}
+\centering
 \includegraphics{images/72.png}
-}
-\subfloat{
-\label{i73}
 \includegraphics{images/73.png}
-}
-\end{center}
 \caption{}
 \label{i72:73}
 \end{figure}
@@ -596,16 +594,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 在一些时候，比如上面提到的十进制计数器中，我们需要“\myind{清零}”操作，即将递次电路复位到初始状态。使用\nameref{sec14}很容易实现这一点（\autoref{i86:87}）。但是这里想说明的是，对赋值对象的理解需要非常灵活。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i86}
+\centering
 \includegraphics{images/86.png}
-}
-\subfloat{
-\label{i87}
 \includegraphics{images/87.png}
-}
-\end{center}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。除了横穿所有故障逻辑灯的绿线和黄线外，红线和蓝线用来进行递次电路中的循环并将上面有效逻辑灯的状态同步到下面，绿线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
 \label{i86:87}
 \end{figure}
@@ -613,16 +604,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 是不是只有逻辑灯才有状态？在递次电路中，电线也可以有状态。如果我们把每根电线接到一个火把，就可以把火把的状态看作电线的状态。那么与其对逻辑灯赋值，不如直接对电线赋值，电路如\autoref{i88:89}所示。对电线进行赋值的前提是电线状态可以决定逻辑灯的状态。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i88}
-\includegraphics{images/88.png}
-}
-\subfloat{
-\label{i89}
-\includegraphics{images/89.png}
-}
-\end{center}
+\centering
+\includegraphics[width=0.5\textwidth]{images/88.png}
+\includegraphics[width=0.5\textwidth]{images/89.png}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
 \label{i88:89}
 \end{figure}
@@ -630,16 +614,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 将\autoref{i88:89}中下面一排复位电路穿插到上面递次电路的缝隙里，可以得到占用空间更小的版本（\autoref{i106:107}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i106}
-\includegraphics{images/106.png}
-}
-\subfloat{
-\label{i107}
-\includegraphics{images/107.png}
-}
-\end{center}
+\centering
+\includegraphics[width=0.5\textwidth]{images/106.png}
+\includegraphics[width=0.5\textwidth]{images/107.png}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
 \label{i106:107}
 \end{figure}
@@ -730,10 +707,14 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
-数字变化&0$\to$1&1$\to$2&2$\to$3&3$\to$4&4$\to$5&5$\to$6&6$\to$7&7$\to$8&8$\to$9&9$\to$0\\
+\begin{tabular}{|cc||cc|}
 \hline
-激活部分&ad&abdef&bcfg&abcd&acdg&bc&de&deg&bc&bceg
+数字变化&激活部分&数字变化&激活部分\\\hline
+0$\to$1&ad&5$\to$6&bc\\
+1$\to$2&abdef&6$\to$7&de\\
+2$\to$3&bcfg&7$\to$8&deg\\
+3$\to$4&abcd&8$\to$9&bc\\
+4$\to$5&acdg&9$\to$0&bceg\\\hline
 \end{tabular}
 \caption{}
 \label{jishuqi}
@@ -877,27 +858,27 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \begin{center}
 \subfloat[1]{
 \label{i100}
-\includegraphics[width=0.15\textwidth]{images/100.png}
+\includegraphics[width=0.11\textwidth]{images/100.png}
 }
 \subfloat[2]{
 \label{i101}
-\includegraphics[width=0.15\textwidth]{images/101.png}
+\includegraphics[width=0.11\textwidth]{images/101.png}
 }
 \subfloat[3]{
 \label{i102}
-\includegraphics[width=0.15\textwidth]{images/102.png}
+\includegraphics[width=0.11\textwidth]{images/102.png}
 }
 \subfloat[4]{
 \label{i103}
-\includegraphics[width=0.15\textwidth]{images/103.png}
+\includegraphics[width=0.11\textwidth]{images/103.png}
 }
 \subfloat[5]{
 \label{i104}
-\includegraphics[width=0.15\textwidth]{images/104.png}
+\includegraphics[width=0.11\textwidth]{images/104.png}
 }
 \subfloat[6]{
 \label{i105}
-\includegraphics[width=0.15\textwidth]{images/105.png}
+\includegraphics[width=0.11\textwidth]{images/105.png}
 }
 \end{center}
 \caption{}

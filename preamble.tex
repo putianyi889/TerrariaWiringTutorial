@@ -6,6 +6,9 @@
 
 \usepackage[colorlinks]{hyperref}
 \hypersetup{bookmarksdepth=5}
+\pdfstringdefDisableCommands{
+	\def\myind#1{#1}
+}
 
 \if\rendermode1
 	\NewDocumentCommand{\myind}{m}{#1}
@@ -14,6 +17,9 @@
 	\makeindex
 	\NewDocumentCommand{\myind}{m}{#1\index{#1}}
 \fi
+
+\usepackage{seqsplit}
+\newcommand{\trvar}[1]{\texttt{\seqsplit{#1}}}
 
 \input{preambles/skin}
 \input{preambles/envs}
