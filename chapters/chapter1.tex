@@ -21,7 +21,7 @@
 
 本书正文部分用于集中讨论电路，对于电路以外的信息会在附录中讨论。
 
-在\github{putianyi889/TerrariaWiringTutorial}协助编写本书是唯一的支持我们的方式。你可以主动创作，也可以在\href{https://github.com/putianyi889/TerrariaWiringTutorial/issues}{Issues}中领取任务。如果你不会使用GitHub，可以看教程\url{https://zhuanlan.zhihu.com/p/34693871}。关注(Watch)本书的GitHub项目可以即时获取更新信息。
+在\github{putianyi889/TerrariaWiringTutorial}协助编写本书是唯一的支持我们的方式。你可以主动创作，也可以在\href{https://github.com/putianyi889/TerrariaWiringTutorial/issues}{Issues}中领取任务。如果你不会使用GitHub，可以看教程\url{https://zhuanlan.zhihu.com/p/34693871}。关注 (Watch) 本书的GitHub项目可以即时获取更新信息。
 
 \section{一些基本概念与机制}
 
@@ -67,7 +67,7 @@ NPC&200\\\hline
 游戏运行时，显卡负责图像处理，CPU负责机制结算。如果这两个过程都能在1/60秒内完成，那么物理帧率就是60。如果CPU处理时间大于1/60秒，那么相应的物理帧率会变低。如果显卡处理时间大于1/60秒，那么结果取决于是否跳帧。如果设置中打开跳帧，那么会适当降低图像帧率以保持CPU能达到的最高物理帧率。如果关闭跳帧，那么图像帧和物理帧会完全同步，实时的游戏速度以显卡和CPU中的最慢速度为准。
 
 \subsection{坐标}\label{tab8}
-坐标就是在世界中的位置。坐标并非深度计与罗盘所显示的那样。程序中的坐标是以世界左上角为(0,0)，横坐标向右，纵坐标向下。世界宽度为\lstinline{maxTilesX}格，高度为\lstinline{maxTilesY}格。世界右下角的坐标为(\lstinline{maxTilesX},\lstinline{maxTilesY})。
+坐标就是在世界中的位置。坐标并非深度计与罗盘所显示的那样。程序中的坐标是以世界左上角为(0,0)，横坐标向右，纵坐标向下。世界宽度为 \lstinline{maxTilesX} 格，高度为 \lstinline{maxTilesY} 格。世界右下角的坐标为(\lstinline{maxTilesX}, \lstinline{maxTilesY})。
 
 泰拉瑞亚中纵坐标分层一般分为太空、地表、地下、洞穴、地狱五层。而游戏机制中，只有两个阈值，一个是地表层与地下层交界处的纵坐标，称为\lstinline{worldSurface}；另一个是地下层与洞穴层交界处的纵坐标，称为\lstinline{rockLayer}。太空层高度是把\lstinline{rockLayer}乘上一个系数得到的；地狱层高度是把\lstinline{maxTilesY}减去一个常数得到的。这个系数一般是0.35，常数一般是200格，但是在不同情况下也可能会有出入。
 
@@ -95,23 +95,7 @@ NPC&200\\\hline
 
 当掉落物/非穿墙生物的碰撞箱与实体块重合时，程序会尝试将碰撞箱推离实体块。从1.2版本开始，大多数前景物块都有六种半砖形态，每种半砖推离碰撞箱的机制各不相同。尽管半砖在电路中占有一席之地，由于其：本身不涉及到电路；应用不广泛\footnote{其大多数功能可以用传送机或传送带解决。}；目前没有严谨的机制；设计装置主要靠经验和尝试，本书中暂时不涉及半砖教学。
 
-关于半砖有关的研究与教程，读者可以参考以下的链接，链接排序随机。
-
-\begin{itemize}
-\item 视频
-\begin{itemize}
-\item 你会使用半砖吗?-Zerogravitas \bilibili{av22088325} \youtube{bi335VOnBZw}
-\item 物品半砖以及一些有趣应用!-Zerogravitas \bilibili{av22739847}
-\item 鬼畜的石巨人！-Zerogravitas \bilibili{av22088547}
-\end{itemize}
-\item 文章
-\begin{itemize}
-\item 【实验】半砖性质探究 \tieba{3603529198}
-\item HOIK! [Guide] - Rapid Player/NPC/Etc Transport Using Only Sloped Tiles. \trforum{1656}
-\item {[}Early Game] Anti-Monster Wall Defense (Using HOIK! and Stair Glitch) \trforum{29917}
-\item Hoik tracks with pressure plates for mounts \trforum{37113}
-\end{itemize}
-\end{itemize}
+关于半砖有关的研究与教程，读者可以参考附录。
 
 \subsection{射弹生成以及刷新机制}
 射弹(projectile)是泰拉瑞亚中的一大类实体。包括但不限于机关射出来的飞镖、火焰，抛出的悠悠球，棱镜射出的激光，扔出的沙滩球，挥舞的日耀链刃，甚至玩家死亡后弹跳的墓碑。

@@ -107,9 +107,27 @@
 \caption{}
 \label{i32:33}
 \end{figure}
-\begin{remark}{}{}
+\begin{remark*}{}{}
 如果想要显示效果更醒目，可以将背景墙和火把都涂上\wiki{暗影漆}，也可以尝试其他的光源，甚至\myind{制动器}与实体块的组合。
-\end{remark}
+\end{remark*}
+\begin{problem}{}{}
+设计如\autoref{i69:70}所示的二进制数显。
+\begin{figure}[H]
+\begin{center}
+\subfloat[0]{
+\label{i69}
+\includegraphics{images/69.png}
+}
+\qquad
+\subfloat[1]{
+\label{i70}
+\includegraphics{images/70.png}
+}
+\end{center}
+\caption{}
+\label{i69:70}
+\end{figure}
+\end{problem}
 \end{example}
 
 \begin{example}{}{}
@@ -123,9 +141,12 @@
 \caption{}
 \label{i3:4}
 \end{figure}
-\begin{remark}{}{}
+\begin{remark*}{}{}
 需要注意的是该装置能够实现所需功能，依赖于入夜时事件结算先于感应器结算。
-\end{remark}
+\end{remark*}
+\begin{problem}{}{}
+制作一个装置，在每天入昼时显示讯息“日食正在发生...”，入夜时显示“血月正在升起...”。
+\end{problem}
 \end{example}
 
 \begin{example}{\myind{传送带驱动}}{}
@@ -250,9 +271,9 @@
 \end{itemize}
 
 在之前的电路分析中，我们都是使用的“激活”来分析。使用激活分析总是没错的，但是在有时不如\myind{状态分析}来的简单。在\autoref{i50:51}中，所有的电源与用电器都是两状态的：测重压力板有踩下和弹起两个状态，逻辑灯、逻辑门有亮灭两个状态，制动器有实化和虚化两个状态。同时，所有电源会在状态改变时激活电路，所有用电器会在电路激活时状态改变。在这种情况下，电源和用电器的状态始终是同步的，例如逻辑门亮时制动器一定是虚化状态，逻辑门灭时制动器一定是实化状态；压力板踩下时对应的逻辑灯一定亮，压力板弹起时对应的逻辑灯一定灭。
-\begin{remark}{}{}
+\begin{remark*}{}{}
 并非所有的电源和用电器都是两状态切换的。开关没有状态区别；烟囱是三状态的；普通压力板只在踩下激活，弹起时不激活；等等。状态分析并非万能，它只适用于电源和用电器都是两状态切换的情况下。在多数情况下仍需要用激活分析。
-\end{remark}
+\end{remark*}
 \end{example}
 
 \subsection{\myind{二极管}/\myind{换线器}}
@@ -653,6 +674,21 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \label{i92:97}
 \end{figure}
 
+\begin{problem}{}{}
+利用降频电路和二进制数显制作一个多位的二进制计数器。
+\end{problem}
+
+\begin{problem}{}{}
+解释为什么如\autoref{i11:12}所示装置会在世界开启瞬间激活广播盒。该装置里的故障逻辑门有什么作用？
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{images/11.png}
+\includegraphics[width=0.4\textwidth]{images/12.png}
+\caption{}
+\label{i11:12}
+\end{figure}
+\end{problem}
+
 \subsection{\myind{十进制计数器}}
 
 在这一小节中我们将使用之前学过的模块来做一个四位带数显的十进制\myind{计数器}。
@@ -719,6 +755,59 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \label{i113:114}
 \end{figure}
 
+\begin{problem}{}{}
+补全十进制数显\autoref{i71}的接线。
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/71.png}
+\caption{}
+\label{i71}
+\end{figure}
+\end{problem}
+
+\begin{problem}{}{}
+做一个显示当前月相的显示器，显示效果如\autoref{i61:68}。
+\begin{figure}[H]
+\begin{center}
+\subfloat[满月]{
+\label{i61}
+\includegraphics[width=0.11\textwidth]{images/61.png}
+}
+\subfloat[亏凸月]{
+\label{i62}
+\includegraphics[width=0.11\textwidth]{images/62.png}
+}
+\subfloat[下弦月]{
+\label{i63}
+\includegraphics[width=0.11\textwidth]{images/63.png}
+}
+\subfloat[残月]{
+\label{i64}
+\includegraphics[width=0.11\textwidth]{images/64.png}
+}
+
+\subfloat[新月]{
+\label{i65}
+\includegraphics[width=0.11\textwidth]{images/65.png}
+}
+\subfloat[峨眉月]{
+\label{i66}
+\includegraphics[width=0.11\textwidth]{images/66.png}
+}
+\subfloat[上弦月]{
+\label{i67}
+\includegraphics[width=0.11\textwidth]{images/67.png}
+}
+\subfloat[盈凸月]{
+\label{i68}
+\includegraphics[width=0.11\textwidth]{images/68.png}
+}
+\end{center}
+\caption{}
+\label{i61:68}
+\end{figure}
+\end{problem}
+
 \subsection{降频技术}\label{sec18}
 灵活使用\myind{递次}电路和\myind{降频}电路可以将已有的驱动时长增加为任意整数倍（\autoref{i223:228}）。
 
@@ -749,17 +838,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 使用上面的方法，当需要获得较大的质数倍（例如23倍）时间时使用递次电路体积过大，此时可以利用故障逻辑门的控制功能灵活地将多个降频的驱动结合（\autoref{i231:232}）。这实质上是一个\hyperref[sec5]{\myind{多级递次}}。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i231}
-\includegraphics{images/231.png}
-}
-\qquad
-\subfloat{
-\label{i232}
-\includegraphics{images/232.png}
-}
-\end{center}
+\centering
+\includegraphics[width=0.45\textwidth]{images/231.png}
+\quad
+\includegraphics[width=0.45\textwidth]{images/232.png}
 \caption{开关每激活23次火把响应一次。上面的右边两个故障逻辑门用来控制，左边的输出接到计数为20的模块（5-递次电路与两个降频电路连接），右边的输出接到3-递次电路。开关激活时，起初左边输出，右边不输出，左边计数。当左边计数到20时上面的绿线激活，改变控制用的有效逻辑灯，改为右边输出，左边不输出，右边计数。当右边计数到3时激活火把并将控制用的有效逻辑灯改回。}
 \label{i231:232}
 \end{figure}
@@ -789,93 +871,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 绿线等可能地激活0\~{}5次，经过下面的递次电路，就会导致点亮的火把等可能地循环右移0\~{}5个。无论激活顶端黄线之前哪个火把是亮的，这都意味着六个火把有等可能的概率点亮。
 
-\paragraph{思考题}
-\begin{enumerate}
-\item 为什么只能由玩家激活的压力板会选用灰/棕/蓝/丛林蜥蜴这四种颜色？
-\item 解释为什么如\autoref{i11:12}所示装置会在世界开启瞬间激活广播盒。该装置里的故障逻辑门有什么作用？
-\begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i11}
-\includegraphics[width=0.4\textwidth]{images/11.png}
-}
-\subfloat{
-\label{i12}
-\includegraphics[width=0.4\textwidth]{images/12.png}
-}
-\end{center}
-\caption{}
-\label{i11:12}
-\end{figure}
-\item 制作一个装置，在每天入昼时显示讯息“日食正在发生...”，入夜时显示“血月正在升起...”。
-\item 找出\bilibili{av5271577}中的延时装置。
-\item 做一个显示当前月相的显示器，显示效果如\autoref{i61:68}。
-\begin{figure}[!ht]
-\begin{center}
-\subfloat[满月]{
-\label{i61}
-\includegraphics[width=0.11\textwidth]{images/61.png}
-}
-\subfloat[亏凸月]{
-\label{i62}
-\includegraphics[width=0.11\textwidth]{images/62.png}
-}
-\subfloat[下弦月]{
-\label{i63}
-\includegraphics[width=0.11\textwidth]{images/63.png}
-}
-\subfloat[残月]{
-\label{i64}
-\includegraphics[width=0.11\textwidth]{images/64.png}
-}
-\subfloat[新月]{
-\label{i65}
-\includegraphics[width=0.11\textwidth]{images/65.png}
-}
-\subfloat[峨眉月]{
-\label{i66}
-\includegraphics[width=0.11\textwidth]{images/66.png}
-}
-\subfloat[上弦月]{
-\label{i67}
-\includegraphics[width=0.11\textwidth]{images/67.png}
-}
-\subfloat[盈凸月]{
-\label{i68}
-\includegraphics[width=0.11\textwidth]{images/68.png}
-}
-\end{center}
-\caption{}
-\label{i61:68}
-\end{figure}
-\item 实现\url{https://www.bilibili.com/video/av5271577} 2分57秒处神庙尖刺的效果。
-\item 设计如\autoref{i69:70}所示的二进制数显。
-\begin{figure}[!ht]
-\begin{center}
-\subfloat[0]{
-\label{i69}
-\includegraphics{images/69.png}
-}
-\qquad
-\subfloat[1]{
-\label{i70}
-\includegraphics{images/70.png}
-}
-\end{center}
-\caption{}
-\label{i69:70}
-\end{figure}
-\item 补全十进制数显\autoref{i71}的接线。
-\begin{figure}[!ht]
-\centering
-\includegraphics{images/71.png}
-\caption{}
-\label{i71}
-\end{figure}
-\item 为什么十进制带数显的计数器一般不会多于四位？
-\item 利用降频电路和二进制数显制作一个多位的二进制计数器。
-\item 做一个可以显示点数的骰子，六个点数效果如\autoref{i100:105}。
-\begin{figure}[!ht]
+\begin{problem}{}{}
+做一个可以显示点数的骰子，六个点数效果如\autoref{i100:105}。
+\begin{figure}[H]
 \begin{center}
 \subfloat[1]{
 \label{i100}
@@ -905,4 +903,4 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \caption{}
 \label{i100:105}
 \end{figure}
-\end{enumerate}
+\end{problem}

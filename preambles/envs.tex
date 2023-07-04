@@ -18,6 +18,7 @@
 \addwireframe{blue}
 \addwireframe{red}
 \addwireframe{green}
+\addwireframe{yellow}
 
 \newtcbtheorem{theorem}{定理}{
 	enhanced, sharp corners=all, colframe=greenwiremiddle, colback=white, fonttitle=\bfseries,
@@ -33,7 +34,10 @@
 	breakable, colback=white, colframe=bluewiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
 	fonttitle=\bfseries, blueframe
 }{}
-\newtcbtheorem{problem}{问题}{}{}
+\newtcbtheorem{problem}{思考题}{
+	breakable, colback=white, colframe=yellowwiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
+	fonttitle=\bfseries, yellowframe
+}{}
 
 \theoremstyle{remark}
 \newtcbtheorem{note}{注意}{

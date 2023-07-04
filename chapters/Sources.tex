@@ -40,11 +40,11 @@
 
 压力板分为普通压力板、测重压力板、青绿压力垫板。
 
-普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。测重压力板是误翻译，正确翻译应为“重力压力板”。四种颜色的测重压力板功能完全一样。
+普通压力板包括由玩家触发的灰/棕/蓝/橙/丛林蜥蜴压力板、由NPC触发的黄压力板和由玩家或NPC触发的红/绿压力板。四种颜色的测重压力板功能完全一样。
 
-\begin{remark}
+\begin{remark*}{}{}
 区分不同颜色普通压力板的方法：只能由玩家触发的是地图中的各种陷阱，颜色非常隐蔽，比如说石块上的灰压力板、土块上的棕压力板、冰雪块上的蓝压力板、丛林蜥蜴砖上的丛林蜥蜴压力板都非常难以辨认；橙压力板连接的机关是一次性高伤害的滚石和炸药，所以橙压力板相对醒目，并且也是一次性的。红/黄/绿压力板都非常醒目，它们可以由NPC触发。
-\end{remark}
+\end{remark*}
 
 普通压力板有自身的碰撞箱，碰撞箱大小是压力板弹起状态时贴图的边框大小。普通压力板激活的判定以每个碰撞箱为准，即每帧判定碰撞箱是否从侧面进入压力板，或从上面掉落到压力板上。因为是以碰撞箱为准，所以一个碰撞箱在一帧内触发两个普通压力板，只会激活一次，而不同碰撞箱在一帧内触发同一个普通压力板，每个碰撞箱都会激活一次（\autoref{i205:208}）。注意到“进入”或“掉落”都是过程，所以直接传送到普通压力板上不会触发压力板。同时，“掉落”要求人物有一个悬空的过程，判断悬空可以通过人物动作（悬空时有跳跃动作）或者翅膀（装备了翅膀的人物悬空时翅膀会打开）。所以从1格高的物块上直接走下来不算掉落，同时碰撞箱也不是从侧面进入，所以不会触发普通压力板（\autoref{i201:202}）。
 
@@ -173,19 +173,19 @@
 
 引爆器可以放在几乎所有平坦表面上。与控制杆不同的是，引爆器不是悬挂家具，所以不能放在砧上。
 
-\section{受困宝箱/\DMC}
+\section{机关宝箱\DMC}
 \begin{figure}[!ht]
 \centering
-\subfloat[{非主题受困宝箱。主题受困宝箱见\hyperref[app44]{附录}}]{\begin{tabular}[b]{c}
+\subfloat[{非主题机关宝箱。主题机关宝箱见\hyperref[app44]{附录}}]{\begin{tabular}[b]{c}
 \includegraphics{figures/Corruption_Chest.png}\quad\includegraphics{figures/Crimson_Chest.png}\quad\includegraphics{figures/Hallowed_Chest.png}\quad\includegraphics{figures/Desert_Chest.png}\quad\includegraphics{figures/Frozen_Chest.png}\quad\includegraphics{figures/Jungle_Chest.png}\\
 \includegraphics{figures/Gold_Chest.png}\quad\includegraphics{figures/Shadow_Chest.png}\quad\includegraphics{figures/Ivy_Chest.png}\quad\includegraphics{figures/Water_Chest.png}\quad\includegraphics{figures/Web_Covered_Chest.png}\quad\includegraphics{figures/Golf_Chest.png}
 \end{tabular}}
 \qquad
 \subfloat[\DMC]{\includegraphics{figures/Dead_Mans_Chest.png}}
 \end{figure}
-受困宝箱是误翻译，正确翻译应该是“机关宝箱”或“陷阱宝箱”。受困宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和受困宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC 和普通的金箱完全无法区分。
+机关宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和机关宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC 和普通的金箱完全无法区分。
 
-受困宝箱和\DMC 都是电源，当鼠标右击时激活。受困宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
+机关宝箱和\DMC 都是电源，当鼠标右击时激活。机关宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
 
 \DMC 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DMC 。
 
@@ -304,7 +304,7 @@
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.95\textwidth]{images/435.png}
-\caption{很多马桶连上驱动后的场景。图片来源：沉睡}\label{fig75}
+\caption{很多马桶连上驱动后的场景。图片来源：\protect\vip{yfd}}\label{fig75}
 \end{figure}
 
 \section{泵}
@@ -332,7 +332,7 @@
 \subfloat[尖球机关]{\qquad\includegraphics{figures/Spiky_Ball_Trap.png}\qquad}\qquad
 \subfloat[烈焰机关]{\qquad\includegraphics{figures/Flame_Trap.png}\qquad}\qquad
 \subfloat[长矛机关]{\qquad\includegraphics{figures/Spear_Trap.png}\qquad}\qquad
-\subfloat[喷泉（机关）]{\qquad\includegraphics{figures/Geyser.png}\qquad}\qquad
+\subfloat[热喷泉]{\qquad\includegraphics{figures/Geyser.png}\qquad}\qquad
 \subfloat[炸药]{\quad\includegraphics{figures/Explosives.png}\quad}\qquad
 \subfloat[地雷]{\quad\includegraphics{figures/Land_Mine.png}\quad}
 \caption{机关}
@@ -345,15 +345,13 @@
 
 飞镖在真空中的速度是每秒45格，生存时间60秒。飞镖机关、超级飞镖机关和烈焰机关的冷却时间是200帧。
 
-长矛机关射程19.5格\footnote{由@dcfhft 验证。}，冷却时间90帧。
+长矛机关射程19.5格\footnote{由\vip{dcf}验证。}，冷却时间90帧。
 
 烈焰机关射程20格，冷却时间200帧。尽管烈焰机关的特效较宽，其射弹仍只在机关正前方生成。
 
 尖球机关冷却时间300帧，有生成限制。其限制规则较复杂，请参阅wiki。
 
-因为翻译原因，喷泉（机关）在中文wiki中无法查到，因为与喷泉（装饰）冲突\footnote{喷泉(Geyser)是自然景观，喷泉(Fountain)是人造景观，官中并未区分翻译。}。请在英文wiki中查阅Geyser词条。
-
-喷泉（机关）可放置在实体块上或下，其朝向也根据放置位置分为朝上和朝下。冷却时间200帧。不会触发青绿压力垫板。射程20格，射程从喷射方向29格内遇到的第一个2*4开放空间（没有实体块和液体）开始，其后会被障碍物阻挡。
+热喷泉可放置在实体块上或下，其朝向也根据放置位置分为朝上和朝下。冷却时间200帧。不会触发青绿压力垫板。射程20格，射程从喷射方向29格内遇到的第一个2*4开放空间（没有实体块和液体）开始，其后会被障碍物阻挡。
 
 炸药被激活时爆炸，爆炸半径10格。炸药是一次性的，所以在电路中应用有限。使用地图编辑器或Mod可以将炸药放在宝箱下，由于宝箱下的物块无敌，炸药可以被无限引爆。
 
@@ -371,9 +369,9 @@
 \end{figure}
 炮台包括大炮、兔兔炮、彩纸炮、传送枪站和雪球发射器。
 
-炮台大小为4*3，但是可以放置在两格宽的实体块、平台或锭上。炮台可以使用传送机浮空\footnote{由@WIAADC 验证}。
+炮台大小为4*3，但是可以放置在两格宽的实体块、平台或锭上。炮台可以使用传送机浮空\footnote{由\vip{adc}验证}。
 
-鼠标右击炮台左/右部分可转向，拿着对应炮弹左击可发射。使用电线激活时，激活炮台的不同位置有不同效果（\autoref{i215}）。使用电线激活发射的炮弹不造成伤害。手动激活发射的炮弹造成伤害不产生无敌帧\footnote{由@WIAADC 验证}。
+鼠标右击炮台左/右部分可转向，拿着对应炮弹左击可发射。使用电线激活时，激活炮台的不同位置有不同效果（\autoref{i215}）。使用电线激活发射的炮弹不造成伤害。手动激活发射的炮弹造成伤害不产生无敌帧\footnote{由\vip{adc}验证}。
 
 炮台生成射弹的位置横坐标在中间两列的交界，纵坐标在下面一格与中间一格的交界。对于传送枪台，生成位置还要向下移5像素；如果传送枪台朝向垂直向上，生成位置还要向右移5像素。
 
@@ -381,7 +379,7 @@
 
 大炮和兔兔炮的炮弹射出后，前17帧速度不变，从第18帧开始，每帧纵向速度增加0.28像素/帧（最大16像素/帧），横向速度乘0.99。传送枪台的射弹匀速直线运动，并会按顺序激活路径上的所有青绿压力垫板。彩纸炮发射的射弹匀速直线运行，生存期为2帧，生存期结束后爆炸，生成特效。在这2帧内，射弹只能前进28像素，无法离开炮台4*3的大小，也就无法触发青绿压力垫板。
 
-兔兔炮的炮弹会在实体块上反弹。水平射出的兔兔炮弹在同高度的水平实体块平面上停下时，距离炮口93格\footnote{由@WIAADC 验证}。
+兔兔炮的炮弹会在实体块上反弹。水平射出的兔兔炮弹在同高度的水平实体块平面上停下时，距离炮口93格\footnote{由\vip{adc}验证}。
 
 \begin{figure}[!ht]
 \centering
@@ -435,9 +433,9 @@
 
 为了行文流畅，上面的描述省略了一个关键的过程。如果A不是下半砖，那么后续的结算中将忽略这个传送机的另外两个图格，避免自身传送。反过来，如果A是下半砖，那么将有可能实现自身传送。
 
-\begin{remark}{}{}
+\begin{remark*}{}{}
 互换！{\LARGE 互换！}{\huge 互换！}老想着把几个NPC传送到一起的把这个词抄100遍！其他人怎么做到的？在目标传送机上放半砖把NPC推走，几个传送之间设置延迟。
-\end{remark}
+\end{remark*}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -565,9 +563,9 @@
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/389.png}\\
+\includegraphics[width=\textwidth]{images/389.png}\\
 \mbox{}\\
-\includegraphics{images/390.png}
+\includegraphics[width=\textwidth]{images/390.png}
 \caption{双向1传11传送阵。无论下面有多少传送机，都只用向上接两根线。}\label{fig25}
 \end{figure}
 
