@@ -21,12 +21,12 @@
 
 本书正文部分用于集中讨论电路，对于电路以外的信息会在附录中讨论。
 
-在\github{putianyi889/TerrariaWiringTutorial}协助编写本书是唯一的支持我们的方式。你可以主动创作，也可以在\href{https://github.com/putianyi889/TerrariaWiringTutorial/issues}{Issues}中领取任务。如果你不会使用GitHub，可以看教程\url{https://zhuanlan.zhihu.com/p/34693871}。关注 (Watch) 本书的GitHub项目可以即时获取更新信息。
+在\github{putianyi889/TerrariaWiringTutorial}协助编写本书是唯一的支持我们的方式。你可以主动创作，也可以在\href{https://github.com/putianyi889/TerrariaWiringTutorial/issues}{Issues}中领取任务。如果你不会使用GitHub，可以看\href{https://zhuanlan.zhihu.com/p/34693871}{教程}。关注（Watch）本书的GitHub项目可以即时获取更新信息。
 
 \section{一些基本概念与机制}
 
 \subsection{实体}
-实体指的是可以发生碰撞的物体\footnote{严格地讲，实体是编程术语，这里仅仅是在不影响游戏理解的前提下进行简化。}，包括但不限于\wikii{NPC_ID}{NPC}、\wiki{人物}、\wiki{射弹}、\wiki{物品}、\wikii{图格_ID}{图格}。
+实体指的是可以发生碰撞的物体\footnote{严格地讲，实体是编程术语，这里仅仅是在不影响游戏理解的前提下进行简化。}，包括但不限于\wiki[NPC]{NPC_ID}、\wiki{人物}、\wiki{射弹}、\wiki{物品}、\wiki[图格]{图格_ID}。
 
 史莱姆对玩家造成接触伤害，就是史莱姆（NPC）与玩家的碰撞；玩家用弓射出木箭击中了史莱姆，就是史莱姆（NPC）与木箭（射弹）的碰撞；玩家被血肉墙激光击中，就是玩家与激光（射弹）的碰撞；玩家、掉落物、大多数NPC、大多数射弹不能穿墙，是因为玩家、掉落物、NPC、射弹会和图格碰撞。
 
@@ -38,38 +38,37 @@
 从程序角度来说，硬上限是由C\#定长数组的长度决定的，如果尝试突破会导致数组越界。为避免在正常游戏过程中出现崩溃现象，游戏程序中在关键函数中都有越界检查，例如NPC达到上限时，游戏会拒绝生成新NPC以防止崩溃。软上限是开发者对游戏的平衡控制，例如玩家附近的活跃敌怪数量到达15则不会进行刷怪。
 
 目前已知的硬上限见\autoref{tab8928}。
-\begin{longtable}{|c|c|}
+\begin{longtable}{|cc||cc|}
 \caption{泰拉瑞亚中的硬上限}\label{tab8928}\\\hline
-对象&上限\\\hline
+对象&上限&对象&上限\\\hline
 \endfirsthead
-\hline 对象&上限\\\hline
+\hline 对象&上限&对象&上限\\\hline
 \endhead
 \hline
 \endfoot
-buff&22\\\hline
-傀儡影子&100\\\hline
-NPC&200\\\hline
-玩家&255\\\hline
-掉落物&400\\\hline
-射弹&1000\\\hline
-冷却机关&1000\\\hline
-宝箱&1000\\\hline
-活跃液体&5000\\\hline
-缓冲液体&10000
+buff&22&傀儡影子&100\\\hline
+
+NPC&200&玩家&255\\\hline
+
+掉落物&400&射弹&1000\\\hline
+
+冷却机关&1000&宝箱&1000\\\hline
+
+活跃液体&5000&缓冲液体&10000
 \end{longtable}
 
 \subsection{图像帧/物理帧}
 
-图像帧(frame)指泰拉瑞亚游戏过程中电脑显示屏更新的每帧画面，在游戏中按F10可以在游戏窗口左下角显示当前图像帧率。
+图像帧(frame)指泰拉瑞亚游戏过程中电脑显示屏更新的每帧画面，在游戏中按\shortcut{F10}可以在游戏窗口左下角显示当前图像帧率。
 
 物理帧(tick)指泰拉瑞亚中时间的最小单位，为1/60秒。在物理帧的尺度下，泰拉瑞亚是回合制游戏，每个物理帧中，除电路外所有的游戏机制会依一定顺序结算。由于本书是针对游戏机制的讨论，未经特殊说明的情况下将直接用“帧”表示物理帧。
 
 游戏运行时，显卡负责图像处理，CPU负责机制结算。如果这两个过程都能在1/60秒内完成，那么物理帧率就是60。如果CPU处理时间大于1/60秒，那么相应的物理帧率会变低。如果显卡处理时间大于1/60秒，那么结果取决于是否跳帧。如果设置中打开跳帧，那么会适当降低图像帧率以保持CPU能达到的最高物理帧率。如果关闭跳帧，那么图像帧和物理帧会完全同步，实时的游戏速度以显卡和CPU中的最慢速度为准。
 
 \subsection{坐标}\label{tab8}
-坐标就是在世界中的位置。坐标并非深度计与罗盘所显示的那样。程序中的坐标是以世界左上角为(0,0)，横坐标向右，纵坐标向下。世界宽度为 \lstinline{maxTilesX} 格，高度为 \lstinline{maxTilesY} 格。世界右下角的坐标为(\lstinline{maxTilesX}, \lstinline{maxTilesY})。
+坐标就是在世界中的位置。坐标并非深度计与罗盘所显示的那样。程序中的坐标是以世界左上角为(0,0)，横坐标向右，纵坐标向下。世界宽度为 \trvar{maxTilesX} 格，高度为 \trvar{maxTilesY} 格。世界右下角的坐标为(\trvar{maxTilesX}, \trvar{maxTilesY})。
 
-泰拉瑞亚中纵坐标分层一般分为太空、地表、地下、洞穴、地狱五层。而游戏机制中，只有两个阈值，一个是地表层与地下层交界处的纵坐标，称为\lstinline{worldSurface}；另一个是地下层与洞穴层交界处的纵坐标，称为\lstinline{rockLayer}。太空层高度是把\lstinline{rockLayer}乘上一个系数得到的；地狱层高度是把\lstinline{maxTilesY}减去一个常数得到的。这个系数一般是0.35，常数一般是200格，但是在不同情况下也可能会有出入。
+泰拉瑞亚中纵坐标分层一般分为太空、地表、地下、洞穴、地狱五层。而游戏机制中，只有两个阈值，一个是地表层与地下层交界处的纵坐标，称为\trvar{worldSurface}；另一个是地下层与洞穴层交界处的纵坐标，称为\trvar{rockLayer}。太空层高度是把\trvar{rockLayer}乘上一个系数得到的；地狱层高度是把\trvar{maxTilesY}减去一个常数得到的。这个系数一般是0.35，常数一般是200格，但是在不同机制中也可能会有出入。
 
 \subsection{度量}
 泰拉瑞亚中的长度单位有：英里、格、英尺、像素。换算关系是1英尺=8像素=1/2格=1/5280英里。

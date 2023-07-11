@@ -37,3 +37,21 @@
 \definecolor{yellowwirelight}{RGB}{253, 234, 83}
 \definecolor{yellowwiremiddle}{RGB}{218, 194, 2}
 \definecolor{yellowwiredark}{RGB}{172, 153, 2}
+
+\if\rendermode3
+	\color{gray}
+	\pagecolor{black}
+	\definecolor{thmcolback}{named}{black}
+	\definecolor{thmcoltext}{named}{gray}
+	\definecolor{redcolframe}{named}{redwiredarkborder}
+	\definecolor{bluecolframe}{named}{bluewiredarkborder}
+	\definecolor{greencolframe}{named}{greenwiredarkborder}
+	\definecolor{yellowcolframe}{named}{yellowwiredarkborder}
+\else
+	\definecolor{thmcolback}{named}{white}
+	\definecolor{thmcoltext}{named}{black}
+	\definecolor{redcolframe}{named}{redwiremiddle}
+	\definecolor{bluecolframe}{named}{bluewiremiddle}
+	\definecolor{greencolframe}{named}{greenwiremiddle}
+	\definecolor{yellowcolframe}{named}{yellowwiremiddle}
+\fi

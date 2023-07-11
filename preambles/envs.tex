@@ -21,31 +21,55 @@
 \addwireframe{yellow}
 
 \newtcbtheorem{theorem}{定理}{
-	enhanced, sharp corners=all, colframe=greenwiremiddle, colback=white, fonttitle=\bfseries,
+	enhanced, 
+	sharp corners=all, 
+	colframe=greencolframe, colback=thmcolback, coltext=thmcoltext, 
+	fonttitle=\bfseries,
 	greenframe
 }{}
 \newtcbtheorem{corollary}{推论}{
-	enhanced, sharp corners=all, colframe=greenwiremiddle, colback=white, fonttitle=\bfseries,
+	enhanced, 
+	sharp corners=all, 
+	colframe=greencolframe, colback=thmcolback, coltext=thmcoltext, 
+	fonttitle=\bfseries,
 	greenframe
 }{}
 
 \theoremstyle{definition}
 \newtcbtheorem{example}{例}{
-	breakable, colback=white, colframe=bluewiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
-	fonttitle=\bfseries, blueframe
+	breakable, 
+	colframe=bluecolframe, colback=thmcolback, coltext=thmcoltext, 
+	skin=enhanced, 
+	parbox=false, 
+	sharp corners=all, 
+	before title={\noindent},
+	fonttitle=\bfseries, 
+	blueframe
 }{}
 \newtcbtheorem{problem}{思考题}{
-	breakable, colback=white, colframe=yellowwiremiddle, skin=enhanced, parbox=false, sharp corners=all, before title={\noindent},
-	fonttitle=\bfseries, yellowframe
+	breakable, 
+	colframe=yellowcolframe, colback=thmcolback, coltext=thmcoltext, 
+	skin=enhanced, 
+	parbox=false, 
+	sharp corners=all, 
+	before title={\noindent},
+	fonttitle=\bfseries, 
+	yellowframe
 }{}
 
 \theoremstyle{remark}
 \newtcbtheorem{note}{注意}{
-	enhanced, sharp corners=all, colframe=redwiremiddle, colback=white, fonttitle=\bfseries,
+	enhanced, 
+	sharp corners=all, 
+	colframe=redcolframe, colback=thmcolback, coltext=thmcoltext, 
+	fonttitle=\bfseries,
 	redframe
 }{}
 \newtcbtheorem{remark}{注}{
-	enhanced, sharp corners=all, colframe=redwiremiddle, colback=white, fonttitle=\bfseries,
+	enhanced, 
+	sharp corners=all, 
+	colframe=redcolframe, colback=thmcolback, coltext=thmcoltext, 
+	fonttitle=\bfseries,
 	redframe
 }{}
 

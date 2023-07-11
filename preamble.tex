@@ -3,6 +3,10 @@
 \usepackage{graphicx}
 \usepackage{graphbox}
 \usepackage{float}
+\usepackage{etoolbox}
+
+\usepackage{adjustbox}
+\adjustboxset{scale=0.666667, max width=\linewidth}
 
 \usepackage[colorlinks]{hyperref}
 \hypersetup{bookmarksdepth=5}
@@ -21,6 +25,7 @@
 \usepackage{seqsplit}
 \newcommand{\trvar}[1]{\texttt{\seqsplit{#1}}}
 
+\input{preambles/unicode}
 \input{preambles/skin}
 \input{preambles/envs}
 \input{preambles/temps}

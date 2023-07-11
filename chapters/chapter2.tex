@@ -88,22 +88,21 @@
 用火把摆出数字“0”（\autoref{i32}），然后用电线连接一个开关和“0”左边三条边（\autoref{i33}）。在这个电路中，开关是电源，“0”的左边三条边上的火把是用电器。因为开关的激活条件是右击，我们右击开关就能激活它，然后开关上的红线激活，于是红线下“0”的左边三条边被激活。火把的激活响应是亮灭切换，所以这三条边就会灭，显示数字“1”（\autoref{fig74}）。反复右击开关，这些火把就会在亮灭之间切换，从而显示的数字在“0”和“1”之间切换。这就是最简单的二进制\textbf{数显}，\myind{数显}是数字显示器的简称。
 
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i32}
-\includegraphics{images/433.png}
-}
-\qquad\qquad
+\adjincludegraphics{images/433.png}
+}%
+\smarthfill{15}[3]%
 \subfloat[]{
 \label{i33}
-\includegraphics{images/33.png}
-}
-\qquad\qquad
+\adjincludegraphics{images/33.png}
+}%
+\smarthfill{15}[3]%
 \subfloat[]{
 \label{fig74}
-\includegraphics{images/434.png}
+\adjincludegraphics{images/434.png}
 }
-\end{center}
 \caption{}
 \label{i32:33}
 \end{figure}
@@ -111,19 +110,18 @@
 如果想要显示效果更醒目，可以将背景墙和火把都涂上\wiki{暗影漆}，也可以尝试其他的光源，甚至\myind{制动器}与实体块的组合。
 \end{remark*}
 \begin{problem}{}{}
-设计如\autoref{i69:70}所示的二进制数显。
+设计如\autoref{i69:70}所示的二进制数显。显示方块是\wiki{晶莹宝石块}。
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[0]{
 \label{i69}
-\includegraphics{images/69.png}
-}
-\qquad
+\adjincludegraphics{images/69.png}
+}%
+\smarthfill{6}%
 \subfloat[1]{
 \label{i70}
-\includegraphics{images/70.png}
+\adjincludegraphics{images/70.png}
 }
-\end{center}
 \caption{}
 \label{i69:70}
 \end{figure}
@@ -133,11 +131,10 @@
 \begin{example}{}{}
 如\autoref{i3:4}所示，用电线连接\myind{逻辑感应器（夜）}和\myind{派对中心}。这个电路中，\myind{逻辑感应器}（夜）为电源，派对中心为用电器。入夜时，\myind{派对}事件结束，派对中心自动关闭，然后逻辑感应器（夜）激活，派对中心激活，又重新打开，进入派对事件。每天入夜时重复这个过程，地图就会保持在派对事件中。
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/3.png}
-\qquad
-\includegraphics{images/4.png}
-\end{center}
+\centering
+\adjincludegraphics{images/3.png}%
+\smarthfill{6}%
+\adjincludegraphics{images/4.png}
 \caption{}
 \label{i3:4}
 \end{figure}
@@ -153,11 +150,10 @@
 
 如\autoref{i5:6}所示，用电线连接\myind{传送带}（顺时针）和\myind{测重压力板}。在这个电路中，测重压力板是电源，传送带是用电器。人物站在传送带上。传送带使人物向右移动，人物进入测重压力板所在格时测重压力板激活，进而激活传送带，传送带变为逆时针，人物向左移动，移出测重压力板时测重压力板又激活，传送带变为顺时针，人物向右移动，如此反复。
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/5.png}
-\qquad
-\includegraphics{images/6.png}
-\end{center}
+\centering
+\adjincludegraphics[scale=0.75]{images/5.png}%
+\smarthfill{4}%
+\adjincludegraphics[scale=0.75]{images/6.png}
 \caption{传送带驱动。图中传送带为顺时针。}
 \label{i5:6}
 \end{figure}
@@ -176,11 +172,10 @@
 很多人刚开始玩泰拉瑞亚的时候，盖房子都会造门。普通的门是非常不方便的，不仅出入都需要操作，而且有些时候并不能阻止敌怪进入。解救了机械师后，有些人就开始把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/38.png}
-\qquad
-\includegraphics{images/39.png}
-\end{center}
+\centering
+\adjincludegraphics{images/38.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/39.png}
 \caption{使用制动器做的门，开关可以开关门。}
 \label{i38:39}
 \end{figure}
@@ -190,11 +185,10 @@
 使用两个压力板就可以完成这个功能。如\autoref{i40:41}所示，当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/40.png}
-\qquad
-\includegraphics{images/41.png}
-\end{center}
+\centering
+\adjincludegraphics{images/40.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/41.png}
 \caption{}
 \label{i40:41}
 \end{figure}
@@ -202,11 +196,10 @@
 这个门的漏洞比较明显，那就是如果人走到门口，又回去，门就会保持开启状态。为了解决这个问题，需要把普通压力板改成\myind{测重压力板}（\autoref{i44:45}）。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/44.png}
-\qquad
-\includegraphics{images/45.png}
-\end{center}
+\centering
+\adjincludegraphics{images/44.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/45.png}
 \caption{}
 \label{i44:45}
 \end{figure}
@@ -214,11 +207,10 @@
 然而改成了测重压力板后并非万事大吉。如果进入多人游戏，两个人站在门的两侧，同时试图到对方一边，那么制动器被激活两次，物块仍实化，除非一个人让步。这是非常不方便的。使用\myind{逻辑感应器（玩家）}可以解决这个问题（\autoref{i46:47}）。当已经有一个玩家站在感应器的蓝框内时，其他玩家进出不会改变感应器状态，感应器自然就不会激活。因此，当感应器的蓝框内有玩家时门开启，否则门关闭。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/46.png}
-\qquad
-\includegraphics{images/47.png}
-\end{center}
+\centering
+\adjincludegraphics{images/46.png}%
+\smarthfill{14}%
+\adjincludegraphics{images/47.png}
 \caption{}
 \label{i46:47}
 \end{figure}
@@ -226,9 +218,29 @@
 
 \section{逻辑门灯/逻辑门}
 \begin{figure}[H]
-\centering
-\subfloat[逻辑灯]{\includegraphics{figures/Logic_Gate_Lamp_(Off).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(On).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(Faulty).png}}\qquad
-\subfloat[逻辑门]{\includegraphics{figures/Logic_Gate_(AND).png}\quad\includegraphics{figures/Logic_Gate_(NAND).png}\quad\includegraphics{figures/Logic_Gate_(OR).png}\quad\includegraphics{figures/Logic_Gate_(NOR).png}\quad\includegraphics{figures/Logic_Gate_(XOR).png}\quad\includegraphics{figures/Logic_Gate_(XNOR).png}}
+\hfill
+\subfloat[逻辑灯]{
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(Off).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(On).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(Faulty).png}
+}
+\hfill
+\subfloat[逻辑门]{
+	\adjincludegraphics{figures/Logic_Gate_(AND).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(NAND).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(OR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(NOR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(XOR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(XNOR).png}
+}
+\rhfill
 \caption{}
 \end{figure}
 
@@ -243,16 +255,10 @@
 \autoref{exa5}中我们使用逻辑感应器（玩家）实现了\myind{自动门}的功能。这个自动门仍有缺点，那就是感应器的感应范围太大，导致玩家在很远的地方，甚至不想开门的地方（门的上方和下方）门也会打开。测重压力板的感应范围合适，但是当门两边同时站人时会导致门关闭。我们需要实现的功能是：当门的左边站人\textbf{或}右边站人时门开启。因此使用\myind{或门}可以达到我们的要求。
 
 \begin{figure}[H]
-\begin{center}
-\subfloat{
-\label{i50}
-\includegraphics{images/50.png}
-}
-\subfloat{
-\label{i51}
-\includegraphics{images/51.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/50.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/51.png}
 \caption{}
 \label{i50:51}
 \end{figure}
@@ -287,21 +293,21 @@
 如\autoref{i13}所示，在与门上放一个逻辑灯就做成了一种二极管。用红线连接逻辑灯，蓝线连接与门（\autoref{i14}，\autoref{i15}），则激活红线会导致蓝线激活，而激活蓝线不会影响红线。根据与门的定义，当逻辑灯点亮时与门点亮，当逻辑灯熄灭时与门熄灭。红线激活时，逻辑灯在亮灭之间切换，从而逻辑门也在亮灭之间切换，激活一次蓝线。由于逻辑门不是用电器，所以激活蓝线不会影响红线。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i13}
-\includegraphics{images/13.png}
-}
-\qquad
+\adjincludegraphics{images/13.png}
+}%
+\smarthfill{11}[3]%
 \subfloat[]{
 \label{i14}
-\includegraphics{images/14.png}
-}
+\adjincludegraphics{images/14.png}
+}%
+\smarthfill{11}[3]%
 \subfloat[]{
 \label{i15}
-\includegraphics{images/15.png}
+\adjincludegraphics{images/15.png}
 }
-\end{center}
 \caption{\ref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
 \label{i13:15}
 \end{figure}
@@ -309,16 +315,10 @@
 用这个原理可以轻松用一个开关开启很多1秒计时器并使它们互不干扰（\autoref{i16:17}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i16}
-\includegraphics[width=0.4\textwidth]{images/16.png}
-}
-\subfloat{
-\label{i17}
-\includegraphics[width=0.4\textwidth]{images/17.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/16.png}%
+\smarthfill{32}%
+\adjincludegraphics{images/17.png}
 \caption{}
 \label{i16:17}
 \end{figure}
@@ -332,11 +332,10 @@
 装置如\autoref{i48:49}所示。打开1秒计时器，经过1秒，计时器激活电路，然后逻辑灯被激活，进而逻辑门激活，把1秒计时器关闭。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/48.png}
-\qquad
-\includegraphics{images/49.png}
-\end{center}
+\centering
+\adjincludegraphics{images/48.png}%
+\smarthfill{4}%
+\adjincludegraphics{images/49.png}
 \caption{}
 \label{i48:49}
 \end{figure}
@@ -352,9 +351,9 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[]{\label{fig7}\includegraphics{images/359.png}}
-\qquad
-\subfloat[]{\label{fig8}\includegraphics{images/360.png}}
+\subfloat[]{\label{fig7}\adjincludegraphics{images/359.png}}%
+\smarthfill{6}%
+\subfloat[]{\label{fig8}\adjincludegraphics{images/360.png}}
 \caption{}
 \end{figure}
 
@@ -371,17 +370,16 @@
 我们选择使用\myind{七段线}显示。首先用火把摆出七段线（\autoref{i34:35}\subref{i34}），然后用七根电线分别控制每一段线（\autoref{i34:35}\subref{i35}）。对于0\~{}9，a\~{}g分别有对应部分点亮\autoref{qiduanxian}。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i34}
-\includegraphics{images/34.png}
-}
-\quad
+\adjincludegraphics{images/34.png}
+}%
+\smarthfill{20}%
 \subfloat[]{
 \label{i35}
-\includegraphics{images/35.png}
+\adjincludegraphics{images/35.png}
 }
-\end{center}
 \caption{}
 \label{i34:35}
 \end{figure}
@@ -405,17 +403,16 @@
 然后我们来处理输入。我们需要把输入的四位二进制信息转换为10个数字中的一个，这个过程叫做\myind{解码}。我们用\autoref{i36:37}中的电路进行解码。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i36}
-\includegraphics{images/36.png}
-}
-\quad
+\adjincludegraphics{images/36.png}
+}%
+\smarthfill{24}%
 \subfloat[]{
 \label{i37}
-\includegraphics{images/37.png}
+\adjincludegraphics{images/37.png}
 }
-\end{center}
 \caption{十个与门从左到右依次代表0\~{}9，四个开关/火把从上到下依次代表8,4,2,1。例如火把4,2,1点亮，则代表数字4+2+1=7的逻辑门点亮，其他逻辑门熄灭。}
 \label{i36:37}
 \end{figure}
@@ -423,18 +420,18 @@
 接下来就可以进行接线了。把十个逻辑门依次标号为0\~{}9。把七段线显示器置为0状态，然后依据\autoref{qiduanxian}接线：把0号逻辑门连到abcefg，把1号逻辑门连到cf，等等。遇到电线颜色冲突的时候要使用换线器，最终连好的电路如\autoref{i42:43}。操作四个开关，显示屏即显示0\~{}9的数字或者熄灭。之所以会这样，是因为每次数字改变的时候：原有数字的逻辑门熄灭，激活一次，使原数字对应的所有火把熄灭；新数字的逻辑门点亮，激活一次，使新数字对应的所有火把点亮。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i42}
-\includegraphics[width=0.3\textwidth]{images/42.png}
-\includegraphics[width=0.3\textwidth]{images/43.png}
+\adjincludegraphics{images/42.png}%
+\smarthfill{30}%
+\adjincludegraphics{images/43.png}
 }
+
 \subfloat[黄线绿线接法]{
 \label{i115}
-\includegraphics[width=0.3\textwidth]{images/115.png}
+\adjincludegraphics{images/115.png}
 }
-\subfloat{}
-\end{center}
 \caption{a连接到02356789，b连接到045689，c连接到01234789，d连接到2345689，e连接到0268，f连接到013456789，g连接到0235689。}
 \label{i42:43}
 \end{figure}
@@ -444,28 +441,31 @@
 如果任意的普通逻辑门上有至少一个\myind{故障逻辑灯}，那么该逻辑门会变为蓝色，称为故障逻辑门。故障逻辑门是一个（不是一类）特殊的逻辑门，无论其下方的普通逻辑门是什么，故障逻辑门的性质是相同的。故障逻辑门与其上最下方的故障逻辑灯之间的普通逻辑灯为有效逻辑灯。当故障逻辑门上有一个故障逻辑灯被激活时，故障逻辑门会依一定概率激活，该概率等于点亮的有效逻辑灯的数量除以所有有效逻辑灯的数量。请读者对照\autoref{i54:58}仔细揣摩这段话的描述。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i54}
-\includegraphics{images/54.png}
-}
+\adjincludegraphics{images/54.png}
+}%
+\smarthfill{5}[5]%
 \subfloat[]{
 \label{i55}
-\includegraphics{images/55.png}
-}
+\adjincludegraphics{images/55.png}
+}%
+\smarthfill{5}[5]%
 \subfloat[]{
 \label{i56}
-\includegraphics{images/56.png}
-}
+\adjincludegraphics{images/56.png}
+}%
+\smarthfill{5}[5]%
 \subfloat[]{
 \label{i57}
-\includegraphics{images/57.png}
-}
+\adjincludegraphics{images/57.png}
+}%
+\smarthfill{5}[5]%
 \subfloat[]{
 \label{i58}
-\includegraphics{images/58.png}
+\adjincludegraphics{images/58.png}
 }
-\end{center}
 \caption{当激活顶端的故障逻辑灯时，故障逻辑门激活的概率分别是：\protect\subref{i54}1/7；\protect\subref{i55}2/7；\protect\subref{i56}6/7；\protect\subref{i57}1/2；\protect\subref{i58}1。}
 \label{i54:58}
 \end{figure}
@@ -477,9 +477,9 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[单灯换线器]{\label{fig9}\includegraphics{images/361.png}}
-\qquad
-\subfloat[双灯换线器]{\label{fig10}\includegraphics{images/362.png}}
+\subfloat[单灯换线器]{\label{fig9}\adjincludegraphics{images/361.png}}%
+\smarthfill{16}%
+\subfloat[双灯换线器]{\label{fig10}\quad\adjincludegraphics{images/362.png}\quad}
 \caption{换线器}
 \end{figure}
 
@@ -489,9 +489,9 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[与门vs故障门]{\label{fig11}\includegraphics{images/363.png}\quad\includegraphics{images/364.png}}
-\qquad
-\subfloat[异或门抗干扰]{\label{fig12}\includegraphics{images/365.png}\quad\includegraphics{images/366.png}}
+\subfloat[与门vs故障门]{\label{fig11}\adjincludegraphics{images/363.png}\quad\adjincludegraphics{images/364.png}}%
+\smarthfill{14}%
+\subfloat[异或门抗干扰]{\label{fig12}\adjincludegraphics{images/365.png}\quad\adjincludegraphics{images/366.png}}
 \caption{\protect\subref{fig11}右击开关，红蓝线同时激活，左边火把不响应，右边火把响应；\protect\subref{fig12}无论蓝线如何激活，都不影响换线器工作。}
 \end{figure}
 
@@ -504,16 +504,10 @@
 泰拉瑞亚中的逻辑电路有个非常大的缺点，就是\myind{赋值}困难。在数电中，想要给电路赋值0或1，只用连上对应电平的电源即可。然而在泰拉瑞亚中，电线没有电平高低，只有激活，而激活只能改变逻辑灯状态。把一个逻辑灯赋值为0，就需要在这个逻辑灯本来是1的情况下激活一次（或激活奇数次），在逻辑灯本来是0的情况下不激活（或激活偶数次）。如\autoref{i52:53}所示的电路可以做到这一点：当逻辑灯灭时，激活红线会将故障逻辑灯激活，因为逻辑灯灭，逻辑门不激活，逻辑灯保持灭。当逻辑灯亮时，激活红线会将故障逻辑灯激活，因为逻辑灯亮，逻辑门激活蓝线，逻辑灯熄灭。无论如何，激活红线都会使逻辑灯熄灭。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i52}
-\includegraphics{images/52.png}
-}
-\subfloat{
-\label{i53}
-\includegraphics{images/53.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/52.png}%
+\smarthfill{4}%
+\adjincludegraphics{images/53.png}
 \caption{}
 \label{i52:53}
 \end{figure}
@@ -521,16 +515,10 @@
 如果将逻辑灯与一个火把同步，就可以做到激活红线使火把熄灭。如果将逻辑灯与火把反向同步，就可以做到激活红线使火把点亮（\autoref{i59:60}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i59}
-\includegraphics{images/59.png}
-}
-\subfloat{
-\label{i60}
-\includegraphics{images/60.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/59.png}%
+\smarthfill{6}%
+\adjincludegraphics{images/60.png}
 \caption{左边开关使火把点亮（赋值1），右边开关使火把关闭（赋值0）。}
 \label{i59:60}
 \end{figure}
@@ -538,17 +526,10 @@
 \begin{example}{\myind{D触发器}}{sec15}
 
 \begin{figure}[H]
-\begin{center}
-\subfloat{
-\label{i237}
-\includegraphics{images/237.png}
-}
-\qquad
-\subfloat{
-\label{i238}
-\includegraphics{images/238.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/237.png}%
+\smarthfill{14}%
+\adjincludegraphics{images/238.png}
 \caption{左边的开关改变A火把的状态，右边的开关将A火把状态更新到B火把。}
 \label{i237:238}
 \end{figure}
@@ -564,8 +545,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/72.png}
-\includegraphics{images/73.png}
+\adjincludegraphics{images/72.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/73.png}
 \caption{}
 \label{i72:73}
 \end{figure}
@@ -577,16 +559,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 递次电路的另一个典型用途就是\myind{降频}。我们知道，传送带驱动的频率是60Hz。现在我们需要20Hz的驱动，只需要利用循环长度为3的递次电路（\autoref{i90:91}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i90}
-\includegraphics{images/90.png}
-}
-\subfloat{
-\label{i91}
-\includegraphics{images/91.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/90.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/91.png}
 \caption{将黄线接出即得到20Hz的驱动，因为绿线每激活3次，黄线都激活1次。}
 \label{i90:91}
 \end{figure}
@@ -595,8 +571,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/86.png}
-\includegraphics{images/87.png}
+\adjincludegraphics{images/86.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/87.png}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。除了横穿所有故障逻辑灯的绿线和黄线外，红线和蓝线用来进行递次电路中的循环并将上面有效逻辑灯的状态同步到下面，绿线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
 \label{i86:87}
 \end{figure}
@@ -605,8 +582,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{images/88.png}
-\includegraphics[width=0.5\textwidth]{images/89.png}
+\adjincludegraphics{images/88.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/89.png}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
 \label{i88:89}
 \end{figure}
@@ -615,8 +593,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{images/106.png}
-\includegraphics[width=0.5\textwidth]{images/107.png}
+\adjincludegraphics{images/106.png}%
+\smarthfill{30}%
+\adjincludegraphics{images/107.png}
 \caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
 \label{i106:107}
 \end{figure}
@@ -628,42 +607,33 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 我们已经讲过了如何利用递次电路\myind{降频}。例如\autoref{i92:97}\subref{i92:93}中，绿线激活奇数次时红线激活，偶数次时蓝线激活。事实上降频一半有更简单的方式。在\autoref{i92:97}\subref{i94:95}中，激活绿线会激活故障逻辑灯并同时点亮有效逻辑灯，此时故障逻辑门会激活，红线激活；再次激活绿线会激活故障逻辑灯并同时熄灭有效逻辑灯，此时故障逻辑门不激活。\autoref{i92:97}\subref{i94:95}也可以做到在绿线激活奇数次时红线激活，\autoref{i92:97}\subref{i96:97}也可以做到在绿线激活偶数次时蓝线激活。一般说的降频电路就指这种使用一个故障逻辑门，把频率降低一半的电路。一般不要求精确频率时，使用降频电路比递次电路更节省空间。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i92:93}
-\includegraphics{images/92.png}
-\includegraphics{images/93.png}
-}
-\qquad
+\adjincludegraphics{images/92.png}%
+\quad%
+\adjincludegraphics{images/93.png}
+}%
+\smarthfill{11}[3]%
 \subfloat[]{
 \label{i94:95}
-\includegraphics{images/94.png}
-\includegraphics{images/95.png}
-}
-\qquad
+\adjincludegraphics{images/94.png}%
+\quad%
+\adjincludegraphics{images/95.png}
+}%
+\smarthfill{11}[3]%
 \subfloat[]{
 \label{i96:97}
-\includegraphics{images/96.png}
-\includegraphics{images/97.png}
+\adjincludegraphics{images/96.png}%
+\quad%
+\adjincludegraphics{images/97.png}
 }
-\end{center}
 \caption{}
 \label{i92:97}
 \end{figure}
 
 \begin{problem}{}{}
 利用降频电路和二进制数显制作一个多位的二进制计数器。
-\end{problem}
-
-\begin{problem}{}{}
-解释为什么如\autoref{i11:12}所示装置会在世界开启瞬间激活广播盒。该装置里的故障逻辑门有什么作用？
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.4\textwidth]{images/11.png}
-\includegraphics[width=0.4\textwidth]{images/12.png}
-\caption{}
-\label{i11:12}
-\end{figure}
 \end{problem}
 
 \subsection{\myind{十进制计数器}}
@@ -673,17 +643,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 计数器计数的对象是驱动或某个特定的信号源。信号源每激活一次，计数器的数字加1。因为是十进制，所以满十进一，这提示我们使用循环为10的\myind{递次电路}作为计数模块。因为计数器要有清零功能，所以递次电路要带上复位电路。根据数字的书写习惯，右边低位，左边高位，所以采用反向的递次电路并且将逻辑门稍微错位使接线更顺。将低位的递次电路最后一个逻辑门的输出接上高一位递次电路的输入即可完成进位功能（\autoref{i108:109}），然后将最低位的递次电路输入接上驱动的输出即可以实现计数功能。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i108}
-\includegraphics[width=0.9\textwidth]{images/108.png}
-}
-\\
-\subfloat{
-\label{i109}
-\includegraphics[width=0.9\textwidth]{images/109.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/108.png}
+
+\adjincludegraphics{images/109.png}
 \caption{绿线计数，黄线复位。最右边是个位，最左边是千位。}
 \label{i108:109}
 \end{figure}
@@ -691,16 +654,16 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 对递次电路熟悉的人通过递次电路上的逻辑灯已经可以读出数字：递次电路上最右边的有效逻辑灯亮代表这一位是0，最左边的有效逻辑灯亮代表这一位是9。但是既然要做效果，就需要把数字可视化，即加上\myind{数显}。我们在之前已经做过一个十进制的数显，如果将那个数显的显示部分照搬过来，很容易发现显示的不对，这是因为两个数显的输入不同。之前做的数显，数字改变时\myind{显示器}收到两个信号：第一个信号将之前的数字熄灭，第二个信号将新的数字点亮。而我们的递次电路的输出只是之前的数字。因为计数器中之前的数字可以唯一确定新的数字，所以我们可以直接让递次电路发出的信号激活从旧数字变成新数字需要激活的火把。另外，由于显示器是多个数字排列在一起，为了避免接线困难，应当先把数字上的线确定好，再往递次电路上接。如果选用\autoref{i110:112}\subref{i110}所示的火把排布，由于数字间只空了一格，之前用过的七段线接法就不能用了。所以我们采用的另一种七段线接法\autoref{i110:112}\subref{i112}，注意某些线有重叠。利用\autoref{jishuqi}就可以完成接线（\autoref{i113:114}）。注意到这里使用了故障逻辑门做\myind{换线器}。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i110}
-\includegraphics[width=0.45\textwidth]{images/110.png}
-}
+\adjincludegraphics{images/110.png}
+}%
+\smarthfill{40}%
 \subfloat[]{
 \label{i112}
-\includegraphics[width=0.45\textwidth]{images/112.png}
+\adjincludegraphics{images/112.png}
 }
-\end{center}
 \caption{}
 \label{i110:112}
 \end{figure}
@@ -721,17 +684,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \end{table}
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i113}
-\includegraphics[width=0.9\textwidth]{images/113.png}
-}
-\\
-\subfloat{
-\label{i114}
-\includegraphics[width=0.9\textwidth]{images/114.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/113.png}
+
+\adjincludegraphics{images/114.png}
 \caption{}
 \label{i113:114}
 \end{figure}
@@ -740,7 +696,7 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 补全十进制数显\autoref{i71}的接线。
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{images/71.png}
+\adjincludegraphics{images/71.png}
 \caption{}
 \label{i71}
 \end{figure}
@@ -752,36 +708,42 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \begin{center}
 \subfloat[满月]{
 \label{i61}
-\includegraphics[width=0.11\textwidth]{images/61.png}
-}
+\adjincludegraphics{images/61.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[亏凸月]{
 \label{i62}
-\includegraphics[width=0.11\textwidth]{images/62.png}
-}
+\adjincludegraphics{images/62.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[下弦月]{
 \label{i63}
-\includegraphics[width=0.11\textwidth]{images/63.png}
-}
+\adjincludegraphics{images/63.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[残月]{
 \label{i64}
-\includegraphics[width=0.11\textwidth]{images/64.png}
+\adjincludegraphics{images/64.png}
 }
 
 \subfloat[新月]{
 \label{i65}
-\includegraphics[width=0.11\textwidth]{images/65.png}
-}
+\adjincludegraphics{images/65.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[峨眉月]{
 \label{i66}
-\includegraphics[width=0.11\textwidth]{images/66.png}
-}
+\adjincludegraphics{images/66.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[上弦月]{
 \label{i67}
-\includegraphics[width=0.11\textwidth]{images/67.png}
-}
+\adjincludegraphics{images/67.png}
+}%
+\smarthfill{28}[4]%
 \subfloat[盈凸月]{
 \label{i68}
-\includegraphics[width=0.11\textwidth]{images/68.png}
+\adjincludegraphics{images/68.png}
 }
 \end{center}
 \caption{}
@@ -793,25 +755,27 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 灵活使用\myind{递次}电路和\myind{降频}电路可以将已有的驱动时长增加为任意整数倍（\autoref{i223:228}）。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i223:224}
-\includegraphics{images/223.png}
-\includegraphics{images/224.png}
-}
-\qquad
+\adjincludegraphics{images/223.png}%
+\quad%
+\adjincludegraphics{images/224.png}
+}%
+\smarthfill{35}[3]%
 \subfloat[]{
 \label{i225:226}
-\includegraphics{images/225.png}
-\includegraphics{images/226.png}
-}
-\qquad
+\adjincludegraphics{images/225.png}%
+\quad%
+\adjincludegraphics{images/226.png}
+}%
+\smarthfill{35}[3]%
 \subfloat[]{
 \label{i227:228}
-\includegraphics{images/227.png}
-\includegraphics{images/228.png}
+\adjincludegraphics{images/227.png}%
+\quad%
+\adjincludegraphics{images/228.png}
 }
-\end{center}
 \caption{\protect\subref{i223:224}两个降频电路连接，红线每激活4次火把响应一次；\protect\subref{i225:226}两个递次电路连接，红线每激活9次火把响应一次；\protect\subref{i227:228}降频电路与递次电路连接，红线每激活6次火把响应一次。}
 \label{i223:228}
 \end{figure}
@@ -820,9 +784,9 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.45\textwidth]{images/231.png}
-\quad
-\includegraphics[width=0.45\textwidth]{images/232.png}
+\adjincludegraphics{images/231.png}%
+\smarthfill{26}%
+\adjincludegraphics{images/232.png}
 \caption{开关每激活23次火把响应一次。上面的右边两个故障逻辑门用来控制，左边的输出接到计数为20的模块（5-递次电路与两个降频电路连接），右边的输出接到3-递次电路。开关激活时，起初左边输出，右边不输出，左边计数。当左边计数到20时上面的绿线激活，改变控制用的有效逻辑灯，改为右边输出，左边不输出，右边计数。当右边计数到3时激活火把并将控制用的有效逻辑灯改回。}
 \label{i231:232}
 \end{figure}
@@ -834,16 +798,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 电路如\autoref{i98:99}所示。激活顶端黄线即可运行。下面很明显是递次电路，我们先分析上面部分，看看绿线会激活多少次。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i98}
-\includegraphics{images/98.png}
-}
-\subfloat{
-\label{i99}
-\includegraphics{images/99.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/98.png}%
+\smarthfill{26}%
+\adjincludegraphics{images/99.png}
 \caption{}
 \label{i98:99}
 \end{figure}
@@ -855,32 +813,36 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \begin{problem}{}{}
 做一个可以显示点数的骰子，六个点数效果如\autoref{i100:105}。
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[1]{
 \label{i100}
-\includegraphics[width=0.11\textwidth]{images/100.png}
-}
+\adjincludegraphics{images/100.png}
+}%
+\smarthfill{30}[6]%
 \subfloat[2]{
 \label{i101}
-\includegraphics[width=0.11\textwidth]{images/101.png}
-}
+\adjincludegraphics{images/101.png}
+}%
+\smarthfill{30}[6]%
 \subfloat[3]{
 \label{i102}
-\includegraphics[width=0.11\textwidth]{images/102.png}
+\adjincludegraphics{images/102.png}
 }
+%\smarthfill{30}[6]
 \subfloat[4]{
 \label{i103}
-\includegraphics[width=0.11\textwidth]{images/103.png}
-}
+\adjincludegraphics{images/103.png}
+}%
+\smarthfill{30}[6]%
 \subfloat[5]{
 \label{i104}
-\includegraphics[width=0.11\textwidth]{images/104.png}
-}
+\adjincludegraphics{images/104.png}
+}%
+\smarthfill{30}[6]%
 \subfloat[6]{
 \label{i105}
-\includegraphics[width=0.11\textwidth]{images/105.png}
+\adjincludegraphics{images/105.png}
 }
-\end{center}
 \caption{}
 \label{i100:105}
 \end{figure}
