@@ -5,6 +5,13 @@
 \usepackage{float}
 \usepackage{etoolbox}
 
+\if\rendermode1
+	\usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
+\else\if\rendermode2
+\else\if\rendermode3
+	\usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
+\fi\fi\fi
+
 \usepackage{adjustbox}
 \adjustboxset{scale=0.666667, max width=\linewidth}
 

@@ -42,13 +42,13 @@
 
 \newcommand{\shortcut}[1]{\tcbox[on line, interior style={bottom color=gray, top color=white}, colframe=gray, boxsep=1pt, left=0pt, right=0pt, top=0pt, bottom=0pt, arc=2pt]{\small\sffamily #1}}
 
-\NewDocumentCommand{\vipbox}{mmm}{\href{#3}{\tcbox[on line, sharp corners=all, boxrule=0pt, boxsep=0pt, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=12pt]{figure/#1}\hspace{1pt}\small\sffamily#2}}\ }
+\NewDocumentCommand{\vipbox}{mmm}{\href{#3}{\tcbox[on line, sharp corners=all, boxrule=0pt, boxsep=0pt, colback=vipcolback, coltext=vipcoltext, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=12pt]{figure/#1}\hspace{1pt}\small\sffamily#2}}\ }
 \NewDocumentCommand{\notvip}{m}{{\small\sffamily#1\ }}
 
 
 % 插图排版
 % 计算空格宽度。第一个参数是对象宽度总和，第二个参数是对象数量
-\NewDocumentCommand{\calchspace}{mm}{\maxof{0pt}{\minof{\maxof{2em}{#1/#2/2}}{(\linewidth-#1)/#2}}-8pt}
+\NewDocumentCommand{\calchspace}{mm}{\maxof{2pt}{\minof{\maxof{2em}{#1/#2/2}}{(\linewidth-#1)/#2}}}
 \newlength{\tiledim}
 \setlength{\tiledim}{8pt}
 \NewDocumentCommand{\smarthfill}{O{\tiledim}mO{2}}{\hspace{\calchspace{#1*#2}{#3}}}
