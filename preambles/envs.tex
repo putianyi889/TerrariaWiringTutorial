@@ -76,3 +76,13 @@
 \makeatletter
 \newcommand{\tcb@cnt@exampleautorefname}{例}
 \makeatother
+
+\usepackage{multicol}
+\setlength{\columnseprule}{1pt}
+\if\rendermode1
+	\newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
+\else\if\rendermode2
+	\newenvironment{maybecols}{}{}
+\else\if\rendermode3
+	\newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
+\fi\fi\fi
