@@ -2,6 +2,11 @@
 
 \usepackage{tcolorbox}
 \usepackage{calc}
+\usepackage{amsbsy}
+
+% 数学符号
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\spanspace}{span}
 
 % 网址链接
 \if\rendermode1
@@ -9,7 +14,7 @@
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
-	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?/#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
+	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
 	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
 	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
 	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubicon.pdf}}}
@@ -29,7 +34,7 @@
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
-	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?/#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
+	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
 	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
 	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
 	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubiconnight.png}}}
