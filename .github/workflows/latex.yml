@@ -20,3 +20,8 @@ jobs:
         with:
           root_file: TerrariaWiringTutorial_printed.tex
           latexmk_use_xelatex: true
+      - name: Compile Night Mode
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: TerrariaWiringTutorial_nightmode.tex
+          latexmk_use_xelatex: true
