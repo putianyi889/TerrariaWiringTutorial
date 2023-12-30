@@ -17,7 +17,11 @@
 \lstset{language={C++}}
 
 \AtBeginDocument{
-	\setcounter{tocdepth}{0}
+	\if\rendermode2
+		\setcounter{tocdepth}{3}
+	\else
+		\setcounter{tocdepth}{0}
+	\fi
 }
 
 \setcounter{totalnumber}{100}
