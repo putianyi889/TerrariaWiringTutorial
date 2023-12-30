@@ -574,20 +574,20 @@ $$
 二进制转BCD和BCD转二进制对应不同的真值表，我们需要分开设计。
 
 \section{存储电路}
-一个存储电路总是要有一个用于存放数据的阵列和一个选择数据的\term{MUX}。
+一个存储电路总是要有一个用于存放数据的阵列和一个选择数据的\termMUX 。
 
-\subsection{\term{MUX}（Multiplexer, MUX）}
-\emph{\term{MUX}}又名\emph{数据选择器}（Data Selector）。\term{MUX}接收一个二进制地址，激活该地址代表的位置。一个经典的四位\term{MUX}如\autoref{fig42}所示。
+\subsection{\termMUX （Multiplexer, MUX）}
+\emph{\termMUX}又名\emph{数据选择器}（Data Selector）。\termMUX 接收一个二进制地址，激活该地址代表的位置。一个经典的四位\termMUX 如\autoref{fig42}所示。
 
 \begin{figure}[!ht]
 \centering
 \adjincludegraphics{images/419.png}%
 \smarthfill{36}%
 \adjincludegraphics{images/420.png}
-\caption{经典四位\term{MUX}。红蓝线表示地址，上面高位下面低位。绿线双激活输出。16个逻辑门从左到右依次表示0000到1111。}\label{fig42}
+\caption{经典四位\termMUX。红蓝线表示地址，上面高位下面低位。绿线双激活输出。16个逻辑门从左到右依次表示0000到1111。}\label{fig42}
 \end{figure}
 
-我们在\nameref{sec2:2}中曾见过相似的电路，事实上那个就是状态版的\term{MUX}。本小节中我们通过\nameref{sec33}实现了激活版的\term{MUX}。
+我们在\nameref{sec2:2}中曾见过相似的电路，事实上那个就是状态版的\termMUX 。本小节中我们通过\nameref{sec33}实现了激活版的\termMUX 。
 
 \subsection{只读存储器（Read-Only Memory）}
 只读存储器用于存储事先设计好的、固定的数据。这些数据不需要在使用时修改，所以一般是通过物理方式直接做在电路中。
@@ -600,9 +600,9 @@ $$
 	\subfloat[纵向输入横向输出]{\label{fig51}\adjincludegraphics{images/346.png}\adjincludegraphics{images/345.png}}
     \caption{ROM的三种设计。}\label{fig48}
 \end{figure}
-\autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与\term{MUX}配合，而\term{MUX}是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。
+\autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与\termMUX 配合，而\termMUX 是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。
 
-\nameref{sec2:2}中，\autoref{i36:37}就是状态式的\term{MUX}，\autoref{i42:43}的下半部分电路就是\autoref{fig50}样式的ROM。只有有限个输出情况的显示器都可以通过ROM实现。
+\nameref{sec2:2}中，\autoref{i36:37}就是状态式的\termMUX ，\autoref{i42:43}的下半部分电路就是\autoref{fig50}样式的ROM。只有有限个输出情况的显示器都可以通过ROM实现。
 
 \subsection{只写存储器（Write-Only Memory）}
 1
