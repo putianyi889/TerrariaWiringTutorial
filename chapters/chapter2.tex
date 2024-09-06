@@ -169,7 +169,7 @@
 
 \begin{example}{\myind{自动门}}{exa5}
 
-很多人刚开始玩泰拉瑞亚的时候，盖房子都会造门。普通的门是非常不方便的，不仅出入都需要操作，而且有些时候并不能阻止敌怪进入。解救了机械师后，有些人就开始把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
+普通的门主要问题是会被部分敌怪打开，并且门两侧不能有障碍物（高门占用体积大）。可以把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
 
 \begin{figure}[H]
 \centering
@@ -180,9 +180,7 @@
 \label{i38:39}
 \end{figure}
 
-有些人连出入门的时候右键都懒得点，于是发明了自动门，它可以在玩家出入门时自动打开，出入门后自动关闭。
-
-使用两个压力板就可以完成这个功能。如\autoref{i40:41}所示，当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
+因为出入门的时候点开关太麻烦了，所以我们用踩上就能激活的压力板代替开关，设计了自动门（\autoref{i40:41}）。当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
 
 \begin{figure}[H]
 \centering
@@ -248,7 +246,24 @@
 
 \myind{逻辑门}是电源，不同的逻辑门有不同的逻辑判定规则。如果一个逻辑门上没有故障逻辑灯，我们称其为\myind{普通逻辑门}。在本节中讨论的逻辑门均为普通逻辑门。当一个逻辑门上的逻辑灯状态改变时，逻辑门会进行逻辑判定并调整自己的亮灭状态。如果逻辑门的状态改变了，那么逻辑门会激活。
 
-六种普通逻辑门的逻辑判定规则见物品描述和wiki。
+\begin{tabular}{|c|c|c|c|}
+\hline
+逻辑门名称&贴图&亮条件&灭条件\\\hline
+与门&\includegraphics{figures/Logic_Gate_(AND).png}&所有逻辑灯均为亮&至少一个逻辑灯为灭\\\hline
+与非门&\includegraphics{figures/Logic_Gate_(NAND).png}&至少一个逻辑灯为灭&所有逻辑灯均为亮\\\hline
+或门&\includegraphics{figures/Logic_Gate_(OR).png}&至少一个逻辑灯为亮&所有逻辑灯均为灭\\\hline
+或非门&\includegraphics{figures/Logic_Gate_(NOR).png}&所有逻辑灯均为灭&至少一个逻辑灯为亮\\\hline
+异或门&\includegraphics{figures/Logic_Gate_(XOR).png}&有且仅有一个逻辑灯为亮&其他情况\\\hline
+异或非门&\includegraphics{figures/Logic_Gate_(XNOR).png}&其他情况&有且仅有一个逻辑灯为亮\\\hline
+\end{tabular}
+
+\begin{remark}
+中文wiki对于普通逻辑门的描述是错误的。
+\end{remark}
+
+\begin{remark}
+当逻辑门上只有一个逻辑灯或者有超过两个逻辑灯时，仍按照上表规则一次判定状态，这与现实中的电路元件（尤其是异或门）不同。
+\end{remark}
 
 \begin{example}{改进自动门}{}
 
@@ -308,7 +323,7 @@
 \label{i15}
 \adjincludegraphics{images/15.png}
 }
-\caption{\ref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
+\caption{\protect\subref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
 \label{i13:15}
 \end{figure}
 
@@ -466,7 +481,7 @@
 \label{i58}
 \adjincludegraphics{images/58.png}
 }
-\caption{当激活顶端的故障逻辑灯时，故障逻辑门激活的概率分别是：\protect\subref{i54}1/7；\protect\subref{i55}2/7；\protect\subref{i56}6/7；\protect\subref{i57}1/2；\protect\subref{i58}1。}
+\caption{\protect\subref{i54}故障逻辑灯下一共有7个有效逻辑灯，其中1个是亮的，所以故障逻辑灯被激活时故障逻辑门有1/7的概率激活；\protect\subref{i55}2/7概率激活；\protect\subref{i56}6/7概率激活；\protect\subref{i57}只有最下方的故障逻辑灯下的两个逻辑灯是有效逻辑灯，无论激活哪个故障逻辑灯，故障逻辑门激活的概率都是1/2；\protect\subref{i58}有效逻辑灯全是亮的，所以激活任何一个故障逻辑灯，故障逻辑门激活的概率都是1。}
 \label{i54:58}
 \end{figure}
 
@@ -498,6 +513,22 @@
 首先来看与门和故障门的区别。它们的最上面的逻辑灯激活时，逻辑门都会激活。但是，如果最上面的逻辑灯同时激活两次，与门不会激活，而故障门会激活一次，对应的实验电路如\autoref{fig11}。读者可以自己实验，然后结合普通逻辑门和故障逻辑门的特性描述，思考一下为什么会这样。异或门和故障门也有同样的区别。
 
 再来看与门和异或门的区别。与门不抗干扰，异或门抗干扰。什么意思呢？如\autoref{fig12}所示，有一根与换线器无关的电线想要横穿换线器。对于异或门，只要用图中的方法就可以避免干扰；对于与门，那么无论如何都没法避免横穿的线带来的干扰。读者可自行分析其中原因。可能你会问，有谁会自找麻烦把一根线穿过去？在实际应用中有时不得不这么做，这时异或门就提供了便利。
+
+故障逻辑门也可以做出抗干扰的换线器。从故障逻辑门的描述中我们可以发现，故障逻辑门上两个故障逻辑灯之间的普通逻辑灯是不影响输出的（如\autoref{i57}），换言之这些普通逻辑灯可以任由其他电路穿过。
+
+\paragraph*{多换一换线器}
+受电线颜色限制，单灯换线器最多可以实现三换一（\autoref{fig83}），双灯换线器最多可以实现四换一（\autoref{fig84}），其中双灯异或换线器接线更灵活。把双灯异或稍作修改，可以做出7换一的3灯异或（\autoref{fig85}）和8换一的4灯异或（\autoref{fig86}）。超出了8换一，就只能用多个逻辑门，或者单个故障逻辑门实现了。如\autoref{i58}所示，结合对于故障逻辑门的描述，发现一个故障逻辑门上的所有故障逻辑灯作用是相同的，所以\autoref{i58}中的一串故障逻辑灯中每个都能起到换线的效果。
+
+\begin{figure}[!ht]
+\centering
+\subfloat[]{\label{fig83}\includegraphics{images/438.png}}\qquad
+\subfloat[]{\label{fig84}\includegraphics{images/439.png}}\qquad
+\subfloat[]{\label{fig85}\includegraphics{images/440.png}}\qquad
+\subfloat[]{\label{fig86}\includegraphics{images/441.png}}\qquad
+\caption{单个普通逻辑门多换一换线器示例。\protect\subref{fig83}单灯换线器三换一；\protect\subref{fig84}双灯换线器利用隔线实现四换一，若用双灯异或则四个输入可以在和输出颜色不冲突的情况下随便选一个灯接；\protect\subref{fig85}利用双灯异或的逻辑特点和逻辑灯隔线实现7换1；\protect\subref{fig86}加一个隔线的逻辑灯实现8换1。}
+\end{figure}
+
+\paragraph*{双向换线器}
 
 \subsection{赋值电路}\label{sec14}
 
