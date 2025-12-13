@@ -184,7 +184,7 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 \subsection{字符串的线性相关与秩}
 回顾我们把逻辑表达式中的布尔值与布尔常数1简称为字母。我们把由若干字母\textbf{连接}而成的表达式称为\textbf{字符串}，简称\textbf{串}。由0个字母连接成的表达式记作0，称为\textbf{空串}。0和1两个串称为\textbf{平凡串}。如果两个串恒等，那么这两个串\textbf{相同}。
 
-注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由1,a,b组成的不同串有8个\footnote{由n个字母组成的不同的串有多少个？}：0,1,a,b,ab,\~{}a,\~{}b,\~{}ab。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消。
+注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由$1,a,b$组成的不同串有8个\footnote{由n个字母组成的不同的串有多少个？}：$0,1,a,b,ab,\~{}a,\~{}b,\~{}ab$。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消。
 
 给定一组串$s_1,\cdots,s_r$，任选其中若干串（至少一个）做连接运算，得到的串称为这组串的一个\textbf{线性组合}。如果一组非平凡串有一个平凡的线性组合，那么我们称这组非平凡串\textbf{线性相关}。否则，如果一组非平凡串的所有线性组合都是非平凡串，那么我们称这组非平凡串\textbf{线性无关}。一组非平凡串的最大的线性无关子集的大小称为这组非平凡串的\textbf{秩}。
 \begin{theorem}{}{thm1}
@@ -197,13 +197,13 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 \begin{example}{}{}
 考虑三个串$ab$,$abc$,$abcd$。
 
-令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以ab,abc,abcd线性无关，\{ab,abc,abcd\}的最大线性无关子集就是它自己，所以ab,abc,abcd的秩是3。
+令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以$ab,abc,abcd$线性无关，$\{ab,abc,abcd\}$的最大线性无关子集就是它自己，所以$ab,abc,abcd$的秩是3。
 \end{example}
 
 \begin{example}{}{}
 考虑三个串bc,ac,ab。
 
-令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以bc,ac,ab线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以bc,ac线性无关，所以bc,ac,ab的秩为2。
+令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以$bc,ac,ab$线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以$bc,ac$线性无关，所以$bc,ac,ab$的秩为2。
 \end{example}
 
 \subsection{简单逻辑及其复杂度}
