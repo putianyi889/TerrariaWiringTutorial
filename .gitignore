@@ -18,3 +18,5 @@ main.synctex.gz
 TerrariaWiringTutorial_onscreen.pdf
 TerrariaWiringTutorial_printed.pdf
 TerrariaWiringTutorial_nightmode.pdf
+*.fdb_latexmk
+*.fls
