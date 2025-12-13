@@ -173,7 +173,7 @@
 
 引爆器可以放在几乎所有平坦表面上。与控制杆不同的是，引爆器不是悬挂家具，所以不能放在砧上。
 
-\section{机关宝箱\DMC}
+\section{机关宝箱/\DeadMansChest}
 \begin{figure}[!ht]
 \centering
 \subfloat[{非主题机关宝箱。主题机关宝箱见\hyperref[app44]{附录}}]{\begin{tabular}[b]{c}
@@ -181,13 +181,13 @@
 \adjincludegraphics{figures/Gold_Chest.png}\quad\adjincludegraphics{figures/Shadow_Chest.png}\quad\adjincludegraphics{figures/Ivy_Chest.png}\quad\adjincludegraphics{figures/Water_Chest.png}\quad\adjincludegraphics{figures/Web_Covered_Chest.png}\quad\adjincludegraphics{figures/Golf_Chest.png}
 \end{tabular}}
 \qquad
-\subfloat[\DMC]{\adjincludegraphics{figures/Dead_Mans_Chest.png}}
+\subfloat[\DeadMansChest]{\adjincludegraphics{figures/Dead_Mans_Chest.png}}
 \end{figure}
-机关宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和机关宝箱比起来，\DMC 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DMC 和普通的金箱完全无法区分。
+机关宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和机关宝箱比起来，\DeadMansChest 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DeadMansChest 和普通的金箱完全无法区分。
 
-机关宝箱和\DMC 都是电源，当鼠标右击时激活。机关宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DMC 除了会激活以外与金箱无异。
+机关宝箱和\DeadMansChest 都是电源，当鼠标右击时激活。机关宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DeadMansChest 除了会激活以外与金箱无异。
 
-\DMC 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DMC 。
+\DeadMansChest 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DeadMansChest 。
 
 \section{感应器}
 \begin{figure}[!ht]
@@ -199,7 +199,7 @@
 \subfloat[液体感应器]{\adjincludegraphics{figures/Liquid_Sensor_(Water).png}\quad\adjincludegraphics{figures/Liquid_Sensor_(Lava).png}\quad\adjincludegraphics{figures/Liquid_Sensor_(Honey).png}\quad\adjincludegraphics{figures/Liquid_Sensor_(Any).png}}
 \caption{感应器}
 \end{figure}
-泰拉瑞亚中共有3种逻辑感应器和4种液体感应器。逻辑感应器（昼）在白天点亮，夜晚熄灭；逻辑感应器（夜）在白天熄灭，夜晚点亮；逻辑感应器（玩家）放置时对应一个电路层的蓝色方框，该方框宽略大于5格，高略大于10格，当框内有玩家时感应器点亮，当框内无玩家时感应器熄灭。液体感应器在所在格中有对应液体时点亮，无对应液体时熄灭。
+\termTR 中共有3种逻辑感应器和4种液体感应器。逻辑感应器（昼）在白天点亮，夜晚熄灭；逻辑感应器（夜）在白天熄灭，夜晚点亮；逻辑感应器（玩家）放置时对应一个电路层的蓝色方框，该方框宽略大于5格，高略大于10格，当框内有玩家时感应器点亮，当框内无玩家时感应器熄灭。液体感应器在所在格中有对应液体时点亮，无对应液体时熄灭。
 
 逻辑感应器（昼）和逻辑感应器（夜）在由灭变亮时激活，其他感应器均在亮灭切换时激活。
 
@@ -231,7 +231,7 @@
 
 \subfloat[晶莹宝石块]{\adjincludegraphics{figures/Amethyst_Gemspark_Block.png}\quad\adjincludegraphics{figures/Topaz_Gemspark_Block.png}\quad\adjincludegraphics{figures/Sapphire_Gemspark_Block.png}\quad\adjincludegraphics{figures/Emerald_Gemspark_Block.png}\quad\adjincludegraphics{figures/Ruby_Gemspark_Block.png}\quad\adjincludegraphics{figures/Diamond_Gemspark_Block.png}\quad\adjincludegraphics{figures/Amber_Gemspark_Block.png}}
 
-\subfloat[\PL]{\quad\adjincludegraphics{figures/Plasma_Lamp.png}\quad}
+\subfloat[\PlasmaLamp]{\quad\adjincludegraphics{figures/Plasma_Lamp.png}\quad}
 \subfloat[\Volcano]{\begin{tabular}[b]{c}\adjincludegraphics{figures/Mini_Volcano.png}\\\adjincludegraphics{figures/Large_Volcano.png}\end{tabular}}
 \subfloat[灯笼]{\begin{tabular}[b]{c}
 \adjincludegraphics{figures/Hanging_Jack_O_Lantern.png}\quad\adjincludegraphics{figures/Chain_Lantern.png}\quad\adjincludegraphics{figures/Brass_Lantern.png}\quad\adjincludegraphics{figures/Caged_Lantern.png}\quad\adjincludegraphics{figures/Carriage_Lantern.png}\\
@@ -261,7 +261,7 @@
 \item 迪斯科灯：大小2*2，悬挂在实体块下。不是有效光源。
 \item 圣诞灯：大小1*1，放置在实体块四周。是有效光源。
 \item 壁炉：大小3*2，放置在平台上、锭上、实体块上。是有效光源。
-\item \PL ：大小2*2，放置在除砧以外的平坦表面上、实体块上。不是有效光源。
+\item \PlasmaLamp ：大小2*2，放置在除砧以外的平坦表面上、实体块上。不是有效光源。
 \item \Volcano ：两种\Volcano 大小分别是1*1和2*2，，放置在除砧以外的平坦表面上、实体块上。不是有效光源。
 \end{itemize}
 
@@ -287,13 +287,13 @@
 
 不使用电路开关门时，门会做为电源激活。如果在设置里打开自动开关门，那么门可以起到玩家感应器的作用。
 
-\section{\FM}
+\section{\FogMachine}
 \begin{figure}[!ht]
 \centering
 \adjincludegraphics{figures/Fog_Machine.png}
-\caption{\FM}
+\caption{\FogMachine}
 \end{figure}
-\FM 是用电器，被激活时开/关切换。\FM 打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
+\FogMachine 是用电器，被激活时开/关切换。\FogMachine 打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
 
 \section{马桶}
 \begin{figure}[!ht]
@@ -660,4 +660,4 @@
 \caption{其他电路物品}
 \end{figure}
 \end{comment}
-剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{雕像}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{喷泉}、\wiki{八音盒}、\wiki{烟囱}、\wiki{天塔柱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GC}、\wiki{\Grate}。
+剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{雕像}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{喷泉}、\wiki{八音盒}、\wiki{烟囱}、\wiki{天塔柱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GolfCup}、\wiki{\Grate}。

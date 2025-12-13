@@ -39,7 +39,7 @@ $\mathbb{Z}_2=\{0,1\}$表示整数除以2所得余数的集合，则0代表偶�
 
 加法和乘法满足交换律和结合律，乘法对加法满足分配律。
 
-$\mathbb{Z}_2$上的乘法和加法可以很好地描述泰拉瑞亚电路逻辑，如\autoref{fig83}所示。把多根线接到同一个输出上，相当于做加法；与逻辑相当于多个输入做乘法。
+$\mathbb{Z}_2$上的乘法和加法可以很好地描述\termTR 电路逻辑，如\autoref{fig83}所示。把多根线接到同一个输出上，相当于做加法；与逻辑相当于多个输入做乘法。
 
 \begin{figure}[!htp]
 	\centering
@@ -66,9 +66,7 @@ $\mathbb{Z}_2$上的乘法和加法可以很好地描述泰拉瑞亚电路逻辑
 
 $\mathbb{Z}_2$上的向量和矩阵在电路中有实际意义，因为接线的本质就是矩阵。
 
-%\begin{example}{}{}
-%	一个逻辑门上的普通逻辑灯状态可以排列成一个向量，亮对应$\mathbb{Z}_2$中的1，灭对应$\mathbb{Z}_2$中的0。
-%\end{example}
+\subsection{接线的矩阵描述}
 \begin{example}{}{}
 	一个七段线显示器的状态可以表示成一个$\mathbb{Z}_2$上的7维向量。考虑如图所示的七段线显示结构，七个输入并不直接对应七段线。输入的状态表示为$\mathbf{x}=(x_1,\dots,x_7)$，七段线状态表示为$\mathbf{y}=(y_1,\dots,y_7)$。
 	
@@ -119,6 +117,7 @@ $\mathbb{Z}_2$上的向量和矩阵在电路中有实际意义，因为接线的
 	
 \end{example}
 
+\subsection{组合逻辑}
 一般的组合逻辑可以看作集合。
 \begin{definition}{}{}
 	$n$输入的组合逻辑和$\mathbb{Z}_2^n$的子集存在一一对应关系。设某逻辑为$n$元函数$f$，则相应的集合为$f^{-1}(1)=\{\mathbf{v}\in\mathbb{Z}_2^n:f(\mathbf{v})=1\}$，这个集合称为$f$的\emph{特征集}。一个组合逻辑的输入数称为该逻辑的\emph{维数}，特征集的秩称为该逻辑的\emph{秩}。
@@ -130,22 +129,31 @@ $\mathbb{Z}_2$上的向量和矩阵在电路中有实际意义，因为接线的
 	假设某$n$维组合逻辑可以用单异或门实现，则该异或门的最优灯数不超过$n+1$。
 \end{theorem}
 \begin{proof}
-	用$V=\mathbb{Z}_2^n$表示输入空间，$U=\mathbb{Z}_2^m$表示灯的状态空间。用矩阵$\boldsymbol{L}\in\mathbb{Z}_2^{m\times n}$表示接线，向量$\boldsymbol{b}\in U$表示灯的初始状态，则$L:V\to U, \boldsymbol{v}\mapsto \boldsymbol{L}\boldsymbol{v}+\boldsymbol{b}$表示从输入到灯的状态的映射。设某$n$维逻辑为$f:V\to\mathbb{Z}_2$，实现该逻辑的异或门为$g:U\to \mathbb{Z}_2^n$。假设$m>n+1$。
+	用$V=\mathbb{Z}_2^n$表示输入空间，$U=\mathbb{Z}_2^m$表示灯的状态空间。用矩阵$\boldsymbol{M}\in\mathbb{Z}_2^{m\times n}$表示接线，向量$\boldsymbol{b}\in U$表示灯的初始状态，用$L:V\to U, \boldsymbol{v}\mapsto \boldsymbol{M}\boldsymbol{v}+\boldsymbol{b}$表示从输入到灯的状态的映射。设某$n$维逻辑为$f:V\to\mathbb{Z}_2$，实现该逻辑的异或门为$g:U\to \mathbb{Z}_2^n$。假设$m>n+1$。
 	
-	先考虑齐次情况$\boldsymbol{b}=\boldsymbol{0}$。由于$\dim(V)=n$，$L(V)$是$U$的一个$n'\le n$维线性子空间。因为$m>n+1\ge n'+1$，取$U/L(V)$的一组基$\boldsymbol{A}=(\boldsymbol{\alpha}_1,\dots,\boldsymbol{\alpha}_{m-n'})$。由于$g$是异或逻辑，$g^{-1}(1)$是$U$的标准基，且$L(f^{-1}(1))=g^{-1}(1)\cap L(V)$。记$L(f^{-1}(1))$为$\boldsymbol{B}=(\boldsymbol{\beta}_1,\dots,\boldsymbol{\beta}_r)$，取$L(V)/\spanspace(L(f^{-1}))$的一组基$\boldsymbol{C}=(\boldsymbol{\gamma}_1,\dots,\boldsymbol{\gamma}_{n'-r})$。显然$(\boldsymbol{B}|\boldsymbol{C}|\boldsymbol{A})$是$U$的一组基。
-	
-	构造$U$的另一组基$\boldsymbol{F}=(\boldsymbol{B}|\boldsymbol{C}+\boldsymbol{\alpha}_1|\boldsymbol{A})$，其中$\boldsymbol{C}+\boldsymbol{\alpha}_1$表示将$\boldsymbol{\alpha}_1$加到$\boldsymbol{C}$的每一列上。记$F^{-1}:\boldsymbol{v}\mapsto\boldsymbol{F}^{-1}\boldsymbol{v}$是将$\boldsymbol{F}$映到标准基的线性映射。考虑复合映射$F^{-1}L$，有
+	我们的目标是找到$U$的一组基$\boldsymbol{F}=(\boldsymbol{B}|\boldsymbol{C}|\boldsymbol{A})$，使得
 	\begin{enumerate}
-		\item 当$\boldsymbol{v}\in f^{-1}(1)$时，$L(\boldsymbol{v})\in\boldsymbol{B}$，从而$F^{-1}L(\boldsymbol{v})$是一个标准基向量。
-		\item 当$\boldsymbol{v}\in V\backslash f^{-1}(1)$时，$L(\boldsymbol{v})\notin\boldsymbol{F}$，从而$F^{-1}L(\boldsymbol{v})$不是一个标准基向量。
-		\item 当$\boldsymbol{v}\in V$时，$L(\boldsymbol{v})\in\spanspace(\boldsymbol{B}|\boldsymbol{C})\subseteq\spanspace(\boldsymbol{B}|\boldsymbol{C}+\boldsymbol{\alpha}_1|\boldsymbol{\alpha}_1)$，从而$F^{-1}L(\boldsymbol{v})$的后$(m-n'-1)$个分量为0。
+		\item $L(f^{-1}(1))=\boldsymbol{B}$；
+		\item $\boldsymbol{C}\cap L(V)=\emptyset$；
+		\item $L(V) \subset \spanspace(\boldsymbol{B})\oplus\spanspace(\boldsymbol{C})$，其中后者的维数$d\le n+1$。
 	\end{enumerate}
-	综上三条性质，接线$F^{-1}L$与$L$对于异或门是等价逻辑，且在接线$F^{-1}L$的情况下，异或门的后$(m-n'-1)$个灯恒灭，所以这些灯可以去掉，剩下$(n'+1)$个灯。
+	这样一来，记$F^{-1}:\boldsymbol{v}\mapsto\boldsymbol{F}^{-1}\boldsymbol{v}$是将$\boldsymbol{F}$映到标准基的线性映射。考虑异或门上新的接线$F^{-1}L$，便有
+	\begin{enumerate}
+		\item $F^{-1}L(f^{-1}(1))$是$\abs{\boldsymbol{B}}$个标准基向量；
+		\item $F^{-1}L(f^{-1}(0))$不含标准基向量；
+		\item $F^{-1}L(V)$除了前$d$个分量以外全部为0，所以可以去掉这些恒为0的灯，留下前$d$个灯。
+	\end{enumerate}
+	综上，接线$F^{-1}L$和$L$表示的逻辑等价，且在$F^{-1}L$中可以只保留$d\le n+1$个灯。下面我们对于齐次和非齐次两种情况分别构造$\boldsymbol{F}$。
 	
-	对于非齐次情况$\boldsymbol{b}\ne\boldsymbol{0}$，如果$\boldsymbol{b}\in \boldsymbol{L}V$，那么$L(V)=\boldsymbol{L}V$，退化为齐次情况。如果$L(V)\cap g^{-1}(1)=\emptyset$，则$f(V)=\{0\}$，退化为平凡逻辑。
+	先考虑齐次情况$\boldsymbol{b}=\boldsymbol{0}$。由于$\dim(V)=n$，$L(V)$是$U$的一个$n'\le n$维线性子空间。由于$g$是异或逻辑，$g^{-1}(1)$是$U$的标准基，且$L(f^{-1}(1))=g^{-1}(1)\cap L(V)$。记$L(f^{-1}(1))$为$\boldsymbol{B}$，将其扩充为$L(V)$的一组基$(\boldsymbol{B}|\boldsymbol{C})$，再扩充为$U$的一组基$(\boldsymbol{B}|\boldsymbol{C}|\boldsymbol{\alpha}_1|\boldsymbol{A})$，其中$\boldsymbol{A}=(\boldsymbol{\alpha}_2,\dots,\boldsymbol{\alpha}_{m-n'})$（可能为空）。$U$的另一组基$\boldsymbol{F}=(\boldsymbol{B}|\boldsymbol{C}+\boldsymbol{\alpha}_1|\boldsymbol{\alpha}_1|\boldsymbol{A})$可以满足要求，其中$\boldsymbol{C}+\boldsymbol{\alpha}_1$表示将$\boldsymbol{\alpha}_1$加到$\boldsymbol{C}$的每一列上。
 	
-	一般地，取$\boldsymbol{b}'\in L(V)\cap g^{-1}(1)$，那么$L(V)=\boldsymbol{L}V+\boldsymbol{b}'$。
+	对于非齐次情况$\boldsymbol{b}\ne\boldsymbol{0}$，如果$\boldsymbol{b}\in \boldsymbol{M}V$，那么$L(V)=\boldsymbol{M}V$，退化为齐次情况。如果$L(V)\cap g^{-1}(1)=\emptyset$，则$f(V)=g(L(V))=\{0\}$，退化为平凡逻辑。
+	
+	一般地，记$\boldsymbol{B}=L(V)\cap g^{-1}(1)=(\boldsymbol{b}_1,\dots,\boldsymbol{b}_{n'})$，其中$n'\ge 1$，那么$L(V)=\boldsymbol{M}V+\boldsymbol{b}_1$。记$\boldsymbol{B}'=\boldsymbol{B}\backslash\{\boldsymbol{b}_1\}$（可能为空），则$\boldsymbol{B}'-\boldsymbol{b}_1$是$\boldsymbol{M}V$中的线性无关组，将其扩充为$\boldsymbol{M}V$的一组基$(\boldsymbol{B}'-\boldsymbol{b}_1|\boldsymbol{C})$。注意到$(\boldsymbol{B}|\boldsymbol{C})$是$\spanspace(L(V))=\boldsymbol{M}V\oplus\{\boldsymbol{b_1}\}$的一组基，将其扩充为$U$的一组基$\boldsymbol{F}=(\boldsymbol{B}|\boldsymbol{C}|\boldsymbol{A})$，则$\boldsymbol{F}$满足要求。
+	
 \end{proof}
+
+\subsection{推广递次}
 
 \section{$\mathbb{Z}_2$上的多项式}
 

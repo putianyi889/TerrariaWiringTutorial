@@ -538,7 +538,7 @@ $$
 
 事实上，因为数字电路结构都相对复杂，在泰拉瑞亚中想做一定规模的数字电路，一定要考虑利用\nameref{sec17}技术传输数据。\nameref{sec17}技术通过在不同逻辑帧发送不同数位传播数据，我们可以通过这一特点设计专门兼容\nameref{sec17}的移位器。\autoref{fig41}通过选取网线输出的起始数位实现移位功能。
 
-\subsection{随机数生成器（Random Number Generator）}
+\subsection{随机数生成器（Random Number Generator, RNG）}
 在现实中需要用复杂算法实现的功能，在泰拉瑞亚中反而异常简单。直接使用8个1/2概率的故障逻辑门，我们就可以随机生成8位二进制数。
 \vspace{5cm}
 
