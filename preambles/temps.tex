@@ -12,6 +12,7 @@
 % 网址链接
 \if\rendermode1
 	\NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
+	\newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
@@ -22,6 +23,7 @@
 	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
 \else\if\rendermode2
 	\NewDocumentCommand{\myhref}{mm}{#2\index{#2}\footnote{\url{#1}}}
+	\newcommand{\wiki}[2][]{\ifstrempty{#1}{#2}{#1}\index{\ifstrempty{#1}{#2}{#1}}}
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
@@ -32,6 +34,7 @@
 	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youku.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
 \else\if\rendermode3
 	\NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
+	\newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
 	
 	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
 	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
@@ -41,8 +44,6 @@
 	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubiconnight.png}}}
 	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
 \fi\fi\fi
-
-\newcommand{\wiki}[2][]{\myhref{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
 
 \NewDocumentCommand{\rhfill}{}{\hspace*{\fill}}
 
