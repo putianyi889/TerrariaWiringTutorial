@@ -1,0 +1,127 @@
+\chapter{\texttt{TerrariaWiringHelper.jl}中文使用文档}
+
+\texttt{TerrariaWiringHelper.jl}是一个辅助搭建电路的Julia工具箱。Julia是一种编程语言。
+
+\section{Julia常见问题}
+\paragraph{如何安装}
+按照\myhref{https://julialang.org/install/}{Julia官网}的指示下载及安装Julia。
+
+\paragraph{基本用法}
+直接打开Julia程序，或者命令行输入\lstinline{julia}，即可进入Julia终端（\autoref{fig88}）。和Python类似，在Julia终端可以输入表达式输出结果，在命令行输入\lstinline{julia script.jl}可以执行相应的Julia脚本。
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/juliaconsole.png}
+    \caption{Julia终端}\label{fig88}
+\end{figure}
+
+\paragraph{VSCode支持}
+如果使用VSCode IDE，可以安装\myhref{https://github.com/julia-vscode/julia-vscode}{Julia插件}。这个插件提供了直接执行代码、Workspace监控等方便的功能。
+
+\paragraph{中文文档}
+目前的Julia最新版本是1.12.3。\myhref{https://docs.juliacn.com/latest/}{中文文档}只支持到1.10.10，不过对于使用工具箱也够用了。
+
+\paragraph{包管理模式和帮助模式}
+在Julia终端中输入反方括号\lstinline{]}进入包管理模式（\autoref{fig90}），退格键删掉该方括号即可退出包管理模式。类似地，输入问号\lstinline{?}可以进入帮助模式（\autoref{fig91}），删除该问号退出帮助模式。帮助模式中输入某个函数名可以查看该函数的帮助文档。
+
+\begin{figure}[!htp]
+    \centering
+    \subfloat[默认模式]{
+        \includegraphics[height=\baselineskip]{figure/julianormal.png}\label{fig89}
+    }
+    \qquad
+    \subfloat[包管理模式]{
+        \includegraphics[height=\baselineskip]{figure/juliapkg.png}\label{fig90}
+    }
+    \qquad
+    \subfloat[帮助模式]{
+        \includegraphics[height=\baselineskip]{figure/juliahelp.png}\label{fig91}
+    }
+    \caption{Julia终端的三种模式}
+\end{figure}
+
+\section{工具箱的安装及使用}
+\begin{lstlisting}[language=Julia, style=julia]
+pkg> add https://github.com/putianyi889/TerrariaWiringHelper.jl # 直接从链接安装
+
+julia> using TerrariaWiringHelper # 使用工具箱
+    
+pkg> update # 自动更新所有的包
+    
+pkg> remove TerrariaWiringHelper # 卸载
+\end{lstlisting}
+
+\section{$\mathbb{Z}_2$相关功能}
+\begin{lstlisting}[language=Julia, style=julia]
+julia> using TerrariaWiringHelper
+
+julia> x = Z2Number(3) # 奇数视作1
+1
+
+julia> y = Z2Number(-2) # 偶数视作0
+0
+
+julia> x + x # Z_2中的加法
+0
+\end{lstlisting}
+
+\subsection{$\mathbb{Z}_2$向量}
+\begin{lstlisting}[language=Julia, style=julia]
+julia> v = Z2Vector([1,0,1,1,0]) # 创建一个Z_2向量
+5-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+1
+0
+1
+1
+0
+
+julia> u = Z2Vector([0,1,1,0,1]); # 分号结尾隐藏输出
+
+julia> AND(v) # 取与
+0
+
+julia> XOR(v) # 取异或
+0
+
+julia> u + v # 向量相加
+5-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+1
+1
+0
+1
+1
+
+julia> u .* v # 逐个元素相乘
+5-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+0
+0
+1
+0
+0
+\end{lstlisting}
+
+\subsection{$\mathbb{Z}_2$矩阵}
+\begin{lstlisting}[language=Julia, style=julia]
+julia> A = Z2Matrix([1 0 0;1 1 0;1 1 1]) # 创建一个矩阵
+3×3 Z2Matrix{Matrix{Z2Algebra.Z2Block}}:
+1  0  0
+1  1  0
+1  1  1
+
+julia> v = Z2Vector([0,1,1])
+3-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+0
+1
+1
+
+julia> A * v # 矩阵和向量相乘
+3-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+0
+1
+0
+
+julia> A \ v # 相除
+3-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
+0
+1
+0
+\end{lstlisting}
