@@ -38,11 +38,40 @@
 
 \begin{figure}[!ht]
     \centering
-    \subfloat[取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$]{\includegraphics{images/348.png}\qquad\includegraphics{images/349.png}}\\
-    \subfloat[连接：$B=AC$]{\includegraphics{images/350.png}\qquad\includegraphics{images/351.png}}\\
-    \subfloat[与：$C=A\&B$]{\includegraphics{images/352.png}\qquad\includegraphics{images/353.png}}\\
-    \subfloat[异或：$D=\textrm{\^{}}(A,B,C)$]{\includegraphics{images/354.png}\qquad\includegraphics{images/355.png}}
-    \caption{初等布尔运算对应的电路。注意取反运算和连接运算不需要逻辑门。}
+    \subfloat[]{
+		\label{i348:349}
+		\adjincludegraphics{images/348.png}%
+		\quad%
+		\adjincludegraphics{images/349.png}
+	}%
+	\smarthfill{90}[4]%
+    \subfloat[]{
+		\label{i350:351}
+		\adjincludegraphics{images/350.png}%
+		\quad%
+		\adjincludegraphics{images/351.png}
+	}%
+	\smarthfill{90}[4]%
+    \subfloat[]{
+		\label{i352:353}
+		\adjincludegraphics{images/352.png}%
+		\quad%
+		\adjincludegraphics{images/353.png}
+	}%
+	\smarthfill{90}[4]%
+    \subfloat[]{
+		\label{i354:355}
+		\adjincludegraphics{images/354.png}%
+		\quad%
+		\adjincludegraphics{images/355.png}
+	}
+    \caption{初等布尔运算对应的电路。
+		\protect\subref{i348:349}取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$；
+		\protect\subref{i350:351}连接：$B=AC$；
+		\protect\subref{i352:353}与：$C=A\&B$；
+		\protect\subref{i354:355}异或：$D=\textrm{\^{}}(A,B,C)$。
+		注意取反运算和连接运算不需要逻辑门。
+	}
     \label{fig1}
 \end{figure}
 
@@ -50,7 +79,9 @@
 
 \begin{figure}[!ht]
     \centering
-	\includegraphics{images/356.png}\qquad\includegraphics{images/357.png}
+	\adjincludegraphics{images/356.png}%
+	\smarthfill{22}%
+	\adjincludegraphics{images/357.png}
     \caption{与运算导出的或运算。$C=A|B$}
     \label{fig2}
 \end{figure}
@@ -146,14 +177,14 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 8&1&1&1&1&1&1&1\\
 9&1&1&1&1&0&1&1\\\hline
 \end{tabular}}\qquad
-\subfloat[]{\raisebox{-80pt}{\includegraphics{images/35.png}\label{fig3}}}
+\subfloat[]{\raisebox{-80pt}{\adjincludegraphics{images/35.png}\label{fig3}}}
 \caption{\protect\subref{tab4}十进制数显的真值表；\protect\subref{fig3}七段线接法。}\label{fig4}
 \end{figure}
 
 \subsection{字符串的线性相关与秩}
 回顾我们把逻辑表达式中的布尔值与布尔常数1简称为字母。我们把由若干字母\textbf{连接}而成的表达式称为\textbf{字符串}，简称\textbf{串}。由0个字母连接成的表达式记作0，称为\textbf{空串}。0和1两个串称为\textbf{平凡串}。如果两个串恒等，那么这两个串\textbf{相同}。
 
-注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由1,a,b组成的不同串有8个\footnote{由n个字母组成的不同的串有多少个？}：0,1,a,b,ab,\~{}a,\~{}b,\~{}ab。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消。
+注意到由连接的性质$1a=\textrm{\~{}} a$，布尔常数1在这个串里起到的作用是取反。例如，由$1,a,b$组成的不同串有8个\footnote{由n个字母组成的不同的串有多少个？}：$0,1,a,b,ab,\textrm{\~{}}a,\textrm{\~{}}b\textrm{\~{}}ab$。一个串中可以包含重复的字母，但是由于连接的性质$aa=0$和$0a=a$，一对重复的字母可以直接抵消。
 
 给定一组串$s_1,\cdots,s_r$，任选其中若干串（至少一个）做连接运算，得到的串称为这组串的一个\textbf{线性组合}。如果一组非平凡串有一个平凡的线性组合，那么我们称这组非平凡串\textbf{线性相关}。否则，如果一组非平凡串的所有线性组合都是非平凡串，那么我们称这组非平凡串\textbf{线性无关}。一组非平凡串的最大的线性无关子集的大小称为这组非平凡串的\textbf{秩}。
 \begin{theorem}{}{thm1}
@@ -166,13 +197,13 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 \begin{example}{}{}
 考虑三个串$ab$,$abc$,$abcd$。
 
-令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以ab,abc,abcd线性无关，\{ab,abc,abcd\}的最大线性无关子集就是它自己，所以ab,abc,abcd的秩是3。
+令$A=ab,B=abc,C=abcd$，那么$A,B,C$的所有不同线性组合为$A=ab,B=abc,C=abcd,AB=c,AC=cd,BC=d,ABC=abd$。所有线性组合都是非平凡串，所以$ab,abc,abcd$线性无关，$\{ab,abc,abcd\}$的最大线性无关子集就是它自己，所以$ab,abc,abcd$的秩是3。
 \end{example}
 
 \begin{example}{}{}
 考虑三个串bc,ac,ab。
 
-令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以bc,ac,ab线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以bc,ac线性无关，所以bc,ac,ab的秩为2。
+令$A=bc,B=ac,C=ab$，那么$A,B,C$的所有不同线性组合为$A=BC=bc,B=AC=ac,C=AB=ab,ABC=0$。$ABC=0$是平凡串，所以$bc,ac,ab$线性相关。A和B的所有线性组合为$A=bc,B=ac,AB=ab$，都是非平凡串，所以$bc,ac$线性无关，所以$bc,ac,ab$的秩为2。
 \end{example}
 
 \subsection{简单逻辑及其复杂度}
@@ -191,16 +222,16 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 单步逻辑有什么用呢？如果电路中要同时执行多个简单逻辑，可以将其中若干逻辑进行连接以获取可能的简化。这个描述非常抽象，我们来看一个例子。
 
 \begin{figure}[!htp]
-\centering
-\subfloat[可密堆叠的数显]{\label{fig27}
-\makecell{\includegraphics[width=0.9\textwidth]{images/321.png}\\
-\includegraphics[width=0.9\textwidth]{images/322.png}}}\\
-\subfloat[控制部分]{\includegraphics[width=0.9\textwidth]{images/323.png}}\\
-\subfloat[显示部分]{\includegraphics{images/324.png}}
-\caption{}\label{fig26}
+	\centering
+	\subfloat[可密堆叠的数显]{\adjincludegraphics{images/322.png}}
+	
+	\subfloat[控制部分]{\adjincludegraphics{images/323.png}}%
+	\smarthfill{50}%
+	\subfloat[显示部分]{\adjincludegraphics{images/324.png}}
+	\caption{}\label{fig26}
 \end{figure}
 
-\autoref{fig26}展示了一个BCD数显。这个数显是目前发现的唯一一个可密堆叠（\autoref{fig27}）的BCD数显。可密堆叠的要求是极其苛刻的。首先，因为下方显示器的宽度相当小，控制电路的宽度也非常有限；其次，上层和下层控制单元需要可以挨在一起但是线不能连接。这些条件看上去非常不可思议，但是数显能做出来，得益于单步逻辑的超高复杂度。这个数显一共有7个输出，并且因为它们的秩为7，至少需要7个逻辑门。输入接进来时，在逻辑灯上可以有各种接线可能；逻辑门可以选取与和异或，逻辑灯数量也可以改变；输出时，多个逻辑门可以输出到同一根线上实现连接运算；电线在显示器上也可以连接若干段。这么算下来，不考虑正确性的情况下，一个简单数显的接线排列组合可以有成千上万种。从这么复杂的情况中找出一种可行方案不算太困难，但是也需要相当的观察力与经验。
+\autoref{fig26}展示了一个BCD数显。这个数显是目前发现的唯一一个可密堆叠（\autoref{fig26}）的BCD数显。可密堆叠的要求是极其苛刻的。首先，因为下方显示器的宽度相当小，控制电路的宽度也非常有限；其次，上层和下层控制单元需要可以挨在一起但是线不能连接。这些条件看上去非常不可思议，但是数显能做出来，得益于单步逻辑的超高复杂度。这个数显一共有7个输出，并且因为它们的秩为7，至少需要7个逻辑门。输入接进来时，在逻辑灯上可以有各种接线可能；逻辑门可以选取与和异或，逻辑灯数量也可以改变；输出时，多个逻辑门可以输出到同一根线上实现连接运算；电线在显示器上也可以连接若干段。这么算下来，不考虑正确性的情况下，一个简单数显的接线排列组合可以有成千上万种。从这么复杂的情况中找出一种可行方案不算太困难，但是也需要相当的观察力与经验。
 
 \begin{example}{}{}\label{exa3}
 某组合逻辑有三个输入$a,b,c$和两个输出$d,e$，其真值表如\autoref{tab13}所示，试设计电路。
@@ -233,9 +264,9 @@ $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\
 
 \begin{figure}[H]
 \centering
-\includegraphics{images/406.png}
-\qquad
-\includegraphics{images/407.png}
+\adjincludegraphics{images/406.png}%
+\smarthfill{22}%
+\adjincludegraphics{images/407.png}
 \caption{}\label{fig36}
 \end{figure}
 	
@@ -298,9 +329,9 @@ $a$&$b$&$c_i$&$c_o$&$s$\\\hline
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/408.png}
-\qquad
-\includegraphics{images/409.png}
+\adjincludegraphics{images/408.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/409.png}
 \caption{四位加法器。红线和蓝线分别表示两个加数，绿线为进位，黄线为和，底端绿线为溢出位。上面低位下面高位。}\label{fig37}
 \end{figure}
 
@@ -308,9 +339,9 @@ $a$&$b$&$c_i$&$c_o$&$s$\\\hline
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/410.png}
-\qquad
-\includegraphics{images/411.png}
+\adjincludegraphics{images/410.png}%
+\smarthfill{6}%
+\adjincludegraphics{images/411.png}
 \caption{四位累加器。两个加数依次输入红蓝线。上面低位下面高位。}\label{fig38}
 \end{figure}
 
@@ -323,9 +354,9 @@ $a$&$b$&$c_i$&$c_o$&$s$\\\hline
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/412.png}
-\qquad
-\includegraphics{images/413.png}
+\adjincludegraphics{images/412.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/413.png}
 \caption{四位加减法器。顶端黄线控制加减法，0为加法，1为减法。计算加法时红线和蓝线分别表示两个加数。计算减法时蓝线为被减数，红线为减数。黄线为和，底端绿线为溢出位。上面低位下面高位。}\label{fig39}
 \end{figure}
 
@@ -353,7 +384,9 @@ a_{[7:0]}>b_{[7:0]}=&(a_7\&\textrm{\~{}}b_7)(\textrm{\~{}}a_7b_7\& a_6\&\textrm{
 
 \begin{figure}
 \centering
-\includegraphics{images/396.png}\qquad\includegraphics{images/397.png}
+\adjincludegraphics{images/396.png}%
+\smarthfill{22}%
+\adjincludegraphics{images/397.png}
 \caption{逐位比较器。上方火把表示$b_{[7:0]}$，左边高位右边低位；右侧火把表示$a_{[7:0]}$，下方高位上方低位；左下火把表示$a_{[7:0]}\mathtt{>}b_{[7:0]}$。}\label{fig33}
 \end{figure}
 将这个逻辑表达式转换为电路如\autoref{fig33}所示。
@@ -436,7 +469,7 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/436.png}
+\adjincludegraphics{images/436.png}
 \caption{乘法器单个单元的结构}\label{fig81}
 \end{figure}
 
@@ -450,7 +483,7 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{images/437.png}
+\adjincludegraphics{images/437.png}
 \caption{堆叠优化后的效果}\label{fig82}
 \end{figure}
 
@@ -461,23 +494,35 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\subfloat[逻辑右移一位]{\includegraphics{images/414.png}}
-\qquad
-\subfloat[算术右移一位]{\includegraphics{images/415.png}}
-\qquad
-\subfloat[循环右移一位]{\includegraphics{images/416.png}}
-\caption{递次电路移位}\label{fig40}
+\subfloat[]{\label{i414}\adjincludegraphics{images/414.png}}%
+\smarthfill{25}[3]%
+\subfloat[]{\label{i415}\adjincludegraphics{images/415.png}}%
+\smarthfill{25}[3]%
+\subfloat[]{\label{i416}\adjincludegraphics{images/416.png}}
+\caption{递次电路移位。\protect\subref{i414}逻辑右移一位；\protect\subref{i415}算术右移一位；\protect\subref{i416}循环右移一位。}\label{fig40}
 \end{figure}
 
 如果只移一位的话，这三种移位都可以通过递次电路实现，如\autoref{fig40}所示。
 
-\begin{figure}
+\begin{figure}[p]
 \centering
-\subfloat[逻辑右移]{\includegraphics[width=0.45\textwidth]{images/400.png}\qquad\includegraphics[width=0.45\textwidth]{images/401.png}}
+\subfloat[逻辑右移]{
+	\adjincludegraphics{images/400.png}%
+	\smarthfill{38}%
+	\adjincludegraphics{images/401.png}
+}
 
-\subfloat[算术右移]{\includegraphics[width=0.45\textwidth]{images/402.png}\qquad\includegraphics[width=0.45\textwidth]{images/403.png}}
+\subfloat[算术右移]{
+	\adjincludegraphics{images/402.png}%
+	\smarthfill{38}%
+	\adjincludegraphics{images/403.png}
+}
 
-\subfloat[经过简单优化的算术右移]{\includegraphics[width=0.45\textwidth]{images/404.png}\qquad\includegraphics[width=0.45\textwidth]{images/405.png}}
+\subfloat[经过简单优化的算术右移]{
+	\adjincludegraphics{images/404.png}%
+	\smarthfill{38}%
+	\adjincludegraphics{images/405.png}
+}
 \caption{组合逻辑原理的移位器。右侧三个火把从上到下作用依次为移1位、移2位、移4位。}\label{fig35}
 \end{figure}
 
@@ -485,14 +530,15 @@ $$
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{images/417.png}
-\includegraphics[width=\textwidth]{images/418.png}
+\adjincludegraphics{images/417.png}%
+\smarthfill{64}%
+\adjincludegraphics{images/418.png}
 \caption{移位器。纵向的红蓝线输入待移位的数。横向红蓝线输入移位的位数。通过顶端的逻辑灯激活对应的输出。底端绿线用于切换逻辑移位和算术移位。}\label{fig41}
 \end{figure}
 
 事实上，因为数字电路结构都相对复杂，在泰拉瑞亚中想做一定规模的数字电路，一定要考虑利用\nameref{sec17}技术传输数据。\nameref{sec17}技术通过在不同逻辑帧发送不同数位传播数据，我们可以通过这一特点设计专门兼容\nameref{sec17}的移位器。\autoref{fig41}通过选取网线输出的起始数位实现移位功能。
 
-\subsection{随机数生成器（Random Number Generator）}
+\subsection{随机数生成器（Random Number Generator, RNG）}
 在现实中需要用复杂算法实现的功能，在泰拉瑞亚中反而异常简单。直接使用8个1/2概率的故障逻辑门，我们就可以随机生成8位二进制数。
 \vspace{5cm}
 
@@ -528,63 +574,45 @@ $$
 二进制转BCD和BCD转二进制对应不同的真值表，我们需要分开设计。
 
 \section{存储电路}
-一个存储电路总是要有一个用于存放数据的阵列和一个选择数据的多路选择器。
+一个存储电路总是要有一个用于存放数据的阵列和一个选择数据的\termMUX 。
 
-\subsection{多路选择器（Multiplexer）}
-多路选择器接收一个二进制地址，激活该地址代表的位置。一个经典的四位多路选择器如\autoref{fig42}所示。
+\subsection{\termMUX （Multiplexer, MUX）}
+\emph{\termMUX}又名\emph{数据选择器}（Data Selector）。\termMUX 接收一个二进制地址，激活该地址代表的位置。一个经典的四位\termMUX 如\autoref{fig42}所示。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/419.png}\vspace{16pt}
-
-\includegraphics{images/420.png}
-\caption{经典四位多路选择器。红蓝线表示地址，上面高位下面低位。绿线双激活输出。16个逻辑门从左到右依次表示0000到1111。}\label{fig42}
+\adjincludegraphics{images/419.png}%
+\smarthfill{36}%
+\adjincludegraphics{images/420.png}
+\caption{经典四位\termMUX。红蓝线表示地址，上面高位下面低位。绿线双激活输出。16个逻辑门从左到右依次表示0000到1111。}\label{fig42}
 \end{figure}
 
-我们在\nameref{sec2:2}中曾见过相似的电路，事实上那个就是状态版的多路选择器。本小节中我们通过\nameref{sec33}实现了激活版的多路选择器。
+我们在\nameref{sec2:2}中曾见过相似的电路，事实上那个就是状态版的\termMUX 。本小节中我们通过\nameref{sec33}实现了激活版的\termMUX 。
 
 \subsection{只读存储器（Read-Only Memory）}
 只读存储器用于存储事先设计好的、固定的数据。这些数据不需要在使用时修改，所以一般是通过物理方式直接做在电路中。
 \begin{figure}[!ht]
     \centering
-	\subfloat[横向输入纵向输出]{\label{fig49}\includegraphics[scale=0.6]{images/342.png}\includegraphics[scale=0.6]{images/341.png}}
-    \qquad
-	\subfloat[纵向输入横向输出]{\label{fig50}\includegraphics[scale=0.6]{images/343.png}\includegraphics[scale=0.6]{images/344.png}}
-    \qquad
-	\subfloat[纵向输入横向输出]{\label{fig51}\includegraphics[scale=0.6]{images/346.png}\includegraphics[scale=0.6]{images/345.png}}
+	\subfloat[横向输入纵向输出]{\label{fig49}\adjincludegraphics{images/342.png}\adjincludegraphics{images/341.png}}
+	
+	\subfloat[纵向输入横向输出]{\label{fig50}\adjincludegraphics{images/343.png}\adjincludegraphics{images/344.png}}%
+    \smarthfill{50}%
+	\subfloat[纵向输入横向输出]{\label{fig51}\adjincludegraphics{images/346.png}\adjincludegraphics{images/345.png}}
     \caption{ROM的三种设计。}\label{fig48}
 \end{figure}
-\autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与多路选择器配合，而多路选择器是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。
+\autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与\termMUX 配合，而\termMUX 是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。
 
-\nameref{sec2:2}中，\autoref{i36:37}就是状态式的多路选择器，\autoref{i42:43}的下半部分电路就是\autoref{fig50}样式的ROM。只有有限个输出情况的显示器都可以通过ROM实现。
+\nameref{sec2:2}中，\autoref{i36:37}就是状态式的\termMUX ，\autoref{i42:43}的下半部分电路就是\autoref{fig50}样式的ROM。只有有限个输出情况的显示器都可以通过ROM实现。
 
 \subsection{只写存储器（Write-Only Memory）}
 1
 \subsection{随机存储器（Random Access Memory）}
+
+随机存储器缩写为RAM，就是我们俗称的内存。它既能做读取又能做写入。起初我们可能认为，RAM每个bit至少要用两个逻辑门，其中一个管读取，一个管写入。神奇的是我们可以每bit只用一个逻辑门实现读取和写入两种功能。
+
+回顾\nameref{sec15}，它的输入是一根有状态的线，而故障逻辑门的工作是将线的状态同步到门的另一边
 1
 \subsection{寄存器（Register）}
 1
 \subsection{栈（Stack）}
-1
-
-\section{分段显示器化简理论}
-1
-\subsection{分段显示器主要结构}
-1
-\subsection{显示矩阵、分段矩阵和数字矩阵}
-1
-\subsection{矩阵的初等变换}
-1
-\subsection{化简原理与细节}
-1
-
-\section{处理器结构}
-1
-\subsection{汇编语言}
-1
-\subsection{机器语言}
-1
-\subsection{处理器的拓扑结构}
-1
-\subsection{数据路径（Data Path）}
 1

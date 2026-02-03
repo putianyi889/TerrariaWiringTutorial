@@ -7,7 +7,7 @@ algo1
 sec1, sec2, sec3, sec5, sec6, sec7, sec8, sec9, sec10, 
 	sec11, sec12, sec13, sec14, sec15, sec16, sec17, sec18, sec19, sec20, 
 	sec21, sec22, sec23, sec24, sec25, sec26, sec27, sec28, sec29, sec30, 
-	sec31, sec32, sec33, sec34, sec35, sec36, sec37
+	sec31, sec32, sec33, sec34, sec35, sec36, sec37, sec38
 fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10, 
 	fig11, fig12, fig13, fig14, fig15, fig16, fig17, fig18, fig19, fig20, 
 	fig21, fig22, fig23, fig24, fig25, fig26, fig27, fig28, fig29, fig30, 
@@ -16,7 +16,7 @@ fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10,
 	fig51, fig52, fig53, fig54, fig55, fig56, fig57, fig58, fig59, fig60,
 	fig61, fig62, fig63, fig64, fig65, fig66, fig67, fig68, fig69, fig70,
 	fig71, fig72, fig73, fig74, fig75, fig76, fig77, fig78, fig79, fig80, 
-	fig81, fig82, 
+	fig81, fig82, fig83, fig84, fig85, fig86, fig87
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, 
 	tab11, tab12, tab13, tab14, tab15, tab16, tab17, tab18
 	tab1406, 

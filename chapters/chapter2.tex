@@ -2,14 +2,14 @@
 
 \section{电源/电线/用电器}\label{sec10}
 
-在现实生活中，电路的三个基本组成部分为\myind{电源}、导电回路和用电器，电源产生的电流经回路传导到用电器并驱动用电器。在泰拉瑞亚中，电路的三个基本组成部分为\myind{电源}、\myind{电线}和\myind{用电器}，电源产生的电信号经电线传导到用电器，用电器响应该电信号。wiki上这样描述这个过程：电源激活——电源上的电线激活——电线下的用电器激活。在本书接下来的讨论中，我们采用wiki上的解释，统一使用\myind{激活}(activate)来表达电路的活跃状态。
+在现实生活中，电路的三个基本组成部分为\myind{电源}、导电回路和用电器，电源产生的电流经回路传导到用电器并驱动用电器。在\termTR 中，电路的三个基本组成部分为\myind{电源}、\myind{电线}和\myind{用电器}，电源产生的电信号经电线传导到用电器，用电器响应该电信号。wiki上这样描述这个过程：电源激活——电源上的电线激活——电线下的用电器激活。在本书接下来的讨论中，我们采用wiki上的解释，统一使用\myind{激活}(activate)来表达电路的活跃状态。
 
 由于电线和图格处于不同图层，它们可以重叠。如果某电线与某图格重叠，我们说该图格在该电线下，该电线在该图格上。
 
-电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。泰拉瑞亚中所有电源及其激活条件见\autoref{dianyuan}，所有用电器及其响应方式见\autoref{yongdianqi}，详细信息请参阅\nameref{sec1}及wiki。
+电源指可激活其上电线的图格或该图格对应的物品，每个电源有其特有的激活条件。用电器指可被其上电线激活的图格或该图格对应的物品，每个用电器被激活时有其特有的响应方式。\termTR 中所有电源及其激活条件见\autoref{dianyuan}，所有用电器及其响应方式见\autoref{yongdianqi}，详细信息请参阅\nameref{sec1}及wiki。
 
 \begin{longtable}{|c|c|}
-\caption{泰拉瑞亚中的\myind{电源}}\label{dianyuan}\\\hline
+\caption{\termTR 中的\myind{电源}}\label{dianyuan}\\\hline
 电源					&	激活条件					\\
 \hline
 \endfirsthead
@@ -19,7 +19,7 @@
 \endhead
 \hline
 \endfoot
-\myind{开关}/\myind{控制杆}/\myind{机关宝箱}/\myind{\DMC}	&	鼠标右击					\\
+\myind{开关}/\myind{控制杆}/\myind{机关宝箱}/\myind{\DeadMansChest}	&	鼠标右击					\\
 \hline
 灰/棕/蓝/丛林蜥蜴\myind{压力板}	&	玩家踩踏					\\
 \hline
@@ -49,7 +49,7 @@
 \end{longtable}
 
 \begin{longtable}{|c|c|}
-\caption{泰拉瑞亚中的\myind{用电器}}\label{yongdianqi}\\\hline
+\caption{\termTR 中的\myind{用电器}}\label{yongdianqi}\\\hline
 用电器		&	响应方式	\\\hline
 \endfirsthead
 \hline
@@ -66,7 +66,7 @@
 \myind{烟花喷泉}/\myind{烟花盒}&产生烟花\\\hline
 \myind{烟花火箭}&发射\\\hline
 \myind{泡泡机}/\myind{呆萌气球机}/\myind{派对中心}&开/关切换，生成背景特效\\\hline
-\myind{\FM} &开/关切换，生成云雾特效\\\hline
+\myind{\FogMachine} &开/关切换，生成云雾特效\\\hline
 \myind{喷泉}&开/关切换，改变水的颜色\\\hline
 \myind{八音盒}&开/关切换，改变背景音乐\\\hline
 \myind{部分雕像}&\makecell{生成物品/传送城镇NPC/亮灭切换/\\生成敌怪/生成小动物}\\\hline
@@ -88,22 +88,21 @@
 用火把摆出数字“0”（\autoref{i32}），然后用电线连接一个开关和“0”左边三条边（\autoref{i33}）。在这个电路中，开关是电源，“0”的左边三条边上的火把是用电器。因为开关的激活条件是右击，我们右击开关就能激活它，然后开关上的红线激活，于是红线下“0”的左边三条边被激活。火把的激活响应是亮灭切换，所以这三条边就会灭，显示数字“1”（\autoref{fig74}）。反复右击开关，这些火把就会在亮灭之间切换，从而显示的数字在“0”和“1”之间切换。这就是最简单的二进制\textbf{数显}，\myind{数显}是数字显示器的简称。
 
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i32}
-\includegraphics{images/433.png}
-}
-\qquad\qquad
+\adjincludegraphics{images/433.png}
+}%
+\smarthfill{18}[3]%
 \subfloat[]{
 \label{i33}
-\includegraphics{images/33.png}
-}
-\qquad\qquad
+\adjincludegraphics{images/33.png}
+}%
+\smarthfill{18}[3]%
 \subfloat[]{
 \label{fig74}
-\includegraphics{images/434.png}
+\adjincludegraphics{images/434.png}
 }
-\end{center}
 \caption{}
 \label{i32:33}
 \end{figure}
@@ -111,19 +110,18 @@
 如果想要显示效果更醒目，可以将背景墙和火把都涂上\wiki{暗影漆}，也可以尝试其他的光源，甚至\myind{制动器}与实体块的组合。
 \end{remark*}
 \begin{problem}{}{}
-设计如\autoref{i69:70}所示的二进制数显。
+设计如\autoref{i69:70}所示的二进制数显。显示方块是\wiki{晶莹宝石块}。
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[0]{
 \label{i69}
-\includegraphics{images/69.png}
-}
-\qquad
+\adjincludegraphics{images/69.png}
+}%
+\smarthfill{8}%
 \subfloat[1]{
 \label{i70}
-\includegraphics{images/70.png}
+\adjincludegraphics{images/70.png}
 }
-\end{center}
 \caption{}
 \label{i69:70}
 \end{figure}
@@ -133,11 +131,10 @@
 \begin{example}{}{}
 如\autoref{i3:4}所示，用电线连接\myind{逻辑感应器（夜）}和\myind{派对中心}。这个电路中，\myind{逻辑感应器}（夜）为电源，派对中心为用电器。入夜时，\myind{派对}事件结束，派对中心自动关闭，然后逻辑感应器（夜）激活，派对中心激活，又重新打开，进入派对事件。每天入夜时重复这个过程，地图就会保持在派对事件中。
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/3.png}
-\qquad
-\includegraphics{images/4.png}
-\end{center}
+\centering
+\adjincludegraphics{images/3.png}%
+\smarthfill{6}%
+\adjincludegraphics{images/4.png}
 \caption{}
 \label{i3:4}
 \end{figure}
@@ -153,11 +150,10 @@
 
 如\autoref{i5:6}所示，用电线连接\myind{传送带}（顺时针）和\myind{测重压力板}。在这个电路中，测重压力板是电源，传送带是用电器。人物站在传送带上。传送带使人物向右移动，人物进入测重压力板所在格时测重压力板激活，进而激活传送带，传送带变为逆时针，人物向左移动，移出测重压力板时测重压力板又激活，传送带变为顺时针，人物向右移动，如此反复。
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/5.png}
-\qquad
-\includegraphics{images/6.png}
-\end{center}
+\centering
+\adjincludegraphics[scale=0.75]{images/5.png}%
+\smarthfill{4}%
+\adjincludegraphics[scale=0.75]{images/6.png}
 \caption{传送带驱动。图中传送带为顺时针。}
 \label{i5:6}
 \end{figure}
@@ -172,29 +168,24 @@
 有一部分用电器被激活的时候会在两个状态间切换，例如发光物品的亮灭切换，功能物品的开关切换。在涉及到逻辑的时候，可以将两个状态看作1和0。
 
 \begin{example}{\myind{自动门}}{exa5}
-
-很多人刚开始玩泰拉瑞亚的时候，盖房子都会造门。普通的门是非常不方便的，不仅出入都需要操作，而且有些时候并不能阻止敌怪进入。解救了机械师后，有些人就开始把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
+很多人刚开始玩\termTR 的时候，盖房子都会造门。普通的门是非常不方便的，不仅出入都需要操作，而且有些时候并不能阻止敌怪进入。解救了机械师后，有些人就开始把普通的门改成装有制动器的物块（\autoref{i38:39}），这样的门两边可以有障碍物，而且也不会被敌怪开门。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/38.png}
-\qquad
-\includegraphics{images/39.png}
-\end{center}
+\centering
+\adjincludegraphics{images/38.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/39.png}
 \caption{使用制动器做的门，开关可以开关门。}
 \label{i38:39}
 \end{figure}
 
-有些人连出入门的时候右键都懒得点，于是发明了自动门，它可以在玩家出入门时自动打开，出入门后自动关闭。
-
-使用两个压力板就可以完成这个功能。如\autoref{i40:41}所示，当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
+因为出入门的时候点开关太麻烦了，所以我们用踩上就能激活的压力板代替开关，设计了自动门（\autoref{i40:41}）。当玩家从左边走向门时，会踩到门左边的压力板，压力板激活制动器，把物块虚化。当玩家通过门时，踩到门右边的压力板，压力板激活制动器，把物块实化。玩家从右边向左走同理。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/40.png}
-\qquad
-\includegraphics{images/41.png}
-\end{center}
+\centering
+\adjincludegraphics{images/40.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/41.png}
 \caption{}
 \label{i40:41}
 \end{figure}
@@ -202,11 +193,10 @@
 这个门的漏洞比较明显，那就是如果人走到门口，又回去，门就会保持开启状态。为了解决这个问题，需要把普通压力板改成\myind{测重压力板}（\autoref{i44:45}）。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/44.png}
-\qquad
-\includegraphics{images/45.png}
-\end{center}
+\centering
+\adjincludegraphics{images/44.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/45.png}
 \caption{}
 \label{i44:45}
 \end{figure}
@@ -214,11 +204,10 @@
 然而改成了测重压力板后并非万事大吉。如果进入多人游戏，两个人站在门的两侧，同时试图到对方一边，那么制动器被激活两次，物块仍实化，除非一个人让步。这是非常不方便的。使用\myind{逻辑感应器（玩家）}可以解决这个问题（\autoref{i46:47}）。当已经有一个玩家站在感应器的蓝框内时，其他玩家进出不会改变感应器状态，感应器自然就不会激活。因此，当感应器的蓝框内有玩家时门开启，否则门关闭。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/46.png}
-\qquad
-\includegraphics{images/47.png}
-\end{center}
+\centering
+\adjincludegraphics{images/46.png}%
+\smarthfill{14}%
+\adjincludegraphics{images/47.png}
 \caption{}
 \label{i46:47}
 \end{figure}
@@ -226,9 +215,29 @@
 
 \section{逻辑门灯/逻辑门}
 \begin{figure}[H]
-\centering
-\subfloat[逻辑灯]{\includegraphics{figures/Logic_Gate_Lamp_(Off).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(On).png}\quad\includegraphics{figures/Logic_Gate_Lamp_(Faulty).png}}\qquad
-\subfloat[逻辑门]{\includegraphics{figures/Logic_Gate_(AND).png}\quad\includegraphics{figures/Logic_Gate_(NAND).png}\quad\includegraphics{figures/Logic_Gate_(OR).png}\quad\includegraphics{figures/Logic_Gate_(NOR).png}\quad\includegraphics{figures/Logic_Gate_(XOR).png}\quad\includegraphics{figures/Logic_Gate_(XNOR).png}}
+\hfill
+\subfloat[逻辑灯]{
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(Off).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(On).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_Lamp_(Faulty).png}
+}
+\hfill
+\subfloat[逻辑门]{
+	\adjincludegraphics{figures/Logic_Gate_(AND).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(NAND).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(OR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(NOR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(XOR).png}%
+	\quad%
+	\adjincludegraphics{figures/Logic_Gate_(XNOR).png}
+}
+\rhfill
 \caption{}
 \end{figure}
 
@@ -236,23 +245,34 @@
 
 \myind{逻辑门}是电源，不同的逻辑门有不同的逻辑判定规则。如果一个逻辑门上没有故障逻辑灯，我们称其为\myind{普通逻辑门}。在本节中讨论的逻辑门均为普通逻辑门。当一个逻辑门上的逻辑灯状态改变时，逻辑门会进行逻辑判定并调整自己的亮灭状态。如果逻辑门的状态改变了，那么逻辑门会激活。
 
-六种普通逻辑门的逻辑判定规则见物品描述和wiki。
+\begin{tabular}{|c|c|c|c|}
+\hline
+逻辑门名称&贴图&亮条件&灭条件\\\hline
+与门&\includegraphics{figures/Logic_Gate_(AND).png}&所有逻辑灯均为亮&至少一个逻辑灯为灭\\\hline
+与非门&\includegraphics{figures/Logic_Gate_(NAND).png}&至少一个逻辑灯为灭&所有逻辑灯均为亮\\\hline
+或门&\includegraphics{figures/Logic_Gate_(OR).png}&至少一个逻辑灯为亮&所有逻辑灯均为灭\\\hline
+或非门&\includegraphics{figures/Logic_Gate_(NOR).png}&所有逻辑灯均为灭&至少一个逻辑灯为亮\\\hline
+异或门&\includegraphics{figures/Logic_Gate_(XOR).png}&有且仅有一个逻辑灯为亮&其他情况\\\hline
+异或非门&\includegraphics{figures/Logic_Gate_(XNOR).png}&其他情况&有且仅有一个逻辑灯为亮\\\hline
+\end{tabular}
+
+\begin{remark}
+中文wiki对于普通逻辑门的描述是错误的。
+\end{remark}
+
+\begin{remark}
+当逻辑门上只有一个逻辑灯或者有超过两个逻辑灯时，仍按照上表规则一次判定状态，这与现实中的电路元件（尤其是异或门）不同。
+\end{remark}
 
 \begin{example}{改进自动门}{}
 
 \autoref{exa5}中我们使用逻辑感应器（玩家）实现了\myind{自动门}的功能。这个自动门仍有缺点，那就是感应器的感应范围太大，导致玩家在很远的地方，甚至不想开门的地方（门的上方和下方）门也会打开。测重压力板的感应范围合适，但是当门两边同时站人时会导致门关闭。我们需要实现的功能是：当门的左边站人\textbf{或}右边站人时门开启。因此使用\myind{或门}可以达到我们的要求。
 
 \begin{figure}[H]
-\begin{center}
-\subfloat{
-\label{i50}
-\includegraphics{images/50.png}
-}
-\subfloat{
-\label{i51}
-\includegraphics{images/51.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/50.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/51.png}
 \caption{}
 \label{i50:51}
 \end{figure}
@@ -280,45 +300,39 @@
 
 在开始这一小节之前，先思考一个问题：如何用一个开关同时开启多于4个的1秒计时器并使它们独立工作？
 
-要回答这个问题，首先需要明确的一点是，如果你不确定会发生什么，用一根电线连接两个\myind{计时器}是非常不靠谱的。因为计时器既是电源又是用电器，连接在一起的两个计时器在下一次激活的时候就会互相干扰，导致其中一个计时器将另一个计时器关闭。由于泰拉瑞亚中只有四种颜色的电线，如果要用一个开关同时开启多于4个计时器，那么必然有两个计时器要用同一种颜色的线激活。然而要让它们互不干扰，就意味着这两根线不能连接。同时又必须用大小只有1格的开关控制这两根线，那怎么办呢？
+要回答这个问题，首先需要明确的一点是，如果你不确定会发生什么，用一根电线连接两个\myind{计时器}是非常不靠谱的。因为计时器既是电源又是用电器，连接在一起的两个计时器在下一次激活的时候就会互相干扰，导致其中一个计时器将另一个计时器关闭。由于\termTR 中只有四种颜色的电线，如果要用一个开关同时开启多于4个计时器，那么必然有两个计时器要用同一种颜色的线激活。然而要让它们互不干扰，就意味着这两根线不能连接。同时又必须用大小只有1格的开关控制这两根线，那怎么办呢？
 
 矛盾的根源在于，开关通过一根电线激活多个计时器后，经过一个计时器周期，计时器会通过开关上的电线互相干扰。要消除这种干扰，就要让信号既可以从开关传到计时器，又无法从计时器传到开关，即实现类似二极管的功能。
 
 如\autoref{i13}所示，在与门上放一个逻辑灯就做成了一种二极管。用红线连接逻辑灯，蓝线连接与门（\autoref{i14}，\autoref{i15}），则激活红线会导致蓝线激活，而激活蓝线不会影响红线。根据与门的定义，当逻辑灯点亮时与门点亮，当逻辑灯熄灭时与门熄灭。红线激活时，逻辑灯在亮灭之间切换，从而逻辑门也在亮灭之间切换，激活一次蓝线。由于逻辑门不是用电器，所以激活蓝线不会影响红线。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i13}
-\includegraphics{images/13.png}
-}
-\qquad
+\adjincludegraphics{images/13.png}
+}%
+\smarthfill{14}[3]%
 \subfloat[]{
 \label{i14}
-\includegraphics{images/14.png}
-}
+\adjincludegraphics{images/14.png}
+}%
+\smarthfill{14}[3]%
 \subfloat[]{
 \label{i15}
-\includegraphics{images/15.png}
+\adjincludegraphics{images/15.png}
 }
-\end{center}
-\caption{\ref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
+\caption{\protect\subref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
 \label{i13:15}
 \end{figure}
 
 用这个原理可以轻松用一个开关开启很多1秒计时器并使它们互不干扰（\autoref{i16:17}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i16}
-\includegraphics[width=0.4\textwidth]{images/16.png}
-}
-\subfloat{
-\label{i17}
-\includegraphics[width=0.4\textwidth]{images/17.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/16.png}%
+\smarthfill{32}%
+\adjincludegraphics{images/17.png}
 \caption{}
 \label{i16:17}
 \end{figure}
@@ -332,11 +346,10 @@
 装置如\autoref{i48:49}所示。打开1秒计时器，经过1秒，计时器激活电路，然后逻辑灯被激活，进而逻辑门激活，把1秒计时器关闭。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics{images/48.png}
-\qquad
-\includegraphics{images/49.png}
-\end{center}
+\centering
+\adjincludegraphics{images/48.png}%
+\smarthfill{4}%
+\adjincludegraphics{images/49.png}
 \caption{}
 \label{i48:49}
 \end{figure}
@@ -348,17 +361,17 @@
 \end{example}
 
 \subsection{\myind{绝对等价}的逻辑门}
-泰拉瑞亚中共有六种普通逻辑门：包括与门、与非门、或门、或非门、异或门、异或非门。
+\termTR 中共有六种普通逻辑门：包括与门、与非门、或门、或非门、异或门、异或非门。
 
 \begin{figure}[!ht]
 \centering
-\subfloat[]{\label{fig7}\includegraphics{images/359.png}}
-\qquad
-\subfloat[]{\label{fig8}\includegraphics{images/360.png}}
+\subfloat[]{\label{fig7}\adjincludegraphics{images/359.png}}%
+\smarthfill{8}%
+\subfloat[]{\label{fig8}\adjincludegraphics{images/360.png}}
 \caption{}
 \end{figure}
 
-这么多种门的名字看起来十分头大，是不是必须熟悉每种门才能做电路呢？事实上，这六种门中有很多都是绝对等价的。两个装置绝对等价是指，如果把这两个装置都刷黑，那么没有任何方法可以测出它们的区别。如\autoref{fig7}，左边是与门，右边是\myind{与非门}，分别放上数量和状态均相同的逻辑灯后，这两个门的表现完全一致。与门和与非门的唯一区别就是，对于相同输入，与门亮时与非门一定灭，与门灭时与非门一定亮。由于逻辑门在亮灭切换时会激活，与门和与非门总是同时激活。在泰拉瑞亚中，由亮到灭的激活和由灭到亮的激活是没有区别的，所以与门和与非门没有区别。同理，或门和\myind{或非门}没有区别，异或门和\myind{异或非门}没有区别。
+这么多种门的名字看起来十分头大，是不是必须熟悉每种门才能做电路呢？事实上，这六种门中有很多都是绝对等价的。两个装置绝对等价是指，如果把这两个装置都刷黑，那么没有任何方法可以测出它们的区别。如\autoref{fig7}，左边是与门，右边是\myind{与非门}，分别放上数量和状态均相同的逻辑灯后，这两个门的表现完全一致。与门和与非门的唯一区别就是，对于相同输入，与门亮时与非门一定灭，与门灭时与非门一定亮。由于逻辑门在亮灭切换时会激活，与门和与非门总是同时激活。在\termTR 中，由亮到灭的激活和由灭到亮的激活是没有区别的，所以与门和与非门没有区别。同理，或门和\myind{或非门}没有区别，异或门和\myind{异或非门}没有区别。
 
 现在我们已经把需要学习的范围缩小到了三个门：与门、\myind{或门}、异或门。接下来我们看\autoref{fig8}，左边是与门，右边是或门，与门上全是亮灯，或门上全是灭灯。现在这两个门也是完全一致的。这是因为，它们上面的逻辑灯初始状态相反，对于相同输入，最终取值也相反。所以，与门亮$\Longleftrightarrow$与门上的所有灯亮$\Longleftrightarrow$或门上的所有灯灭$\Longleftrightarrow$或门灭。这样一来与门和或门的亮灭状态永远是相反的，类似于前面的讨论，这里的两个门也没有区别。
 
@@ -371,17 +384,16 @@
 我们选择使用\myind{七段线}显示。首先用火把摆出七段线（\autoref{i34:35}\subref{i34}），然后用七根电线分别控制每一段线（\autoref{i34:35}\subref{i35}）。对于0\~{}9，a\~{}g分别有对应部分点亮\autoref{qiduanxian}。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i34}
-\includegraphics{images/34.png}
-}
-\quad
+\adjincludegraphics{images/34.png}
+}%
+\smarthfill{22}%
 \subfloat[]{
 \label{i35}
-\includegraphics{images/35.png}
+\adjincludegraphics{images/35.png}
 }
-\end{center}
 \caption{}
 \label{i34:35}
 \end{figure}
@@ -405,17 +417,16 @@
 然后我们来处理输入。我们需要把输入的四位二进制信息转换为10个数字中的一个，这个过程叫做\myind{解码}。我们用\autoref{i36:37}中的电路进行解码。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i36}
-\includegraphics{images/36.png}
-}
-\quad
+\adjincludegraphics{images/36.png}
+}%
+\smarthfill{26}%
 \subfloat[]{
 \label{i37}
-\includegraphics{images/37.png}
+\adjincludegraphics{images/37.png}
 }
-\end{center}
 \caption{十个与门从左到右依次代表0\~{}9，四个开关/火把从上到下依次代表8,4,2,1。例如火把4,2,1点亮，则代表数字4+2+1=7的逻辑门点亮，其他逻辑门熄灭。}
 \label{i36:37}
 \end{figure}
@@ -423,18 +434,18 @@
 接下来就可以进行接线了。把十个逻辑门依次标号为0\~{}9。把七段线显示器置为0状态，然后依据\autoref{qiduanxian}接线：把0号逻辑门连到abcefg，把1号逻辑门连到cf，等等。遇到电线颜色冲突的时候要使用换线器，最终连好的电路如\autoref{i42:43}。操作四个开关，显示屏即显示0\~{}9的数字或者熄灭。之所以会这样，是因为每次数字改变的时候：原有数字的逻辑门熄灭，激活一次，使原数字对应的所有火把熄灭；新数字的逻辑门点亮，激活一次，使新数字对应的所有火把点亮。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i42}
-\includegraphics[width=0.3\textwidth]{images/42.png}
-\includegraphics[width=0.3\textwidth]{images/43.png}
-}
+\adjincludegraphics{images/42.png}%
+\smarthfill{47}[3]%
+\adjincludegraphics{images/43.png}
+}%
+\smarthfill{47}[3]%
 \subfloat[黄线绿线接法]{
 \label{i115}
-\includegraphics[width=0.3\textwidth]{images/115.png}
+\adjincludegraphics{images/115.png}
 }
-\subfloat{}
-\end{center}
 \caption{a连接到02356789，b连接到045689，c连接到01234789，d连接到2345689，e连接到0268，f连接到013456789，g连接到0235689。}
 \label{i42:43}
 \end{figure}
@@ -444,29 +455,32 @@
 如果任意的普通逻辑门上有至少一个\myind{故障逻辑灯}，那么该逻辑门会变为蓝色，称为故障逻辑门。故障逻辑门是一个（不是一类）特殊的逻辑门，无论其下方的普通逻辑门是什么，故障逻辑门的性质是相同的。故障逻辑门与其上最下方的故障逻辑灯之间的普通逻辑灯为有效逻辑灯。当故障逻辑门上有一个故障逻辑灯被激活时，故障逻辑门会依一定概率激活，该概率等于点亮的有效逻辑灯的数量除以所有有效逻辑灯的数量。请读者对照\autoref{i54:58}仔细揣摩这段话的描述。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i54}
-\includegraphics{images/54.png}
-}
+\adjincludegraphics{images/54.png}
+}%
+\smarthfill{10}[5]%
 \subfloat[]{
 \label{i55}
-\includegraphics{images/55.png}
-}
+\adjincludegraphics{images/55.png}
+}%
+\smarthfill{10}[5]%
 \subfloat[]{
 \label{i56}
-\includegraphics{images/56.png}
-}
+\adjincludegraphics{images/56.png}
+}%
+\smarthfill{10}[5]%
 \subfloat[]{
 \label{i57}
-\includegraphics{images/57.png}
-}
+\adjincludegraphics{images/57.png}
+}%
+\smarthfill{10}[5]%
 \subfloat[]{
 \label{i58}
-\includegraphics{images/58.png}
+\adjincludegraphics{images/58.png}
 }
-\end{center}
-\caption{当激活顶端的故障逻辑灯时，故障逻辑门激活的概率分别是：\protect\subref{i54}1/7；\protect\subref{i55}2/7；\protect\subref{i56}6/7；\protect\subref{i57}1/2；\protect\subref{i58}1。}
+\caption{\protect\subref{i54}故障逻辑灯下一共有7个有效逻辑灯，其中1个是亮的，所以故障逻辑灯被激活时故障逻辑门有1/7的概率激活；\protect\subref{i55}2/7概率激活；\protect\subref{i56}6/7概率激活；\protect\subref{i57}只有最下方的故障逻辑灯下的两个逻辑灯是有效逻辑灯，无论激活哪个故障逻辑灯，故障逻辑门激活的概率都是1/2；\protect\subref{i58}有效逻辑灯全是亮的，所以激活任何一个故障逻辑灯，故障逻辑门激活的概率都是1。}
 \label{i54:58}
 \end{figure}
 
@@ -477,9 +491,9 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[单灯换线器]{\label{fig9}\includegraphics{images/361.png}}
-\qquad
-\subfloat[双灯换线器]{\label{fig10}\includegraphics{images/362.png}}
+\subfloat[单灯换线器]{\label{fig9}\adjincludegraphics{images/361.png}}%
+\smarthfill{18}%
+\subfloat[双灯换线器]{\label{fig10}\quad\adjincludegraphics{images/362.png}\quad}
 \caption{换线器}
 \end{figure}
 
@@ -489,9 +503,9 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[与门vs故障门]{\label{fig11}\includegraphics{images/363.png}\quad\includegraphics{images/364.png}}
-\qquad
-\subfloat[异或门抗干扰]{\label{fig12}\includegraphics{images/365.png}\quad\includegraphics{images/366.png}}
+\subfloat[与门vs故障门]{\label{fig11}\adjincludegraphics{images/363.png}\quad\adjincludegraphics{images/364.png}}%
+\smarthfill{16}%
+\subfloat[异或门抗干扰]{\label{fig12}\adjincludegraphics{images/365.png}\quad\adjincludegraphics{images/366.png}}
 \caption{\protect\subref{fig11}右击开关，红蓝线同时激活，左边火把不响应，右边火把响应；\protect\subref{fig12}无论蓝线如何激活，都不影响换线器工作。}
 \end{figure}
 
@@ -499,21 +513,31 @@
 
 再来看与门和异或门的区别。与门不抗干扰，异或门抗干扰。什么意思呢？如\autoref{fig12}所示，有一根与换线器无关的电线想要横穿换线器。对于异或门，只要用图中的方法就可以避免干扰；对于与门，那么无论如何都没法避免横穿的线带来的干扰。读者可自行分析其中原因。可能你会问，有谁会自找麻烦把一根线穿过去？在实际应用中有时不得不这么做，这时异或门就提供了便利。
 
-\subsection{赋值电路}\label{sec14}
+故障逻辑门也可以做出抗干扰的换线器。从故障逻辑门的描述中我们可以发现，故障逻辑门上两个故障逻辑灯之间的普通逻辑灯是不影响输出的（如\autoref{i57}），换言之这些普通逻辑灯可以任由其他电路穿过。
 
-泰拉瑞亚中的逻辑电路有个非常大的缺点，就是\myind{赋值}困难。在数电中，想要给电路赋值0或1，只用连上对应电平的电源即可。然而在泰拉瑞亚中，电线没有电平高低，只有激活，而激活只能改变逻辑灯状态。把一个逻辑灯赋值为0，就需要在这个逻辑灯本来是1的情况下激活一次（或激活奇数次），在逻辑灯本来是0的情况下不激活（或激活偶数次）。如\autoref{i52:53}所示的电路可以做到这一点：当逻辑灯灭时，激活红线会将故障逻辑灯激活，因为逻辑灯灭，逻辑门不激活，逻辑灯保持灭。当逻辑灯亮时，激活红线会将故障逻辑灯激活，因为逻辑灯亮，逻辑门激活蓝线，逻辑灯熄灭。无论如何，激活红线都会使逻辑灯熄灭。
+\paragraph*{多换一换线器}
+受电线颜色限制，单灯换线器最多可以实现三换一（\autoref{fig83}），双灯换线器最多可以实现四换一（\autoref{fig84}），其中双灯异或换线器接线更灵活。把双灯异或稍作修改，可以做出7换一的3灯异或（\autoref{fig85}）和8换一的4灯异或（\autoref{fig86}）。超出了8换一，就只能用多个逻辑门，或者单个故障逻辑门实现了。如\autoref{i58}所示，结合对于故障逻辑门的描述，发现一个故障逻辑门上的所有故障逻辑灯作用是相同的，所以\autoref{i58}中的一串故障逻辑灯中每个都能起到换线的效果。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i52}
-\includegraphics{images/52.png}
-}
-\subfloat{
-\label{i53}
-\includegraphics{images/53.png}
-}
-\end{center}
+\centering
+\subfloat[]{\label{fig83}\includegraphics{images/438.png}}\qquad
+\subfloat[]{\label{fig84}\includegraphics{images/439.png}}\qquad
+\subfloat[]{\label{fig85}\includegraphics{images/440.png}}\qquad
+\subfloat[]{\label{fig86}\includegraphics{images/441.png}}\qquad
+\caption{单个普通逻辑门多换一换线器示例。\protect\subref{fig83}单灯换线器三换一；\protect\subref{fig84}双灯换线器利用隔线实现四换一，若用双灯异或则四个输入可以在和输出颜色不冲突的情况下随便选一个灯接；\protect\subref{fig85}利用双灯异或的逻辑特点和逻辑灯隔线实现7换1；\protect\subref{fig86}加一个隔线的逻辑灯实现8换1。}
+\end{figure}
+
+\paragraph*{双向换线器}
+
+\subsection{赋值电路}\label{sec14}
+
+\termTR 中的逻辑电路有个非常大的缺点，就是\myind{赋值}困难。在数电中，想要给电路赋值0或1，只用连上对应电平的电源即可。然而在\termTR 中，电线没有电平高低，只有激活，而激活只能改变逻辑灯状态。把一个逻辑灯赋值为0，就需要在这个逻辑灯本来是1的情况下激活一次（或激活奇数次），在逻辑灯本来是0的情况下不激活（或激活偶数次）。如\autoref{i52:53}所示的电路可以做到这一点：当逻辑灯灭时，激活红线会将故障逻辑灯激活，因为逻辑灯灭，逻辑门不激活，逻辑灯保持灭。当逻辑灯亮时，激活红线会将故障逻辑灯激活，因为逻辑灯亮，逻辑门激活蓝线，逻辑灯熄灭。无论如何，激活红线都会使逻辑灯熄灭。
+
+\begin{figure}[!ht]
+\centering
+\adjincludegraphics{images/52.png}%
+\smarthfill{4}%
+\adjincludegraphics{images/53.png}
 \caption{}
 \label{i52:53}
 \end{figure}
@@ -521,16 +545,10 @@
 如果将逻辑灯与一个火把同步，就可以做到激活红线使火把熄灭。如果将逻辑灯与火把反向同步，就可以做到激活红线使火把点亮（\autoref{i59:60}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i59}
-\includegraphics{images/59.png}
-}
-\subfloat{
-\label{i60}
-\includegraphics{images/60.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/59.png}%
+\smarthfill{6}%
+\adjincludegraphics{images/60.png}
 \caption{左边开关使火把点亮（赋值1），右边开关使火把关闭（赋值0）。}
 \label{i59:60}
 \end{figure}
@@ -538,17 +556,10 @@
 \begin{example}{\myind{D触发器}}{sec15}
 
 \begin{figure}[H]
-\begin{center}
-\subfloat{
-\label{i237}
-\includegraphics{images/237.png}
-}
-\qquad
-\subfloat{
-\label{i238}
-\includegraphics{images/238.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/237.png}%
+\smarthfill{14}%
+\adjincludegraphics{images/238.png}
 \caption{左边的开关改变A火把的状态，右边的开关将A火把状态更新到B火把。}
 \label{i237:238}
 \end{figure}
@@ -558,95 +569,95 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 回顾\nameref{sec14}，它可以把火把的值设定为一个常数，而该常数可以通过故障逻辑门上的有效逻辑灯来调节。而在\autoref{i237:238}中，我们让左边的火把来调节故障逻辑门上的有效逻辑灯，当左边火把为1时，故障逻辑门的作用是赋值1；当左边火把为0时，故障逻辑门的作用是赋值0。这样一来，这个故障逻辑门的功能实际上是把右边火把的值赋值为左边火把的值。
 \end{example}
 
-\subsection{递次电路}\label{sec35}
+\subsection{\ShiftRegister}\label{sec35}
 
-移位寄存器（\myind{shift register}），俗称\myind{递次电路}，是使用频率非常高的电路。传统的递次电路如\autoref{i72:73}所示。当激活绿线时，一排故障逻辑灯被激活。但是由于只有第一个有效逻辑灯是亮的，只有第一个故障逻辑门激活，从而第一个有效逻辑灯熄灭，第二个有效逻辑灯被点亮。当再次激活绿线时，同理，第二个故障逻辑门激活，第二个有效逻辑灯熄灭，第三个有效逻辑灯点亮。依此进行，当反复激活绿线时，六个故障逻辑门依次激活并循环。将每个故障逻辑门接出一个电路，就可以实现六个电路依次运行并循环。
+移位寄存器（\myind{shift register}），俗称\myind{\ShiftRegister}，是使用频率非常高的电路。传统的\ShiftRegister 如\autoref{i72:73}所示。当激活绿线时，一排故障逻辑灯被激活。但是由于只有第一个有效逻辑灯是亮的，只有第一个故障逻辑门激活，从而第一个有效逻辑灯熄灭，第二个有效逻辑灯被点亮。当再次激活绿线时，同理，第二个故障逻辑门激活，第二个有效逻辑灯熄灭，第三个有效逻辑灯点亮。依此进行，当反复激活绿线时，六个故障逻辑门依次激活并循环。将每个故障逻辑门接出一个电路，就可以实现六个电路依次运行并循环。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/72.png}
-\includegraphics{images/73.png}
+\adjincludegraphics{images/72.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/73.png}
 \caption{}
 \label{i72:73}
 \end{figure}
 
-实际应用中的递次电路非常灵活。不仅故障逻辑门的数量可以随意变化，有效逻辑灯的亮灭、接线方式都可以视实际需求变化。递次电路的常见变种见\autoref{sec2}。使用递次电路时不要死板，要善于针对需求设计最合理的电路。
+实际应用中的\ShiftRegister 非常灵活。不仅故障逻辑门的数量可以随意变化，有效逻辑灯的亮灭、接线方式都可以视实际需求变化。\ShiftRegister 的常见变种见\autoref{sec2}。使用\ShiftRegister 时不要死板，要善于针对需求设计最合理的电路。
 
-递次电路的使用非常广泛。它可以与十进制数显结合做成\bilibili{av22894193}\myind{十进制计数器}，也可以做出\bilibili{av21009075}\myind{霓虹灯}效果，还可以做出\bilibili{av6393957}高速\myind{回血}\myind{回蓝}电路，等等等等等等。
+\ShiftRegister 的使用非常广泛。它可以与十进制数显结合做成\bilibili{av22894193}\myind{十进制计数器}，也可以做出\bilibili{av21009075}\myind{霓虹灯}效果，还可以做出\bilibili{av6393957}高速\myind{回血}\myind{回蓝}电路，等等等等等等。
 
-递次电路的另一个典型用途就是\myind{降频}。我们知道，传送带驱动的频率是60Hz。现在我们需要20Hz的驱动，只需要利用循环长度为3的递次电路（\autoref{i90:91}）。
+\ShiftRegister 的另一个典型用途就是\myind{降频}。我们知道，传送带驱动的频率是60Hz。现在我们需要20Hz的驱动，只需要利用循环长度为3的\ShiftRegister（\autoref{i90:91}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i90}
-\includegraphics{images/90.png}
-}
-\subfloat{
-\label{i91}
-\includegraphics{images/91.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/90.png}%
+\smarthfill{10}%
+\adjincludegraphics{images/91.png}
 \caption{将黄线接出即得到20Hz的驱动，因为绿线每激活3次，黄线都激活1次。}
 \label{i90:91}
 \end{figure}
 
-在一些时候，比如上面提到的十进制计数器中，我们需要“\myind{清零}”操作，即将递次电路复位到初始状态。使用\nameref{sec14}很容易实现这一点（\autoref{i86:87}）。但是这里想说明的是，对赋值对象的理解需要非常灵活。
+在一些时候，比如上面提到的十进制计数器中，我们需要“\myind{清零}”操作，即将\ShiftRegister 复位到初始状态。使用\nameref{sec14}很容易实现这一点（\autoref{i86:87}）。但是这里想说明的是，对赋值对象的理解需要非常灵活。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/86.png}
-\includegraphics{images/87.png}
-\caption{上面的开关用来正常激活递次电路，下面的开关用来复位。除了横穿所有故障逻辑灯的绿线和黄线外，红线和蓝线用来进行递次电路中的循环并将上面有效逻辑灯的状态同步到下面，绿线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
+\adjincludegraphics{images/86.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/87.png}
+\caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。除了横穿所有故障逻辑灯的绿线和黄线外，红线和蓝线用来进行\ShiftRegister 中的循环并将上面有效逻辑灯的状态同步到下面，绿线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
 \label{i86:87}
 \end{figure}
 
-是不是只有逻辑灯才有状态？在递次电路中，电线也可以有状态。如果我们把每根电线接到一个火把，就可以把火把的状态看作电线的状态。那么与其对逻辑灯赋值，不如直接对电线赋值，电路如\autoref{i88:89}所示。对电线进行赋值的前提是电线状态可以决定逻辑灯的状态。
+是不是只有逻辑灯才有状态？在\ShiftRegister 中，电线也可以有状态。如果我们把每根电线接到一个火把，就可以把火把的状态看作电线的状态。那么与其对逻辑灯赋值，不如直接对电线赋值，电路如\autoref{i88:89}所示。对电线进行赋值的前提是电线状态可以决定逻辑灯的状态。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{images/88.png}
-\includegraphics[width=0.5\textwidth]{images/89.png}
-\caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
+\adjincludegraphics{images/88.png}%
+\smarthfill{28}%
+\adjincludegraphics{images/89.png}
+\caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。}
 \label{i88:89}
 \end{figure}
 
-将\autoref{i88:89}中下面一排复位电路穿插到上面递次电路的缝隙里，可以得到占用空间更小的版本（\autoref{i106:107}）。
+将\autoref{i88:89}中下面一排复位电路穿插到上面\ShiftRegister 的缝隙里，可以得到占用空间更小的版本（\autoref{i106:107}）。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{images/106.png}
-\includegraphics[width=0.5\textwidth]{images/107.png}
-\caption{上面的开关用来正常激活递次电路，下面的开关用来复位。}
+\adjincludegraphics{images/106.png}%
+\smarthfill{30}%
+\adjincludegraphics{images/107.png}
+\caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。}
 \label{i106:107}
 \end{figure}
 
-另外，偶尔我们可能需要用到双向递次电路，它的各种做法见\autoref{sec3}。
+另外，偶尔我们可能需要用到双向\ShiftRegister ，它的各种做法见\autoref{sec3}。
 
 \subsection{降频电路}\label{sec2:1}
 
-我们已经讲过了如何利用递次电路\myind{降频}。例如\autoref{i92:97}\subref{i92:93}中，绿线激活奇数次时红线激活，偶数次时蓝线激活。事实上降频一半有更简单的方式。在\autoref{i92:97}\subref{i94:95}中，激活绿线会激活故障逻辑灯并同时点亮有效逻辑灯，此时故障逻辑门会激活，红线激活；再次激活绿线会激活故障逻辑灯并同时熄灭有效逻辑灯，此时故障逻辑门不激活。\autoref{i92:97}\subref{i94:95}也可以做到在绿线激活奇数次时红线激活，\autoref{i92:97}\subref{i96:97}也可以做到在绿线激活偶数次时蓝线激活。一般说的降频电路就指这种使用一个故障逻辑门，把频率降低一半的电路。一般不要求精确频率时，使用降频电路比递次电路更节省空间。
+我们已经讲过了如何利用\ShiftRegister\myind{降频}。例如\autoref{i92:97}\subref{i92:93}中，绿线激活奇数次时红线激活，偶数次时蓝线激活。事实上降频一半有更简单的方式。在\autoref{i92:97}\subref{i94:95}中，激活绿线会激活故障逻辑灯并同时点亮有效逻辑灯，此时故障逻辑门会激活，红线激活；再次激活绿线会激活故障逻辑灯并同时熄灭有效逻辑灯，此时故障逻辑门不激活。\autoref{i92:97}\subref{i94:95}也可以做到在绿线激活奇数次时红线激活，\autoref{i92:97}\subref{i96:97}也可以做到在绿线激活偶数次时蓝线激活。一般说的降频电路就指这种使用一个故障逻辑门，把频率降低一半的电路。一般不要求精确频率时，使用降频电路比\ShiftRegister 更节省空间。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i92:93}
-\includegraphics{images/92.png}
-\includegraphics{images/93.png}
-}
-\qquad
+\adjincludegraphics{images/92.png}%
+\quad%
+\adjincludegraphics{images/93.png}
+}%
+\smarthfill{14}[3]%
 \subfloat[]{
 \label{i94:95}
-\includegraphics{images/94.png}
-\includegraphics{images/95.png}
-}
-\qquad
+\adjincludegraphics{images/94.png}%
+\quad%
+\adjincludegraphics{images/95.png}
+}%
+\smarthfill{14}[3]%
 \subfloat[]{
 \label{i96:97}
-\includegraphics{images/96.png}
-\includegraphics{images/97.png}
+\adjincludegraphics{images/96.png}%
+\quad%
+\adjincludegraphics{images/97.png}
 }
-\end{center}
 \caption{}
 \label{i92:97}
 \end{figure}
@@ -655,52 +666,34 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 利用降频电路和二进制数显制作一个多位的二进制计数器。
 \end{problem}
 
-\begin{problem}{}{}
-解释为什么如\autoref{i11:12}所示装置会在世界开启瞬间激活广播盒。该装置里的故障逻辑门有什么作用？
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.4\textwidth]{images/11.png}
-\includegraphics[width=0.4\textwidth]{images/12.png}
-\caption{}
-\label{i11:12}
-\end{figure}
-\end{problem}
-
 \subsection{\myind{十进制计数器}}
 
 在这一小节中我们将使用之前学过的模块来做一个四位带数显的十进制\myind{计数器}。
 
-计数器计数的对象是驱动或某个特定的信号源。信号源每激活一次，计数器的数字加1。因为是十进制，所以满十进一，这提示我们使用循环为10的\myind{递次电路}作为计数模块。因为计数器要有清零功能，所以递次电路要带上复位电路。根据数字的书写习惯，右边低位，左边高位，所以采用反向的递次电路并且将逻辑门稍微错位使接线更顺。将低位的递次电路最后一个逻辑门的输出接上高一位递次电路的输入即可完成进位功能（\autoref{i108:109}），然后将最低位的递次电路输入接上驱动的输出即可以实现计数功能。
+计数器计数的对象是驱动或某个特定的信号源。信号源每激活一次，计数器的数字加1。因为是十进制，所以满十进一，这提示我们使用循环为10的\myind{\ShiftRegister}作为计数模块。因为计数器要有清零功能，所以\ShiftRegister 要带上复位电路。根据数字的书写习惯，右边低位，左边高位，所以采用反向的\ShiftRegister 并且将逻辑门稍微错位使接线更顺。将低位的\ShiftRegister 最后一个逻辑门的输出接上高一位\ShiftRegister 的输入即可完成进位功能（\autoref{i108:109}），然后将最低位的\ShiftRegister 输入接上驱动的输出即可以实现计数功能。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i108}
-\includegraphics[width=0.9\textwidth]{images/108.png}
-}
-\\
-\subfloat{
-\label{i109}
-\includegraphics[width=0.9\textwidth]{images/109.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/108.png}
+
+\adjincludegraphics{images/109.png}
 \caption{绿线计数，黄线复位。最右边是个位，最左边是千位。}
 \label{i108:109}
 \end{figure}
 
-对递次电路熟悉的人通过递次电路上的逻辑灯已经可以读出数字：递次电路上最右边的有效逻辑灯亮代表这一位是0，最左边的有效逻辑灯亮代表这一位是9。但是既然要做效果，就需要把数字可视化，即加上\myind{数显}。我们在之前已经做过一个十进制的数显，如果将那个数显的显示部分照搬过来，很容易发现显示的不对，这是因为两个数显的输入不同。之前做的数显，数字改变时\myind{显示器}收到两个信号：第一个信号将之前的数字熄灭，第二个信号将新的数字点亮。而我们的递次电路的输出只是之前的数字。因为计数器中之前的数字可以唯一确定新的数字，所以我们可以直接让递次电路发出的信号激活从旧数字变成新数字需要激活的火把。另外，由于显示器是多个数字排列在一起，为了避免接线困难，应当先把数字上的线确定好，再往递次电路上接。如果选用\autoref{i110:112}\subref{i110}所示的火把排布，由于数字间只空了一格，之前用过的七段线接法就不能用了。所以我们采用的另一种七段线接法\autoref{i110:112}\subref{i112}，注意某些线有重叠。利用\autoref{jishuqi}就可以完成接线（\autoref{i113:114}）。注意到这里使用了故障逻辑门做\myind{换线器}。
+对\ShiftRegister 熟悉的人通过\ShiftRegister 上的逻辑灯已经可以读出数字：\ShiftRegister 上最右边的有效逻辑灯亮代表这一位是0，最左边的有效逻辑灯亮代表这一位是9。但是既然要做效果，就需要把数字可视化，即加上\myind{数显}。我们在之前已经做过一个十进制的数显，如果将那个数显的显示部分照搬过来，很容易发现显示的不对，这是因为两个数显的输入不同。之前做的数显，数字改变时\myind{显示器}收到两个信号：第一个信号将之前的数字熄灭，第二个信号将新的数字点亮。而我们的\ShiftRegister 的输出只是之前的数字。因为计数器中之前的数字可以唯一确定新的数字，所以我们可以直接让\ShiftRegister 发出的信号激活从旧数字变成新数字需要激活的火把。另外，由于显示器是多个数字排列在一起，为了避免接线困难，应当先把数字上的线确定好，再往\ShiftRegister 上接。如果选用\autoref{i110:112}\subref{i110}所示的火把排布，由于数字间只空了一格，之前用过的七段线接法就不能用了。所以我们采用的另一种七段线接法\autoref{i110:112}\subref{i112}，注意某些线有重叠。利用\autoref{jishuqi}就可以完成接线（\autoref{i113:114}）。注意到这里使用了故障逻辑门做\myind{换线器}。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i110}
-\includegraphics[width=0.45\textwidth]{images/110.png}
-}
+\adjincludegraphics{images/110.png}
+}%
+\smarthfill{42}%
 \subfloat[]{
 \label{i112}
-\includegraphics[width=0.45\textwidth]{images/112.png}
+\adjincludegraphics{images/112.png}
 }
-\end{center}
 \caption{}
 \label{i110:112}
 \end{figure}
@@ -721,17 +714,10 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \end{table}
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i113}
-\includegraphics[width=0.9\textwidth]{images/113.png}
-}
-\\
-\subfloat{
-\label{i114}
-\includegraphics[width=0.9\textwidth]{images/114.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/113.png}
+
+\adjincludegraphics{images/114.png}
 \caption{}
 \label{i113:114}
 \end{figure}
@@ -740,7 +726,7 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 补全十进制数显\autoref{i71}的接线。
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{images/71.png}
+\adjincludegraphics{images/71.png}
 \caption{}
 \label{i71}
 \end{figure}
@@ -752,36 +738,42 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 \begin{center}
 \subfloat[满月]{
 \label{i61}
-\includegraphics[width=0.11\textwidth]{images/61.png}
-}
+\adjincludegraphics{images/61.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[亏凸月]{
 \label{i62}
-\includegraphics[width=0.11\textwidth]{images/62.png}
-}
+\adjincludegraphics{images/62.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[下弦月]{
 \label{i63}
-\includegraphics[width=0.11\textwidth]{images/63.png}
-}
+\adjincludegraphics{images/63.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[残月]{
 \label{i64}
-\includegraphics[width=0.11\textwidth]{images/64.png}
-}
-
+\adjincludegraphics{images/64.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[新月]{
 \label{i65}
-\includegraphics[width=0.11\textwidth]{images/65.png}
-}
+\adjincludegraphics{images/65.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[峨眉月]{
 \label{i66}
-\includegraphics[width=0.11\textwidth]{images/66.png}
-}
+\adjincludegraphics{images/66.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[上弦月]{
 \label{i67}
-\includegraphics[width=0.11\textwidth]{images/67.png}
-}
+\adjincludegraphics{images/67.png}
+}%
+\smarthfill{64}[8]%
 \subfloat[盈凸月]{
 \label{i68}
-\includegraphics[width=0.11\textwidth]{images/68.png}
+\adjincludegraphics{images/68.png}
 }
 \end{center}
 \caption{}
@@ -793,37 +785,39 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 灵活使用\myind{递次}电路和\myind{降频}电路可以将已有的驱动时长增加为任意整数倍（\autoref{i223:228}）。
 
 \begin{figure}[!ht]
-\begin{center}
+\centering
 \subfloat[]{
 \label{i223:224}
-\includegraphics{images/223.png}
-\includegraphics{images/224.png}
-}
-\qquad
+\adjincludegraphics{images/223.png}%
+\quad%
+\adjincludegraphics{images/224.png}
+}%
+\smarthfill{38}[3]%
 \subfloat[]{
 \label{i225:226}
-\includegraphics{images/225.png}
-\includegraphics{images/226.png}
-}
-\qquad
+\adjincludegraphics{images/225.png}%
+\quad%
+\adjincludegraphics{images/226.png}
+}%
+\smarthfill{38}[3]%
 \subfloat[]{
 \label{i227:228}
-\includegraphics{images/227.png}
-\includegraphics{images/228.png}
+\adjincludegraphics{images/227.png}%
+\quad%
+\adjincludegraphics{images/228.png}
 }
-\end{center}
-\caption{\protect\subref{i223:224}两个降频电路连接，红线每激活4次火把响应一次；\protect\subref{i225:226}两个递次电路连接，红线每激活9次火把响应一次；\protect\subref{i227:228}降频电路与递次电路连接，红线每激活6次火把响应一次。}
+\caption{\protect\subref{i223:224}两个降频电路连接，红线每激活4次火把响应一次；\protect\subref{i225:226}两个\ShiftRegister 连接，红线每激活9次火把响应一次；\protect\subref{i227:228}降频电路与\ShiftRegister 连接，红线每激活6次火把响应一次。}
 \label{i223:228}
 \end{figure}
 
-使用上面的方法，当需要获得较大的质数倍（例如23倍）时间时使用递次电路体积过大，此时可以利用故障逻辑门的控制功能灵活地将多个降频的驱动结合（\autoref{i231:232}）。这实质上是一个\hyperref[sec5]{\myind{多级递次}}。
+使用上面的方法，当需要获得较大的质数倍（例如23倍）时间时使用\ShiftRegister 体积过大，此时可以利用故障逻辑门的控制功能灵活地将多个降频的驱动结合（\autoref{i231:232}）。这实质上是一个\hyperref[sec5]{\myind{多级递次}}。
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.45\textwidth]{images/231.png}
-\quad
-\includegraphics[width=0.45\textwidth]{images/232.png}
-\caption{开关每激活23次火把响应一次。上面的右边两个故障逻辑门用来控制，左边的输出接到计数为20的模块（5-递次电路与两个降频电路连接），右边的输出接到3-递次电路。开关激活时，起初左边输出，右边不输出，左边计数。当左边计数到20时上面的绿线激活，改变控制用的有效逻辑灯，改为右边输出，左边不输出，右边计数。当右边计数到3时激活火把并将控制用的有效逻辑灯改回。}
+\adjincludegraphics{images/231.png}%
+\smarthfill{26}%
+\adjincludegraphics{images/232.png}
+\caption{开关每激活23次火把响应一次。上面的右边两个故障逻辑门用来控制，左边的输出接到计数为20的模块（5-\ShiftRegister 与两个降频电路连接），右边的输出接到3-\ShiftRegister 。开关激活时，起初左边输出，右边不输出，左边计数。当左边计数到20时上面的绿线激活，改变控制用的有效逻辑灯，改为右边输出，左边不输出，右边计数。当右边计数到3时激活火把并将控制用的有效逻辑灯改回。}
 \label{i231:232}
 \end{figure}
 
@@ -831,56 +825,54 @@ D触发器是数电的术语，其功能非常简单，就是存储并发送状�
 
 在前面的例子中，我们仅使用了有一个有效逻辑灯的故障逻辑门的控制功能。在这个例子中我们来使用故障逻辑门的\myind{概率}功能。我们的目标是做一个电路，该电路有一个开关和六个火把。当激活开关时，六个输出有且仅有一个点亮，且每个火把点亮的概率都为1/6。
 
-电路如\autoref{i98:99}所示。激活顶端黄线即可运行。下面很明显是递次电路，我们先分析上面部分，看看绿线会激活多少次。
+电路如\autoref{i98:99}所示。激活顶端黄线即可运行。下面很明显是\ShiftRegister ，我们先分析上面部分，看看绿线会激活多少次。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i98}
-\includegraphics{images/98.png}
-}
-\subfloat{
-\label{i99}
-\includegraphics{images/99.png}
-}
-\end{center}
+\centering
+\adjincludegraphics{images/98.png}%
+\smarthfill{26}%
+\adjincludegraphics{images/99.png}
 \caption{}
 \label{i98:99}
 \end{figure}
 
 当顶端黄线激活时，第一个故障逻辑门有5/6的概率激活。只有第一个故障逻辑门激活的前提下，后面的故障逻辑门才有可能激活，也就是说，有1-5/6=1/6的概率一次也不激活。在第一个故障逻辑门激活的前提下，第二个故障逻辑门有4/5的概率激活。只有第二个故障逻辑门激活的前提下，后面的故障逻辑门才有可能激活，也就是说，有5/6*(1-4/5)=1/6的概率仅第一个故障逻辑门激活，此时绿线激活一次。依此类推，可以得到绿线有5/6*4/5*(1-3/4)=1/6的概率激活两次，有5/6*4/5*3/4*(1-2/3)=1/6的概率激活三次，有5/6*4/5*3/4*2/3*(1-1/2)=1/6的概率激活四次，有5/6*4/5*3/4*2/3*1/2=1/6的概率激活五次。也就是说，顶端黄线激活时，绿线等可能地激活0\~{}5次。
 
-绿线等可能地激活0\~{}5次，经过下面的递次电路，就会导致点亮的火把等可能地循环右移0\~{}5个。无论激活顶端黄线之前哪个火把是亮的，这都意味着六个火把有等可能的概率点亮。
+绿线等可能地激活0\~{}5次，经过下面的\ShiftRegister ，就会导致点亮的火把等可能地循环右移0\~{}5个。无论激活顶端黄线之前哪个火把是亮的，这都意味着六个火把有等可能的概率点亮。
 
 \begin{problem}{}{}
 做一个可以显示点数的骰子，六个点数效果如\autoref{i100:105}。
 \begin{figure}[H]
-\begin{center}
+\centering
 \subfloat[1]{
 \label{i100}
-\includegraphics[width=0.11\textwidth]{images/100.png}
-}
+\adjincludegraphics{images/100.png}
+}%
+\smarthfill{36}[6]%
 \subfloat[2]{
 \label{i101}
-\includegraphics[width=0.11\textwidth]{images/101.png}
-}
+\adjincludegraphics{images/101.png}
+}%
+\smarthfill{36}[6]%
 \subfloat[3]{
 \label{i102}
-\includegraphics[width=0.11\textwidth]{images/102.png}
-}
+\adjincludegraphics{images/102.png}
+}%
+\smarthfill{36}[6]%
 \subfloat[4]{
 \label{i103}
-\includegraphics[width=0.11\textwidth]{images/103.png}
-}
+\adjincludegraphics{images/103.png}
+}%
+\smarthfill{36}[6]%
 \subfloat[5]{
 \label{i104}
-\includegraphics[width=0.11\textwidth]{images/104.png}
-}
+\adjincludegraphics{images/104.png}
+}%
+\smarthfill{36}[6]%
 \subfloat[6]{
 \label{i105}
-\includegraphics[width=0.11\textwidth]{images/105.png}
+\adjincludegraphics{images/105.png}
 }
-\end{center}
 \caption{}
 \label{i100:105}
 \end{figure}

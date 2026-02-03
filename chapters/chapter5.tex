@@ -3,22 +3,45 @@
 在前面我们已经学习了所有电路原理。在这一章中我们以电路功能分类，介绍一些常用的电路模块。
 
 \section{递次电路}\label{sec2}
-在\autoref{sec35}中我们已经介绍了传统递次电路的原理，这里我们来看一下各式各样的递次电路。
+在\autoref{sec35}中我们介绍了传统递次电路的原理，这里我们来看一下各式各样的递次电路。
 
 \subsection{传统递次电路}
 “传统”递次电路即为在多个故障逻辑门中简单循环的电路。我们在后面的推广递次和多级递次中可以看到递次电路的其他思路。
 
 \begin{figure}[!ht]
     \centering
-	\subfloat[传统递次]{\label{fig52}\includegraphics[width=0.4\textwidth]{images/72.png}\quad\includegraphics[width=0.4\textwidth]{images/73.png}}
-	\qquad
-	\subfloat[带复位的传统递次]{\label{fig53}\includegraphics[width=0.4\textwidth]{images/106.png}\quad\includegraphics[width=0.4\textwidth]{images/107.png}}
-	\qquad
-    \subfloat[斜式传统递次]{\label{fig54}\includegraphics{images/78.png}\qquad\includegraphics{images/79.png}}
-	\qquad
-	\subfloat[密排传统递次]{\label{fig55}\includegraphics{images/82.png}\qquad\includegraphics{images/83.png}}
-	\qquad
-	\subfloat[密排带复位传统递次]{\label{fig56}\includegraphics{images/317.png}\qquad\includegraphics{images/318.png}}
+	\subfloat[传统递次]{
+		\label{fig52}
+		\adjincludegraphics{images/72.png}%
+		\quad%
+		\adjincludegraphics{images/73.png}
+	}
+	
+	\subfloat[带复位的传统递次]{
+		\label{fig53}
+		\adjincludegraphics{images/106.png}%
+		\quad%
+		\adjincludegraphics{images/107.png}
+	}%
+	\smarthfill{44}%
+    \subfloat[斜式传统递次]{
+		\label{fig54}
+		\adjincludegraphics{images/78.png}%
+		\quad%
+		\adjincludegraphics{images/79.png}
+	}
+	\subfloat[密排传统递次]{
+		\label{fig55}
+		\adjincludegraphics{images/82.png}%
+		\quad%
+		\adjincludegraphics{images/83.png}
+	}
+	\subfloat[密排带复位传统递次]{
+		\label{fig56}
+		\adjincludegraphics{images/317.png}%
+		\quad%
+		\adjincludegraphics{images/318.png}
+	}
 	\caption{常用的传统递次电路}
 \end{figure}
 
@@ -31,11 +54,23 @@
 
 \begin{figure}[!ht]
     \centering
-    \subfloat[传统双向递次]{\includegraphics{images/263.png}\qquad\includegraphics{images/264.png}}
-	\qquad
-    \subfloat[密排传统双向递次]{\includegraphics{images/261.png}\qquad\includegraphics{images/262.png}}
-	\qquad
-    \subfloat[带复位的传统双向递次]{\includegraphics[width=0.4\textwidth]{images/265.png}\quad\includegraphics[width=0.4\textwidth]{images/266.png}}
+    \subfloat[传统双向递次]{
+		\adjincludegraphics{images/263.png}%
+		\quad%
+		\adjincludegraphics{images/264.png}
+	}%
+	\smarthfill{42}%
+    \subfloat[密排传统双向递次]{
+		\adjincludegraphics{images/261.png}%
+		\quad%
+		\adjincludegraphics{images/262.png}
+	}
+	
+    \subfloat[带复位的传统双向递次]{
+		\adjincludegraphics{images/265.png}
+		\quad
+		\adjincludegraphics{images/266.png}
+	}
 	\caption{传统双向递次电路}
 \end{figure}
 
@@ -46,7 +81,7 @@
 分析如\autoref{fig59}所示的4-传统递次电路。
 \begin{figure}[H]
 \centering
-\includegraphics{images/416.png}
+\adjincludegraphics{images/416.png}
 \caption{}\label{fig59}
 \end{figure}
 \begin{proof}[解]
@@ -94,7 +129,7 @@
 分析如\autoref{fig57}所示的推广递次电路。
 \begin{figure}[H]
 \centering
-\includegraphics{images/426.png}
+\adjincludegraphics{images/426.png}
 \caption{}\label{fig57}
 \end{figure}
 \begin{proof}[解]
@@ -139,7 +174,7 @@
 分析\autoref{fig58}中的降频电路。
 \begin{figure}[H]
 \centering
-\includegraphics{images/332.png}
+\adjincludegraphics{images/332.png}
 \caption{}\label{fig58}
 \end{figure}
 \begin{proof}[解]
@@ -175,7 +210,7 @@
 \autoref{fig60}所示推广递次的状态链见\autoref{fig61}。这个状态链是一棵树，不包含任何一个非平凡循环。
 \begin{figure}[H]
 \centering
-\includegraphics{images/414.png}
+\adjincludegraphics{images/414.png}
 \caption{}\label{fig60}
 \end{figure}
 \begin{figure}[H]
@@ -207,7 +242,7 @@
 \autoref{fig62}所示推广递次的状态链见\autoref{fig63}。这个状态链由两棵树组成。
 \begin{figure}[H]
 \centering
-\includegraphics{images/415.png}
+\adjincludegraphics{images/415.png}
 \caption{}\label{fig62}
 \end{figure}
 \begin{figure}[H]
@@ -244,7 +279,7 @@
 \autoref{fig65}所示推广递次的状态链见\autoref{fig64}，其中既有环结构也有树结构。
 \begin{figure}[H]
 \centering
-\includegraphics{images/427.png}
+\adjincludegraphics{images/427.png}
 \caption{}\label{fig65}
 \end{figure}
 \begin{figure}[H]
@@ -317,12 +352,12 @@
 \begin{center}
 \subfloat[]{
 \label{i235}
-\includegraphics{images/235.png}
-}
-\qquad
+\adjincludegraphics{images/235.png}
+}%
+\smarthfill{21}%
 \subfloat[]{
 \label{i236}
-\includegraphics{images/236.png}
+\adjincludegraphics{images/236.png}
 }
 \end{center}
 \caption{\protect\subref{i235}只使用一个压力板，频率降为30Hz；\protect\subref{i235}加长半砖，频率降为20Hz。}
@@ -342,12 +377,12 @@
 \begin{center}
 \subfloat[]{
 \label{i219}
-\includegraphics{images/219.png}
-}
-\qquad
+\adjincludegraphics{images/219.png}
+}%
+\smarthfill{9}%
 \subfloat[]{
 \label{i220}
-\includegraphics{images/220.png}
+\adjincludegraphics{images/220.png}
 }
 \end{center}
 \caption{\protect\subref{i219}踩踏红压力板时触发传送机，传送后会悬空一格，坠落到压力板上时继续传送，如此循环；\protect\subref{i220}传送后悬空半格。}
@@ -372,7 +407,7 @@
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/221.png}
+\adjincludegraphics{images/221.png}
 \caption{}
 \label{i221}
 \end{figure}
@@ -381,32 +416,23 @@
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/222.png}
+\adjincludegraphics{images/222.png}
 \caption{}
 \label{i222}
 \end{figure}
 
 上面的装置中，传送机激活后1帧，傀儡影子就被半砖推离传送机并触发红压力板，从而不会再传回。但是玩家感应器和测重压力板不会触发传送机，玩家出生在重生点处也不会触发普通压力板。只能用玩家感应器或测重压力板触发机关，然后用青绿压力垫板激活传送机，这样一来在触发机关到青绿压力垫板激活之间又有一个短延迟。
 
-利用液体可以实现无延迟的开服感应器。打开地图的等待界面中有一项是“正在摆放液体”。这一步是将地图中所有不稳定的液体转移到最低处。在\autoref{i11:12}中，刷水机不断地生成水，水进入到左边的细长通道，并被下面的熔岩轨道吸收。当通道足够长并且刷水速度足够快时，通道中始终有水存在。此时退出地图并重新加载地图时，通道中的水被自动放置到最低处的液体感应器上，从而液体感应器激活。其余部分的功能是：将液体感应器上的水排走；打开刷水的1秒计时器。这个装置的触发是没有延迟的，但是会在游戏中一直运行刷水机，可能影响电脑性能。
-
 \subsection{方向感应器}
 方向感应器被广泛地使用在电路游戏中，它可以检测到玩家的上下左右移动操作。方向感应器的一种方案如\autoref{i253:254}所示。另一种方案请参考\bilibili{av23633364/?p=7}。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat[]{
-\label{i253}
-\includegraphics{images/253.png}
-}
-\qquad
-\subfloat[]{
-\label{i254}
-\includegraphics{images/254.png}
-}
-\end{center}
-\caption{玩家试图左右移动时会触发玩家感应器并实化半砖将玩家推回；试图上平台时平台虚化，玩家掉落；试图下平台时下方半砖实化将玩家推回。}
-\label{i253:254}
+	\centering
+	\adjincludegraphics{images/253.png}%
+	\smarthfill{22}%
+	\adjincludegraphics{images/254.png}
+	\caption{玩家试图左右移动时会触发玩家感应器并实化半砖将玩家推回；试图上平台时平台虚化，玩家掉落；试图下平台时下方半砖实化将玩家推回。}
+	\label{i253:254}
 \end{figure}
 
 \subsection{刷怪感应器}
@@ -669,19 +695,12 @@
 用单色光源可以实现至少有一边长度至多为4的密集显示器（\autoref{i256:257}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i256}
-\includegraphics{images/256.png}
-}
-\qquad
-\subfloat{
-\label{i257}
-\includegraphics{images/257.png}
-}
-\end{center}
-\caption{第一行开关控制第一行火把，第二行开关控制第二行火把，第三行开关控制第三行火把，第四行开关控制第四行火把。}
-\label{i256:257}
+	\centering
+	\adjincludegraphics{images/256.png}%
+	\smarthfill{44}%
+	\adjincludegraphics{images/257.png}
+	\caption{第一行开关控制第一行火把，第二行开关控制第二行火把，第三行开关控制第三行火把，第四行开关控制第四行火把。}
+	\label{i256:257}
 \end{figure}
 
 用\nameref{sec21}可以实现任意尺寸的密集矩阵显示器。
@@ -694,9 +713,9 @@
 稀疏矩阵显示器主要有两个参数：每个像素的光源面积与占用面积。稀疏矩阵显示器的大小不受限，一个典型的稀疏矩阵显示器如\autoref{i267:268}所示，当红线和蓝线在同一个逻辑帧输入时，火把响应，切换状态。显示器更新时，各行的红线逐次在各个逻辑帧激活，每列的蓝线在该逻辑帧选择性激活，用来控制该行的显示。这个例子中每个光源面积是4，占用面积是12，简称4占12，或4/12。目前使用这种显示器最杰出的作品是\bilibili{av22343683}。
 \begin{figure}[!ht]
 \centering
-\includegraphics{images/267.png}
-\qquad
-\includegraphics{images/268.png}
+\adjincludegraphics{images/267.png}%
+\smarthfill{16}%
+\adjincludegraphics{images/268.png}
 \caption{典型的矩阵显示器}
 \label{i267:268}
 \end{figure}
@@ -705,17 +724,17 @@
 \begin{figure}[!ht]
 \begin{center}
 \subfloat[6/9]{
-\label{i269:270}
-\includegraphics{images/269.png}
-\qquad
-\includegraphics{images/270.png}
-}
-\qquad
+	\label{i269:270}
+	\adjincludegraphics{images/269.png}%
+	\quad%
+	\adjincludegraphics{images/270.png}
+}%
+\smarthfill{24}%
 \subfloat[1/4]{
-\label{i271:272}
-\includegraphics{images/271.png}
-\qquad
-\includegraphics{images/272.png}
+	\label{i271:272}
+	\adjincludegraphics{images/271.png}%
+	\quad%
+	\adjincludegraphics{images/272.png}
 }
 \end{center}
 \caption{紧凑的矩阵显示器}
