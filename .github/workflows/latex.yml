@@ -11,17 +11,17 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
       - name: Compile On-screen Version
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_onscreen.tex
           latexmk_use_xelatex: true
       - name: Compile Printed Version
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_printed.tex
           latexmk_use_xelatex: true
       - name: Compile Night Mode
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_nightmode.tex
           latexmk_use_xelatex: true
