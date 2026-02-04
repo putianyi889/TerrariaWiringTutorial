@@ -310,17 +310,36 @@
 \centering
 \subfloat[]{
 \label{i13}
-\adjincludegraphics{images/13.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{And_Gate_Off}{1/1}
+	\placetile{Logic_Lamp_Off}{1/2}
+\end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i14}
-\adjincludegraphics{images/14.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1/2,5/1}
+	\placetile{Torch_On}{2/2,4/1}
+	\placetile{Logic_Lamp_Off}{3/2}
+	\placetile{And_Gate_Off}{3/1}
+\end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i15}
-\adjincludegraphics{images/15.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1/2,5/1}
+	\placetile{Torch_On}{2/2,4/1}
+	\placetile{Logic_Lamp_Off}{3/2}
+	\placetile{And_Gate_Off}{3/1}
+	\placetile{Wire_Red_R}{1/2}
+	\placetile{Wire_Red_LR}{2/2}
+	\placetile{Wire_Red_L}{3/2}
+	\placetile{Wire_Blue_R}{3/1}
+	\placetile{Wire_Blue_LR}{4/1}
+	\placetile{Wire_Blue_L}{5/1}
+\end{tikzpictureC}
 }
 \caption{\protect\subref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
 \label{i13:15}
@@ -330,7 +349,12 @@
 
 \begin{figure}[!ht]
 \centering
-\adjincludegraphics{images/16.png}%
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1/3}
+	\placetile{Logic_Lamp_Off}{2/3,3/3,4/3,5/3,6/3,7/3,8/3,9/3,10/3,11/3,12/3,13/3,14/3,15/3,16/3}
+	\placetile{And_Gate_Off}{2/2,3/2,4/2,5/2,6/2,7/2,8/2,9/2,10/2,11/2,12/2,13/2,14/2,15/2,16/2}
+	\placetile{Timer_One_Off}{2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1,11/1,12/1,13/1,14/1,15/1,16/1}
+\end{tikzpictureC}
 \smarthfill{32}%
 \adjincludegraphics{images/17.png}
 \caption{}
@@ -365,9 +389,24 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[]{\label{fig7}\adjincludegraphics{images/359.png}}%
+\subfloat[]{
+	\label{fig7}
+	\begin{tikzpictureC}[scale=0.5, transform shape]
+		\placetile{Logic_Lamp_On}{1/2,1/3,1/4,3/2,3/3,3/4}
+		\placetile{And_Gate_On}{1/1}
+		\placetile{Nand_Gate_Off}{3/1}
+	\end{tikzpictureC}
+}%
 \smarthfill{8}%
-\subfloat[]{\label{fig8}\adjincludegraphics{images/360.png}}
+\subfloat[]{
+	\label{fig8}
+	\begin{tikzpictureC}[scale=0.5, transform shape]
+		\placetile{Logic_Lamp_On}{1/2,1/3,1/4}
+		\placetile{And_Gate_On}{1/1}
+		\placetile{Logic_Lamp_Off}{3/2,3/3,3/4}
+		\placetile{Or_Gate_Off}{3/1}
+	\end{tikzpictureC}
+}
 \caption{}
 \end{figure}
 
@@ -420,6 +459,30 @@
 \centering
 \subfloat[]{
 \label{i36}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+\placetile{Switch_Flat_Off}{1/2,1/3,1/4,1/5}
+\placetile{Torch_Off}{2/2,2/3,2/4,2/5}
+\placetile{And_Gate_On}{3/1}
+\placetile{And_Gate_Off}{4/1,5/1,6/1,7/1,8/1,9/1,10/1,11/1,12/1}
+\placetile{Logic_Lamp_On}{
+	3/2,3/3,3/4,3/5,%
+	4/3,4/4,4/5,%
+	5/2,5/4,5/5,%
+	6/4,6/5,%
+	7/2,7/3,7/5,%
+	8/3,8/5,%
+	9/2,9/5,%
+	10/5,%
+	11/2,11/3,11/4,%
+	12/3,12/4%
+}
+\placetile{Logic_Lamp_Off}{
+	4/2,5/3,6/2,6/3,%
+	7/4,8/2,8/4,9/3,9/4,%
+	10/2,10/3,10/4,11/5,%
+	12/2,12/5%
+}
+\end{tikzpictureC}
 \adjincludegraphics{images/36.png}
 }%
 \smarthfill{26}%
