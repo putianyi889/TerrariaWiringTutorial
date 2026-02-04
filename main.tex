@@ -12,6 +12,18 @@
 \usepackage{verbatim}
 \usepackage{listings}
 \usepackage{julia-mono-listings}
+\usepackage{robust-externalize}
+
+\robExtConfigure{
+	add to preset={latex}{
+		use xelatex,
+	},
+	add to preset={tikz}{
+		add to preamble={
+			\usepackage{graphicx}
+		},
+	},
+}
 
 \pgfplotsset{compat=1.6}
 
