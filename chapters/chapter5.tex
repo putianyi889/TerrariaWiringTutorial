@@ -284,7 +284,7 @@
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \newdimen\R
 \R=1.5cm;
 \node (s1) at (0:\R) {0001};
@@ -300,9 +300,9 @@
     (s2) edge (s1)
     (s3) edge (sf)
     (sc) edge (se);
-\end{tikzpicture}
+\end{tikzpictureC}
 \quad
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \newdimen\R
 \R=1.5cm;
 \node (s1) at (0:\R) {0100};
@@ -318,25 +318,25 @@
     (s2) edge (s1)
     (s3) edge (sf)
     (sc) edge (se);
-\end{tikzpicture}
+\end{tikzpictureC}
 \quad
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \newdimen\R
 \R=1.3cm;
 \node (se) at (120:\R) {0110};
 \node (sf) at (240:\R) {1011};
 \path [->] (se) edge (sf);
 \draw [->] (sf) to[out=-135,in=-45,looseness=3] (sf);
-\end{tikzpicture}
+\end{tikzpictureC}
 \quad
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \newdimen\R
 \R=1.3cm;
 \node (se) at (120:\R) {1101};
 \node (sf) at (240:\R) {0000};
 \path [->] (se) edge (sf);
 \draw [->] (sf) to[out=-135,in=-45,looseness=3] (sf);
-\end{tikzpicture}
+\end{tikzpictureC}
 \caption{}\label{fig64}
 \end{figure}
 \end{example}

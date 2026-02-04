@@ -10,18 +10,23 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
+      - name: Create robustExternalize directory
+        run: mkdir -p robustExternalize
       - name: Compile On-screen Version
         uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_onscreen.tex
           latexmk_use_xelatex: true
+          latexmk_shell_escape: true
       - name: Compile Printed Version
         uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_printed.tex
           latexmk_use_xelatex: true
+          latexmk_shell_escape: true
       - name: Compile Night Mode
         uses: xu-cheng/latex-action@v4
         with:
           root_file: TerrariaWiringTutorial_nightmode.tex
           latexmk_use_xelatex: true
+          latexmk_shell_escape: true

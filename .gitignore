@@ -20,3 +20,16 @@ TerrariaWiringTutorial_printed.pdf
 TerrariaWiringTutorial_nightmode.pdf
 *.fdb_latexmk
 *.fls
+/sch
+/robustExternalize
+*.memo
+*.auxlock
+*.figlist
+*.makefile
+*.mmz
+*.tmp
+TerrariaWiringTutorial_onscreen-robExt-all-figures.txt
+robExt-remove-old-figures.py
+robExt-prepare-for-arxiv.py
+TerrariaWiringTutorial_onscreen-robExt-compile-missing-figures.sh
+.vscode/settings.json

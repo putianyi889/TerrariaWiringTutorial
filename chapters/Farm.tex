@@ -236,7 +236,7 @@
 
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \fill[yellow] (0,0) -- (-3.4,-3.4) -- (5.9,-3.4) -- (5.9,4) -- (0.9,4) -- (0.9,0) -- (0,0);
 \fill[green] (-4,-4) -- (-4,4) -- (-3,4) -- (-3,-3) -- (-4,-4);
 \draw[ultra thick, blue] (-5,-5) -- (0,0);
@@ -261,7 +261,7 @@
 \path[->] (L1) edge (-5,-5.15) edge (0,-5.15);
 \node (L2) at (3.4,0.3) {$L$};
 \path[->] (L2) edge (0.9,0.3) edge (5.9,0.3);
-\end{tikzpicture}
+\end{tikzpictureC}
 \caption{天梯神教示意图。红色为人物活动区域及配套装置，蓝色为天梯刷怪面，绿色为人工背景墙，黄色为防止刷怪区域。}\label{fig68}
 \end{figure}
 
@@ -272,7 +272,7 @@
 \begin{figure}[!ht]
 \centering
 \subfloat[]{\label{fig69}
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \fill[cyan!30!white] (0,1) rectangle (2,-2);
 \fill[brown] (0,0) -- (2,-2) -- (1.5,-2) -- (0,-0.5);
 \draw[step=0.5] (0,1) grid (2,-2);
@@ -280,18 +280,18 @@
 \fill[blue,opacity=0.5] (0.5,-0.5) -- (1,-1) -- (0.5,-1);
 \draw[red,ultra thick] (1,-1) rectangle (1.5,-1.5);
 \fill[red,opacity=0.5] (1,-1) -- (1.5,-1.5) -- (1,-1.5);
-\end{tikzpicture}
+\end{tikzpictureC}
 }
 \qquad
 \subfloat[]{\label{fig70}
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \fill[cyan!30!white] (0,1) rectangle (-2,-2);
 \fill[brown] (0,-0.5) -- (-1.5,-2) -- (-1,-2) -- (0,-1);
 \draw[step=0.5] (0,1) grid (-2,-2);
 \draw[blue,ultra thick] (-0.5,0.5) rectangle (-1.5,-1);
 \draw[red,ultra thick] (-0.5,-1) rectangle (-1,-1.5);
 \fill[red,opacity=0.5] (-0.5,-1) -- (-1,-1.5) -- (-0.5,-1.5);
-\end{tikzpicture}
+\end{tikzpictureC}
 }
 \caption{\protect\subref{fig69}从右下到左上的天梯，刷怪面（红色）上方6格（蓝色）包含一个实体块（蓝色左下角），所以无法刷怪。\protect\subref{fig70}从左下到右上的天梯，刷怪面上方6格不包含实体块，可以刷怪。}\label{fig71}
 \end{figure}
@@ -312,7 +312,7 @@
 
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}[scale=0.6,transform shape]
+\begin{tikzpictureC}[scale=0.6,transform shape]
 \fill[yellow] (-8.4,4.7) rectangle (8.4,-4.7);
 \fill[green,opacity=0.3] (-8.4,4.7) -- (-3.5,4.7) -- (-3.5,-3.5) -- (-4.7,-4.7) -- (-8.4,-4.7);
 \draw[ultra thick, blue] (-8.4,-8.4) -- (0,0);
@@ -341,7 +341,7 @@
 
 \node (f) at (-1.75,1) {$w+d$};
 \path[->,red,ultra thick] (f) edge (-3.5,1) edge (0,1);
-\end{tikzpicture}
+\end{tikzpictureC}
 \caption{中央横线和中央竖线自带一格宽度，黄色区域是宽169格，高95格的生成区域。人工墙区域左侧，天梯之上的生成区域以绿色标记。}\label{fig72}
 \end{figure}
 
@@ -368,11 +368,11 @@ n=1-P.
 
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}
+\begin{tikzpictureC}
 \begin{axis}[xmin=0,xmax=50,ymin=0,ymax=1,samples=50,xlabel=$w$,ylabel=$n$,grid=major]
   \addplot[red,thick,domain=0:49] {1-(1-95*(49-x)/16055)^50};
 \end{axis}
-\end{tikzpicture}
+\end{tikzpictureC}
 \caption{}\label{fig73}
 \end{figure}
 \end{solution}
