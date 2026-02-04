@@ -311,34 +311,38 @@
 \subfloat[]{
 \label{i13}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{And_Gate_Off}{1/1}
-	\placetile{Logic_Lamp_Off}{1/2}
+	\placetile{And_Gate_Off}{1}{1}
+	\placetile{Logic_Lamp_Off}{1}{2}
 \end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i14}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{Switch_Flat_Off}{1/2,5/1}
-	\placetile{Torch_On}{2/2,4/1}
-	\placetile{Logic_Lamp_Off}{3/2}
-	\placetile{And_Gate_Off}{3/1}
+	\placetile{Switch_Flat_Off}{1}{2}
+	\placetile{Switch_Flat_Off}{5}{1}
+	\placetile{Torch_On}{2}{2}
+	\placetile{Torch_On}{4}{1}
+	\placetile{Logic_Lamp_Off}{3}{2}
+	\placetile{And_Gate_Off}{3}{1}
 \end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i15}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{Switch_Flat_Off}{1/2,5/1}
-	\placetile{Torch_On}{2/2,4/1}
-	\placetile{Logic_Lamp_Off}{3/2}
-	\placetile{And_Gate_Off}{3/1}
-	\placetile{Wire_Red_R}{1/2}
-	\placetile{Wire_Red_LR}{2/2}
-	\placetile{Wire_Red_L}{3/2}
-	\placetile{Wire_Blue_R}{3/1}
-	\placetile{Wire_Blue_LR}{4/1}
-	\placetile{Wire_Blue_L}{5/1}
+	\placetile{Switch_Flat_Off}{1}{2}
+	\placetile{Switch_Flat_Off}{5}{1}
+	\placetile{Torch_On}{2}{2}
+	\placetile{Torch_On}{4}{1}
+	\placetile{Logic_Lamp_Off}{3}{2}
+	\placetile{And_Gate_Off}{3}{1}
+	\placetile{Wire_Red_R}{1}{2}
+	\placetile{Wire_Red_LR}{2}{2}
+	\placetile{Wire_Red_L}{3}{2}
+	\placetile{Wire_Blue_R}{3}{1}
+	\placetile{Wire_Blue_LR}{4}{1}
+	\placetile{Wire_Blue_L}{5}{1}
 \end{tikzpictureC}
 }
 \caption{\protect\subref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
@@ -350,13 +354,35 @@
 \begin{figure}[!ht]
 \centering
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{Switch_Flat_Off}{1/3}
-	\placetile{Logic_Lamp_Off}{2/3,3/3,4/3,5/3,6/3,7/3,8/3,9/3,10/3,11/3,12/3,13/3,14/3,15/3,16/3}
-	\placetile{And_Gate_Off}{2/2,3/2,4/2,5/2,6/2,7/2,8/2,9/2,10/2,11/2,12/2,13/2,14/2,15/2,16/2}
-	\placetile{Timer_One_Off}{2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1,11/1,12/1,13/1,14/1,15/1,16/1}
+	\placetile{Switch_Flat_Off}{1}{3}
+	\foreach \x in {2,...,16} {
+		\placetile{Logic_Lamp_Off}{\x}{3}
+		\placetile{And_Gate_Off}{\x}{2}
+		\placetile{Timer_One_Off}{\x}{1}
+	}
 \end{tikzpictureC}
 \smarthfill{32}%
-\adjincludegraphics{images/17.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1}{3}
+	\foreach \x in {2,...,16} {
+		\placetile{Logic_Lamp_Off}{\x}{3}
+		\placetile{And_Gate_Off}{\x}{2}
+		\placetile{Timer_One_Off}{\x}{1}
+	}
+	\placetile{Wire_Red_R}{1}{3}
+	\foreach \x in {2,...,15} {
+		\placetile{Wire_Red_LR}{\x}{3}
+	}
+	\placetile{Wire_Red_L}{16}{3}
+	\foreach \x in {2,4,...,16} {
+		\placetile{Wire_Blue_B}{\x}{2}
+		\placetile{Wire_Blue_T}{\x}{1}
+	}
+	\foreach \x in {3,5,...,15} {
+		\placetile{Wire_Green_B}{\x}{2}
+		\placetile{Wire_Green_T}{\x}{1}
+	}
+\end{tikzpictureC}
 \caption{}
 \label{i16:17}
 \end{figure}
@@ -392,19 +418,24 @@
 \subfloat[]{
 	\label{fig7}
 	\begin{tikzpictureC}[scale=0.5, transform shape]
-		\placetile{Logic_Lamp_On}{1/2,1/3,1/4,3/2,3/3,3/4}
-		\placetile{And_Gate_On}{1/1}
-		\placetile{Nand_Gate_Off}{3/1}
+		\foreach \y in {2,3,4} {
+			\placetile{Logic_Lamp_On}{1}{\y}
+			\placetile{Logic_Lamp_On}{3}{\y}
+		}
+		\placetile{And_Gate_On}{1}{1}
+		\placetile{Nand_Gate_Off}{3}{1}
 	\end{tikzpictureC}
 }%
 \smarthfill{8}%
 \subfloat[]{
 	\label{fig8}
 	\begin{tikzpictureC}[scale=0.5, transform shape]
-		\placetile{Logic_Lamp_On}{1/2,1/3,1/4}
-		\placetile{And_Gate_On}{1/1}
-		\placetile{Logic_Lamp_Off}{3/2,3/3,3/4}
-		\placetile{Or_Gate_Off}{3/1}
+		\foreach \y in {2,3,4} {
+			\placetile{Logic_Lamp_On}{1}{\y}
+			\placetile{Logic_Lamp_Off}{3}{\y}
+		}
+		\placetile{And_Gate_On}{1}{1}
+		\placetile{Or_Gate_Off}{3}{1}
 	\end{tikzpictureC}
 }
 \caption{}
@@ -460,28 +491,36 @@
 \subfloat[]{
 \label{i36}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-\placetile{Switch_Flat_Off}{1/2,1/3,1/4,1/5}
-\placetile{Torch_Off}{2/2,2/3,2/4,2/5}
-\placetile{And_Gate_On}{3/1}
-\placetile{And_Gate_Off}{4/1,5/1,6/1,7/1,8/1,9/1,10/1,11/1,12/1}
-\placetile{Logic_Lamp_On}{
-	3/2,3/3,3/4,3/5,%
-	4/3,4/4,4/5,%
-	5/2,5/4,5/5,%
-	6/4,6/5,%
-	7/2,7/3,7/5,%
-	8/3,8/5,%
-	9/2,9/5,%
-	10/5,%
-	11/2,11/3,11/4,%
-	12/3,12/4%
-}
-\placetile{Logic_Lamp_Off}{
-	4/2,5/3,6/2,6/3,%
-	7/4,8/2,8/4,9/3,9/4,%
-	10/2,10/3,10/4,11/5,%
-	12/2,12/5%
-}
+	\foreach \y in {2,3,4,5} {
+		\placetile{Switch_Flat_Off}{1}{\y}
+		\placetile{Torch_Off}{2}{\y}
+	}
+	\placetile{And_Gate_On}{3}{1}
+	\foreach \x in {4,...,12} {
+		\placetile{And_Gate_Off}{\x}{1}
+	}
+	\foreach \x/\y in {
+		3/2,3/3,3/4,3/5,%
+		4/3,4/4,4/5,%
+		5/2,5/4,5/5,%
+		6/4,6/5,%
+		7/2,7/3,7/5,%
+		8/3,8/5,%
+		9/2,9/5,%
+		10/5,%
+		11/2,11/3,11/4,%
+		12/3,12/4%
+	} {
+		\placetile{Logic_Lamp_On}{\x}{\y}
+	}
+	\foreach \x/\y in {
+		4/2,5/3,6/2,6/3,%
+		7/4,8/2,8/4,9/3,9/4,%
+		10/2,10/3,10/4,11/5,%
+		12/2,12/5%
+	} {
+		\placetile{Logic_Lamp_Off}{\x}{\y}
+	}
 \end{tikzpictureC}
 }%
 \smarthfill{26}%
@@ -499,7 +538,35 @@
 \centering
 \subfloat[]{
 \label{i42}
-\adjincludegraphics{images/42.png}%
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\foreach \y in {10,11,12,13} {
+		\placetile{Switch_Flat_Off}{4}{\y}
+		\placetile{Torch_Off}{5}{\y}
+	}
+	\placeAndGate{6}{8}{11111}
+	\placeAndGate{7}{8}{10111}
+	\placeAndGate{8}{8}{11011}
+	\placeAndGate{9}{8}{10011}
+	\placeAndGate{10}{8}{11101}
+	\placeAndGate{11}{8}{10101}
+	\placeAndGate{12}{8}{11001}
+	\placeAndGate{13}{8}{10001}
+	\placeAndGate{14}{8}{11110}
+	\placeAndGate{15}{8}{10110}
+	\foreach \x in {6,...,15} {
+		\placeAndGate{\x}{5}{0}
+		\placeAndGate{\x}{1}{10}
+	}
+	\foreach \x/\y in {
+		1/2,1/3,1/5,1/6,%
+		2/1,3/1,2/7,3/7,%
+		4/2,4/3,4/5,4/6%
+	} {
+		\placetile{Torch_On}{\x}{\y}
+	}
+	\placetile{Torch_Off}{2}{4}
+	\placetile{Torch_Off}{3}{4}
+\end{tikzpictureC}%
 \smarthfill{47}[3]%
 \adjincludegraphics{images/43.png}
 }%

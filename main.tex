@@ -19,12 +19,14 @@
 		use xelatex,
 	},
 	add to preset={tikz}{
+		auto forward,
 		add to preamble={
 			\usepackage{graphicx}
-			\newcommand{\placetile}[2]{%
-				\foreach \x/\y in {#2} {%
-					\node at (16pt*\x,16pt*\y) {\includegraphics[width=16pt]{../textures/tile/#1.png}};
-				}
+			\usepgfmodule{parser}
+			\newcount\bitindex
+			\newif\ifallones
+			\newcommand{\placetile}[3]{%
+				\node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{../textures/tile/#1.png}};
 			}
 		},
 	},

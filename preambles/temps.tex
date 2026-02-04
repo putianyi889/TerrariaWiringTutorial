@@ -68,8 +68,33 @@
 %\fi\fi\fi
 
 % 绘图
-\newcommand{\placetile}[2]{%
-	\foreach \x/\y in {#2} {%
-		\node at (16pt*\x,16pt*\y) {\includegraphics[width=16pt]{textures/tile/#1.png}};
-	}%
+\newcommand{\placetile}[3]{%
+	\node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
+}
+
+\usepgfmodule{parser}
+\newcount\bitindex
+\newif\ifallones
+	
+\newcommandAutoForward{\placeAndGate}[3]{%
+	% 前两个参数是门的坐标，第三个参数是灯的状态，从下到上
+	\pgfparserdef{and gate}{initial}0{
+		\advance\bitindex by 1\relax
+		\allonesfalse
+		\placetile{Logic_Lamp_Off}{#1}{\bitindex}
+	}
+	\pgfparserdef{and gate}{initial}1{
+		\advance\bitindex by 1\relax
+		\pgfmathsetmacro\y{\bitindex+#2}
+		\placetile{Logic_Lamp_On}{#1}{\bitindex}
+	}
+	\pgfparserdef{and gate}{initial};{\pgfparserswitch{final}}
+	\bitindex=#2
+	\allonestrue
+	\pgfparserparse{and gate}#3;
+	\ifallones
+		\placetile{And_Gate_On}{#1}{#2}
+	\else
+		\placetile{And_Gate_Off}{#1}{#2}
+	\fi
 }
