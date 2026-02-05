@@ -37,53 +37,53 @@
 \paragraph*{异或}$\textrm{\^{}}(a_1,a_2,\cdots,a_n)=\left\{\begin{array}{ll}1 & \textrm{如果}a_1,\cdots,a_n\textrm{中恰好有一个为}1 \\0&\textrm{其他情况}\end{array}\right.$
 
 \begin{figure}[!ht]
-    \centering
-    \subfloat[]{
-		\label{i348:349}
-		\adjincludegraphics{images/348.png}%
-		\quad%
-		\adjincludegraphics{images/349.png}
-	}%
-	\smarthfill{90}[4]%
-    \subfloat[]{
-		\label{i350:351}
-		\adjincludegraphics{images/350.png}%
-		\quad%
-		\adjincludegraphics{images/351.png}
-	}%
-	\smarthfill{90}[4]%
-    \subfloat[]{
-		\label{i352:353}
-		\adjincludegraphics{images/352.png}%
-		\quad%
-		\adjincludegraphics{images/353.png}
-	}%
-	\smarthfill{90}[4]%
-    \subfloat[]{
-		\label{i354:355}
-		\adjincludegraphics{images/354.png}%
-		\quad%
-		\adjincludegraphics{images/355.png}
-	}
-    \caption{初等布尔运算对应的电路。
-		\protect\subref{i348:349}取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$；
-		\protect\subref{i350:351}连接：$B=AC$；
-		\protect\subref{i352:353}与：$C=A\&B$；
-		\protect\subref{i354:355}异或：$D=\textrm{\^{}}(A,B,C)$。
-		注意取反运算和连接运算不需要逻辑门。
-	}
-    \label{fig1}
+  \centering
+  \subfloat[]{
+    \label{i348:349}
+    \adjincludegraphics{images/348.png}%
+    \quad%
+    \adjincludegraphics{images/349.png}
+  }%
+  \smarthfill{90}[4]%
+  \subfloat[]{
+    \label{i350:351}
+    \adjincludegraphics{images/350.png}%
+    \quad%
+    \adjincludegraphics{images/351.png}
+  }%
+  \smarthfill{90}[4]%
+  \subfloat[]{
+    \label{i352:353}
+    \adjincludegraphics{images/352.png}%
+    \quad%
+    \adjincludegraphics{images/353.png}
+  }%
+  \smarthfill{90}[4]%
+  \subfloat[]{
+    \label{i354:355}
+    \adjincludegraphics{images/354.png}%
+    \quad%
+    \adjincludegraphics{images/355.png}
+  }
+  \caption{初等布尔运算对应的电路。
+    \protect\subref{i348:349}取反：$A=\textrm{\~{}}B$, $B=\textrm{\~{}}A$；
+    \protect\subref{i350:351}连接：$B=AC$；
+    \protect\subref{i352:353}与：$C=A\&B$；
+    \protect\subref{i354:355}异或：$D=\textrm{\^{}}(A,B,C)$。
+    注意取反运算和连接运算不需要逻辑门。
+  }
+  \label{fig1}
 \end{figure}
 
 此外，在进行分析的时候，为了便于理解，我们也使用其他一些布尔运算，它们都可以由初等布尔运算导出。\autoref{fig2}展示了使用与运算导出或运算的方法。\autoref{tab2}展示了常用的非初等布尔运算。
 
 \begin{figure}[!ht]
-    \centering
-	\adjincludegraphics{images/356.png}%
-	\smarthfill{22}%
-	\adjincludegraphics{images/357.png}
-    \caption{与运算导出的或运算。$C=A|B$}
-    \label{fig2}
+  \centering
+  \adjincludegraphics{images/356.png}%
+  \smarthfill{22}%
+  \adjincludegraphics{images/357.png}
+  \caption{与运算导出的或运算。$C=A|B$}
+  \label{fig2}
 \end{figure}
 
 \begin{table}[!ht]
@@ -222,13 +222,13 @@ $a$&$b$&$c$&$\textrm{\~{}}ab\&\textrm{\~{}}bc\&abc$\\\hline
 单步逻辑有什么用呢？如果电路中要同时执行多个简单逻辑，可以将其中若干逻辑进行连接以获取可能的简化。这个描述非常抽象，我们来看一个例子。
 
 \begin{figure}[!htp]
-	\centering
-	\subfloat[可密堆叠的数显]{\adjincludegraphics{images/322.png}}
-	
-	\subfloat[控制部分]{\adjincludegraphics{images/323.png}}%
-	\smarthfill{50}%
-	\subfloat[显示部分]{\adjincludegraphics{images/324.png}}
-	\caption{}\label{fig26}
+  \centering
+  \subfloat[可密堆叠的数显]{\adjincludegraphics{images/322.png}}
+  
+  \subfloat[控制部分]{\adjincludegraphics{images/323.png}}%
+  \smarthfill{50}%
+  \subfloat[显示部分]{\adjincludegraphics{images/324.png}}
+  \caption{}\label{fig26}
 \end{figure}
 
 \autoref{fig26}展示了一个BCD数显。这个数显是目前发现的唯一一个可密堆叠（\autoref{fig26}）的BCD数显。可密堆叠的要求是极其苛刻的。首先，因为下方显示器的宽度相当小，控制电路的宽度也非常有限；其次，上层和下层控制单元需要可以挨在一起但是线不能连接。这些条件看上去非常不可思议，但是数显能做出来，得益于单步逻辑的超高复杂度。这个数显一共有7个输出，并且因为它们的秩为7，至少需要7个逻辑门。输入接进来时，在逻辑灯上可以有各种接线可能；逻辑门可以选取与和异或，逻辑灯数量也可以改变；输出时，多个逻辑门可以输出到同一根线上实现连接运算；电线在显示器上也可以连接若干段。这么算下来，不考虑正确性的情况下，一个简单数显的接线排列组合可以有成千上万种。从这么复杂的情况中找出一种可行方案不算太困难，但是也需要相当的观察力与经验。
@@ -269,7 +269,7 @@ $$de=\textnormal{\~{}}ac\&\textnormal{\~{}}ab=\textnormal{\~{}}bc\&\textnormal{\
 \adjincludegraphics{images/407.png}
 \caption{}\label{fig36}
 \end{figure}
-	
+  
 这样一来，$e$仍用单灯表示，而$d$使用双灯与单灯的连接：$d=dee=(de)e$，我们就得到了\autoref{fig36}所示的电路。在这个例子中，我们通过考虑输出之间的连接减少了灯数。另一方面，考虑连接的逻辑为我们开阔了思路，增加了更多可能性，让我们更有希望设计出满足苛刻条件的电路。
 \end{proof}
 \end{example}
@@ -375,11 +375,11 @@ a_{[7:0]}\mathtt{>}b_{[7:0]}=&(a_7\mathtt{>}b_7)(a_7\mathtt{==}b_7\& a_6\mathtt{
 用\autoref{sec23}中的导出公式，我们得到了只包含初等布尔运算的逻辑表达式：
 \[\begin{split}
 a_{[7:0]}>b_{[7:0]}=&(a_7\&\textrm{\~{}}b_7)(\textrm{\~{}}a_7b_7\& a_6\&\textrm{\~{}}b_6)(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\& a_5\&\textrm{\~{}}b_5)\\
-					&(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\& a_4\&\textrm{\~{}}b_4)\\
-					&(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\& a_3\&\textrm{\~{}}b_3)\\
-					&(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\& a_2\&\textrm{\~{}}b_2)\\
-					&(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\& a_1\&\textrm{\~{}}b_1)\\
-					&(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\&\textrm{\~{}}a_1b_1\& a_0\&\textrm{\~{}}b_0)
+          &(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\& a_4\&\textrm{\~{}}b_4)\\
+          &(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\& a_3\&\textrm{\~{}}b_3)\\
+          &(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\& a_2\&\textrm{\~{}}b_2)\\
+          &(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\& a_1\&\textrm{\~{}}b_1)\\
+          &(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\&\textrm{\~{}}a_1b_1\& a_0\&\textrm{\~{}}b_0)
 \end{split}\]
 
 \begin{figure}
@@ -475,10 +475,10 @@ $$
 
 单元堆叠后的效果见\autoref{fig82}，其中每个单元大小3*7。优化过程用到了如下的接线技巧：
 \begin{itemize}
-	\item 左右方向上红蓝线循环，便于接线。
-	\item 相邻两列错位，便于进位和横向乘数的传递。
-	\item 纵向的逻辑延迟用到了一个异或门，从而这个门不需要为经过的绿线让路。
-	\item 与门利用了等式$a\&b=\textrm{\~{}} ab\&b$，便于接线。
+  \item 左右方向上红蓝线循环，便于接线。
+  \item 相邻两列错位，便于进位和横向乘数的传递。
+  \item 纵向的逻辑延迟用到了一个异或门，从而这个门不需要为经过的绿线让路。
+  \item 与门利用了等式$a\&b=\textrm{\~{}} ab\&b$，便于接线。
 \end{itemize}
 
 \begin{figure}[!ht]
@@ -507,21 +507,21 @@ $$
 \begin{figure}[p]
 \centering
 \subfloat[逻辑右移]{
-	\adjincludegraphics{images/400.png}%
-	\smarthfill{38}%
-	\adjincludegraphics{images/401.png}
+  \adjincludegraphics{images/400.png}%
+  \smarthfill{38}%
+  \adjincludegraphics{images/401.png}
 }
 
 \subfloat[算术右移]{
-	\adjincludegraphics{images/402.png}%
-	\smarthfill{38}%
-	\adjincludegraphics{images/403.png}
+  \adjincludegraphics{images/402.png}%
+  \smarthfill{38}%
+  \adjincludegraphics{images/403.png}
 }
 
 \subfloat[经过简单优化的算术右移]{
-	\adjincludegraphics{images/404.png}%
-	\smarthfill{38}%
-	\adjincludegraphics{images/405.png}
+  \adjincludegraphics{images/404.png}%
+  \smarthfill{38}%
+  \adjincludegraphics{images/405.png}
 }
 \caption{组合逻辑原理的移位器。右侧三个火把从上到下作用依次为移1位、移2位、移4位。}\label{fig35}
 \end{figure}
@@ -593,11 +593,11 @@ $$
 只读存储器用于存储事先设计好的、固定的数据。这些数据不需要在使用时修改，所以一般是通过物理方式直接做在电路中。
 \begin{figure}[!ht]
     \centering
-	\subfloat[横向输入纵向输出]{\label{fig49}\adjincludegraphics{images/342.png}\adjincludegraphics{images/341.png}}
-	
-	\subfloat[纵向输入横向输出]{\label{fig50}\adjincludegraphics{images/343.png}\adjincludegraphics{images/344.png}}%
+  \subfloat[横向输入纵向输出]{\label{fig49}\adjincludegraphics{images/342.png}\adjincludegraphics{images/341.png}}
+  
+  \subfloat[纵向输入横向输出]{\label{fig50}\adjincludegraphics{images/343.png}\adjincludegraphics{images/344.png}}%
     \smarthfill{50}%
-	\subfloat[纵向输入横向输出]{\label{fig51}\adjincludegraphics{images/346.png}\adjincludegraphics{images/345.png}}
+  \subfloat[纵向输入横向输出]{\label{fig51}\adjincludegraphics{images/346.png}\adjincludegraphics{images/345.png}}
     \caption{ROM的三种设计。}\label{fig48}
 \end{figure}
 \autoref{fig48}展示了三种ROM设计。\autoref{fig49}使用故障逻辑灯存储数据。一根横线激活时，只有经过的故障逻辑灯下方的逻辑门才会激活。因为存储器要与\termMUX 配合，而\termMUX 是纵向输出，所以\autoref{fig49}目前没有实用价值。\autoref{fig50}和\autoref{fig51}都是通过接线存储数据，也是有广泛应用的两种ROM。两个电路在实现方式上的区别是，\autoref{fig50}通过连接输出线与逻辑门来存储，而\autoref{fig51}通过连接输入线与逻辑灯来存储。占用空间方面，\autoref{fig50}占用高度较低（1.5格/bit），\autoref{fig51}占用高度较高（2格/bit）。逻辑同步方面，\autoref{fig51}的输出是同步的，而\autoref{fig50}不同步，在本来就需要不同步的场景（例如很多\nameref{sec34}和\nameref{sec17}），\autoref{fig50}更好。

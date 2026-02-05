@@ -10,39 +10,39 @@
 
 \begin{figure}[!ht]
     \centering
-	\subfloat[传统递次]{
-		\label{fig52}
-		\adjincludegraphics{images/72.png}%
-		\quad%
-		\adjincludegraphics{images/73.png}
-	}
-	
-	\subfloat[带复位的传统递次]{
-		\label{fig53}
-		\adjincludegraphics{images/106.png}%
-		\quad%
-		\adjincludegraphics{images/107.png}
-	}%
-	\smarthfill{44}%
+  \subfloat[传统递次]{
+    \label{fig52}
+    \adjincludegraphics{images/72.png}%
+    \quad%
+    \adjincludegraphics{images/73.png}
+  }
+  
+  \subfloat[带复位的传统递次]{
+    \label{fig53}
+    \adjincludegraphics{images/106.png}%
+    \quad%
+    \adjincludegraphics{images/107.png}
+  }%
+  \smarthfill{44}%
     \subfloat[斜式传统递次]{
-		\label{fig54}
-		\adjincludegraphics{images/78.png}%
-		\quad%
-		\adjincludegraphics{images/79.png}
-	}
-	\subfloat[密排传统递次]{
-		\label{fig55}
-		\adjincludegraphics{images/82.png}%
-		\quad%
-		\adjincludegraphics{images/83.png}
-	}
-	\subfloat[密排带复位传统递次]{
-		\label{fig56}
-		\adjincludegraphics{images/317.png}%
-		\quad%
-		\adjincludegraphics{images/318.png}
-	}
-	\caption{常用的传统递次电路}
+    \label{fig54}
+    \adjincludegraphics{images/78.png}%
+    \quad%
+    \adjincludegraphics{images/79.png}
+  }
+  \subfloat[密排传统递次]{
+    \label{fig55}
+    \adjincludegraphics{images/82.png}%
+    \quad%
+    \adjincludegraphics{images/83.png}
+  }
+  \subfloat[密排带复位传统递次]{
+    \label{fig56}
+    \adjincludegraphics{images/317.png}%
+    \quad%
+    \adjincludegraphics{images/318.png}
+  }
+  \caption{常用的传统递次电路}
 \end{figure}
 
 \autoref{fig52}和\autoref{fig53}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。
@@ -55,23 +55,23 @@
 \begin{figure}[!ht]
     \centering
     \subfloat[传统双向递次]{
-		\adjincludegraphics{images/263.png}%
-		\quad%
-		\adjincludegraphics{images/264.png}
-	}%
-	\smarthfill{42}%
+    \adjincludegraphics{images/263.png}%
+    \quad%
+    \adjincludegraphics{images/264.png}
+  }%
+  \smarthfill{42}%
     \subfloat[密排传统双向递次]{
-		\adjincludegraphics{images/261.png}%
-		\quad%
-		\adjincludegraphics{images/262.png}
-	}
-	
+    \adjincludegraphics{images/261.png}%
+    \quad%
+    \adjincludegraphics{images/262.png}
+  }
+  
     \subfloat[带复位的传统双向递次]{
-		\adjincludegraphics{images/265.png}
-		\quad
-		\adjincludegraphics{images/266.png}
-	}
-	\caption{传统双向递次电路}
+    \adjincludegraphics{images/265.png}
+    \quad
+    \adjincludegraphics{images/266.png}
+  }
+  \caption{传统双向递次电路}
 \end{figure}
 
 \subsection{推广递次电路}
@@ -216,23 +216,23 @@
 \begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
-	[0000,name=s
-		[0001
-			[0010
-				[0100
-					[1000]
-					[1001]]
-				[0101
-					[1010]
-					[1011]]]
-			[0011
-				[0110
-					[1100]
-					[1101]]
-				[0111
-					[1110]
-					[1111]]]]]
-	\draw[->] (s) to[out=45,in=-45,looseness=3] (s);
+  [0000,name=s
+    [0001
+      [0010
+        [0100
+          [1000]
+          [1001]]
+        [0101
+          [1010]
+          [1011]]]
+      [0011
+        [0110
+          [1100]
+          [1101]]
+        [0111
+          [1110]
+          [1111]]]]]
+  \draw[->] (s) to[out=45,in=-45,looseness=3] (s);
 \end{forest}
 \caption{}\label{fig61}
 \end{figure}
@@ -248,27 +248,27 @@
 \begin{figure}[H]
 \centering
 \begin{forest} for tree={edge={<-},grow=west},
-	[0000,name=s
-		[0001
-			[0010
-				[0100]
-				[0101]]
-			[0011
-				[0110]
-				[0111]]]]
-	\draw[->] (s) to[out=45,in=-45,looseness=3] (s);
+  [0000,name=s
+    [0001
+      [0010
+        [0100]
+        [0101]]
+      [0011
+        [0110]
+        [0111]]]]
+  \draw[->] (s) to[out=45,in=-45,looseness=3] (s);
 \end{forest}
 \quad
 \begin{forest} for tree={edge={<-},grow=east},
-	[1111,name=s
-		[1110
-			[1101
-				[1011]
-				[1010]]
-			[1100
-				[1001]
-				[1000]]]]
-	\draw[->] (s) to[out=135,in=-135,looseness=3] (s);
+  [1111,name=s
+    [1110
+      [1101
+        [1011]
+        [1010]]
+      [1100
+        [1001]
+        [1000]]]]
+  \draw[->] (s) to[out=135,in=-135,looseness=3] (s);
 \end{forest}
 \caption{}\label{fig63}
 \end{figure}
@@ -427,12 +427,12 @@
 方向感应器被广泛地使用在电路游戏中，它可以检测到玩家的上下左右移动操作。方向感应器的一种方案如\autoref{i253:254}所示。另一种方案请参考\bilibili{av23633364/?p=7}。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/253.png}%
-	\smarthfill{22}%
-	\adjincludegraphics{images/254.png}
-	\caption{玩家试图左右移动时会触发玩家感应器并实化半砖将玩家推回；试图上平台时平台虚化，玩家掉落；试图下平台时下方半砖实化将玩家推回。}
-	\label{i253:254}
+  \centering
+  \adjincludegraphics{images/253.png}%
+  \smarthfill{22}%
+  \adjincludegraphics{images/254.png}
+  \caption{玩家试图左右移动时会触发玩家感应器并实化半砖将玩家推回；试图上平台时平台虚化，玩家掉落；试图下平台时下方半砖实化将玩家推回。}
+  \label{i253:254}
 \end{figure}
 
 \subsection{刷怪感应器}
@@ -695,12 +695,12 @@
 用单色光源可以实现至少有一边长度至多为4的密集显示器（\autoref{i256:257}）。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/256.png}%
-	\smarthfill{44}%
-	\adjincludegraphics{images/257.png}
-	\caption{第一行开关控制第一行火把，第二行开关控制第二行火把，第三行开关控制第三行火把，第四行开关控制第四行火把。}
-	\label{i256:257}
+  \centering
+  \adjincludegraphics{images/256.png}%
+  \smarthfill{44}%
+  \adjincludegraphics{images/257.png}
+  \caption{第一行开关控制第一行火把，第二行开关控制第二行火把，第三行开关控制第三行火把，第四行开关控制第四行火把。}
+  \label{i256:257}
 \end{figure}
 
 用\nameref{sec21}可以实现任意尺寸的密集矩阵显示器。
@@ -724,17 +724,17 @@
 \begin{figure}[!ht]
 \begin{center}
 \subfloat[6/9]{
-	\label{i269:270}
-	\adjincludegraphics{images/269.png}%
-	\quad%
-	\adjincludegraphics{images/270.png}
+  \label{i269:270}
+  \adjincludegraphics{images/269.png}%
+  \quad%
+  \adjincludegraphics{images/270.png}
 }%
 \smarthfill{24}%
 \subfloat[1/4]{
-	\label{i271:272}
-	\adjincludegraphics{images/271.png}%
-	\quad%
-	\adjincludegraphics{images/272.png}
+  \label{i271:272}
+  \adjincludegraphics{images/271.png}%
+  \quad%
+  \adjincludegraphics{images/272.png}
 }
 \end{center}
 \caption{紧凑的矩阵显示器}

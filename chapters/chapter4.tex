@@ -275,37 +275,37 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{figure}[!ht]
 \centering
 \subfloat[]{
-	\label{fig13}
-	\adjincludegraphics{images/367.png}%
-	\quad%
-	\adjincludegraphics{images/368.png}
+  \label{fig13}
+  \adjincludegraphics{images/367.png}%
+  \quad%
+  \adjincludegraphics{images/368.png}
 }%
 \smarthfill{50}[6]%
 \subfloat[]{
-	\label{fig14}
-	\adjincludegraphics{images/369.png}
+  \label{fig14}
+  \adjincludegraphics{images/369.png}
 }%
 \smarthfill{50}[6]%
 \subfloat[]{
-	\label{fig15}
-	\adjincludegraphics{images/371.png}
+  \label{fig15}
+  \adjincludegraphics{images/371.png}
 }%
 \smarthfill{50}[6]%
 \subfloat[]{
-	\label{fig16}
-	\adjincludegraphics{images/373.png}
+  \label{fig16}
+  \adjincludegraphics{images/373.png}
 }%
 \smarthfill{50}[6]%
 \subfloat[]{
-	\label{fig17}
-	\adjincludegraphics{images/375.png}
+  \label{fig17}
+  \adjincludegraphics{images/375.png}
 }%
 \smarthfill{50}[6]%
 \subfloat[]{
-	\label{fig18}
-	\adjincludegraphics{images/377.png}%
-	\quad%
-	\adjincludegraphics{images/378.png}
+  \label{fig18}
+  \adjincludegraphics{images/377.png}%
+  \quad%
+  \adjincludegraphics{images/378.png}
 }
 \caption{}
 \end{figure}
@@ -405,20 +405,20 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{figure}[!ht]
 \centering
 \subfloat[]{
-	\label{fig45}
-	\adjincludegraphics{images/422.png}%
-	\quad%
-	\adjincludegraphics{images/423.png}
+  \label{fig45}
+  \adjincludegraphics{images/422.png}%
+  \quad%
+  \adjincludegraphics{images/423.png}
 }%
 \smarthfill{9}[3]%
 \subfloat[]{
-	\label{fig46}
-	\adjincludegraphics{images/424.png}
+  \label{fig46}
+  \adjincludegraphics{images/424.png}
 }%
 \smarthfill{9}[3]%
 \subfloat[]{
-	\label{fig47}
-	\adjincludegraphics{images/425.png}
+  \label{fig47}
+  \adjincludegraphics{images/425.png}
 }
 \caption{\protect\subref{fig45}与门从灭变亮时激活，从亮变灭不激活。\protect\subref{fig46}与门亮时故障逻辑门可以激活，灭时不可以激活。\protect\subref{fig47}与门亮时故障逻辑门可以激活，灭时不可以激活。}\label{fig44}
 \end{figure}
@@ -431,17 +431,17 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{figure}[!ht]
 \begin{center}
 \subfloat[]{
-	\label{i138:139}
-	\adjincludegraphics{images/138.png}%
-	\quad%
-	\adjincludegraphics{images/139.png}
+  \label{i138:139}
+  \adjincludegraphics{images/138.png}%
+  \quad%
+  \adjincludegraphics{images/139.png}
 }%
 \smarthfill{20}%
 \subfloat[]{
 \label{i140:141}
-	\adjincludegraphics{images/140.png}%
-	\quad%
-	\adjincludegraphics{images/141.png}
+  \adjincludegraphics{images/140.png}%
+  \quad%
+  \adjincludegraphics{images/141.png}
 }
 \end{center}
 \caption{只有激活蓝线和红线重合处的开关，火把才会响应。}
@@ -456,17 +456,17 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{figure}[!ht]
 \centering
 \subfloat[]{
-	\label{fig66}
-	\adjincludegraphics{images/428.png}%
-	\quad%
-	\adjincludegraphics{images/429.png}
+  \label{fig66}
+  \adjincludegraphics{images/428.png}%
+  \quad%
+  \adjincludegraphics{images/429.png}
 }%
 \smarthfill{12}%
 \subfloat[]{
-	\label{fig67}
-	\adjincludegraphics{images/430.png}%
-	\quad%
-	\adjincludegraphics{images/431.png}
+  \label{fig67}
+  \adjincludegraphics{images/430.png}%
+  \quad%
+  \adjincludegraphics{images/431.png}
 }
 \caption{\protect\subref{fig66}嵌入式和\protect\subref{fig67}故障门两种赋值方式。红线改变火把状态，蓝线将火把赋0。}
 \end{figure}
@@ -507,23 +507,23 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 由于后面逻辑门的概率降低是根据之前逻辑门激活的次数确定的，所以使用递次电路完成这个计数功能。递次电路以所有用于概率的故障逻辑门作为输入。递次电路激活1次，表示有一个元素分到了第1组，将从下到上第4排有效逻辑灯熄灭，使后面分组的分子至多为3；递次电路激活2次，表示有两个元素分到了第1组，再将从下到上第3排有效逻辑灯熄灭，使后面分组的分子至多为2；...；递次电路激活4次，表示已经有4个元素分到了第1组，将最下面一排有效逻辑灯熄灭，此时所有有效逻辑灯熄灭，代表后面的概率全部为0，即剩余所有元素都被分到第2组。为接线方便，采用斜向的递次电路（\autoref{i130:131}）。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/130.png}%
-	\smarthfill{40}%
-	\adjincludegraphics{images/131.png}
-	\caption{}
-	\label{i130:131}
+  \centering
+  \adjincludegraphics{images/130.png}%
+  \smarthfill{40}%
+  \adjincludegraphics{images/131.png}
+  \caption{}
+  \label{i130:131}
 \end{figure}
 
 为重复使用，复位电路也是必须的，即将八个用于概率的故障逻辑灯全部激活后将电路恢复到初始状态。全部激活后，递次电路一定被激活了4次，所以递次电路已经自动复位；有效逻辑灯一定全灭，复位电路只需要将需要的有效逻辑灯全部点亮即可（\autoref{i132:133}）。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/132.png}%
-	\smarthfill{42}%
-	\adjincludegraphics{images/133.png}
-	\caption{}
-	\label{i132:133}
+  \centering
+  \adjincludegraphics{images/132.png}%
+  \smarthfill{42}%
+  \adjincludegraphics{images/133.png}
+  \caption{}
+  \label{i132:133}
 \end{figure}
 
 在上面的电路中，我们需要依次从左到右点击八个开关，对应的故障逻辑门激活代表对应的元素被分到第1组\footnote{注意这里用激活表示分组，因此如果使用火把显示，需要额外的置0电路。}。分完以后需要点击第九个开关复位。理想的电路当然是希望只需要点一次开关就自动完成所有功能。整个电路的运行顺序应该是：第一个故障逻辑灯激活，第一个故障逻辑门（可能）激活后，递次电路激活，修改有效逻辑灯，然后第二个故障逻辑灯激活，……八个故障逻辑灯激活后，复位电路激活。因此每两个相邻的故障逻辑灯之间需要有逻辑延迟，最后一个故障逻辑灯和复位电路之间有逻辑延迟。接下来需要计算至少需要延迟几个逻辑帧。
@@ -535,12 +535,12 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 捋好这些逻辑后就可以接线了。如\autoref{i134:135}，在每两个相邻的故障逻辑灯之间加两个换线器用来构造2个逻辑帧的延迟；在最后一个故障逻辑灯和复位电路之间加一个换线器用来构造1个逻辑帧的延迟。火把上加了事前置0电路用来将激活转换为点亮。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/134.png}%
-	\smarthfill{44}%
-	\adjincludegraphics{images/135.png}
-	\caption{}
-	\label{i134:135}
+  \centering
+  \adjincludegraphics{images/134.png}%
+  \smarthfill{44}%
+  \adjincludegraphics{images/135.png}
+  \caption{}
+  \label{i134:135}
 \end{figure}
 
 这里只是举了随机8选4的例子。随机m选n电路除了逻辑门和逻辑灯数量以外，原理和构造完全一样。
@@ -554,12 +554,12 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 要把9个元素均分为三组，只需要先分为6+3的两组，再把有6个元素的组分成3+3两组。电路如\autoref{i136:137}所示。上面的分组电路，将被分到6的一组激活。每有一个元素被分到6的一组，递次电路就将下面的6选3的电路的对应故障逻辑灯激活。如果这个逻辑门又被激活了，那么这个元素被分到第1组，否则分到第2组。如果一开始9选6都没有激活，那么分到第3组。由于9选6中相邻两个故障逻辑门已经设置了2逻辑帧的延迟，因此下面的6选3相邻的故障逻辑门间延迟已经至少是2个逻辑帧，因此不再需要调整。受电线颜色限制，6选3的复位电路与9选6略有不同。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/136.png}%
-	\smarthfill{52}%
-	\adjincludegraphics{images/137.png}
-	\caption{}
-	\label{i136:137}
+  \centering
+  \adjincludegraphics{images/136.png}%
+  \smarthfill{52}%
+  \adjincludegraphics{images/137.png}
+  \caption{}
+  \label{i136:137}
 \end{figure}
 
 通过识别该核心模块发出的激活信号，已经可以判断出分组情况：如果9选6的某个故障逻辑灯未激活，那么该元素被分到第3组；如果这个故障逻辑灯激活了，但是两个逻辑帧后，6选3下方的蓝线未激活，说明该元素被分到第2组；如果这个故障逻辑灯激活后两个逻辑帧，6选3下方的蓝线恰好激活，那么该元素被分到第1组。
@@ -575,12 +575,12 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 由于9个灯泡的信号处理电路完全相同，这里只讲一个的原理。我们做的这个信号处理电路有两个输入（红线和蓝线）。如果红线没有输入，那么灯泡为红；如果红线输入且蓝线在之后的第二个逻辑帧没有输入，那么灯泡为蓝；如果红线输入且蓝线在之后的第二个逻辑帧输入，那么灯泡为绿。另外，红线在逻辑结算中至多输入一次，蓝线一定会输入三次。由于没有输出时灯泡为红，所以可以使用置0/置1电路将灯泡置为红色。当红线激活时，将灯泡的红色熄灭，蓝线点亮。当蓝线在两个逻辑帧后激活时，将蓝色熄灭，绿色点亮。电路如\autoref{i142:143}所示。在红线上接两个换线器，这样判定就成了当红线和蓝线在同一个逻辑帧激活时蓝色熄灭，绿色点亮，从而应用激活与门。左右两个故障逻辑门用于事前将彩线灯泡置为红色\footnote{注意，尽管故障逻辑门上接了两种颜色的电线，只有一种颜色的电线接到了有效逻辑灯。}。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/142.png}%
-	\smarthfill{8}%
-	\adjincludegraphics{images/143.png}
-	\caption{上面的红线、蓝线、黄线分别为红线输入、蓝线输入、复位。}
-	\label{i142:143}
+  \centering
+  \adjincludegraphics{images/142.png}%
+  \smarthfill{8}%
+  \adjincludegraphics{images/143.png}
+  \caption{上面的红线、蓝线、黄线分别为红线输入、蓝线输入、复位。}
+  \label{i142:143}
 \end{figure}
 
 \subsection{电路优化}
@@ -597,21 +597,21 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \autoref{i146:147}和\autoref{i148:149}分别是占用宽度为2和3的解，还不确定是否是对应宽度的最优解。占用宽度越小，占用高度越大\footnote{有得选的话没人会用占用宽度和高度都大的电路。}。电路优化没有固定套路，需要通过大量的实践与尝试总结经验，因此这里省略优化过程1万字，仅放出电路图供参考。
 
 \begin{figure}[!htp]
-	\centering
-	\adjincludegraphics{images/146.png}%
-	\smarthfill{60}%
-	\adjincludegraphics{images/147.png}
-	\caption{}
-	\label{i146:147}
+  \centering
+  \adjincludegraphics{images/146.png}%
+  \smarthfill{60}%
+  \adjincludegraphics{images/147.png}
+  \caption{}
+  \label{i146:147}
 \end{figure}
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/148.png}%
-	\smarthfill{76}%
-	\adjincludegraphics{images/149.png}
-	\caption{}
-	\label{i148:149}
+  \centering
+  \adjincludegraphics{images/148.png}%
+  \smarthfill{76}%
+  \adjincludegraphics{images/149.png}
+  \caption{}
+  \label{i148:149}
 \end{figure}
 
 \section{电路的运算速度}
@@ -634,7 +634,7 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{figure}[!ht]
     \centering
     \adjincludegraphics{images/316.png}%
-	\smarthfill{94}%
+  \smarthfill{94}%
     \adjincludegraphics{images/315.png}
     \caption{周期为64的三级递次}\label{fig32}
 \end{figure}
@@ -648,35 +648,35 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 见\autoref{i167:168}，一根电线连接开关和两个飞镖机关，右击开关时显然两个飞镖机关在同一个物理帧射出飞镖。如果在同样的距离上放两个青绿压力垫板，显然两个青绿压力垫板是在同一个物理帧激活，这就是在同一个逻辑帧发生的两个物理事件。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/167.png}%
-	\smarthfill{10}%
-	\adjincludegraphics{images/168.png}
-	\caption{}
-	\label{i167:168}
+  \centering
+  \adjincludegraphics{images/167.png}%
+  \smarthfill{10}%
+  \adjincludegraphics{images/168.png}
+  \caption{}
+  \label{i167:168}
 \end{figure}
 
 按照惯性思维，由于两个飞镖是在同一个逻辑帧射出的，那么两个青绿压力垫板也应该在同一个逻辑帧激活，那么如\autoref{i169:170}所示，第一次右击开关应当使左边火把响应。然而实际上，第一次右击开关会使右边的火把响应，这意味着两个青绿压力垫板不是在同一个逻辑帧激活的，并且左边的青绿压力垫板激活更早。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/169.png}%
-	\smarthfill{20}%
-	\adjincludegraphics{images/170.png}
-	\caption{}
-	\label{i169:170}
+  \centering
+  \adjincludegraphics{images/169.png}%
+  \smarthfill{20}%
+  \adjincludegraphics{images/170.png}
+  \caption{}
+  \label{i169:170}
 \end{figure}
 
 那么两个青绿压力垫板是否是在同一个逻辑结算中的不同逻辑帧激活的呢？看\autoref{i171:172}，如果两个青绿压力垫板是在同一个逻辑结算中不同逻辑帧激活，并且左边的青绿压力垫板激活更早，那么与门会爆门。然而实际上与门并未爆门，而是激活了两次，这意味着两个青绿压力垫板并不是在同一个逻辑结算中激活的。这就是说，不同的物理电源不会参与到同一个逻辑结算中，而是等前面物理电源相关的逻辑结算完成后再执行后面物理电源的逻辑结算。
 
 \begin{figure}[!ht]
-	\centering
-	\adjincludegraphics{images/171.png}%
-	\smarthfill{20}%
-	\adjincludegraphics{images/172.png}
-	\caption{}
-	\caption{最右边是降频电路，火把响应一次代表与门激活两次。}
-	\label{i171:172}
+  \centering
+  \adjincludegraphics{images/171.png}%
+  \smarthfill{20}%
+  \adjincludegraphics{images/172.png}
+  \caption{}
+  \caption{最右边是降频电路，火把响应一次代表与门激活两次。}
+  \label{i171:172}
 \end{figure}
 
 从上面的实验可以知道，左边的青绿压力垫板结算在前，右边的结算在后，这是由于激活它们的飞镖生成顺序不同。依照第5条规则，左边的飞镖机关的飞镖先生成，右边的飞镖机关的飞镖后生成。从飞镖生成开始，每个逻辑帧都需要判断飞镖的碰撞，因为左边的飞镖先生成，所以判断碰撞时先判断左边飞镖的碰撞情况。因此当两个飞镖同时与青绿压力垫板碰撞时，程序将左边的碰撞事件排在前面，也就是将两个碰撞事件的触发顺序安排为左边先右边后。
