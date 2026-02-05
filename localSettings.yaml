@@ -13,3 +13,8 @@ commandCodeBlocks:
     - amalgamate: 0
     - '\\x\/\\y in'
     - '\\i in'
+
+specialBeginEnd:
+  addwireframetcbset:
+    begin: '#1frame/.style={'
+    end: '}'
