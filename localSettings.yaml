@@ -14,6 +14,8 @@ indentRules:
 lookForAlignDelims:
   tabular: 0
   longtable: 0
+  array: 0
+  align: 0
 
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
