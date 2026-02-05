@@ -8,9 +8,6 @@ indentRulesGlobal:
   UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
 
-noAdditionalIndent:
-  foreach: 1
-
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
