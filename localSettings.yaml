@@ -3,7 +3,7 @@ defaultIndent: '  '
 indentRulesGlobal:
   environments: "  "
   optionalArguments: ""
-  mandatoryArguments: ""
+  mandatoryArguments: "  "
   commands: ""
   UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
