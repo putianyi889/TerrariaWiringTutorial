@@ -1,7 +1,9 @@
-indentRules:
-  environments: '  '
-  optionalArguments: '  '
-  mandatoryArguments: '  '
-  commands: '  '
-  UnNamedGroupingBracesBrackets: ''
-  afterHeading: ''
+defaultIndent: '  '
+
+indentRulesGlobal:
+  environments: 1
+  optionalArguments: 1
+  mandatoryArguments: 1
+  commands: 1
+  UnNamedGroupingBracesBrackets: 0
+  afterHeading: 0
