@@ -5,34 +5,34 @@
 \section{域\texorpdfstring{$\mathbb{Z}_2$}{Z\_2}简介}
 把整数分成奇数和偶数，则有如下运算规律：
 \begin{center}
-\begin{tabular}{|c|cc|}
-  \hline
-  $+$&偶&奇\\\hline
-  偶&偶&奇\\
-  奇&奇&偶\\\hline
-\end{tabular}
-\begin{tabular}{|c|cc|}
-  \hline
-  $\times$&偶&奇\\\hline
-  偶&偶&偶\\
-  奇&偶&奇\\\hline
-\end{tabular}
+  \begin{tabular}{|c|cc|}
+    \hline
+    $+$&偶&奇\\\hline
+    偶&偶&奇\\
+    奇&奇&偶\\\hline
+  \end{tabular}
+  \begin{tabular}{|c|cc|}
+    \hline
+    $\times$&偶&奇\\\hline
+    偶&偶&偶\\
+    奇&偶&奇\\\hline
+  \end{tabular}
 \end{center}
 
 $\mathbb{Z}_2=\{0,1\}$表示整数除以2所得余数的集合，则0代表偶数，1代表奇数，0和1之间的加法和乘法运算遵守上述奇偶的运算规律，即
 \begin{center}
-\begin{tabular}{|c|cc|}
-  \hline
-  $+$&0&1\\\hline
-  0&0&1\\
-  1&1&0\\\hline
-\end{tabular}
-\begin{tabular}{|c|cc|}
-  \hline
-  $\times$&0&1\\\hline
-  0&0&0\\
-  1&0&1\\\hline
-\end{tabular}
+  \begin{tabular}{|c|cc|}
+    \hline
+    $+$&0&1\\\hline
+    0&0&1\\
+    1&1&0\\\hline
+  \end{tabular}
+  \begin{tabular}{|c|cc|}
+    \hline
+    $\times$&0&1\\\hline
+    0&0&0\\
+    1&0&1\\\hline
+  \end{tabular}
 \end{center}
 
 另外，定义除法为乘法的逆运算，即$0\div 1=0$、$1\div 1=1$，除数不能为0。定义减法为加法的逆运算，由于$\mathbb{Z}_2$中恰好有$1=-1$，减法和加法的运算规则完全一样。
@@ -71,40 +71,42 @@ $\mathbb{Z}_2$上的向量和矩阵在电路中有实际意义，因为接线的
   一个七段线显示器的状态可以表示成一个$\mathbb{Z}_2$上的7维向量。考虑如图所示的七段线显示结构，七个输入并不直接对应七段线。输入的状态表示为$\mathbf{x}=(x_1,\dots,x_7)$，七段线状态表示为$\mathbf{y}=(y_1,\dots,y_7)$。
   
   \begin{center}
-  \begin{tikzpicture}[scale=0.5]
-    \draw[rounded corners, fill] (0,0) rectangle node[white] {$y_7$} (3,1);
-    \draw[rounded corners, fill] (0,1) rectangle node[white] {$y_5$} (-1,4);
-    \draw[rounded corners, fill] (3,1) rectangle node[white] {$y_6$} (4,4);
-    \draw[rounded corners, fill] (0,4) rectangle node[white] {$y_4$} (3,5);
-    \draw[rounded corners, fill] (0,5) rectangle node[white] {$y_2$} (-1,8);
-    \draw[rounded corners, fill] (3,5) rectangle node[white] {$y_3$} (4,8);
-    \draw[rounded corners, fill] (0,8) rectangle node[white] {$y_1$} (3,9);
+    \begin{tikzpicture}[scale=0.5]
+      \draw[rounded corners, fill] (0,0) rectangle node[white] {$y_7$} (3,1);
+      \draw[rounded corners, fill] (0,1) rectangle node[white] {$y_5$} (-1,4);
+      \draw[rounded corners, fill] (3,1) rectangle node[white] {$y_6$} (4,4);
+      \draw[rounded corners, fill] (0,4) rectangle node[white] {$y_4$} (3,5);
+      \draw[rounded corners, fill] (0,5) rectangle node[white] {$y_2$} (-1,8);
+      \draw[rounded corners, fill] (3,5) rectangle node[white] {$y_3$} (4,8);
+      \draw[rounded corners, fill] (0,8) rectangle node[white] {$y_1$} (3,9);
 
-    \draw[red, ultra thick] (-0.25,3.75) -- (-0.25,0.75) -- (3.25,0.75) -- (3.25,3.75) -- (10,3.75) node[thmcoltext, anchor=west] {$x_5$};
-    \draw[cyan, ultra thick] (0.25,0.5) -- (3.5,0.5) -- (3.5,3.5) -- (3.5,3.0) -- (10,3.0) node[thmcoltext, anchor=west] {$x_6$};
-    \draw[green, ultra thick] (3.75,1.25) -- (3.75,3.5) -- (3.75,2.25) -- (10,2.25) node[thmcoltext, anchor=west] {$x_7$};
+      \draw[red, ultra thick] (-0.25,3.75) -- (-0.25,0.75) -- (3.25,0.75) -- (3.25,3.75) -- (10,3.75) node[thmcoltext, anchor=west] {$x_5$};
+      \draw[cyan, ultra thick] (0.25,0.5) -- (3.5,0.5) -- (3.5,3.5) -- (3.5,3.0) -- (10,3.0) node[thmcoltext, anchor=west] {$x_6$};
+      \draw[green, ultra thick] (3.75,1.25) -- (3.75,3.5) -- (3.75,2.25) -- (10,2.25) node[thmcoltext, anchor=west] {$x_7$};
 
-    \draw[red, ultra thick] (-0.25,5.25) -- (-0.25,8.25) -- (3.25,8.25) -- (3.25,5.25) -- (10,5.25) node[thmcoltext, anchor=west] {$x_3$};
-    \draw[cyan, ultra thick] (0.25,8.5) -- (3.5,8.5) -- (3.5,5.5) -- (3.5,6) -- (10,6) node[thmcoltext, anchor=west] {$x_2$};
-    \draw[green, ultra thick] (3.75,7.75) -- (3.75,5.5) -- (3.75,6.75) -- (10,6.75) node[thmcoltext, anchor=west] {$x_1$};
+      \draw[red, ultra thick] (-0.25,5.25) -- (-0.25,8.25) -- (3.25,8.25) -- (3.25,5.25) -- (10,5.25) node[thmcoltext, anchor=west] {$x_3$};
+      \draw[cyan, ultra thick] (0.25,8.5) -- (3.5,8.5) -- (3.5,5.5) -- (3.5,6) -- (10,6) node[thmcoltext, anchor=west] {$x_2$};
+      \draw[green, ultra thick] (3.75,7.75) -- (3.75,5.5) -- (3.75,6.75) -- (10,6.75) node[thmcoltext, anchor=west] {$x_1$};
 
-    \draw[brown, ultra thick] (-0.5,1.25) -- (-0.5,7.75);
-    \draw[brown, ultra thick] (-0.5,4.5) -- (10,4.5) node[thmcoltext, anchor=west] {$x_4$};
-  \end{tikzpicture}
+      \draw[brown, ultra thick] (-0.5,1.25) -- (-0.5,7.75);
+      \draw[brown, ultra thick] (-0.5,4.5) -- (10,4.5) node[thmcoltext, anchor=west] {$x_4$};
+    \end{tikzpicture}
   \end{center}
   
   七个输入和七段线的对应关系可以用一个矩阵表示：
   
-  \[\begin{array}{c|ccccccc}
-      & y_1 & y_2 & y_3 & y_4 & y_5 & y_6 & y_7 \\\hline
-    x_1 &     &     &  1  &     &     &     &     \\
-    x_2 &  1  &     &  1  &     &     &     &     \\
-    x_3 &  1  &  1  &  1  &     &     &     &     \\
-    x_4 &     &  1  &     &  1  &  1  &     &     \\
-    x_5 &     &     &     &     &  1  &  1  &  1  \\
-    x_6 &     &     &     &     &     &  1  &  1  \\
-    x_7 &     &     &     &     &     &  1  &     \\\hline
-  \end{array}\]
+  \[
+    \begin{array}{c|ccccccc}
+          & y_1 & y_2 & y_3 & y_4 & y_5 & y_6 & y_7 \\\hline
+      x_1 &     &     &  1  &     &     &     &     \\
+      x_2 &  1  &     &  1  &     &     &     &     \\
+      x_3 &  1  &  1  &  1  &     &     &     &     \\
+      x_4 &     &  1  &     &  1  &  1  &     &     \\
+      x_5 &     &     &     &     &  1  &  1  &  1  \\
+      x_6 &     &     &     &     &     &  1  &  1  \\
+      x_7 &     &     &     &     &     &  1  &     \\\hline
+    \end{array}
+  \]
   
   %表格中每行表示一个输入覆盖的段，可以理解为一个7维行向量；每列表示经过一个分段的输入，可以理解为一个7维列向量。去掉表头，这个表格就是一个$\mathbb{Z}_2$上的$7\times 7$\myind{矩阵}，记为$\mathbf{A}$。
   
