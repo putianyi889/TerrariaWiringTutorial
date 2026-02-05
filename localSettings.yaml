@@ -11,6 +11,10 @@ indentRulesGlobal:
 indentRules:
   longtable: ""
 
+lookForAlignDelims:
+  tabular: 0
+  longtable: 0
+
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
