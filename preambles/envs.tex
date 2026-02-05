@@ -6,14 +6,16 @@
 
 \tcbset{label separator={}}
 \newcommand{\addwireframe}[1]{
-  \expandafter\tcbset{#1frame/.style={
-    borderline={1pt}{2pt}{#1wirelightborder},
-    borderline={1pt}{-1pt}{#1wiredarkborder},
-    borderline={1pt}{0pt}{#1wiredark, dash pattern= on 1pt off 1pt},
-    borderline={1pt}{1pt}{#1wirelight, dash pattern= on 1pt off 1pt},
-    borderline={1pt}{0pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt},
-    borderline={1pt}{1pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt}
-  }}
+  \expandafter\tcbset{%
+    #1frame/.style={%
+      borderline={1pt}{2pt}{#1wirelightborder},
+      borderline={1pt}{-1pt}{#1wiredarkborder},
+      borderline={1pt}{0pt}{#1wiredark, dash pattern= on 1pt off 1pt},
+      borderline={1pt}{1pt}{#1wirelight, dash pattern= on 1pt off 1pt},
+      borderline={1pt}{0pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt},
+      borderline={1pt}{1pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt}
+    }
+  }
 }
 \addwireframe{blue}
 \addwireframe{red}
