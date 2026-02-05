@@ -68,8 +68,93 @@
 %\fi\fi\fi
 
 % 绘图
-\newcommand{\placetile}[2]{%
-	\foreach \x/\y in {#2} {%
-		\node at (16pt*\x,16pt*\y) {\includegraphics[width=16pt]{textures/tile/#1.png}};
-	}%
+\usepackage{bitset}
+\usepackage{xstring}
+\usepgfmodule{parser}
+
+\newcommand{\placetile}[3]{%
+	\node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
+}
+
+\newcommandAutoForward{\placetiles}[2]{%
+    \foreach \x/\y in {#2}{
+        \placetile{#1}{\x}{\y}
+	}
+}
+
+\newcommandAutoForward{\placeSevenSegment}[1]{
+	\bitsetSetBin{sevenSeg}{#1}
+	\bitsetQuery{sevenSeg}{0}{
+		\placetile{Torch_On}{2}{7}
+		\placetile{Torch_On}{3}{7}
+	}{
+		\placetile{Torch_Off}{2}{7}
+		\placetile{Torch_Off}{3}{7}
+	}
+	\bitsetQuery{sevenSeg}{1}{
+		\placetile{Torch_On}{1}{6}
+		\placetile{Torch_On}{1}{5}
+	}{
+		\placetile{Torch_Off}{1}{6}
+		\placetile{Torch_Off}{1}{5}
+	}
+	\bitsetQuery{sevenSeg}{2}{
+		\placetile{Torch_On}{4}{6}
+		\placetile{Torch_On}{4}{5}
+	}{
+		\placetile{Torch_Off}{4}{6}
+		\placetile{Torch_Off}{4}{5}
+	}
+	\bitsetQuery{sevenSeg}{3}{
+		\placetile{Torch_On}{2}{4}
+		\placetile{Torch_On}{3}{4}
+	}{
+		\placetile{Torch_Off}{2}{4}
+		\placetile{Torch_Off}{3}{4}
+	}
+	\bitsetQuery{sevenSeg}{4}{
+		\placetile{Torch_On}{1}{3}
+		\placetile{Torch_On}{1}{2}
+	}{
+		\placetile{Torch_Off}{1}{3}
+		\placetile{Torch_Off}{1}{2}
+	}
+	\bitsetQuery{sevenSeg}{5}{
+		\placetile{Torch_On}{4}{3}
+		\placetile{Torch_On}{4}{2}
+	}{
+		\placetile{Torch_Off}{4}{3}
+		\placetile{Torch_Off}{4}{2}
+	}
+	\bitsetQuery{sevenSeg}{6}{
+		\placetile{Torch_On}{2}{1}
+		\placetile{Torch_On}{3}{1}
+	}{
+		\placetile{Torch_Off}{2}{1}
+		\placetile{Torch_Off}{3}{1}
+	}
+}
+
+\newcommandAutoForward{\placeAndGate}[4][]{
+	% 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+	\if\relax\detokenize{#1}\relax
+    	\StrLen{#2}[\mylength]%
+  	\else
+    	\edef\mylength{#1}%
+  	\fi
+	\bitsetSetBin{bits}{#2}
+	\pgfmathsetmacro\N{\mylength-1}
+	\foreach \i in {0,...,\N} {
+		\pgfmathsetmacro\y{\i+#4+1}
+		\bitsetQuery{bits}{\i}{
+			\placetile{Logic_Lamp_On}{#3}{\y}
+		}{
+			\placetile{Logic_Lamp_Off}{#3}{\y}
+		}
+	}
+	\ifnumcomp{\bitsetCardinality{bits}}{=}{\mylength}{
+		\placetile{And_Gate_On}{#3}{#4}
+	}{
+		\placetile{And_Gate_Off}{#3}{#4}
+	}
 }

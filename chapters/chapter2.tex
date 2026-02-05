@@ -91,7 +91,13 @@
 \centering
 \subfloat[]{
 \label{i32}
-\adjincludegraphics{images/433.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetiles{Torch_On}{
+		1/2,1/3,1/4,1/5,
+		4/2,4/3,4/4,4/5,
+		2/1,3/1,2/6,3/6
+	}
+\end{tikzpictureC}
 }%
 \smarthfill{18}[3]%
 \subfloat[]{
@@ -101,7 +107,13 @@
 \smarthfill{18}[3]%
 \subfloat[]{
 \label{fig74}
-\adjincludegraphics{images/434.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetiles{Torch_Off}{
+		1/2,1/3,1/4,1/5,
+		2/1,3/1,2/6,3/6
+	}
+	\placetiles{Torch_On}{4/2,4/3,4/4,4/5}
+\end{tikzpictureC}
 }
 \caption{}
 \label{i32:33}
@@ -310,17 +322,36 @@
 \centering
 \subfloat[]{
 \label{i13}
-\adjincludegraphics{images/13.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{And_Gate_Off}{1}{1}
+	\placetile{Logic_Lamp_Off}{1}{2}
+\end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i14}
-\adjincludegraphics{images/14.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetiles{Switch_Flat_Off}{1/2,5/1}
+	\placetiles{Torch_On}{2/2,4/1}
+	\placetile{Logic_Lamp_Off}{3}{2}
+	\placetile{And_Gate_Off}{3}{1}
+\end{tikzpictureC}
 }%
 \smarthfill{14}[3]%
 \subfloat[]{
 \label{i15}
-\adjincludegraphics{images/15.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetiles{Switch_Flat_Off}{1/2,5/1}
+	\placetiles{Torch_On}{2/2,4/1}
+	\placetile{Logic_Lamp_Off}{3}{2}
+	\placetile{And_Gate_Off}{3}{1}
+	\placetile{Wire_Red_R}{1}{2}
+	\placetile{Wire_Red_LR}{2}{2}
+	\placetile{Wire_Red_L}{3}{2}
+	\placetile{Wire_Blue_R}{3}{1}
+	\placetile{Wire_Blue_LR}{4}{1}
+	\placetile{Wire_Blue_L}{5}{1}
+\end{tikzpictureC}
 }
 \caption{\protect\subref{i14}\protect\subref{i15}：上面的开关能控制两个火把，而下面的开关只能控制一个火把}
 \label{i13:15}
@@ -330,9 +361,36 @@
 
 \begin{figure}[!ht]
 \centering
-\adjincludegraphics{images/16.png}%
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1}{3}
+	\foreach \x in {2,...,16} {
+		\placetile{Logic_Lamp_Off}{\x}{3}
+		\placetile{And_Gate_Off}{\x}{2}
+		\placetile{Timer_One_Off}{\x}{1}
+	}
+\end{tikzpictureC}
 \smarthfill{32}%
-\adjincludegraphics{images/17.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placetile{Switch_Flat_Off}{1}{3}
+	\foreach \x in {2,...,16} {
+		\placetile{Logic_Lamp_Off}{\x}{3}
+		\placetile{And_Gate_Off}{\x}{2}
+		\placetile{Timer_One_Off}{\x}{1}
+	}
+	\placetile{Wire_Red_R}{1}{3}
+	\foreach \x in {2,...,15} {
+		\placetile{Wire_Red_LR}{\x}{3}
+	}
+	\placetile{Wire_Red_L}{16}{3}
+	\foreach \x in {2,4,...,16} {
+		\placetile{Wire_Blue_B}{\x}{2}
+		\placetile{Wire_Blue_T}{\x}{1}
+	}
+	\foreach \x in {3,5,...,15} {
+		\placetile{Wire_Green_B}{\x}{2}
+		\placetile{Wire_Green_T}{\x}{1}
+	}
+\end{tikzpictureC}
 \caption{}
 \label{i16:17}
 \end{figure}
@@ -365,9 +423,29 @@
 
 \begin{figure}[!ht]
 \centering
-\subfloat[]{\label{fig7}\adjincludegraphics{images/359.png}}%
+\subfloat[]{
+	\label{fig7}
+	\begin{tikzpictureC}[scale=0.5, transform shape]
+		\foreach \y in {2,3,4} {
+			\placetile{Logic_Lamp_On}{1}{\y}
+			\placetile{Logic_Lamp_On}{3}{\y}
+		}
+		\placetile{And_Gate_On}{1}{1}
+		\placetile{Nand_Gate_Off}{3}{1}
+	\end{tikzpictureC}
+}%
 \smarthfill{8}%
-\subfloat[]{\label{fig8}\adjincludegraphics{images/360.png}}
+\subfloat[]{
+	\label{fig8}
+	\begin{tikzpictureC}[scale=0.5, transform shape]
+		\foreach \y in {2,3,4} {
+			\placetile{Logic_Lamp_On}{1}{\y}
+			\placetile{Logic_Lamp_Off}{3}{\y}
+		}
+		\placetile{And_Gate_On}{1}{1}
+		\placetile{Or_Gate_Off}{3}{1}
+	\end{tikzpictureC}
+}
 \caption{}
 \end{figure}
 
@@ -381,38 +459,74 @@
 
 在上一节中，我们做了一个可以显示二进制数的\myind{数显}。有了逻辑门后我们就可以做十进制数显。数显视输入不同有不同的做法，这里我们使用4位二进制数输入，要求二进制数在0000\~{}1001时显示对应的十进制数0\~{}9，其他情况下显示屏熄灭。
 
-我们选择使用\myind{七段线}显示。首先用火把摆出七段线（\autoref{i34:35}\subref{i34}），然后用七根电线分别控制每一段线（\autoref{i34:35}\subref{i35}）。对于0\~{}9，a\~{}g分别有对应部分点亮\autoref{qiduanxian}。
+我们选择使用\myind{七段线}显示。首先用火把摆出七段线（\autoref{i34:35}\subref{i34}），然后用七根电线分别控制每一段线（\autoref{i34:35}\subref{i35}）。对于0\~{}9，a\~{}g分别有对应部分点亮\autoref{i34:35}\subref{qiduanxian}。
 
 \begin{figure}[!ht]
 \centering
 \subfloat[]{
 \label{i34}
-\adjincludegraphics{images/34.png}
+\begin{tikzpictureC}[x=8pt, y=8pt]
+	\begin{scope}[scale=0.5, transform shape, xshift=-8pt, yshift=-8pt]
+		\placeSevenSegment{1111111}
+	\end{scope}
+
+	\draw (1,6) rectangle (3,7);
+	\node at (2,7.5) {a};
+
+	\draw (0,4) rectangle (1,6);
+	\node at (-0.5,5) {b};
+
+	\draw (3,4) rectangle (4,6);
+	\node at (4.5,5) {c};
+
+	\draw (1,3) rectangle (3,4);
+	\node at (2,4.5) {d};
+
+	\draw (0,1) rectangle (1,3);
+	\node at (-0.5,2) {e};
+
+	\draw (1,0) rectangle (3,1);
+	\node at (2,1.5) {f};
+
+	\draw (3,1) rectangle (4,3);
+	\node at (4.5,2) {g};
+\end{tikzpictureC}
 }%
-\smarthfill{22}%
+\qquad
 \subfloat[]{
 \label{i35}
-\adjincludegraphics{images/35.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\placeSevenSegment{1111111}
+	
+	\placetiles{Wire_Red_R}{2/1,2/7}
+	\placetiles{Wire_Red_L}{3/1,3/7}
+	\placetiles{Wire_Blue_B}{1/6,1/3}
+	\placetiles{Wire_Blue_T}{1/5,1/2}
+	\placetiles{Wire_Green_B}{4/6,4/3}
+	\placetiles{Wire_Green_T}{4/5,4/2}
+	\placetile{Wire_Yellow_R}{2}{4}
+	\placetile{Wire_Yellow_L}{3}{4}
+\end{tikzpictureC}
+}%
+\smarthfill{32}%
+\subfloat[]{
+	\label{qiduanxian}
+	\adjustbox{valign=B, scale=1}{
+	\begin{tabular}{|cc||cc|}
+		\hline
+		显示数值&点亮部分&显示数值&点亮部分\\
+		0&abcefg&5&abdfg\\
+		1&cg&6&abdefg\\
+		2&acdef&7&acg\\
+		3&acdfg&8&abcdefg\\
+		4&bcdg&9&abcdfg\\
+		\hline
+	\end{tabular}
 }
-\caption{}
+}
+\caption{七段线部分示例。\protect\subref{i34}字母标注；\protect\subref{i35}接线；\protect\subref{qiduanxian}状态表。}
 \label{i34:35}
 \end{figure}
-
-\begin{table}[!ht]
-\centering
-\begin{tabular}{|cc||cc|}
-\hline
-显示数值&点亮部分&显示数值&点亮部分\\
-0&abcefg&5&abdfg\\
-1&cg&6&abdefg\\
-2&acdef&7&acg\\
-3&acdfg&8&abcdefg\\
-4&bcdg&9&abcdfg\\
-\hline
-\end{tabular}
-\caption{}
-\label{qiduanxian}
-\end{table}
 
 然后我们来处理输入。我们需要把输入的四位二进制信息转换为10个数字中的一个，这个过程叫做\myind{解码}。我们用\autoref{i36:37}中的电路进行解码。
 
@@ -420,7 +534,19 @@
 \centering
 \subfloat[]{
 \label{i36}
-\adjincludegraphics{images/36.png}
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\foreach \y in {2,3,4,5} {
+		\placetile{Switch_Flat_Off}{1}{\y}
+		\placetile{Torch_Off}{2}{\y}
+	}
+	\foreach \x in {0,...,9} {
+		\bitsetSetBin{mask}{1111}
+		\bitsetSetDec{bits}{\x}
+		\bitsetXor{bits}{mask}
+		\pgfmathsetmacro{\gatex}{\x+3}
+		\placeAndGate{\bitsetGetBin{bits}{4}}{\gatex}{1}
+	}
+\end{tikzpictureC}
 }%
 \smarthfill{26}%
 \subfloat[]{
@@ -437,7 +563,22 @@
 \centering
 \subfloat[]{
 \label{i42}
-\adjincludegraphics{images/42.png}%
+\begin{tikzpictureC}[scale=0.5, transform shape]
+	\foreach \y in {10,11,12,13} {
+		\placetile{Switch_Flat_Off}{4}{\y}
+		\placetile{Torch_Off}{5}{\y}
+	}
+	\foreach \x in {0,...,9} {
+		\bitsetSetBin{mask}{1111}
+		\bitsetSetDec{bits}{\x}
+		\bitsetXor{bits}{mask}
+		\pgfmathsetmacro{\gatex}{\x+6}
+		\placeAndGate{\bitsetGetBin{bits}{4}1}{\gatex}{8}
+		\placeAndGate{0}{\gatex}{5}
+		\placeAndGate{01}{\gatex}{1}
+	}
+	\placeSevenSegment{1110111}
+\end{tikzpictureC}%
 \smarthfill{47}[3]%
 \adjincludegraphics{images/43.png}
 }%
