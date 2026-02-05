@@ -69,6 +69,7 @@
 
 % 绘图
 \usepackage{bitset}
+\usepackage{xstring}
 \usepgfmodule{parser}
 
 \newcommand{\placetile}[3]{%
@@ -134,27 +135,26 @@
 	}
 }
 
-\newcount\bitindex
-\newif\ifallones
-\newcommandAutoForward{\placeAndGate}[3]{%
-	% 前两个参数是门的坐标，第三个参数是灯的状态，从下到上
-	\pgfparserdef{and gate}{initial}0{
-		\advance\bitindex by 1\relax
-		\allonesfalse
-		\placetile{Logic_Lamp_Off}{#1}{\bitindex}
+\newcommandAutoForward{\placeAndGate}[4][]{
+	% 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+	\if\relax\detokenize{#1}\relax
+    	\StrLen{#2}[\mylength]%
+  	\else
+    	\edef\mylength{#1}%
+  	\fi
+	\bitsetSetBin{bits}{#2}
+	\pgfmathsetmacro\N{\mylength-1}
+	\foreach \i in {0,...,\N} {
+		\pgfmathsetmacro\y{\i+#4+1}
+		\bitsetQuery{bits}{\i}{
+			\placetile{Logic_Lamp_On}{#3}{\y}
+		}{
+			\placetile{Logic_Lamp_Off}{#3}{\y}
+		}
 	}
-	\pgfparserdef{and gate}{initial}1{
-		\advance\bitindex by 1\relax
-		\pgfmathsetmacro\y{\bitindex+#2}
-		\placetile{Logic_Lamp_On}{#1}{\bitindex}
+	\ifnumcomp{\bitsetCardinality{bits}}{=}{\mylength}{
+		\placetile{And_Gate_On}{#3}{#4}
+	}{
+		\placetile{And_Gate_Off}{#3}{#4}
 	}
-	\pgfparserdef{and gate}{initial};{\pgfparserswitch{final}}
-	\bitindex=#2
-	\allonestrue
-	\pgfparserparse{and gate}#3;
-	\ifallones
-		\placetile{And_Gate_On}{#1}{#2}
-	\else
-		\placetile{And_Gate_Off}{#1}{#2}
-	\fi
 }

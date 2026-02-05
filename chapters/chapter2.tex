@@ -92,12 +92,10 @@
 \subfloat[]{
 \label{i32}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\foreach \x/\y in {
+	\placetiles{Torch_On}{
 		1/2,1/3,1/4,1/5,
 		4/2,4/3,4/4,4/5,
 		2/1,3/1,2/6,3/6
-	} {
-		\placetile{Torch_On}{\x}{\y}
 	}
 \end{tikzpictureC}
 }%
@@ -333,10 +331,8 @@
 \subfloat[]{
 \label{i14}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{Switch_Flat_Off}{1}{2}
-	\placetile{Switch_Flat_Off}{5}{1}
-	\placetile{Torch_On}{2}{2}
-	\placetile{Torch_On}{4}{1}
+	\placetiles{Switch_Flat_Off}{1/2,5/1}
+	\placetiles{Torch_On}{2/2,4/1}
 	\placetile{Logic_Lamp_Off}{3}{2}
 	\placetile{And_Gate_Off}{3}{1}
 \end{tikzpictureC}
@@ -345,10 +341,8 @@
 \subfloat[]{
 \label{i15}
 \begin{tikzpictureC}[scale=0.5, transform shape]
-	\placetile{Switch_Flat_Off}{1}{2}
-	\placetile{Switch_Flat_Off}{5}{1}
-	\placetile{Torch_On}{2}{2}
-	\placetile{Torch_On}{4}{1}
+	\placetiles{Switch_Flat_Off}{1/2,5/1}
+	\placetiles{Torch_On}{2/2,4/1}
 	\placetile{Logic_Lamp_Off}{3}{2}
 	\placetile{And_Gate_Off}{3}{1}
 	\placetile{Wire_Red_R}{1}{2}
@@ -530,7 +524,7 @@
 	\end{tabular}
 }
 }
-\caption{七段线部分示例。\protect\subref{i34}字母标注；\protect\subref{i35}接线；\protect\subref{qiduanxian}状态表。
+\caption{七段线部分示例。\protect\subref{i34}字母标注；\protect\subref{i35}接线；\protect\subref{qiduanxian}状态表。}
 \label{i34:35}
 \end{figure}
 
@@ -545,31 +539,12 @@
 		\placetile{Switch_Flat_Off}{1}{\y}
 		\placetile{Torch_Off}{2}{\y}
 	}
-	\placetile{And_Gate_On}{3}{1}
-	\foreach \x in {4,...,12} {
-		\placetile{And_Gate_Off}{\x}{1}
-	}
-	\foreach \x/\y in {
-		3/2,3/3,3/4,3/5,%
-		4/3,4/4,4/5,%
-		5/2,5/4,5/5,%
-		6/4,6/5,%
-		7/2,7/3,7/5,%
-		8/3,8/5,%
-		9/2,9/5,%
-		10/5,%
-		11/2,11/3,11/4,%
-		12/3,12/4%
-	} {
-		\placetile{Logic_Lamp_On}{\x}{\y}
-	}
-	\foreach \x/\y in {
-		4/2,5/3,6/2,6/3,%
-		7/4,8/2,8/4,9/3,9/4,%
-		10/2,10/3,10/4,11/5,%
-		12/2,12/5%
-	} {
-		\placetile{Logic_Lamp_Off}{\x}{\y}
+	\foreach \x in {0,...,9} {
+		\bitsetSetBin{mask}{1111}
+		\bitsetSetDec{bits}{\x}
+		\bitsetXor{bits}{mask}
+		\pgfmathsetmacro{\gatex}{\x+3}
+		\placeAndGate{\bitsetGetBin{bits}{4}}{\gatex}{1}
 	}
 \end{tikzpictureC}
 }%
@@ -593,29 +568,16 @@
 		\placetile{Switch_Flat_Off}{4}{\y}
 		\placetile{Torch_Off}{5}{\y}
 	}
-	\placeAndGate{6}{8}{11111}
-	\placeAndGate{7}{8}{10111}
-	\placeAndGate{8}{8}{11011}
-	\placeAndGate{9}{8}{10011}
-	\placeAndGate{10}{8}{11101}
-	\placeAndGate{11}{8}{10101}
-	\placeAndGate{12}{8}{11001}
-	\placeAndGate{13}{8}{10001}
-	\placeAndGate{14}{8}{11110}
-	\placeAndGate{15}{8}{10110}
-	\foreach \x in {6,...,15} {
-		\placeAndGate{\x}{5}{0}
-		\placeAndGate{\x}{1}{10}
+	\foreach \x in {0,...,9} {
+		\bitsetSetBin{mask}{1111}
+		\bitsetSetDec{bits}{\x}
+		\bitsetXor{bits}{mask}
+		\pgfmathsetmacro{\gatex}{\x+6}
+		\placeAndGate{\bitsetGetBin{bits}{4}1}{\gatex}{8}
+		\placeAndGate{0}{\gatex}{5}
+		\placeAndGate{01}{\gatex}{1}
 	}
-	\foreach \x/\y in {
-		1/2,1/3,1/5,1/6,%
-		2/1,3/1,2/7,3/7,%
-		4/2,4/3,4/5,4/6%
-	} {
-		\placetile{Torch_On}{\x}{\y}
-	}
-	\placetile{Torch_Off}{2}{4}
-	\placetile{Torch_Off}{3}{4}
+	\placeSevenSegment{1110111}
 \end{tikzpictureC}%
 \smarthfill{47}[3]%
 \adjincludegraphics{images/43.png}
