@@ -68,14 +68,74 @@
 %\fi\fi\fi
 
 % 绘图
+\usepackage{bitset}
+\usepgfmodule{parser}
+
 \newcommand{\placetile}[3]{%
 	\node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
 }
 
-\usepgfmodule{parser}
+\newcommandAutoForward{\placetiles}[2]{%
+    \foreach \x/\y in {#2}{
+        \placetile{#1}{\x}{\y}
+	}
+}
+
+\newcommandAutoForward{\placeSevenSegment}[1]{
+	\bitsetSetBin{sevenSeg}{#1}
+	\bitsetQuery{sevenSeg}{0}{
+		\placetile{Torch_On}{2}{7}
+		\placetile{Torch_On}{3}{7}
+	}{
+		\placetile{Torch_Off}{2}{7}
+		\placetile{Torch_Off}{3}{7}
+	}
+	\bitsetQuery{sevenSeg}{1}{
+		\placetile{Torch_On}{1}{6}
+		\placetile{Torch_On}{1}{5}
+	}{
+		\placetile{Torch_Off}{1}{6}
+		\placetile{Torch_Off}{1}{5}
+	}
+	\bitsetQuery{sevenSeg}{2}{
+		\placetile{Torch_On}{4}{6}
+		\placetile{Torch_On}{4}{5}
+	}{
+		\placetile{Torch_Off}{4}{6}
+		\placetile{Torch_Off}{4}{5}
+	}
+	\bitsetQuery{sevenSeg}{3}{
+		\placetile{Torch_On}{2}{4}
+		\placetile{Torch_On}{3}{4}
+	}{
+		\placetile{Torch_Off}{2}{4}
+		\placetile{Torch_Off}{3}{4}
+	}
+	\bitsetQuery{sevenSeg}{4}{
+		\placetile{Torch_On}{1}{3}
+		\placetile{Torch_On}{1}{2}
+	}{
+		\placetile{Torch_Off}{1}{3}
+		\placetile{Torch_Off}{1}{2}
+	}
+	\bitsetQuery{sevenSeg}{5}{
+		\placetile{Torch_On}{4}{3}
+		\placetile{Torch_On}{4}{2}
+	}{
+		\placetile{Torch_Off}{4}{3}
+		\placetile{Torch_Off}{4}{2}
+	}
+	\bitsetQuery{sevenSeg}{6}{
+		\placetile{Torch_On}{2}{1}
+		\placetile{Torch_On}{3}{1}
+	}{
+		\placetile{Torch_Off}{2}{1}
+		\placetile{Torch_Off}{3}{1}
+	}
+}
+
 \newcount\bitindex
 \newif\ifallones
-	
 \newcommandAutoForward{\placeAndGate}[3]{%
 	% 前两个参数是门的坐标，第三个参数是灯的状态，从下到上
 	\pgfparserdef{and gate}{initial}0{

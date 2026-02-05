@@ -15,6 +15,7 @@
 \usepackage{robust-externalize}
 
 \robExtConfigure{
+	compile in parallel,
 	add to preset={latex}{
 		use xelatex,
 	},
@@ -22,6 +23,7 @@
 		auto forward,
 		add to preamble={
 			\usepackage{graphicx}
+			\usepackage{bitset}
 			\usepgfmodule{parser}
 			\newcount\bitindex
 			\newif\ifallones
