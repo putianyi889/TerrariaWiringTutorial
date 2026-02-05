@@ -3,30 +3,30 @@
 
 \section{物品掉落速度}
 \begin{note}
-来源：\url{https://forums.terraria.org/index.php?threads/item-fall-speed.76050/}
+  来源：\url{https://forums.terraria.org/index.php?threads/item-fall-speed.76050/}
 \end{note}
 \begin{itemize}
-\item 真空中的物品，重力加速度为1像素/帧$^2$，最大掉落速度为7像素/帧。by：pbq
-\item 熔岩和水中的物品，重力加速度为0.08像素/帧$^2$，最大掉落速度为5像素/帧；蜂蜜中的物品，重力加速度为0.05像素/帧$^2$，最大掉落速度为3像素/帧。by：DRKV，通过\lstinline{Terraria.Item.UpdateItem(int)}
-\item 新生成的掉落物拥有的初始垂直速度大约在4像素/帧到1.5像素/帧。by：pbq
+  \item 真空中的物品，重力加速度为1像素/帧$^2$，最大掉落速度为7像素/帧。by：pbq
+  \item 熔岩和水中的物品，重力加速度为0.08像素/帧$^2$，最大掉落速度为5像素/帧；蜂蜜中的物品，重力加速度为0.05像素/帧$^2$，最大掉落速度为3像素/帧。by：DRKV，通过\lstinline{Terraria.Item.UpdateItem(int)}
+  \item 新生成的掉落物拥有的初始垂直速度大约在4像素/帧到1.5像素/帧。by：pbq
 \end{itemize}
 
 \section{雕像怪移动方式}
 \begin{note}
-来源：\url{https://forums.terraria.org/index.php?threads/project-engineering-cheat-sheet-statue-mob-characteristics.75881/}
+  来源：\url{https://forums.terraria.org/index.php?threads/project-engineering-cheat-sheet-statue-mob-characteristics.75881/}
 
-最后更新：2015.1.3；版本：1.2.4.1
+  最后更新：2015.1.3；版本：1.2.4.1
 \end{note}
 \begin{itemize}
-\item 在夜晚，所有雕像怪都会在生成后向人物移动。\wiki{鸟}（会飞离人物）和\wiki{宝箱怪}（会保持宝箱形态）是例外。在白天，\wiki{骷髅}会向右移动。
-\item 在夜晚，敌怪会追踪人物。\wiki{兔兔}、\wiki{金鱼}和\wiki{鸟}会保持一个方向运动，直到遇到障碍物。
-\item \wiki{鲨鱼}、\wiki{水母}和\wiki{食人鱼}只有在被液体淹没时才能移动。它们只会追踪淹没在2格及以上液体中的人物。
-\item \wiki{鸟}在被液体淹没时会追踪人物。
-\item \wiki{史莱姆}在液体中会上浮。
-\item \wiki{金鱼}在旱地上会弹跳。
-\item 只有\wiki{骷髅}、\wiki{螃蟹}和\wiki{蝙蝠}可以下平台。这几种NPC在白天会自动下平台，而在夜晚只有当人物在平台之下时才会下平台。在夜晚，这几种NPC还会在平台上弹跳。
-\item 所有雕像怪和人物的最大掉落速度相同：大约37格/秒。有些雕像怪似乎加速度慢一些。蝙蝠可以以约6格/秒的速度向下飞。鸟只有在遇到斜面天花板的时候才会向下飞。
-\item 雕像生成的金鱼和兔兔会遵循一般游戏机制，在雨天、血月、被使用魔粉后发生转化。
-\item 转化后的NPC不占用雕像的生成限制。尽管如此，在同一帧中生成的金鱼或兔兔还是会被限制，可能因为它们要在下一次刷新才会发生转化。
-\item 雕像怪不计入活跃敌怪数。
+  \item 在夜晚，所有雕像怪都会在生成后向人物移动。\wiki{鸟}（会飞离人物）和\wiki{宝箱怪}（会保持宝箱形态）是例外。在白天，\wiki{骷髅}会向右移动。
+  \item 在夜晚，敌怪会追踪人物。\wiki{兔兔}、\wiki{金鱼}和\wiki{鸟}会保持一个方向运动，直到遇到障碍物。
+  \item \wiki{鲨鱼}、\wiki{水母}和\wiki{食人鱼}只有在被液体淹没时才能移动。它们只会追踪淹没在2格及以上液体中的人物。
+  \item \wiki{鸟}在被液体淹没时会追踪人物。
+  \item \wiki{史莱姆}在液体中会上浮。
+  \item \wiki{金鱼}在旱地上会弹跳。
+  \item 只有\wiki{骷髅}、\wiki{螃蟹}和\wiki{蝙蝠}可以下平台。这几种NPC在白天会自动下平台，而在夜晚只有当人物在平台之下时才会下平台。在夜晚，这几种NPC还会在平台上弹跳。
+  \item 所有雕像怪和人物的最大掉落速度相同：大约37格/秒。有些雕像怪似乎加速度慢一些。蝙蝠可以以约6格/秒的速度向下飞。鸟只有在遇到斜面天花板的时候才会向下飞。
+  \item 雕像生成的金鱼和兔兔会遵循一般游戏机制，在雨天、血月、被使用魔粉后发生转化。
+  \item 转化后的NPC不占用雕像的生成限制。尽管如此，在同一帧中生成的金鱼或兔兔还是会被限制，可能因为它们要在下一次刷新才会发生转化。
+  \item 雕像怪不计入活跃敌怪数。
 \end{itemize}
