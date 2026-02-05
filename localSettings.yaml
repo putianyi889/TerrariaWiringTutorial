@@ -1,8 +1,5 @@
-defaultIndent: '  '
-indentAfterItems:
-  if: 0
-noAdditionalIndent:
-  foreach:
-    body: 1
-  IfEqCase:
-    body: 1
+indentRules:
+  environments: '  '
+commandCodeBlocks: {}
+indentAfterItems: {}
+modifyLineBreaks: 0
