@@ -2,8 +2,9 @@
 
 \usepackage{xstring}
 
-\newcommand{\vip}[1]{\IfEqCase{#1}{
-  {888}{\vipbox{putianyi888.jpg}{putianyi888}{https://space.bilibili.com/34937101}}
+\newcommand{\vip}[1]{
+  \IfEqCase{#1}{
+    {888}{\vipbox{putianyi888.jpg}{putianyi888}{https://space.bilibili.com/34937101}}
     {adc}{\vipbox{adcakc.jpg}{隐士菌\_AdcAKC}{https://space.bilibili.com/398780730}}
     {cryp}{\vipbox{xxcrypticnightxx.jpg}{xXCrypticNightXx}{https://forums.terraria.org/index.php?members/xxcrypticnightxx.98963}}
     {cyril}{\vipbox{cyril.jpg}{-Cyril-}{https://space.bilibili.com/164033989}}
@@ -18,7 +19,8 @@
     {us}{\vipbox{usdanger.jpg}{us\_danger}{https://tieba.baidu.com/home/main?id=tb.1.b1897b2c.sYKuX9NekGAK7Zq3__6Osg}}
     {yfd}{\vipbox{chenshui.jpg}{混乱沉睡}{https://space.bilibili.com/22871583}}
     {zero}{\vipbox{zerogravitas.jpg}{ZeroGravitas}{https://forums.terraria.org/index.php?members/zerogravitas.96}}
-}}
+  }
+}
 
 \newcommand{\termMUX}{多路复用器}
 \newcommand{\termTR}{泰拉瑞亚}

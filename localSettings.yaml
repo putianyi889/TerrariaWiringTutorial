@@ -7,3 +7,6 @@ indentRulesGlobal:
   commands: ""
   UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
+
+noAdditionalIndent:
+  foreach: 1
