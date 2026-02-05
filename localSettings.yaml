@@ -10,3 +10,9 @@ indentRulesGlobal:
 
 noAdditionalIndent:
   foreach: 1
+
+commandCodeBlocks:
+  stringsAllowedBetweenArguments:
+    - amalgamate: 0
+    - '\\x\/\\y in'
+    - '\\i in'
