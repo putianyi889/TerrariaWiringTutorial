@@ -1,9 +1,9 @@
 defaultIndent: '  '
 
 indentRulesGlobal:
-  environments: 1
-  optionalArguments: 1
-  mandatoryArguments: 1
-  commands: 0
-  UnNamedGroupingBracesBrackets: 0
-  afterHeading: 0
+  environments: "  "
+  optionalArguments: ""
+  mandatoryArguments: ""
+  commands: ""
+  UnNamedGroupingBracesBrackets: ""
+  afterHeading: ""
