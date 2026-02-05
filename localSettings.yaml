@@ -1,5 +1,7 @@
 indentRules:
   environments: '  '
-commandCodeBlocks: {}
-indentAfterItems: {}
-modifyLineBreaks: 0
+  optionalArguments: '  '
+  mandatoryArguments: '  '
+  commands: '  '
+  UnNamedGroupingBracesBrackets: ''
+  afterHeading: ''
