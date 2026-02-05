@@ -77,8 +77,8 @@
 }
 
 \newcommandAutoForward{\placetiles}[2]{%
-    \foreach \x/\y in {#2}{
-        \placetile{#1}{\x}{\y}
+  \foreach \x/\y in {#2}{
+    \placetile{#1}{\x}{\y}
   }
 }
 
@@ -138,10 +138,10 @@
 \newcommandAutoForward{\placeAndGate}[4][]{
   % 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
   \if\relax\detokenize{#1}\relax
-      \StrLen{#2}[\mylength]%
-    \else
-      \edef\mylength{#1}%
-    \fi
+    \StrLen{#2}[\mylength]%
+  \else
+    \edef\mylength{#1}%
+  \fi
   \bitsetSetBin{bits}{#2}
   \pgfmathsetmacro\N{\mylength-1}
   \foreach \i in {0,...,\N} {

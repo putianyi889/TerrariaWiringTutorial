@@ -1,1 +1,3 @@
 defaultIndent: '  '
+indentAfterItems:
+  if: 0
