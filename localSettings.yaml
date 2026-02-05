@@ -16,6 +16,7 @@ lookForAlignDelims:
   longtable: 0
   array: 0
   align: 0
+  align*: 0
 
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
