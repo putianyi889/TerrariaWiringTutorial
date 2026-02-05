@@ -91,10 +91,11 @@
 
 \usepackage{multicol}
 \setlength{\columnseprule}{1pt}
-\if\rendermode1
+\ifcase\rendermode
+\or
   \newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
-\else\if\rendermode2
+\or
   \newenvironment{maybecols}{}{}
-\else\if\rendermode3
+\or
   \newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
-\fi\fi\fi
+\fi
