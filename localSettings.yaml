@@ -8,6 +8,9 @@ indentRulesGlobal:
   UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
 
+indentRules:
+  longtable: ""
+
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
