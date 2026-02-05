@@ -10,7 +10,8 @@
 \newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
 
 % 网址链接
-\if\rendermode1
+\ifcase\rendermode
+\or % 1
   \NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
   \newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
   
@@ -21,7 +22,7 @@
   \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
   \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubicon.pdf}}}
   \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
-\else\if\rendermode2
+\or % 2
   \NewDocumentCommand{\myhref}{mm}{#2\index{#2}\footnote{\url{#1}}}
   \newcommand{\wiki}[2][]{\ifstrempty{#1}{#2}{#1}\index{\ifstrempty{#1}{#2}{#1}}}
   
@@ -32,7 +33,7 @@
   \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bbstrtext, colback=bbstrback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bbstr.png} \footnotesize\sffamily\textcolor{bbstrtext}{#1/#2}}}}
   \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/github.pdf} \footnotesize\sffamily #1}}}
   \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youku.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
-\else\if\rendermode3
+\or % 3
   \NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
   \newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
   
@@ -43,7 +44,7 @@
   \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
   \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubiconnight.png}}}
   \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
-\fi\fi\fi
+\fi
 
 \NewDocumentCommand{\rhfill}{}{\hspace*{\fill}}
 
