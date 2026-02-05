@@ -16,5 +16,5 @@ commandCodeBlocks:
 
 specialBeginEnd:
   addwireframetcbset:
-    begin: '\#1frame\/.style={'
-    end: '}'
+    begin: '\#1frame\/\.style\=\{'
+    end: '\}'
