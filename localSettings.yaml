@@ -10,6 +10,7 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
+  problem: "  "
 
 lookForAlignDelims:
   tabular: 0
@@ -22,6 +23,7 @@ commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
     - '\\x\/\\y in'
+    - '\\x in'
     - '\\i in'
 
 specialBeginEnd:
