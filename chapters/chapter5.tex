@@ -216,6 +216,7 @@
   \begin{figure}[H]
     \centering
     \begin{forest} for tree={edge={<-},grow=west},
+      % \begin{noindent}
       [0000,name=s
         [0001
           [0010
@@ -232,6 +233,7 @@
             [0111
               [1110]
               [1111]]]]]
+      % \end{noindent}
       \draw[->] (s) to[out=45,in=-45,looseness=3] (s);
     \end{forest}
     \caption{}\label{fig61}
@@ -248,6 +250,7 @@
   \begin{figure}[H]
     \centering
     \begin{forest} for tree={edge={<-},grow=west},
+      % \begin{noindent}
       [0000,name=s
         [0001
           [0010
@@ -257,9 +260,11 @@
             [0110]
             [0111]]]]
       \draw[->] (s) to[out=45,in=-45,looseness=3] (s);
+      % \end{noindent}
     \end{forest}
     \quad
     \begin{forest} for tree={edge={<-},grow=east},
+      % \begin{noindent}
       [1111,name=s
         [1110
           [1101
@@ -269,6 +274,7 @@
             [1001]
             [1000]]]]
       \draw[->] (s) to[out=135,in=-135,looseness=3] (s);
+      % \end{noindent}
     \end{forest}
     \caption{}\label{fig63}
   \end{figure}
@@ -293,12 +299,13 @@
       \node (s2) at (300:\R) {0010};
       \node (s3) at (180:\R) {0011};
       \node (sc) at (60:\R) {1100};
-      \path [->] (s1) edge (se)
-                 (se) edge (sf)
-                 (sf) edge (s1)
-                 (s2) edge (s1)
-                 (s3) edge (sf)
-                 (sc) edge (se);
+      \path [->]
+        (s1) edge (se)
+        (se) edge (sf)
+        (sf) edge (s1)
+        (s2) edge (s1)
+        (s3) edge (sf)
+        (sc) edge (se);
     \end{tikzpictureC}
     \quad
     \begin{tikzpictureC}
@@ -310,12 +317,13 @@
       \node (s2) at (300:\R) {1000};
       \node (s3) at (180:\R) {0111};
       \node (sc) at (60:\R) {1001};
-      \path [->] (s1) edge (se)
-                 (se) edge (sf)
-                 (sf) edge (s1)
-                 (s2) edge (s1)
-                 (s3) edge (sf)
-                 (sc) edge (se);
+      \path [->]
+        (s1) edge (se)
+        (se) edge (sf)
+        (sf) edge (s1)
+        (s2) edge (s1)
+        (s3) edge (sf)
+        (sc) edge (se);
     \end{tikzpictureC}
     \quad
     \begin{tikzpictureC}
