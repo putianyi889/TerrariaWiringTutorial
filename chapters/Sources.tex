@@ -390,6 +390,20 @@
   \caption{很多马桶连上驱动后的场景。图片来源：\protect\vip{yfd}}\label{fig75}
 \end{figure}
 
+\section{提炼机/叶绿提炼机}
+\begin{center}
+  \adjincludegraphics[scale=1.5]{textures/item/Extractinator.png}\qquad
+  \adjincludegraphics[scale=1.5]{textures/item/Chlorophyte_Extractinator.png}
+\end{center}
+
+\myind{提炼机}和\myind{叶绿提炼机}（以下统称提炼机）在被激活时可以提炼周围宝箱中的物品，冷却时间60帧。提炼机大小$3\times 3$。首先在提炼机左和上2格，右和下3格，共$8\times 8$格内寻找宝箱。寻找规则如下：
+\begin{itemize}
+  \item 忽略上锁的宝箱。
+  \item 按列从左到右扫描图格，每列从上到下。以第一个满足条件的为准。注意是图格而不是宝箱整体。
+  \item 不会检查宝箱内是否有可提炼物品。
+\end{itemize}
+如果未能找到宝箱，或找到的宝箱正在打开的状态，则提炼失败。找到宝箱后，提炼其中最后一个可提炼物品。无论何种原因提炼失败，提炼机依然会进入冷却。提炼机的机制表明，提炼机只能对其周围的一个宝箱进行提炼，即便这个宝箱里什么也没有。
+
 \section{泵}
 \begin{figure}[!ht]
   \centering
