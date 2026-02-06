@@ -24,8 +24,10 @@ noAdditionalIndent:
   problem: 0
 
 lookForAlignDelims:
-  tabular: 0
-  longtable: 0
+  tabular:
+    dontMeasure: 1
+  longtable:
+    dontMeasure: 1
   tikzPath:
     delimiterRegEx: ’(edge|node)’
   split:
