@@ -32,3 +32,4 @@ specialBeginEnd:
   tikzPath:
     begin: '\\path'
     end: ';'
+  specialBeforeCommand: 1

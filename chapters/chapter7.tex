@@ -127,8 +127,8 @@
   假设$\textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1$，那么$a_1,\cdots,a_n$中有且只有1个1，所以$b=1$。从而
   \[
     \begin{split}
-        & \textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n)\\
-      = & \textrm{\^{}}(\textrm{\~{}}ba_2,\textrm{\~{}}ba_1,a_3,\cdots,a_n)\\
+        & \textrm{\^{}}(\textrm{\~{}} a_1a_3\cdots a_n,\textrm{\~{}} a_2a_3\cdots a_n,a_3,\cdots,a_n) \\
+      = & \textrm{\^{}}(\textrm{\~{}}ba_2,\textrm{\~{}}ba_1,a_3,\cdots,a_n) \\
       = & \textrm{\^{}}(a_1,a_2,a_3,\cdots,a_n)=1.
     \end{split}
   \]
@@ -370,24 +370,24 @@
 \[
   \begin{split}
     a_{[7:0]}\mathtt{>}b_{[7:0]}=
-    & (a_7\mathtt{>}b_7)(a_7\mathtt{==}b_7\& a_6\mathtt{>}b_6)(a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{>}b_5) \\
-    & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{>}b_4) \\
-    & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{>}b_3) \\
-    & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{>}b_2) \\
-    & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{==}b_2\& a_1\mathtt{>}b_1) \\
-    & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{==}b_2\& a_1\mathtt{==}b_1\& a_0\mathtt{>}b_0)
+     & (a_7\mathtt{>}b_7)(a_7\mathtt{==}b_7\& a_6\mathtt{>}b_6)(a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{>}b_5) \\
+     & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{>}b_4) \\
+     & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{>}b_3) \\
+     & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{>}b_2) \\
+     & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{==}b_2\& a_1\mathtt{>}b_1) \\
+     & (a_7\mathtt{==}b_7\& a_6\mathtt{==}b_6\& a_5\mathtt{==}b_5\& a_4\mathtt{==}b_4\& a_3\mathtt{==}b_3\& a_2\mathtt{==}b_2\& a_1\mathtt{==}b_1\& a_0\mathtt{>}b_0)
   \end{split}
 \]
 用\autoref{sec23}中的导出公式，我们得到了只包含初等布尔运算的逻辑表达式：
 \[
   \begin{split}
     a_{[7:0]}>b_{[7:0]}=
-    & (a_7\&\textrm{\~{}}b_7)(\textrm{\~{}}a_7b_7\& a_6\&\textrm{\~{}}b_6)(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\& a_5\&\textrm{\~{}}b_5) \\
-    & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\& a_4\&\textrm{\~{}}b_4) \\
-    & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\& a_3\&\textrm{\~{}}b_3) \\
-    & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\& a_2\&\textrm{\~{}}b_2) \\
-    & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\& a_1\&\textrm{\~{}}b_1) \\
-    & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\&\textrm{\~{}}a_1b_1\& a_0\&\textrm{\~{}}b_0)
+     & (a_7\&\textrm{\~{}}b_7)(\textrm{\~{}}a_7b_7\& a_6\&\textrm{\~{}}b_6)(\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\& a_5\&\textrm{\~{}}b_5) \\
+     & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\& a_4\&\textrm{\~{}}b_4) \\
+     & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\& a_3\&\textrm{\~{}}b_3) \\
+     & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\& a_2\&\textrm{\~{}}b_2) \\
+     & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\& a_1\&\textrm{\~{}}b_1) \\
+     & (\textrm{\~{}}a_7b_7\&\textrm{\~{}}a_6b_6\&\textrm{\~{}}a_5b_5\&\textrm{\~{}}a_4b_4\&\textrm{\~{}}a_3b_3\&\textrm{\~{}}a_2b_2\&\textrm{\~{}}a_1b_1\& a_0\&\textrm{\~{}}b_0)
   \end{split}
 \]
 
@@ -410,13 +410,13 @@
 \begin{figure}[!ht]
   $$
     \begin{array}{ccccccccc}
-      &&&&a_3&a_2&a_1&a_0\\
-      &&&&b_3&b_2&b_1&b_0\\\hline
-      &&&&b_0\&a_3&b_0\&a_2&b_0\&a_1&b_0\&a_0\\
-      &&&b_1\&a_3&b_1\&a_2&b_1\&a_1&b_1\&a_0\\
-      &&b_2\&a_3&b_2\&a_2&b_2\&a_1&b_2\&a_0\\
-      &b_3\&a_3&b_3\&a_2&b_3\&a_1&b_3\&a_0\\\hline
-      H_3&H_2&H_1&H_0&l_3&l_2&l_1&l_0
+          &          &          &          & a_3      & a_2      & a_1      & a_0      \\
+          &          &          &          & b_3      & b_2      & b_1      & b_0      \\\hline
+          &          &          &          & b_0\&a_3 & b_0\&a_2 & b_0\&a_1 & b_0\&a_0 \\
+          &          &          & b_1\&a_3 & b_1\&a_2 & b_1\&a_1 & b_1\&a_0            \\
+          &          & b_2\&a_3 & b_2\&a_2 & b_2\&a_1 & b_2\&a_0                       \\
+          & b_3\&a_3 & b_3\&a_2 & b_3\&a_1 & b_3\&a_0                                  \\\hline
+      H_3 & H_2      & H_1      & H_0      & l_3      & l_2      & l_1      & l_0
     \end{array}
   $$
   \caption{乘法竖式计算}\label{tab6585}
