@@ -25,7 +25,8 @@ noAdditionalIndent:
 
 lookForAlignDelims:
   tabular:
-    dontMeasure: 1
+    dontMeasure:
+      - abcefg
     alignDoubleBackSlash: 0
   longtable:
     dontMeasure: 1
