@@ -154,7 +154,7 @@ $$0.3\times 10^0;\quad 0.03\times 10^1;\quad 0.003\times10^2;\quad 0.0003\times 
         原码非0值浮点数的尾数数值最高位必定为 1，因此可以忽略掉该位，这样用同样多的位数就能多存一位二进制数，有利于提高数据表示精度，称这种处理方案使用了隐藏位技术。当然，在取回这样的浮点数到运算器执行运算时，必须先恢复该隐藏位。
   \item \textbf{阶码使用“移码”，基固定为2}
 
-        如\autoref{fig6}的32bit浮点数和64bit浮点数，从最高位依次是符号位、阶码和尾数 
+        如\autoref{fig6}的32bit浮点数和64bit浮点数，从最高位依次是符号位、阶码和尾数
         \begin{figure}[!ht]
           \centering
           \includegraphics[width=\textwidth]{images/1.jpg}
@@ -216,11 +216,11 @@ BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也�
 \begin{example}{}{}
   将19转为二进制。
   \begin{align*}
-    19&\div2=9\cdots1\\
-    9&\div2=4\cdots1\\
-    4&\div2=2\cdots0\\
-    2&\div2=1\cdots0\\
-    1&\div2=0\cdots1
+    19 & \div2=9\cdots1 \\
+    9  & \div2=4\cdots1 \\
+    4  & \div2=2\cdots0 \\
+    2  & \div2=1\cdots0 \\
+    1  & \div2=0\cdots1
   \end{align*}
   余数的倒序10011即为19的二进制表示。
 \end{example}

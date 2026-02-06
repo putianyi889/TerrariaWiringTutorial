@@ -10,12 +10,15 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
-  problem: "  "
+
+noAdditionalIndent:
+  problem: 0
 
 lookForAlignDelims:
   tabular: 0
   longtable: 0
-  array: 0
+  tikzPath:
+    delimiterRegEx: ’(edge|node)’
 
 commandCodeBlocks:
   stringsAllowedBetweenArguments:

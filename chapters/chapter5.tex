@@ -16,7 +16,7 @@
     \quad%
     \adjincludegraphics{images/73.png}
   }
-  
+
   \subfloat[带复位的传统递次]{
     \label{fig53}
     \adjincludegraphics{images/106.png}%
@@ -24,7 +24,7 @@
     \adjincludegraphics{images/107.png}
   }%
   \smarthfill{44}%
-    \subfloat[斜式传统递次]{
+  \subfloat[斜式传统递次]{
     \label{fig54}
     \adjincludegraphics{images/78.png}%
     \quad%
@@ -65,7 +65,7 @@
     \quad%
     \adjincludegraphics{images/262.png}
   }
-  
+
   \subfloat[带复位的传统双向递次]{
     \adjincludegraphics{images/265.png}
     \quad
@@ -113,12 +113,12 @@
 
     根据\autoref{tab14}，我们得出4-传统递次的所有循环：
     \begin{align*}
-      0000&\to 0000\\
-      1000&\to 0100\to 0010\to 0001\to 1000\\
-      0110&\to 0011\to 1001\to 1100\to 0110\\
-      0101&\to 1010\to 0101\\
-      0111&\to 1011\to 1101\to 1110\to 0111\\
-      1111&\to 1111
+      0000 & \to 0000\\
+      1000 & \to 0100\to 0010\to 0001\to 1000\\
+      0110 & \to 0011\to 1001\to 1100\to 0110\\
+      0101 & \to 1010\to 0101\\
+      0111 & \to 1011\to 1101\to 1110\to 0111\\
+      1111 & \to 1111
     \end{align*}
     4-传统递次一共有6个循环，其中2个1循环、1个2循环、3个4循环。
   \end{proof}
@@ -159,9 +159,9 @@
     \end{table}
     根据\autoref{tab15}，我们得出该推广递次的所有循环：
     \begin{align*}
-      0000\to &0000\\
-      0001\to &1000\to 0110\to 0011\to 1001\to 1110\to 0101\to 1010\to \\
-              &0111\to 1011\to 1111\to 1101\to 1100\to 0100\to 0010\to 0001
+      0000\to & 0000\\
+      0001\to & 1000\to 0110\to 0011\to 1001\to 1110\to 0101\to 1010\to \\
+              & 0111\to 1011\to 1111\to 1101\to 1100\to 0100\to 0010\to 0001
     \end{align*}
     该推广递次一共有2个循环，其中1个1循环、1个15循环。
   \end{proof}
@@ -293,13 +293,12 @@
       \node (s2) at (300:\R) {0010};
       \node (s3) at (180:\R) {0011};
       \node (sc) at (60:\R) {1100};
-      \path [->]
-          (s1) edge (se)
-          (se) edge (sf)
-          (sf) edge (s1)
-          (s2) edge (s1)
-          (s3) edge (sf)
-          (sc) edge (se);
+      \path [->] (s1) edge (se)
+                 (se) edge (sf)
+                 (sf) edge (s1)
+                 (s2) edge (s1)
+                 (s3) edge (sf)
+                 (sc) edge (se);
     \end{tikzpictureC}
     \quad
     \begin{tikzpictureC}
@@ -311,13 +310,12 @@
       \node (s2) at (300:\R) {1000};
       \node (s3) at (180:\R) {0111};
       \node (sc) at (60:\R) {1001};
-      \path [->]
-          (s1) edge (se)
-          (se) edge (sf)
-          (sf) edge (s1)
-          (s2) edge (s1)
-          (s3) edge (sf)
-          (sc) edge (se);
+      \path [->] (s1) edge (se)
+                 (se) edge (sf)
+                 (sf) edge (s1)
+                 (s2) edge (s1)
+                 (s3) edge (sf)
+                 (sc) edge (se);
     \end{tikzpictureC}
     \quad
     \begin{tikzpictureC}
@@ -470,7 +468,7 @@
   \centering
   \subfloat[原矩阵]{
     \label{bianhuan1}
-      \begin{tabular}{|c|ccccccc|}
+    \begin{tabular}{|c|ccccccc|}
       &a&b&c&d&e&f&g\\\hline
       0&1&1&1&0&1&1&1\\
       1&0&0&1&0&0&1&0\\
