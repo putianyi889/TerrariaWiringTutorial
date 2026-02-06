@@ -1,5 +1,11 @@
 defaultIndent: '  '
 
+specialBeginEnd:
+  tikzPath:
+    begin: '\\path'
+    end: ';'
+  specialBeforeCommand: 1
+
 indentRulesGlobal:
   environments: "  "
   optionalArguments: "  "
@@ -11,6 +17,9 @@ indentRulesGlobal:
 indentRules:
   longtable: ""
 
+noAdditionalIndentGlobal:
+  keyEqualsValuesBracesBrackets: 1
+
 noAdditionalIndent:
   problem: 0
 
@@ -19,6 +28,8 @@ lookForAlignDelims:
   longtable: 0
   tikzPath:
     delimiterRegEx: ’(edge|node)’
+  split:
+    alignDoubleBackSlash: 0
 
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
@@ -27,9 +38,3 @@ commandCodeBlocks:
     - '\\x in'
     - '\\y in'
     - '\\i in'
-
-specialBeginEnd:
-  tikzPath:
-    begin: '\\path'
-    end: ';'
-  specialBeforeCommand: 1
