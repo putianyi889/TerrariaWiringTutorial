@@ -26,8 +26,10 @@ noAdditionalIndent:
 lookForAlignDelims:
   tabular:
     dontMeasure: 1
+    alignDoubleBackSlash: 0
   longtable:
     dontMeasure: 1
+    alignDoubleBackSlash: 0
   tikzPath:
     delimiterRegEx: ’(edge|node)’
   split:
