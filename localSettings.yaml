@@ -2,7 +2,7 @@ defaultIndent: '  '
 
 indentRulesGlobal:
   environments: "  "
-  optionalArguments: ""
+  optionalArguments: "  "
   mandatoryArguments: "  "
   commands: ""
   UnNamedGroupingBracesBrackets: ""
@@ -16,17 +16,16 @@ lookForAlignDelims:
   tabular: 0
   longtable: 0
   array: 0
-  align: 0
-  align*: 0
 
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
     - '\\x\/\\y in'
     - '\\x in'
+    - '\\y in'
     - '\\i in'
 
 specialBeginEnd:
-  addwireframetcbset:
-    begin: '\#1frame\/\.style\=\{'
-    end: '\}'
+  tikzPath:
+    begin: '\\path'
+    end: ';'
