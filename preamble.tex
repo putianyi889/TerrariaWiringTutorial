@@ -6,32 +6,33 @@
 \usepackage{etoolbox}
 %\tikzsetexternalprefix{sch/}
 
-\if\rendermode1
-	\usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
-\else\if\rendermode2
-\else\if\rendermode3
-	\usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
-\fi\fi\fi
+\ifcase\rendermode
+\or % 1
+  \usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
+\or % 2
+\or % 3
+  \usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
+\fi
 
 \usepackage{adjustbox}
 \adjustboxset{scale=0.666667, max width=\linewidth}
 
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	unicode=true,
-	pdfencoding=unicode,
-	bookmarksdepth=5,
+  unicode=true,
+  pdfencoding=unicode,
+  bookmarksdepth=5,
 }
 \pdfstringdefDisableCommands{
-	\def\myind#1{#1}
+  \def\myind#1{#1}
 }
 
 \if\rendermode1
-	\NewDocumentCommand{\myind}{m}{#1}
+  \NewDocumentCommand{\myind}{m}{#1}
 \else
-	\usepackage{imakeidx}
-	\makeindex
-	\NewDocumentCommand{\myind}{m}{#1\index{#1}}
+  \usepackage{imakeidx}
+  \makeindex
+  \NewDocumentCommand{\myind}{m}{#1\index{#1}}
 \fi
 
 \usepackage{seqsplit}

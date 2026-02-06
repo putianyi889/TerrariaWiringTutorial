@@ -11,43 +11,43 @@
 这种构造的刷液体机有一个小缺点，那就是需要手动打开计时器，因为计时器在退出地图时会自动关闭。另一方面，水充满池子的时候，水泵无效，但计时器仍在运行，这对于强迫症来说是一个打击。有一个方法可以解决这个问题，那就是在水泵边上设置液体感应器（\autoref{i9}，\autoref{i10}）。如果水位够高，液体感应器保持为亮，水泵不工作。如果取水使得水位下降低于液体感应器，那么液体感应器熄灭，激活水泵，水泵抽水，抽出的水经过液体感应器时点亮液体感应器，液体感应器又激活水泵，直到水位达到液体感应器时液体感应器才因保持为亮而不激活电路。这个装置不仅做到了智能刷水，而且液体感应器这个驱动频率可以完美适配液体流速。
 
 \begin{figure}[!ht]
-	\begin{center}
-		\subfloat[]{
-			\label{i7}
-			\includegraphics{images/7.png}
-		}
-		\subfloat[]{
-			\label{i8}
-			\includegraphics{images/8.png}
-		}
-		\subfloat[]{
-			\label{i9}
-			\includegraphics{images/9.png}
-		}
-		\subfloat[]{
-			\label{i10}
-			\includegraphics{images/10.png}
-		}
-	\end{center}
-	\caption{}
-	\label{i7:10}
+  \begin{center}
+    \subfloat[]{
+      \label{i7}
+      \includegraphics{images/7.png}
+    }
+    \subfloat[]{
+      \label{i8}
+      \includegraphics{images/8.png}
+    }
+    \subfloat[]{
+      \label{i9}
+      \includegraphics{images/9.png}
+    }
+    \subfloat[]{
+      \label{i10}
+      \includegraphics{images/10.png}
+    }
+  \end{center}
+  \caption{}
+  \label{i7:10}
 \end{figure}
 
 利用刷水机可以实现能摆在地图任意位置的、无延迟的开服感应器。打开地图的等待界面中有一项是“正在摆放液体”。这一步是将地图中所有不稳定的液体转移到最低处。如\autoref{i11:12}，刷水机不断地生成水，水进入到左边的细长通道，并被下面的熔岩轨道吸收。当通道足够长并且刷水速度足够快时，通道中始终有水存在。此时退出地图并重新加载地图时，通道中的水被自动放置到最低处的液体感应器上，从而液体感应器激活。其余部分的功能是：将液体感应器上的水排走；打开刷水的1秒计时器。这个装置的触发是没有延迟的，但是会在游戏中一直运行刷水机，可能影响电脑性能。
 
 \begin{figure}[!ht]
-	\begin{center}
-		\subfloat{
-			\label{i11}
-			\includegraphics[width=0.4\textwidth]{images/11.png}
-		}
-		\subfloat{
-			\label{i12}
-			\includegraphics[width=0.4\textwidth]{images/12.png}
-		}
-	\end{center}
-	\caption{}
-	\label{i11:12}
+  \begin{center}
+    \subfloat{
+      \label{i11}
+      \includegraphics[width=0.4\textwidth]{images/11.png}
+    }
+    \subfloat{
+      \label{i12}
+      \includegraphics[width=0.4\textwidth]{images/12.png}
+    }
+  \end{center}
+  \caption{}
+  \label{i11:12}
 \end{figure}
 
 \section{烟花神教}
@@ -64,28 +64,28 @@ TODO
 然后来看如何更新一行。当一行中的横向电线激活时，需要点亮的像素盒上的纵向电线必须被同一个电源激活，这意味着每个横向电线只能控制至多3个像素盒（\autoref{i258:259}）。
 
 \begin{figure}[!ht]
-\begin{center}
-\subfloat{
-\label{i258}
-\includegraphics{images/258.png}
-}
-\qquad
-\subfloat{
-\label{i259}
-\includegraphics{images/259.png}
-}
-\end{center}
-\caption{八个开关分别将像素盒状态变为000，001，010，011，100，101，110，111。}
-\label{i258:259}
+  \begin{center}
+    \subfloat{
+      \label{i258}
+      \includegraphics{images/258.png}
+    }
+    \qquad
+    \subfloat{
+      \label{i259}
+      \includegraphics{images/259.png}
+    }
+  \end{center}
+  \caption{八个开关分别将像素盒状态变为000，001，010，011，100，101，110，111。}
+  \label{i258:259}
 \end{figure}
 
 幸亏像素盒本身就有分线盒的作用，这样一来每行可以安排八个横向电线，更新这一行时从中间向两侧，每三个为一组更新（\autoref{i260}）。
 
 \begin{figure}[!ht]
-\centering
-\includegraphics{images/260.png}
-\caption{更新一行时，左边12个像素盒以3个为一组从右向左更新，右边12个像素盒以3个为一组从左向右更新。}
-\label{i260}
+  \centering
+  \includegraphics{images/260.png}
+  \caption{更新一行时，左边12个像素盒以3个为一组从右向左更新，右边12个像素盒以3个为一组从左向右更新。}
+  \label{i260}
 \end{figure}
 
 \section{金币掉落}

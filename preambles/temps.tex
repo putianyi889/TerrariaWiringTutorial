@@ -10,40 +10,41 @@
 \newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
 
 % 网址链接
-\if\rendermode1
-	\NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
-	\newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
-	
-	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
-	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
-	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
-	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
-	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
-	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubicon.pdf}}}
-	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
-\else\if\rendermode2
-	\NewDocumentCommand{\myhref}{mm}{#2\index{#2}\footnote{\url{#1}}}
-	\newcommand{\wiki}[2][]{\ifstrempty{#1}{#2}{#1}\index{\ifstrempty{#1}{#2}{#1}}}
-	
-	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
-	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
-	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\tcbox[on line, boxsep=1pt, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{#1/#2}}}}
-	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\tcbox[on line, boxsep=1pt, colframe=blue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/tieba.png} \footnotesize\sffamily\textcolor{black}{#1}}}}
-	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bbstrtext, colback=bbstrback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bbstr.png} \footnotesize\sffamily\textcolor{bbstrtext}{#1/#2}}}}
-	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/github.pdf} \footnotesize\sffamily #1}}}
-	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youku.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
-\else\if\rendermode3
-	\NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
-	\newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
-	
-	\NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
-	\newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
-	\NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
-	\newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
-	\NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
-	\NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubiconnight.png}}}
-	\NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
-\fi\fi\fi
+\ifcase\rendermode
+\or % 1
+  \NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
+  \newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
+
+  \NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
+  \newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
+  \NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
+  \newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
+  \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
+  \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubicon.pdf}}}
+  \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
+\or % 2
+  \NewDocumentCommand{\myhref}{mm}{#2\index{#2}\footnote{\url{#1}}}
+  \newcommand{\wiki}[2][]{\ifstrempty{#1}{#2}{#1}\index{\ifstrempty{#1}{#2}{#1}}}
+
+  \NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bilibiliblue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bilibili.pdf} \footnotesize\sffamily\textcolor{bilibiliblue}{#2}}}}
+  \newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youtube.pdf} \footnotesize\sffamily\textcolor{black}{#1}}}}
+  \NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\tcbox[on line, boxsep=1pt, colframe=terrariaforumtext, colback=terrariaforumback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png} \footnotesize\sffamily\textcolor{terrariaforumtext}{#1/#2}}}}
+  \newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\tcbox[on line, boxsep=1pt, colframe=blue, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/tieba.png} \footnotesize\sffamily\textcolor{black}{#1}}}}
+  \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\tcbox[on line, boxsep=1pt, colframe=bbstrtext, colback=bbstrback, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/bbstr.png} \footnotesize\sffamily\textcolor{bbstrtext}{#1/#2}}}}
+  \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\tcbox[on line, boxsep=1pt, colframe=black, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/github.pdf} \footnotesize\sffamily #1}}}
+  \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\tcbox[on line, boxsep=1pt, colframe=youkudeeppink, colback=white, left=0pt, right=0pt, top=0pt, bottom=0pt]{\includegraphics[align=c, height=9pt]{figure/youku.pdf} \footnotesize\sffamily\textcolor{youkudeeppink}{#1}}}}
+\or % 3
+  \NewDocumentCommand{\myhref}{mm}{\href{#1}{#2}}
+  \newcommand{\wiki}[2][]{\href{https://terraria.wiki.gg/zh/wiki/#2}{\ifstrempty{#1}{#2}{#1}}}
+
+  \NewDocumentCommand{\bilibili}{O{video}m}{\href{https://www.bilibili.com/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bilibiliicon.pdf}}}
+  \newcommand{\youtube}[1]{\href{https://youtu.be/#1}{\includegraphics[align=c, height=9pt]{figure/youtubeicon.pdf}}}
+  \NewDocumentCommand{\trforum}{O{threads}m}{\href{https://forums.terraria.org/index.php?#1/#2}{\includegraphics[align=c, height=9pt]{figure/terrariaforum.png}}}
+  \newcommand{\tieba}[1]{\href{https://tieba.baidu.com/p/#1}{\includegraphics[align=c, height=9pt]{figure/tieba.png}}}
+  \NewDocumentCommand{\bbstr}{O{t}m}{\href{https://www.bbstr.net/#1/#2}{\includegraphics[align=c, height=9pt]{figure/bbstr.png}}}
+  \NewDocumentCommand{\github}{m}{\href{https://github.com/#1}{\includegraphics[align=c, height=9pt]{figure/githubiconnight.png}}}
+  \NewDocumentCommand{\youku}{m}{\href{https://v.youku.com/v_show/id_#1}{\includegraphics[align=c, height=9pt]{figure/youku.pdf}}}
+\fi
 
 \NewDocumentCommand{\rhfill}{}{\hspace*{\fill}}
 
@@ -61,10 +62,10 @@
 \NewDocumentCommand{\smarthfill}{O{\tiledim}mO{2}}{\hspace{\calchspace{#1*#2}{#3}}}
 
 %\if\rendermode1
-%	\NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
+%  \NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
 %\else\if\rendermode2
 %\else\if\rendermode3
-%	\NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
+%  \NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
 %\fi\fi\fi
 
 % 绘图
@@ -73,88 +74,88 @@
 \usepgfmodule{parser}
 
 \newcommand{\placetile}[3]{%
-	\node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
+  \node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
 }
 
 \newcommandAutoForward{\placetiles}[2]{%
-    \foreach \x/\y in {#2}{
-        \placetile{#1}{\x}{\y}
-	}
+  \foreach \x/\y in {#2}{
+    \placetile{#1}{\x}{\y}
+  }
 }
 
 \newcommandAutoForward{\placeSevenSegment}[1]{
-	\bitsetSetBin{sevenSeg}{#1}
-	\bitsetQuery{sevenSeg}{0}{
-		\placetile{Torch_On}{2}{7}
-		\placetile{Torch_On}{3}{7}
-	}{
-		\placetile{Torch_Off}{2}{7}
-		\placetile{Torch_Off}{3}{7}
-	}
-	\bitsetQuery{sevenSeg}{1}{
-		\placetile{Torch_On}{1}{6}
-		\placetile{Torch_On}{1}{5}
-	}{
-		\placetile{Torch_Off}{1}{6}
-		\placetile{Torch_Off}{1}{5}
-	}
-	\bitsetQuery{sevenSeg}{2}{
-		\placetile{Torch_On}{4}{6}
-		\placetile{Torch_On}{4}{5}
-	}{
-		\placetile{Torch_Off}{4}{6}
-		\placetile{Torch_Off}{4}{5}
-	}
-	\bitsetQuery{sevenSeg}{3}{
-		\placetile{Torch_On}{2}{4}
-		\placetile{Torch_On}{3}{4}
-	}{
-		\placetile{Torch_Off}{2}{4}
-		\placetile{Torch_Off}{3}{4}
-	}
-	\bitsetQuery{sevenSeg}{4}{
-		\placetile{Torch_On}{1}{3}
-		\placetile{Torch_On}{1}{2}
-	}{
-		\placetile{Torch_Off}{1}{3}
-		\placetile{Torch_Off}{1}{2}
-	}
-	\bitsetQuery{sevenSeg}{5}{
-		\placetile{Torch_On}{4}{3}
-		\placetile{Torch_On}{4}{2}
-	}{
-		\placetile{Torch_Off}{4}{3}
-		\placetile{Torch_Off}{4}{2}
-	}
-	\bitsetQuery{sevenSeg}{6}{
-		\placetile{Torch_On}{2}{1}
-		\placetile{Torch_On}{3}{1}
-	}{
-		\placetile{Torch_Off}{2}{1}
-		\placetile{Torch_Off}{3}{1}
-	}
+  \bitsetSetBin{sevenSeg}{#1}
+  \bitsetQuery{sevenSeg}{0}{
+    \placetile{Torch_On}{2}{7}
+    \placetile{Torch_On}{3}{7}
+  }{
+    \placetile{Torch_Off}{2}{7}
+    \placetile{Torch_Off}{3}{7}
+  }
+  \bitsetQuery{sevenSeg}{1}{
+    \placetile{Torch_On}{1}{6}
+    \placetile{Torch_On}{1}{5}
+  }{
+    \placetile{Torch_Off}{1}{6}
+    \placetile{Torch_Off}{1}{5}
+  }
+  \bitsetQuery{sevenSeg}{2}{
+    \placetile{Torch_On}{4}{6}
+    \placetile{Torch_On}{4}{5}
+  }{
+    \placetile{Torch_Off}{4}{6}
+    \placetile{Torch_Off}{4}{5}
+  }
+  \bitsetQuery{sevenSeg}{3}{
+    \placetile{Torch_On}{2}{4}
+    \placetile{Torch_On}{3}{4}
+  }{
+    \placetile{Torch_Off}{2}{4}
+    \placetile{Torch_Off}{3}{4}
+  }
+  \bitsetQuery{sevenSeg}{4}{
+    \placetile{Torch_On}{1}{3}
+    \placetile{Torch_On}{1}{2}
+  }{
+    \placetile{Torch_Off}{1}{3}
+    \placetile{Torch_Off}{1}{2}
+  }
+  \bitsetQuery{sevenSeg}{5}{
+    \placetile{Torch_On}{4}{3}
+    \placetile{Torch_On}{4}{2}
+  }{
+    \placetile{Torch_Off}{4}{3}
+    \placetile{Torch_Off}{4}{2}
+  }
+  \bitsetQuery{sevenSeg}{6}{
+    \placetile{Torch_On}{2}{1}
+    \placetile{Torch_On}{3}{1}
+  }{
+    \placetile{Torch_Off}{2}{1}
+    \placetile{Torch_Off}{3}{1}
+  }
 }
 
 \newcommandAutoForward{\placeAndGate}[4][]{
-	% 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
-	\if\relax\detokenize{#1}\relax
-    	\StrLen{#2}[\mylength]%
-  	\else
-    	\edef\mylength{#1}%
-  	\fi
-	\bitsetSetBin{bits}{#2}
-	\pgfmathsetmacro\N{\mylength-1}
-	\foreach \i in {0,...,\N} {
-		\pgfmathsetmacro\y{\i+#4+1}
-		\bitsetQuery{bits}{\i}{
-			\placetile{Logic_Lamp_On}{#3}{\y}
-		}{
-			\placetile{Logic_Lamp_Off}{#3}{\y}
-		}
-	}
-	\ifnumcomp{\bitsetCardinality{bits}}{=}{\mylength}{
-		\placetile{And_Gate_On}{#3}{#4}
-	}{
-		\placetile{And_Gate_Off}{#3}{#4}
-	}
+  % 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+  \if\relax\detokenize{#1}\relax
+    \StrLen{#2}[\mylength]%
+  \else
+    \edef\mylength{#1}%
+  \fi
+  \bitsetSetBin{bits}{#2}
+  \pgfmathsetmacro\N{\mylength-1}
+  \foreach \i in {0,...,\N} {
+    \pgfmathsetmacro\y{\i+#4+1}
+    \bitsetQuery{bits}{\i}{
+      \placetile{Logic_Lamp_On}{#3}{\y}
+    }{
+      \placetile{Logic_Lamp_Off}{#3}{\y}
+    }
+  }
+  \ifnumcomp{\bitsetCardinality{bits}}{=}{\mylength}{
+    \placetile{And_Gate_On}{#3}{#4}
+  }{
+    \placetile{And_Gate_Off}{#3}{#4}
+  }
 }

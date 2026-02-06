@@ -1,0 +1,23 @@
+name: whitespace
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install latexindent
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-extra-utils
+
+      - name: Check formatting
+        run: |
+          latexindent --GCString -l -w -s -c /tmp $(git ls-files '*.tex')
+          git diff --exit-code

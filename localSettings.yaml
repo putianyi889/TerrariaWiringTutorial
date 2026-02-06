@@ -1,0 +1,53 @@
+defaultIndent: '  '
+
+specialBeginEnd:
+  tikzPath:
+    begin: '\\path'
+    end: ';'
+  specialBeforeCommand: 1
+
+indentRulesGlobal:
+  environments: "  "
+  optionalArguments: "  "
+  mandatoryArguments: "  "
+  commands: ""
+  UnNamedGroupingBracesBrackets: ""
+  afterHeading: ""
+
+indentRules:
+  longtable: ""
+
+noAdditionalIndentGlobal:
+  keyEqualsValuesBracesBrackets: 1
+
+noAdditionalIndent:
+  problem: 0
+
+lookForAlignDelims:
+  tabular:
+    dontMeasure:
+      - abcefg
+      - cf
+      - bdf
+      - ef
+      - abcdfg
+      - ce
+      - abeg
+      -
+        regex: '\\multicolumn\{1\}\{\|c\}\{[01]\}'
+    alignDoubleBackSlash: 0
+  longtable:
+    dontMeasure: 1
+    alignDoubleBackSlash: 0
+  tikzPath:
+    delimiterRegEx: ’(edge|node)’
+  split:
+    alignDoubleBackSlash: 0
+
+commandCodeBlocks:
+  stringsAllowedBetweenArguments:
+    - amalgamate: 0
+    - '\\x\/\\y in'
+    - '\\x in'
+    - '\\y in'
+    - '\\i in'

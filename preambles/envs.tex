@@ -6,14 +6,16 @@
 
 \tcbset{label separator={}}
 \newcommand{\addwireframe}[1]{
-	\expandafter\tcbset{#1frame/.style={
-		borderline={1pt}{2pt}{#1wirelightborder},
-		borderline={1pt}{-1pt}{#1wiredarkborder},
-		borderline={1pt}{0pt}{#1wiredark, dash pattern= on 1pt off 1pt},
-		borderline={1pt}{1pt}{#1wirelight, dash pattern= on 1pt off 1pt},
-		borderline={1pt}{0pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt},
-		borderline={1pt}{1pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt}
-	}}
+  \expandafter\tcbset{%
+    #1frame/.style={%
+      borderline={1pt}{2pt}{#1wirelightborder},
+      borderline={1pt}{-1pt}{#1wiredarkborder},
+      borderline={1pt}{0pt}{#1wiredark, dash pattern= on 1pt off 1pt},
+      borderline={1pt}{1pt}{#1wirelight, dash pattern= on 1pt off 1pt},
+      borderline={1pt}{0pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt},
+      borderline={1pt}{1pt}{#1wiremiddle, dash pattern= on 1pt off 1pt, dash phase=1pt}
+    }
+  }
 }
 \addwireframe{blue}
 \addwireframe{red}
@@ -21,66 +23,66 @@
 \addwireframe{yellow}
 
 \newtcbtheorem{theorem}{定理}{
-	enhanced, 
-	sharp corners=all, 
-	colframe=greencolframe, colback=thmcolback, coltext=thmcoltext, 
-	fonttitle=\bfseries,
-	greenframe
+  enhanced,
+  sharp corners=all,
+  colframe=greencolframe, colback=thmcolback, coltext=thmcoltext,
+  fonttitle=\bfseries,
+  greenframe
 }{}
 \newtcbtheorem{corollary}{推论}{
-	enhanced, 
-	sharp corners=all, 
-	colframe=greencolframe, colback=thmcolback, coltext=thmcoltext, 
-	fonttitle=\bfseries,
-	greenframe
+  enhanced,
+  sharp corners=all,
+  colframe=greencolframe, colback=thmcolback, coltext=thmcoltext,
+  fonttitle=\bfseries,
+  greenframe
 }{}
 
 \theoremstyle{definition}
 \newtcbtheorem{example}{例}{
-	breakable, 
-	colframe=bluecolframe, colback=thmcolback, coltext=thmcoltext, 
-	skin=enhanced, 
-	parbox=false, 
-	sharp corners=all, 
-	before title={\noindent},
-	fonttitle=\bfseries, 
-	blueframe
+  breakable,
+  colframe=bluecolframe, colback=thmcolback, coltext=thmcoltext,
+  skin=enhanced,
+  parbox=false,
+  sharp corners=all,
+  before title={\noindent},
+  fonttitle=\bfseries,
+  blueframe
 }{}
 \newtcbtheorem{definition}{定义}{
-	breakable, 
-	colframe=greencolframe, colback=thmcolback, coltext=thmcoltext, 
-	skin=enhanced, 
-	parbox=false, 
-	sharp corners=all, 
-	before title={\noindent},
-	fonttitle=\bfseries, 
-	greenframe
+  breakable,
+  colframe=greencolframe, colback=thmcolback, coltext=thmcoltext,
+  skin=enhanced,
+  parbox=false,
+  sharp corners=all,
+  before title={\noindent},
+  fonttitle=\bfseries,
+  greenframe
 }{}
 \newtcbtheorem{problem}{思考题}{
-	breakable, 
-	colframe=yellowcolframe, colback=thmcolback, coltext=thmcoltext, 
-	skin=enhanced, 
-	parbox=false, 
-	sharp corners=all, 
-	before title={\noindent},
-	fonttitle=\bfseries, 
-	yellowframe
+  breakable,
+  colframe=yellowcolframe, colback=thmcolback, coltext=thmcoltext,
+  skin=enhanced,
+  parbox=false,
+  sharp corners=all,
+  before title={\noindent},
+  fonttitle=\bfseries,
+  yellowframe
 }{}
 
 \theoremstyle{remark}
 \newtcbtheorem{note}{注意}{
-	enhanced, 
-	sharp corners=all, 
-	colframe=redcolframe, colback=thmcolback, coltext=thmcoltext, 
-	fonttitle=\bfseries,
-	redframe
+  enhanced,
+  sharp corners=all,
+  colframe=redcolframe, colback=thmcolback, coltext=thmcoltext,
+  fonttitle=\bfseries,
+  redframe
 }{}
 \newtcbtheorem{remark}{注}{
-	enhanced, 
-	sharp corners=all, 
-	colframe=redcolframe, colback=thmcolback, coltext=thmcoltext, 
-	fonttitle=\bfseries,
-	redframe
+  enhanced,
+  sharp corners=all,
+  colframe=redcolframe, colback=thmcolback, coltext=thmcoltext,
+  fonttitle=\bfseries,
+  redframe
 }{}
 
 \makeatletter
@@ -89,10 +91,11 @@
 
 \usepackage{multicol}
 \setlength{\columnseprule}{1pt}
-\if\rendermode1
-	\newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
-\else\if\rendermode2
-	\newenvironment{maybecols}{}{}
-\else\if\rendermode3
-	\newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
-\fi\fi\fi
+\ifcase\rendermode
+\or
+  \newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
+\or
+  \newenvironment{maybecols}{}{}
+\or
+  \newenvironment{maybecols}{\begin{multicols}{2}}{\end{multicols}}
+\fi

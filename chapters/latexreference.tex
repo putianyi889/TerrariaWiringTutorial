@@ -7,9 +7,9 @@
 本文档支持三种排版主题。优先保证电子版外观。
 
 \begin{itemize}
-	\item 打印版的文本内容最多。打印版不能用文本搜索功能，所以添加了索引；打印版不能点击超链接，所以链接均为明文。打印版的排版是针对双面打印的，页边距较宽，奇偶页边距不同。打印版通过编译\trvar{TerrariaWiringTutorial\_printed.tex}生成。
-	\item 电子版用于在电子屏幕上浏览。电子版的超链接地址全部隐藏用于节省空间，网站logo尽量采用小图标，页边距较窄，上下页边距极窄，便于电脑/手机浏览。电子版通过编译\trvar{TerrariaWiringTutorial\_onscreen.tex}生成。
-	\item 夜间模式是暗色主题的电子版，用于在低亮度环境下浏览。夜间模式通过编译\trvar{TerrariaWiringTutorial\_nightmode.tex}生成。
+  \item 打印版的文本内容最多。打印版不能用文本搜索功能，所以添加了索引；打印版不能点击超链接，所以链接均为明文。打印版的排版是针对双面打印的，页边距较宽，奇偶页边距不同。打印版通过编译\trvar{TerrariaWiringTutorial\_printed.tex}生成。
+  \item 电子版用于在电子屏幕上浏览。电子版的超链接地址全部隐藏用于节省空间，网站logo尽量采用小图标，页边距较窄，上下页边距极窄，便于电脑/手机浏览。电子版通过编译\trvar{TerrariaWiringTutorial\_onscreen.tex}生成。
+  \item 夜间模式是暗色主题的电子版，用于在低亮度环境下浏览。夜间模式通过编译\trvar{TerrariaWiringTutorial\_nightmode.tex}生成。
 \end{itemize}
 
 \section{格式标准}
@@ -22,42 +22,42 @@
 预设颜色定义在\trvar{preambles/skin.tex}中。
 
 \begin{longtable}{|c|c|}
-	\hline
-	名称 & 描述 \\\hline
-	\endhead
-	\textcolor{bilibiliblue}{bilibiliblue} & 哔哩哔哩蓝 \\\hline
-	\textcolor{youkudeeppink}{youkudeeppink} & 优酷logo最深的粉色 \\\hline
-	\textcolor{terrariaforumback}{terrariaforumback} & 泰拉瑞亚官方论坛背景 \\\hline
-	\textcolor{terrariaforumtext}{terrariaforumtext} & 泰拉瑞亚官方论坛文本 \\\hline
-	\textcolor{bbstrback}{bbstrback} & 泰拉瑞亚中文论坛背景 \\\hline
-	\textcolor{bbstrtext}{bbstrtext} & 泰拉瑞亚中文论坛文本 \\\hline
-	\makecell{
-		\textcolor{redwiredarkborder}{redwiredarkborder}\\
-		\textcolor{redwirelightborder}{redwirelightborder}\\
-		\textcolor{redwirelight}{redwirelight}\\
-		\textcolor{redwiremiddle}{redwiremiddle}\\
-		\textcolor{redwiredark}{redwiredark}
-	} & 红色电线配色 \\\hline
-	\makecell{
-		\textcolor{bluewiredarkborder}{bluewiredarkborder}\\
-		\textcolor{bluewirelightborder}{bluewirelightborder}\\
-		\textcolor{bluewirelight}{bluewirelight}\\
-		\textcolor{bluewiremiddle}{bluewiremiddle}\\
-		\textcolor{bluewiredark}{bluewiredark}
-	} & 蓝色电线配色 \\\hline
-	\makecell{
-		\textcolor{greenwiredarkborder}{greenwiredarkborder}\\
-		\textcolor{greenwirelightborder}{greenwirelightborder}\\
-		\textcolor{greenwirelight}{greenwirelight}\\
-		\textcolor{greenwiremiddle}{greenwiremiddle}\\
-		\textcolor{greenwiredark}{greenwiredark}
-	} & 绿色电线配色 \\\hline
-	\makecell{
-		\textcolor{yellowwiredarkborder}{yellowwiredarkborder}\\
-		\textcolor{yellowwirelightborder}{yellowwirelightborder}\\
-		\textcolor{yellowwirelight}{yellowwirelight}\\
-		\textcolor{yellowwiremiddle}{yellowwiremiddle}\\
-		\textcolor{yellowwiredark}{yellowwiredark}
-	} & 黄色电线配色 \\\hline
-	\textcolor{thmcolback}{thmcolback} & 定理类环境背景\\\hline
+\hline
+名称                                             & 描述 \\\hline
+\endhead
+\textcolor{bilibiliblue}{bilibiliblue}           & 哔哩哔哩蓝 \\\hline
+\textcolor{youkudeeppink}{youkudeeppink}         & 优酷logo最深的粉色 \\\hline
+\textcolor{terrariaforumback}{terrariaforumback} & 泰拉瑞亚官方论坛背景 \\\hline
+\textcolor{terrariaforumtext}{terrariaforumtext} & 泰拉瑞亚官方论坛文本 \\\hline
+\textcolor{bbstrback}{bbstrback}                 & 泰拉瑞亚中文论坛背景 \\\hline
+\textcolor{bbstrtext}{bbstrtext}                 & 泰拉瑞亚中文论坛文本 \\\hline
+\makecell{
+  \textcolor{redwiredarkborder}{redwiredarkborder} \\
+  \textcolor{redwirelightborder}{redwirelightborder} \\
+  \textcolor{redwirelight}{redwirelight} \\
+  \textcolor{redwiremiddle}{redwiremiddle} \\
+  \textcolor{redwiredark}{redwiredark}
+}                                                & 红色电线配色 \\\hline
+\makecell{
+  \textcolor{bluewiredarkborder}{bluewiredarkborder} \\
+  \textcolor{bluewirelightborder}{bluewirelightborder} \\
+  \textcolor{bluewirelight}{bluewirelight} \\
+  \textcolor{bluewiremiddle}{bluewiremiddle} \\
+  \textcolor{bluewiredark}{bluewiredark}
+}                                                & 蓝色电线配色 \\\hline
+\makecell{
+  \textcolor{greenwiredarkborder}{greenwiredarkborder} \\
+  \textcolor{greenwirelightborder}{greenwirelightborder} \\
+  \textcolor{greenwirelight}{greenwirelight} \\
+  \textcolor{greenwiremiddle}{greenwiremiddle} \\
+  \textcolor{greenwiredark}{greenwiredark}
+}                                                & 绿色电线配色 \\\hline
+\makecell{
+  \textcolor{yellowwiredarkborder}{yellowwiredarkborder} \\
+  \textcolor{yellowwirelightborder}{yellowwirelightborder} \\
+  \textcolor{yellowwirelight}{yellowwirelight} \\
+  \textcolor{yellowwiremiddle}{yellowwiremiddle} \\
+  \textcolor{yellowwiredark}{yellowwiredark}
+}                                                & 黄色电线配色 \\\hline
+\textcolor{thmcolback}{thmcolback}               & 定理类环境背景 \\\hline
 \end{longtable}
