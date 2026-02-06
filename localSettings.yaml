@@ -27,6 +27,14 @@ lookForAlignDelims:
   tabular:
     dontMeasure:
       - abcefg
+      - cf
+      - bdf
+      - ef
+      - abcdfg
+      - ce
+      - abeg
+      -
+        regex: '\\multicolumn\{1\}\{\|c\}\{[01]\}'
     alignDoubleBackSlash: 0
   longtable:
     dontMeasure: 1

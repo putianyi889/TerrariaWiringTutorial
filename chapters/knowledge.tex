@@ -194,17 +194,17 @@ Binary-Coded Decimal，简称BCD，称BCD码或二-十进制代码，亦称二�
   \centering
   \begin{tabular}{|c|c|c|c|}
     \hline
-    十进制数&8421码&2421码&余3码\\\hline
-    0&0000&0000&0011\\\hline
-    1&0001&0001&0100\\\hline
-    2&0010&0010&0101\\\hline
-    3&0011&0011&0110\\\hline
-    4&0100&0100&0111\\\hline
-    5&0101&1011&1000\\\hline
-    6&0110&1100&1001\\\hline
-    7&0111&1101&1010\\\hline
-    8&1000&1110&1011\\\hline
-    9&1001&1111&1100\\\hline
+    十进制数 & 8421码 & 2421码 & 余3码 \\\hline
+    0        & 0000   & 0000   & 0011 \\\hline
+    1        & 0001   & 0001   & 0100 \\\hline
+    2        & 0010   & 0010   & 0101 \\\hline
+    3        & 0011   & 0011   & 0110 \\\hline
+    4        & 0100   & 0100   & 0111 \\\hline
+    5        & 0101   & 1011   & 1000 \\\hline
+    6        & 0110   & 1100   & 1001 \\\hline
+    7        & 0111   & 1101   & 1010 \\\hline
+    8        & 1000   & 1110   & 1011 \\\hline
+    9        & 1001   & 1111   & 1100 \\\hline
   \end{tabular}
   \caption{常见的BCD编码。通常开发使用8421，8421对于新手能一看就懂。}\label{tab3}
 \end{table}
@@ -266,17 +266,17 @@ BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也�
   \centering
   \begin{tabular}{|r|l|c|r|}
     \hline
-    \thead{被除数\\ 前一个\\ 十进制位\\ BCD码}&\thead{被除数\\ 对应\\ 十进制位\\ BCD码}&\thead{商}&解释\\\hline
-    XXX0&000X&0000&$0,1\div 2=0$\\\hline
-    XXX0&001X&0001&$2,3\div 2=1$\\\hline
-    XXX0&010X&0010&$4,5\div 2=2$\\\hline
-    XXX0&011X&0011&$6,7\div 2=3$\\\hline
-    XXX0&100X&0100&$8,9\div 2=4$\\\hline
-    XXX1&000X&0101&$10,11\div 2=5$\\\hline
-    XXX1&001X&0110&$12,13\div 2=6$\\\hline
-    XXX1&010X&0111&$14,15\div 2=7$\\\hline
-    XXX1&011X&1000&$16,17\div 2=8$\\\hline
-    XXX1&100X&1001&$18,19\div 2=9$\\\hline
+    \thead{被除数 \\ 前一个 \\ 十进制位 \\ BCD码} & \thead{被除数 \\ 对应 \\ 十进制位 \\ BCD码} & \thead{商} & 解释 \\\hline
+    XXX0 & 000X & 0000 & $0,1\div 2=0$ \\\hline
+    XXX0 & 001X & 0001 & $2,3\div 2=1$ \\\hline
+    XXX0 & 010X & 0010 & $4,5\div 2=2$ \\\hline
+    XXX0 & 011X & 0011 & $6,7\div 2=3$ \\\hline
+    XXX0 & 100X & 0100 & $8,9\div 2=4$ \\\hline
+    XXX1 & 000X & 0101 & $10,11\div 2=5$ \\\hline
+    XXX1 & 001X & 0110 & $12,13\div 2=6$ \\\hline
+    XXX1 & 010X & 0111 & $14,15\div 2=7$ \\\hline
+    XXX1 & 011X & 1000 & $16,17\div 2=8$ \\\hline
+    XXX1 & 100X & 1001 & $18,19\div 2=9$ \\\hline
   \end{tabular}
   \caption{X表示0或1}\label{tab5}
 \end{table}
@@ -304,13 +304,13 @@ BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也�
   \begin{center}
     \begin{tabular}{|ccccccccc|}
       \hline
-      1&0&0&1&\multicolumn{1}{|c}{0}&0&0&1&\multicolumn{1}{|c|}{1}\\\hline
-      0&1&1&\multicolumn{1}{|c}{0}&0&0&0&\multicolumn{1}{|c}{1}&1\\\hline
-      0&1&\multicolumn{1}{|c}{1}&0&0&0&\multicolumn{1}{|c}{0}&1&1\\\hline
-      0&\multicolumn{1}{|c}{1}&0&1&0&\multicolumn{1}{|c}{1}&0&1&1\\\hline
-      0&0&1&1&\multicolumn{1}{|c}{1}&1&0&1&1\\\hline
-      0&0&1&\multicolumn{1}{|c}{1}&1&1&0&1&1\\\hline
-      0&0&\multicolumn{1}{|c}{1}&1&1&1&0&1&1\\\hline
+      1 & 0 & 0 & 1 & \multicolumn{1}{|c}{0} & 0 & 0 & 1 & \multicolumn{1}{|c|}{1} \\\hline
+      0 & 1 & 1 & \multicolumn{1}{|c}{0} & 0 & 0 & 0 & \multicolumn{1}{|c}{1} & 1 \\\hline
+      0 & 1 & \multicolumn{1}{|c}{1} & 0 & 0 & 0 & \multicolumn{1}{|c}{0} & 1 & 1 \\\hline
+      0 & \multicolumn{1}{|c}{1} & 0 & 1 & 0 & \multicolumn{1}{|c}{1} & 0 & 1 & 1 \\\hline
+      0 & 0 & 1 & 1 & \multicolumn{1}{|c}{1} & 1 & 0 & 1 & 1 \\\hline
+      0 & 0 & 1 & \multicolumn{1}{|c}{1} & 1 & 1 & 0 & 1 & 1 \\\hline
+      0 & 0 & \multicolumn{1}{|c}{1} & 1 & 1 & 1 & 0 & 1 & 1 \\\hline
     \end{tabular}
   \end{center}
 \end{example}
@@ -334,13 +334,13 @@ BCD码是我们用来表示十进制数的方式，BCD转二进制的算法也�
   \begin{center}
     \begin{tabular}{|ccccccccc|}
       \hline
-      0&0&1&\multicolumn{1}{|c}{1}&1&1&0&1&1\\\hline
-      0&0&1&1&\multicolumn{1}{|c}{1}&1&0&1&1\\\hline
-      0&0&1&1&1&\multicolumn{1}{|c}{1}&0&1&1\\\hline
-      0&1&\multicolumn{1}{|c}{0}&1&0&1&\multicolumn{1}{|c}{0}&1&1\\\hline
-      0&1&1&\multicolumn{1}{|c}{0}&0&0&0&\multicolumn{1}{|c}{1}&1\\\hline
-      0&1&1&0&\multicolumn{1}{|c}{0}&0&0&1&\multicolumn{1}{|c|}{1}\\\hline
-      1&\multicolumn{1}{|c}{0}&0&1&0&\multicolumn{1}{|c}{0}&0&1&1\\\hline
+      0 & 0 & 1 & \multicolumn{1}{|c}{1} & 1 & 1 & 0 & 1 & 1 \\\hline
+      0 & 0 & 1 & 1 & \multicolumn{1}{|c}{1} & 1 & 0 & 1 & 1 \\\hline
+      0 & 0 & 1 & 1 & 1 & \multicolumn{1}{|c}{1} & 0 & 1 & 1 \\\hline
+      0 & 1 & \multicolumn{1}{|c}{0} & 1 & 0 & 1 & \multicolumn{1}{|c}{0} & 1 & 1 \\\hline
+      0 & 1 & 1 & \multicolumn{1}{|c}{0} & 0 & 0 & 0 & \multicolumn{1}{|c}{1} & 1 \\\hline
+      0 & 1 & 1 & 0 & \multicolumn{1}{|c}{0} & 0 & 0 & 1 & \multicolumn{1}{|c|}{1} \\\hline
+      1 & \multicolumn{1}{|c}{0} & 0 & 1 & 0 & \multicolumn{1}{|c}{0} & 0 & 1 & 1 \\\hline
     \end{tabular}
   \end{center}
 \end{example}
