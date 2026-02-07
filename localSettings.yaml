@@ -2,7 +2,7 @@ defaultIndent: '  '
 
 replacements:
   - 
-    substitution: s/^(.*?)%\h*noindent/%\\begin\{noindent\}\n$1\n%\\end\{noindent\}/mg
+    substitution: s/^(.*?)%\h*noindent/%\\begin{noindent}$1%\\end{noindent}/mg
     when: before
   - 
     substitution: s/%\\begin{noindent}(.*?)%\\end{noindent}/$1%noindent/mg
