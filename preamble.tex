@@ -4,7 +4,29 @@
 \usepackage{graphbox}
 \usepackage{float}
 \usepackage{etoolbox}
-%\tikzsetexternalprefix{sch/}
+
+\makeatletter
+\newcounter{savechapter}
+\newcounter{apdxchapter}
+\renewcommand\appendix{\par
+  \setcounter{savechapter}{\value{chapter}}%
+  \setcounter{chapter}{\value{apdxchapter}}%
+  \setcounter{section}{0}%
+  \ctexset{
+    chapter/name={附录},
+    chapter/number=\Alph{chapter}
+  }
+}
+\newcommand\unappendix{\par
+  \setcounter{apdxchapter}{\value{chapter}}%
+  \setcounter{chapter}{\value{savechapter}}%
+  \setcounter{section}{0}%
+  \ctexset{
+    chapter/name={第,章},
+    chapter/number=\chinese{chapter}
+  }
+}
+\makeatother
 
 \ifcase\rendermode
 \or % 1

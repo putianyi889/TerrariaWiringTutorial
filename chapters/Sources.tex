@@ -164,33 +164,15 @@
 
 引爆器可以放在几乎所有平坦表面上。与控制杆不同的是，引爆器不是悬挂家具，所以不能放在砧上。
 
-\section{机关宝箱/\DeadMansChest}
-\begin{figure}[!ht]
-  \centering
-  \subfloat[{非主题机关宝箱。主题机关宝箱见\hyperref[app44]{附录}}]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Corruption_Chest.png}\quad
-      \adjincludegraphics{textures/item/Crimson_Chest.png}\quad
-      \adjincludegraphics{textures/item/Hallowed_Chest.png}\quad
-      \adjincludegraphics{textures/item/Desert_Chest.png}\quad
-      \adjincludegraphics{textures/item/Frozen_Chest.png}\quad
-      \adjincludegraphics{textures/item/Jungle_Chest.png} \\
-      \adjincludegraphics{textures/item/Gold_Chest.png}\quad
-      \adjincludegraphics{textures/item/Shadow_Chest.png}\quad
-      \adjincludegraphics{textures/item/Ivy_Chest.png}\quad
-      \adjincludegraphics{textures/item/Water_Chest.png}\quad
-      \adjincludegraphics{textures/item/Web_Covered_Chest.png}\quad
-      \adjincludegraphics{textures/item/Golf_Chest.png}
-    \end{tabular}
-  }
-  \qquad
-  \subfloat[\DeadMansChest]{\adjincludegraphics{textures/item/Dead_Mans_Chest.png}}
-\end{figure}
-机关宝箱可以被镐直接挖掉，从而与普通的宝箱区分。和机关宝箱比起来，\DeadMansChest 的隐蔽性更强，因为其中可以放物品。没连上电线的情况下，\DeadMansChest 和普通的金箱完全无法区分。
+\section{宝箱/陷阱箱/\DeadMansChest}\label{sec:TrappedChest}\label{sec:DeadMansChest}
 
-机关宝箱和\DeadMansChest 都是电源，当鼠标右击时激活。机关宝箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画，而\DeadMansChest 除了会激活以外与金箱无异。
+宝箱是用电器，被激活时会自动拾取周围的掉落物。拾取范围是以宝箱为中心，边长为192像素（12格）的正方形。拾取判定是掉落物碰撞箱与该范围接触。冷却时间60帧。\hyperref[tab:ItemsThatShouldNotBeInInventory]{不可储存物品}不可被拾取。上锁的宝箱不会触发拾取。这里的宝箱仅对应图格ID 21和467，因此包括\DeadMansChest、\wiki{桶}、\wiki{垃圾桶}，不包括陷阱箱、\wiki{梳妆台}、猪猪存钱罐、保险箱、护卫熔炉、虚空保险库。
 
-\DeadMansChest 是“右击”激活而不是“开/关切换”激活。由人物远离导致的宝箱自动关闭不会激活\DeadMansChest 。
+陷阱箱是电源，鼠标右击时激活。陷阱箱中并不能装任何物品，右击时只是播放宝箱开启关闭的动画。陷阱箱可以被镐直接挖掉，从而与普通的宝箱区分。
+
+\DeadMansChest 既是用电器也是电源。作为用电器时，因为和宝箱共享一个图格ID，和宝箱的响应方式一致。作为电源时，当鼠标右击时激活。注意不是“开/关切换”激活因为由人物远离导致的宝箱自动关闭不会激活。和陷阱箱比起来，\DeadMansChest 的隐蔽性更强，因为它没激活时和普通的金箱几乎无法区分。唯一的区分方式是利用方块替换功能。使用\DeadMansChest 无法替换\DeadMansChest，但是可以替换普通的金箱。需要注意的是，用普通的金箱替换掉\DeadMansChest 时，后者也会激活一次。
+
+所有宝箱和陷阱箱列表见\autoref{tab:ChestAndTrappedChest}。陷阱箱的物品贴图就是在宝箱右下角加了个代表电线的红点。\DeadMansChest 的物品贴图和金箱一样，但是在右下角加了一个“\adjincludegraphics{textures/extra/Skull_Icon.png}”。
 
 \section{感应器}
 \begin{figure}[!ht]
