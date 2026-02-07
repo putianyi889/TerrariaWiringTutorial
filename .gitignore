@@ -33,3 +33,5 @@ robExt-remove-old-figures.py
 robExt-prepare-for-arxiv.py
 TerrariaWiringTutorial_onscreen-robExt-compile-missing-figures.sh
 .vscode/settings.json
+TerrariaWiringTutorial_nightmode-robExt-all-figures.txt
+TerrariaWiringTutorial_nightmode-robExt-compile-missing-figures.sh
