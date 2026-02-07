@@ -28,6 +28,10 @@
       \newcommand{\placetile}[3]{%
         \node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{../textures/tile/#1.png}};
       }
+      \newcommand{\placetileGroup}[4]{%
+        \pgfmathsetmacro{\w}{16*#1}
+        \node[anchor=south west] at (16pt*#3-8pt,16pt*#4-8pt) {\includegraphics[width=\w pt]{../textures/tile/#2.png}};
+      }
     },
   },
 }
@@ -86,6 +90,7 @@
 
 \part{源码笔记}
 \include{chapters/sourcenotes/sets}
+\include{chapters/sourcenotes/functions}
 \include{chapters/cooldown}
 
 \part{其他内容}

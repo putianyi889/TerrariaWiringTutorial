@@ -83,6 +83,12 @@
   }
 }
 
+% 第一个参数是宽度，第二个参数是文件名，第三第四个参数是左下格坐标，第四个参数是宽度
+\newcommand{\placetileGroup}[4]{%
+  \pgfmathsetmacro{\w}{16*#1}
+  \node[anchor=south west] at (16pt*#3-8pt,16pt*#4-8pt) {\includegraphics[width=\w pt]{textures/tile/#2.png}};
+}
+
 \newcommandAutoForward{\placeSevenSegment}[1]{
   \bitsetSetBin{sevenSeg}{#1}
   \bitsetQuery{sevenSeg}{0}{

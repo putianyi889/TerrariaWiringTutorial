@@ -1,0 +1,7 @@
+\section{\texttt{Chest.cs}}\label{src:Chest}
+
+\begin{itemize}
+  \item \texttt{Chest.\textunderscore chestByCoords}：字典，存储坐标到宝箱索引的映射。
+  \item \texttt{Chest.Assign(Chest chest)}：将宝箱添加到\texttt{\textunderscore chestByCoords}中。\emph{仅添加宝箱左上角图格坐标！这可能会产生Bug！}
+  \item \texttt{Chest.FindChest(int X,int Y)}：从\texttt{\textunderscore chestByCoords}中查找并返回\texttt{(X,Y)}对应的宝箱索引，查找失败则返回\texttt{-1}。
+\end{itemize}

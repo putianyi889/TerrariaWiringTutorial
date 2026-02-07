@@ -17,7 +17,7 @@ fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9, fig10,
 	fig61, fig62, fig63, fig64, fig65, fig66, fig67, fig68, fig69, fig70,
 	fig71, fig72, fig73, fig74, fig75, fig76, fig77, fig78, fig79, fig80, 
 	fig81, fig82, fig83, fig84, fig85, fig86, fig87, fig88, fig89, fig90,
-	fig91
+	fig91, fig92, fig93, fig94
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, 
 	tab11, tab12, tab13, tab14, tab15, tab16, tab17, tab18
 	tab1406, 
