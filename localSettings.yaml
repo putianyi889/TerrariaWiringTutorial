@@ -24,14 +24,12 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
-  makecell: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
 
 noAdditionalIndent:
   problem: 0
-  makecell: 1
 
 lookForAlignDelims:
   tabular:
