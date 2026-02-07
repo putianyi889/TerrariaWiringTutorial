@@ -200,131 +200,38 @@
 
 \section{部分光源}
 这里说的光源不是指有效光源，而是指所有能发光的物体。所有可由电路控制的光源如下列举。
-\begin{figure}[!htp]
-  \centering
-  \subfloat[火把]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Torch.png}\quad
-      \adjincludegraphics{textures/item/Purple_Torch.png}\quad
-      \adjincludegraphics{textures/item/Yellow_Torch.png}\quad
-      \adjincludegraphics{textures/item/Blue_Torch.png}\quad
-      \adjincludegraphics{textures/item/Green_Torch.png}\quad
-      \adjincludegraphics{textures/item/Red_Torch.png}\quad
-      \adjincludegraphics{textures/item/Orange_Torch.png}\quad
-      \adjincludegraphics{textures/item/White_Torch.png}\quad
-      \adjincludegraphics{textures/item/Pink_Torch.png}\quad
-      \adjincludegraphics{textures/item/Ice_Torch.png}\quad
-      \adjincludegraphics{textures/item/Cursed_Torch.png} \\
-      \adjincludegraphics{textures/item/Ichor_Torch.png}\quad
-      \adjincludegraphics{textures/item/Demon_Torch.png}\quad
-      \adjincludegraphics{textures/item/Rainbow_Torch.png}\quad
-      \adjincludegraphics{textures/item/Ultrabright_Torch.png}\quad
-      \adjincludegraphics{textures/item/Bone_Torch.png}\quad
-      \adjincludegraphics{textures/item/Desert_Torch.png}\quad
-      \adjincludegraphics{textures/item/Coral_Torch.png}\quad
-      \adjincludegraphics{textures/item/Corrupt_Torch.png}\quad
-      \adjincludegraphics{textures/item/Crimson_Torch.png}\quad
-      \adjincludegraphics{textures/item/Hallowed_Torch.png}\quad
-      \adjincludegraphics{textures/item/Jungle_Torch.png}
-    \end{tabular}
-  }%11+11
-  \qquad
-  \subfloat[蜡烛]{%
-    \adjincludegraphics{textures/item/Platinum_Candle.png}\quad
-    \adjincludegraphics{textures/item/Water_Candle.png}\quad
-    \adjincludegraphics{textures/item/Peace_Candle.png}
-  }
 
-  \subfloat[篝火]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Campfire.png}\quad
-      \adjincludegraphics{textures/item/Cursed_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Demon_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Frozen_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Ichor_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Rainbow_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Ultrabright_Campfire.png} \\
-      \adjincludegraphics{textures/item/Bone_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Coral_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Corrupt_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Crimson_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Desert_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Hallowed_Campfire.png}\quad
-      \adjincludegraphics{textures/item/Jungle_Campfire.png}
-    \end{tabular}
-  }
+\begin{longtable}{|cc||cc|}
+\caption{电路中的光源。主题家具中的光源列举在\hyperref[app44]{附录}中。} \\\hline
+图格ID  & 物品名称          & 图格ID & 物品名称 \\\hline
+\endhead
+4       & \wiki{火把}       &
+33,49,174,372,646 & \wiki{蜡烛} \\\hline % noindent
+34      & \wiki{吊灯}       &
+35      & \wiki{杰克南瓜灯} \\\hline
+42      & 部分\wiki{灯笼}   &
+92      & \wiki{灯柱} \\\hline
+93      & \wiki{灯}         &
+95      & \wiki{中式灯笼} \\\hline
+100,173 & \wiki{烛台}       &
+126     & \wiki{迪斯科球} \\\hline
+149     & \wiki{圣诞灯}     &
+215     & \wiki{篝火} \\\hline
+255-268 & \wiki{晶莹宝石块} &
+405     & \wiki{壁炉} \\\hline
+564     & \wiki{等离子灯}   &
+593     & \wiki{小火山} \\\hline
+594     & \wiki{大火山}     &
+        & \\\hline
+\end{longtable}
 
-  \subfloat[吊灯]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Copper_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Tin_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Silver_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Tungsten_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Gold_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Platinum_Chandelier.png}\quad
-      \adjincludegraphics{textures/item/Jackelier.png}
-    \end{tabular}
-  }
-
-  \subfloat[晶莹宝石块]{
-    \adjincludegraphics{textures/item/Amethyst_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Topaz_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Sapphire_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Emerald_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Ruby_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Diamond_Gemspark_Block.png}\quad
-    \adjincludegraphics{textures/item/Amber_Gemspark_Block.png}
-  }
-
-  \subfloat[\PlasmaLamp]{\quad\adjincludegraphics{textures/item/Plasma_Lamp.png}\quad}
-  \subfloat[\Volcano]{\begin{tabular}[b]{c}\adjincludegraphics{textures/item/Mini_Volcano.png}\\\adjincludegraphics{textures/item/Large_Volcano.png}\end{tabular}}
-  \subfloat[灯笼]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Hanging_Jack_O_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Chain_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Brass_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Caged_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Carriage_Lantern.png} \\
-      \adjincludegraphics{textures/item/Alchemy_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Diabolist_Lamp.png}\quad
-      \adjincludegraphics{textures/item/Oil_Rag_Sconce.png}\quad
-      \adjincludegraphics{textures/item/Heart_Lantern.png}\quad
-      \adjincludegraphics{textures/item/Star_in_a_Bottle.png}
-    \end{tabular}
-  }
-  \subfloat[烛台]{\quad\begin{tabular}[b]{c}\adjincludegraphics{textures/item/Platinum_Candelabra.png}\\\adjincludegraphics{textures/item/Jack_O_Lantern.png}\end{tabular}\quad}
-  \subfloat[壁炉]{\ \adjincludegraphics{textures/item/Fireplace.png}\ }
-
-  \subfloat[灯柱]{\quad\adjincludegraphics{textures/item/Lamp_Post.png}\quad}
-  \subfloat[中式灯笼]{\quad\ \adjincludegraphics{textures/item/Chinese_Lantern.png}\quad\ }
-  \subfloat[迪斯科灯]{\quad\ \adjincludegraphics{textures/item/Disco_Ball.png}\quad\ }
-  \subfloat[圣诞灯]{
-    \adjincludegraphics{textures/item/Blue_Light.png}\quad
-    \adjincludegraphics{textures/item/Red_Light.png}\quad
-    \adjincludegraphics{textures/item/Green_Light.png}
-  }
-  \caption{电路中的光源。主题家具中的光源列举在\hyperref[app44]{附录}中。}
-\end{figure}
-
+上表中需要注意的是，部分物品的命名和维基的分类不是基于图格ID的。
 \begin{itemize}
-  \item 火把：大小1*1，放置在平台上、实体块上方和两侧、背景墙上。是有效光源。
-  \item 蜡烛：大小1*1，放置在除砧以外的平坦表面上，可以放置在锭上但会立刻掉落。水蜡烛和和平蜡烛熄灭时不提供增益。是有效光源。
-  \item 灯笼：大小1*2，悬挂在实体块下。3种虫瓶、6种魂瓶无电路功能。星星瓶和红心灯笼熄灭时不提供增益。是有效光源。
-  \item 灯：大小1*3，放置在平台上、锭上、实体块上。是有效光源。
-  \item 篝火：大小3*2，放置在平台上、锭上、实体块上。熄灭时不提供增益。是有效光源。
-  \item 烛台：大小2*2，放置在除砧以外的平坦表面上、实体块上。是有效光源。
-  \item 吊灯：大小3*3，悬挂在实体块下。是有效光源。
-  \item 晶莹宝石块：属于实体块。不是有效光源。
-  \item 中式灯笼：大小2*2，悬挂在实体块下。是有效光源。
-  \item 灯柱：大小1*6，放置在平台上、锭上、实体块上。不是有效光源。
-  \item 迪斯科灯：大小2*2，悬挂在实体块下。不是有效光源。
-  \item 圣诞灯：大小1*1，放置在实体块四周。是有效光源。
-  \item 壁炉：大小3*2，放置在平台上、锭上、实体块上。是有效光源。
-  \item \PlasmaLamp ：大小2*2，放置在除砧以外的平坦表面上、实体块上。不是有效光源。
-  \item \Volcano ：两种\Volcano 大小分别是1*1和2*2，，放置在除砧以外的平坦表面上、实体块上。不是有效光源。
+  \item \wiki{提基火把}就是灯。
+  \item 只有图格ID为42的灯笼才属于电路光源，因此萤火虫瓶、荧光虫瓶、魂瓶均不属于电路光源，而星星瓶、红心灯笼属于电路光源。
 \end{itemize}
 
-这里需要强调一下常用的两种显示光源：宝石块和火把。一般情况下宝石块显示效果更好，并且其亮灭会显示在小地图中。然而由于火把激活时只是简单改变状态，而每个宝石块激活时还需要更新该块及周围8块的贴图，每次更新贴图时都需要进行大量的判断，这导致大规模使用宝石块的电路与使用火把的电路相比更卡。
+宝石块比较特殊，因为其亮灭会显示在小地图中，可以用来实现大屏显示。
 
 \section{门/机关门/高门}
 \begin{figure}[!ht]
@@ -351,13 +258,13 @@
 
 不使用电路开关门时，门会做为电源激活。如果在设置里打开自动开关门，那么门可以起到玩家感应器的作用。
 
-\section{\FogMachine}
+\section{造雾机}
 \begin{figure}[!ht]
   \centering
   \adjincludegraphics{textures/item/Fog_Machine.png}
-  \caption{\FogMachine}
+  \caption{造雾机}
 \end{figure}
-\FogMachine 是用电器，被激活时开/关切换。\FogMachine 打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
+造雾机是用电器，被激活时开/关切换。造雾机打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
 
 \section{马桶}
 \begin{figure}[!ht]

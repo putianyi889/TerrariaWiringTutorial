@@ -37,44 +37,54 @@
 逻辑门                      & 详见后文 \\\hline
 \end{longtable}
 
-\begin{longtable}{|c|c|}
+\begin{longtable}{|c|c|c|}
 \caption{\termTR 中的\myind{用电器}}\label{yongdianqi} \\\hline
-用电器                 & 响应方式 \\\hline
+图格ID  & 用电器             & 响应方式 \\\hline
 \endfirsthead
 \hline
-用电器                 & 响应方式 \\\hline
+图格ID  & 用电器             & 响应方式 \\\hline
 \endhead
 \hline
 \endfoot
-部分\myind{光源}       & 亮/灭切换 \\\hline
-\myind{门}/\myind{机关门}/\myind{高门%
-}                      & 开/关切换 \\\hline
-\myind{泵}             & 把入水泵上的液体传送到出水泵 \\\hline
-\myind{\Grate}         & 开/关切换 \\\hline
-\myind{机关}           & 发射射弹/爆炸并消失 \\\hline
-\myind{炮台}           & 根据激活点改变方向/射击 \\\hline
-\myind{烟花喷泉}/\myind{烟花盒%
-}                      & 产生烟花 \\\hline
-\myind{烟花火箭}       & 发射 \\\hline
-\myind{泡泡机}/\myind{呆萌气球机}/\myind{派对中心%
-}                      & 开/关切换，生成背景特效 \\\hline
-\myind{\FogMachine}    & 开/关切换，生成云雾特效 \\\hline
-\myind{喷泉}           & 开/关切换，改变水的颜色 \\\hline
-\myind{八音盒}         & 开/关切换，改变背景音乐 \\\hline
-\myind{部分雕像}       & \makecell{生成物品/传送城镇NPC/亮灭切换/ \\ 生成敌怪/生成小动物} \\\hline
-\myind{烟囱}           & 三个状态切换 \\\hline
-\myind{传送机}         & 交换两个传送机上的玩家和NPC \\\hline
-\myind{天塔柱}         & 开/关切换，改变背景与滤镜 \\\hline
-\myind{广播盒}         & 显示文字讯息 \\\hline
-\myind{传送带}         & 改变方向 \\\hline
-\myind{制动器}         & 切换图格的虚化状态 \\\hline
-\myind{彩线灯泡}       & 四色电线各控制一个灯泡的亮灭 \\\hline
-\myind{像素盒}         & \makecell{同时从上/下和左/右激活时切换状态} \\\hline
-\myind{提炼机}/\myind{叶绿提炼机%
-}                      & 提炼周围宝箱中的物品 \\\hline
-\myind{宝箱}           & 拾取周围的掉落物 \\\hline
-逻辑灯                 & 详见后文 \\\hline
-\myind{矿车轨道}交叉点 & 在两种交叉方式中切换
+略      & 部分\myind{光源}   & 亮/灭切换 \\\hline
+10,11,386-389
+        & \myind{门}         & 开/关切换 \\\hline
+144     & \myind{计时器}     & 开/关切换，打开时成为电源 \\\hline
+130,131 & \myind{通电石块}   & 互相切换 \\\hline
+142,143 & \myind{泵}         & 把入水泵上的液体传送到出水泵 \\\hline
+546,557 & \myind{\Grate}     & 开/关切换，打开时液体可通过 \\\hline
+137,443 & \myind{机关}       & 发射射弹 \\\hline
+141     & \myind{炸药}       & 爆炸（一次性） \\\hline
+210     & \myind{地雷}       & 爆炸（一次性） \\\hline
+209,212 & \myind{炮台}       & 根据激活点改变方向/射击 \\\hline
+338     & \myind{烟花喷泉}   & 发射射弹 \\\hline
+335     & \myind{烟花盒}     & 发射射弹 \\\hline
+216     & \myind{烟花火箭}   & 发射射弹（一次性） \\\hline
+15,497  & \myind{马桶}       & 发射射弹 \\\hline
+411     & \myind{引爆器}     & 开/关切换 \\\hline
+455     & \myind{派对中心}   & 开/关切换，控制派对状态 \\\hline
+452     & \myind{呆萌气球机} & 开/关切换，打开时生成气球 \\\hline
+244     & \myind{泡泡机}     & 开/关切换，打开时生成泡泡 \\\hline
+565     & \myind{造雾机}     & 开/关切换，打开时生成云雾特效 \\\hline
+207     & \myind{喷泉}       & 开/关切换，打开时改变水的颜色 \\\hline
+139     & \myind{八音盒}     & 开/关切换，打开时改变背景音乐 \\\hline
+105,349,506,531
+        & \myind{部分雕像}   & \makecell{生成物品/传送城镇NPC/亮灭切换/ \\ 生成敌怪/生成小动物} \\\hline
+406     & \myind{烟囱}       & 三个状态切换 \\\hline
+235     & \myind{传送机}     & 交换两个传送机上的玩家和NPC \\\hline
+\makecell{
+  410,480,509, \\ 657,658,720, \\ 721,725,733
+}       & \myind{天塔柱}     & 开/关切换，改变背景与滤镜 \\\hline
+425     & \myind{广播盒}     & 显示文字讯息 \\\hline
+356,663 & 日月晷             & 快进时间 \\\hline
+421,422 & \myind{传送带}     & 改变方向 \\\hline
+无      & \myind{制动器}     & 切换图格的虚化状态 \\\hline
+429     & \myind{彩线灯泡}   & 四色电线各控制一个灯泡的亮灭 \\\hline
+        & \myind{像素盒}     & \makecell{同时从上/下和左/右激活时切换状态} \\\hline
+219,642 & \myind{提炼机}     & 提炼周围宝箱中的物品 \\\hline
+21,467  & \myind{宝箱}       & 拾取周围的掉落物 \\\hline
+419     & 逻辑灯             & 详见后文 \\\hline
+314     & \myind{矿车轨道}   & 在两种交叉方式中切换
 \end{longtable}
 
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。读者可以尝试用电线连接各种各样的电源和用电器，然后尝试激活电源，看看会发生什么。
