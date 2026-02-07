@@ -54,7 +54,8 @@ commandCodeBlocks:
 
 replacements:
   - 
-    substitution: s/^(.*?)%\h*noindent/%\\begin{noindent}$1%\\end{noindent}/mg
+    this: 
+    substitution: s/^(.*?)%\h*noindent/%\\begin{noindent}\n$1\n%\\end{noindent}/mg
     when: before
   - 
     substitution: s/%\\begin{noindent}(.*?)%\\end{noindent}/$1%noindent/mg
