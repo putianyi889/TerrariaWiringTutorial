@@ -24,7 +24,7 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
-  makecell: "  "
+  makecell: ""
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
