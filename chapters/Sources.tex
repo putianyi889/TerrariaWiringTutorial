@@ -266,6 +266,15 @@
 \end{figure}
 造雾机是用电器，被激活时开/关切换。造雾机打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
 
+\section{\myind{八音盒}/\myind{喷泉}/\myind{天塔柱}}
+虽然这些物品影响的内容不同，分别为背景音乐、水的颜色、背景、滤镜等，但是共享的是一套机制。它们都可以用电路和右键开关，开启时会影响周围一片区域内玩家的游戏体验。注意它们影响的是玩家的全屏效果，即便玩家的屏幕区域和它们的影响区域不完全重叠，只要玩家的角色处在区域内，玩家的整个屏幕区域都会受到影响。
+
+玩家受到影响的范围大约是屏幕范围上下左右各30格。当范围内有多个八音盒时，只有最右边的生效（同一列最下面的生效）。喷泉同理。天塔柱需要额外注意：只有四柱+虚空这五个天塔柱会按照八音盒和喷泉的规则互相覆盖，其他天塔柱都是独立的。这些独立的天塔柱包括血月、以太、CRT、复古，以及虽然名字不叫天塔柱但是共享一套机制的\myind{电影放映机}、\myind{回声腔}、\myind{收音机}。
+
+\begin{remark}{}{}
+  参见\nameref{src:ScanOnScreenTiles}。
+\end{remark}
+
 \section{马桶}
 \begin{figure}[!ht]
   \centering
@@ -627,56 +636,8 @@
 需要注意的是，像素盒的响应是对电源敏感的，即分别结算每个电源发出的信号，这与传送机对电线敏感不同。
 
 \section{矿车轨道交叉点}
-交叉点上必须有两个方向的平滑轨道，那么这两个平滑轨道必定是一个覆盖另一个，此时激活交叉点会使两个平滑轨道的覆盖关系改变。需要注意的是激活交叉点可以产生的变化数量远远小于使用锤子可以产生的变化数量。
+交叉点上必须有两个方向的平滑轨道，那么这两个平滑轨道必定是一个覆盖另一个，此时激活交叉点会使两个平滑轨道的覆盖关系改变。需要注意的是激活交叉点可以产生的变化数量远远小于使用锤子可以产生的变化数量，因为后者还可以将轨道断开。
 
 \section{其他电路物品}
-\begin{comment}
-% \begin{noindent}
-\begin{figure}[!htp]
-  \centering
-  \subfloat[增速轨道]{\quad\adjincludegraphics{textures/item/Booster_Track.png}\quad}\qquad
-  \subfloat[喷泉]{\adjincludegraphics{textures/item/Pure_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Desert_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Jungle_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Icy_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Corrupt_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Crimson_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Hallowed_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Blood_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Cavern_Water_Fountain.png}\quad\adjincludegraphics{textures/item/Oasis_Water_Fountain.png}}\\
-  \subfloat[宝石锁]{\adjincludegraphics{textures/item/Amethyst_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Topaz_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Sapphire_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Emerald_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Ruby_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Diamond_Gem_Lock.png}\quad\adjincludegraphics{textures/item/Amber_Gem_Lock.png}}\qquad
-  \subfloat[广播盒]{\quad\adjincludegraphics{textures/item/Announcement_Box.png}\quad}\qquad
-  \subfloat[烟花盒]{\quad\adjincludegraphics{textures/item/Fireworks_Box.png}\quad}\\
-  \subfloat[泡泡机]{\adjincludegraphics{textures/item/Bubble_Machine.png}}\quad
-  \subfloat[派对中心]{\quad\adjincludegraphics{textures/item/Party_Center.png}\quad}
-  \subfloat[呆萌气球机]{\qquad\adjincludegraphics{textures/item/Silly_Balloon_Machine.png}\qquad}
-  \subfloat[天塔柱]{\adjincludegraphics{textures/item/Vortex_Monolith.png}\quad\adjincludegraphics{textures/item/Nebula_Monolith.png}\quad\adjincludegraphics{textures/item/Stardust_Monolith.png}\quad\adjincludegraphics{textures/item/Solar_Monolith.png}\quad\adjincludegraphics{textures/item/Void_Monolith.png}\quad\adjincludegraphics{textures/item/Blood_Moon_Monolith.png}}\\
-  \subfloat[传送带]{\adjincludegraphics{textures/item/Conveyor_Belt.png}\quad\adjincludegraphics{textures/item/Conveyor_Belt_(Counter_Clockwise).png}}\qquad
-  \subfloat[彩线灯泡]{\qquad\adjincludegraphics{textures/item/Wire_Bulb.png}\qquad}
-  \subfloat[制动器]{\qquad\adjincludegraphics{textures/item/Actuator.png}\qquad}
-  \subfloat[\Grate]{\qquad\adjincludegraphics{textures/item/Grate.png}\qquad}
-  \subfloat[\GC]{\qquad\adjincludegraphics{textures/item/Golf_Cup.png}\qquad}\\
-  \subfloat[烟花喷泉]{\qquad\adjincludegraphics{textures/item/Firework_Fountain.png}\qquad}\qquad
-  \subfloat[烟囱]{\quad\adjincludegraphics{textures/item/Chimney.png}\quad}\qquad
-  \subfloat[烟花火箭]{\adjincludegraphics{textures/item/Red_Rocket.png}\quad\adjincludegraphics{textures/item/Green_Rocket.png}\quad\adjincludegraphics{textures/item/Blue_Rocket.png}\quad\adjincludegraphics{textures/item/Yellow_Rocket.png}}
-  \\
-  \subfloat[部分雕像]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Armed_Zombie_Statue.png}\quad\adjincludegraphics{textures/item/Bat_Statue.png}\quad\adjincludegraphics{textures/item/Blood_Zombie_Statue.png}\quad\adjincludegraphics{textures/item/Bone_Skeleton_Statue.png}\quad\adjincludegraphics{textures/item/Chest_Statue.png}\quad\adjincludegraphics{textures/item/Corrupt_Statue.png}\quad\adjincludegraphics{textures/item/Crab_Statue.png}\quad\adjincludegraphics{textures/item/Drippler_Statue.png}\quad\adjincludegraphics{textures/item/Eyeball_Statue.png}\quad\adjincludegraphics{textures/item/Goblin_Statue.png}\quad\adjincludegraphics{textures/item/Granite_Golem_Statue.png}\\
-      \adjincludegraphics{textures/item/Harpy_Statue.png}\quad\adjincludegraphics{textures/item/Hoplite_Statue.png}\quad\adjincludegraphics{textures/item/Hornet_Statue.png}\quad\adjincludegraphics{textures/item/Imp_Statue.png}\quad\adjincludegraphics{textures/item/Jellyfish_Statue.png}\quad\adjincludegraphics{textures/item/Medusa_Statue.png}\quad\adjincludegraphics{textures/item/Pigron_Statue.png}\quad\adjincludegraphics{textures/item/Piranha_Statue.png}\quad\adjincludegraphics{textures/item/Shark_Statue.png}\quad\adjincludegraphics{textures/item/Skeleton_Statue.png}\quad\adjincludegraphics{textures/item/Slime_Statue.png}\\
-      \adjincludegraphics{textures/item/Undead_Viking_Statue.png}\quad\adjincludegraphics{textures/item/Unicorn_Statue.png}\quad\adjincludegraphics{textures/item/Wall_Creeper_Statue.png}\quad\adjincludegraphics{textures/item/Wraith_Statue.png}\quad\adjincludegraphics{textures/item/Bird_Statue.png}\quad\adjincludegraphics{textures/item/Buggy_Statue.png}\quad\adjincludegraphics{textures/item/Bunny_Statue.png}\quad\adjincludegraphics{textures/item/Butterfly_Statue.png}\quad\adjincludegraphics{textures/item/Dragonfly_Statue.png}\quad\adjincludegraphics{textures/item/Duck_Statue.png}\quad\adjincludegraphics{textures/item/Firefly_Statue.png}\\
-      \adjincludegraphics{textures/item/Fish_Statue.png}\quad\adjincludegraphics{textures/item/Frog_Statue.png}\quad\adjincludegraphics{textures/item/Grasshopper_Statue.png}\quad\adjincludegraphics{textures/item/Mouse_Statue.png}\quad\adjincludegraphics{textures/item/Owl_Statue.png}\quad\adjincludegraphics{textures/item/Penguin_Statue.png}\quad\adjincludegraphics{textures/item/Scorpion_Statue.png}\quad\adjincludegraphics{textures/item/Seagull_Statue.png}\quad\adjincludegraphics{textures/item/Snail_Statue.png}\quad\adjincludegraphics{textures/item/Squirrel_Statue.png}\quad\adjincludegraphics{textures/item/Turtle_Statue.png}\\
-      \adjincludegraphics{textures/item/Worm_Statue.png}\quad\adjincludegraphics{textures/item/King_Statue.png}\quad\adjincludegraphics{textures/item/Queen_Statue.png}\quad\adjincludegraphics{textures/item/Bomb_Statue.png}\quad\adjincludegraphics{textures/item/Heart_Statue.png}\quad\adjincludegraphics{textures/item/Star_Statue.png}\quad\adjincludegraphics{textures/item/Mushroom_Statue.png}\quad\adjincludegraphics{textures/item/Bast_Statue.png}\quad\adjincludegraphics{textures/item/Boulder_Statue.png}
-    \end{tabular}
-  }%43
-  \\
-  \subfloat[八音盒]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Music_Box_(Overworld_Day).png}\quad\adjincludegraphics{textures/item/Music_Box_(Alt_Overworld_Day).png}\quad\adjincludegraphics{textures/item/Music_Box_(Night).png}\quad\adjincludegraphics{textures/item/Music_Box_(Rain).png}\quad\adjincludegraphics{textures/item/Music_Box_(Snow).png}\quad\adjincludegraphics{textures/item/Music_Box_(Ice).png}\quad\adjincludegraphics{textures/item/Music_Box_(Desert).png}\quad\adjincludegraphics{textures/item/Music_Box_(Ocean).png}\quad\adjincludegraphics{textures/item/Music_Box_(Space).png}\quad\adjincludegraphics{textures/item/Music_Box_(Underground).png}\\
-      \adjincludegraphics{textures/item/Music_Box_(Alt_Underground).png}\quad\adjincludegraphics{textures/item/Music_Box_(Mushrooms).png}\quad\adjincludegraphics{textures/item/Music_Box_(Jungle).png}\quad\adjincludegraphics{textures/item/Music_Box_(Corruption).png}\quad\adjincludegraphics{textures/item/Music_Box_(Underground_Corruption).png}\quad\adjincludegraphics{textures/item/Music_Box_(Crimson).png}\quad\adjincludegraphics{textures/item/Music_Box_(Underground_Crimson).png}\quad\adjincludegraphics{textures/item/Music_Box_(The_Hallow).png}\quad\adjincludegraphics{textures/item/Music_Box_(Underground_Hallow).png}\quad\adjincludegraphics{textures/item/Music_Box_(Hell).png}\\
-      \adjincludegraphics{textures/item/Music_Box_(Dungeon).png}\quad\adjincludegraphics{textures/item/Music_Box_(Temple).png}\quad\adjincludegraphics{textures/item/Music_Box_(Boss_1).png}\quad\adjincludegraphics{textures/item/Music_Box_(Boss_2).png}\quad\adjincludegraphics{textures/item/Music_Box_(Boss_3).png}\quad\adjincludegraphics{textures/item/Music_Box_(Boss_4).png}\quad\adjincludegraphics{textures/item/Music_Box_(Boss_5).png}\quad\adjincludegraphics{textures/item/Music_Box_(Plantera).png}\quad\adjincludegraphics{textures/item/Music_Box_(Eerie).png}\quad\adjincludegraphics{textures/item/Music_Box_(Eclipse).png}\\
-      \adjincludegraphics{textures/item/Music_Box_(Goblin_Invasion).png}\quad\adjincludegraphics{textures/item/Music_Box_(Pirate_Invasion).png}\quad\adjincludegraphics{textures/item/Music_Box_(Martian_Madness).png}\quad\adjincludegraphics{textures/item/Music_Box_(Pumpkin_Moon).png}\quad\adjincludegraphics{textures/item/Music_Box_(Frost_Moon).png}\quad\adjincludegraphics{textures/item/Music_Box_(The_Towers).png}\quad\adjincludegraphics{textures/item/Music_Box_(Lunar_Boss).png}\quad\adjincludegraphics{textures/item/Music_Box_(Sandstorm).png}\quad\adjincludegraphics{textures/item/Music_Box_(Old_Ones_Army).png}\quad\adjincludegraphics{textures/item/Music_Box_(Title).png}\\
-      \adjincludegraphics{textures/item/Music_Box_(Ocean_Night).png}\quad\adjincludegraphics{textures/item/Music_Box_(Slime_Rain).png}\quad\adjincludegraphics{textures/item/Music_Box_(Space_Day).png}\quad\adjincludegraphics{textures/item/Music_Box_(Town_Day).png}\quad\adjincludegraphics{textures/item/Music_Box_(Town_Night).png}\quad\adjincludegraphics{textures/item/Music_Box_(Windy_Day).png}\quad\adjincludegraphics{textures/item/Music_Box_(Day_Remix).png}\quad\adjincludegraphics{textures/item/Music_Box_(Journeys_End).png}\quad\adjincludegraphics{textures/item/Music_Box_(Storm).png}\quad\adjincludegraphics{textures/item/Music_Box_(Graveyard).png}\\
-      \adjincludegraphics{textures/item/Music_Box_(Underground_Jungle).png}\quad\adjincludegraphics{textures/item/Music_Box_(Jungle_Night).png}\quad\adjincludegraphics{textures/item/Music_Box_(Queen_Slime).png}\quad\adjincludegraphics{textures/item/Music_Box_(Empress_Of_Light).png}\quad\adjincludegraphics{textures/item/Music_Box_(Duke_Fishron).png}\quad\adjincludegraphics{textures/item/Music_Box_(Morning_Rain).png}\quad\adjincludegraphics{textures/item/Music_Box_(Alt_Title).png}\quad\adjincludegraphics{textures/item/Music_Box_(Underground_Desert).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Rain).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Overworld_Day).png}\\
-      \adjincludegraphics{textures/item/Otherworldly_Music_Box_(Night).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Underground).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Desert).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Ocean).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Mushrooms).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Dungeon).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Space).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Underworld).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Snow).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Corruption).png}\\
-      \adjincludegraphics{textures/item/Otherworldly_Music_Box_(Underground_Corruption).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Crimson).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Underground_Crimson).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Ice).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Underground_Hallow).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Eerie).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Boss_2).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Boss_1).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Invasion).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(The_Towers).png}\\
-      \adjincludegraphics{textures/item/Otherworldly_Music_Box_(Lunar_Boss).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Plantera).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Jungle).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Wall_Of_Flesh).png}\quad\adjincludegraphics{textures/item/Otherworldly_Music_Box_(Hallow).png}
-    \end{tabular}
-  }%85
-  \caption{其他电路物品}
-\end{figure}
-% \end{noindent}
-\end{comment}
-剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{雕像}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{喷泉}、\wiki{八音盒}、\wiki{烟囱}、\wiki{天塔柱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GolfCup}、\wiki{\Grate}。
+
+剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{雕像}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{烟囱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GolfCup}、\wiki{\Grate}。

@@ -1,0 +1,26 @@
+\section{\texttt{SceneMetrics.cs}}\label{src:SceneMetrics}
+
+\subsection{\texttt{SceneMetrics.ScanOnScreenTiles}}\label{src:ScanOnScreenTiles}
+这个函数主要用于检测类似于\wiki{天塔柱}这样的对附近一定范围有影响的图格。目前不确定这个范围是多少，但似乎是屏幕范围+上下左右各30格。在1.4.5版本之前，那些图格都是分开结算的，因此影响范围有区别，而1.4.5版本将它们都合并到了一个函数中，共享一个范围。受其影响的机制如下：
+
+\begin{longtable}{|ccc|}
+\hline
+图格ID & 名称              & 影响变量 \\\hline
+\endhead
+\hline
+\endfoot
+104    & \wiki{落地大摆钟} & \texttt{SceneMetrics.HasClock} \\
+139    & \wiki{八音盒}     & \texttt{SceneMetrics.ActiveMusicBox} \\
+207    & \wiki{喷泉}       & \texttt{SceneMetrics.ActiveFountainColor} \\
+410    & 四柱\wiki{天塔柱} & \texttt{SceneMetrics.ActiveMonolithType} \\
+480    & \wiki{血月天塔柱} & \texttt{SceneMetrics.BloodMoonMonolith} \\
+509    & \wiki{虚空天塔柱} & \texttt{SceneMetrics.ActiveMonolithType} \\
+657    & \wiki{回声腔}     & \texttt{SceneMetrics.EchoMonolith} \\
+658    & \wiki{以太天塔柱} & \texttt{SceneMetrics.ShimmerMonolithState} \\
+720    & \wiki{CRT天塔柱}  & \texttt{SceneMetrics.CRTMonolith} \\
+721    & \wiki{复古天塔柱} & \texttt{SceneMetrics.RetroMonolith} \\
+725    & \wiki{电影放映机} & \texttt{SceneMetrics.NoirMonolith} \\
+733    & \wiki{收音机}     & \texttt{SceneMetrics.RadioThingMonolith} \\
+\end{longtable}
+
+扫描顺序是从左到右、从上到下、列主序。当范围内有多个同类图格时，只有最后一个生效。受其影响的有八音盒、喷泉和(四柱+虚空天塔柱)。其他机制有独立的flag控制。
