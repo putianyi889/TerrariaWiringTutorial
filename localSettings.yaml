@@ -13,6 +13,9 @@ specialBeginEnd:
     begin: '\\path'
     body: [^;]*?
     end: ';'
+  literate:
+    begin: 'literate=%'
+    end: ','
   specialBeforeCommand: 1
 
 indentRulesGlobal:
@@ -27,7 +30,8 @@ indentRules:
   longtable: ""
   lstdefinestyle:
     mandatoryArguments: "  "
-  tikzPath: 
+  tikzPath: "  "
+  literate:
     body: "  "
   caption:
     body: ""
@@ -38,6 +42,7 @@ noAdditionalIndentGlobal:
 
 noAdditionalIndent:
   problem: 0
+  caption: 0
 
 lookForAlignDelims:
   tabular:
