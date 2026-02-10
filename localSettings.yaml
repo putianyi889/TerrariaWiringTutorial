@@ -13,7 +13,7 @@ specialBeginEnd:
     begin: '\\path'
     end: ';'
   lstDefineStyle:
-    begin: '\\lstdefinestyle\{.*\}\{'
+    begin: '\\lstdefinestyle\{latex\}\{'
     end: '\}'
   specialBeforeCommand: 1
 
