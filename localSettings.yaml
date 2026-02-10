@@ -11,25 +11,38 @@ replacements:
 specialBeginEnd:
   tikzPath:
     begin: '\\path'
+    body: [^;]*?
     end: ';'
+  literate:
+    begin: 'literate=%'
+    end: ','
   specialBeforeCommand: 1
 
 indentRulesGlobal:
   environments: "  "
   optionalArguments: "  "
   mandatoryArguments: "  "
-  commands: ""
+  commands: "  "
   UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
 
 indentRules:
   longtable: ""
+  lstdefinestyle:
+    mandatoryArguments: "  "
+  tikzPath: "  "
+  literate:
+    body: "  "
+  caption:
+    body: ""
+    mandatoryArguments: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
 
 noAdditionalIndent:
   problem: 0
+  caption: 0
 
 lookForAlignDelims:
   tabular:
@@ -47,8 +60,6 @@ lookForAlignDelims:
   longtable:
     dontMeasure: 1
     alignDoubleBackSlash: 0
-  tikzPath:
-    delimiterRegEx: ’(edge|node)’
   split:
     alignDoubleBackSlash: 0
 

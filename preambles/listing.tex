@@ -1,0 +1,75 @@
+\if\rendermode3
+  % ---------- Dark mode ----------
+  \definecolor{lst-bg}{HTML}{1E1E1E}
+  \definecolor{lst-text}{HTML}{D4D4D4}
+  \definecolor{lst-command}{HTML}{569CD6}
+  \definecolor{lst-env}{HTML}{4EC9B0}
+  \definecolor{lst-comment}{HTML}{6A9955}
+  \definecolor{lst-number}{HTML}{CE9178}
+  \definecolor{lst-bracket}{HTML}{C586C0}
+  \definecolor{lst-linenumber}{HTML}{858585}
+\else
+  % ---------- Light mode ----------
+  \definecolor{lst-bg}{HTML}{FFFFFF}
+  \definecolor{lst-text}{HTML}{2E3440}
+  \definecolor{lst-command}{HTML}{005CC5}
+  \definecolor{lst-env}{HTML}{22863A}
+  \definecolor{lst-comment}{HTML}{6A737D}
+  \definecolor{lst-number}{HTML}{B31D28}
+  \definecolor{lst-bracket}{HTML}{6F42C1}
+  \definecolor{lst-linenumber}{HTML}{9AA0A6}
+\fi
+
+\newcommand{\envBeginHighlight}[1]{\textcolor{lst-command}{\textbackslash{}begin}\textcolor{lst-bracket}{\{}\textcolor{lst-env}{#1}\textcolor{lst-bracket}{\}}}
+\newcommand{\envEndHighlight}[1]{\textcolor{lst-command}{\textbackslash{}end}\{\textcolor{lst-env}{#1}\}}
+\newcommand{\envLabel}[1]{\textcolor{lst-command}{\textbackslash{}label}\{\textcolor{lst-env}{#1}\}}
+
+\lstdefinestyle{latex}{
+  language=[LaTeX]TeX,
+  keepspaces=true,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  numbers=left,
+  numberstyle=\scriptsize,
+  commentstyle=\itshape\color{lst-comment},
+  alsoletter={\\},
+  backgroundcolor=\color{lst-bg},
+  % Commands
+  keywordstyle=\color{lst-command},
+  morekeywords={%
+    \\adjincludegraphics,
+    \\autoref,
+    \\caption,
+    \\centering,
+    \\draw,
+    \\label,
+    \\linewidth,
+    \\placeAndGate,
+    \\placeSevenSegment,
+    \\placetile,
+    \\placetileGroup,
+    \\placetiles,
+    \\protect,
+    \\smarthfill,
+    \\subfloat,
+    \\subref
+  },
+  moredelim=[is][\envBeginHighlight]{\\begin\{}{\}},
+  moredelim=[is][\envEndHighlight]{\\end\{}{\}},
+  literate=%
+    {0}{{{\color{lst-number}0}}}1
+    {1}{{{\color{lst-number}1}}}1
+    {2}{{{\color{lst-number}2}}}1
+    {3}{{{\color{lst-number}3}}}1
+    {4}{{{\color{lst-number}4}}}1
+    {5}{{{\color{lst-number}5}}}1
+    {6}{{{\color{lst-number}6}}}1
+    {7}{{{\color{lst-number}7}}}1
+    {8}{{{\color{lst-number}8}}}1
+    {9}{{{\color{lst-number}9}}}1
+    {[}{{\textcolor{lst-bracket}{[}}}1
+    {]}{{\textcolor{lst-bracket}{]}}}1
+    {(}{{\textcolor{lst-bracket}{(}}}1
+    {)}{{\textcolor{lst-bracket}{)}}}1,
+}
