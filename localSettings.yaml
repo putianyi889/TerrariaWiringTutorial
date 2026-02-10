@@ -29,14 +29,16 @@ indentRulesGlobal:
 indentRules:
   longtable: ""
   lstDefineStyle: "  "
-  tikzPath: "  "
+  tikzPath: 
+    body: "  "
+  caption:
+    body: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
 
 noAdditionalIndent:
   problem: 0
-  caption: 0
 
 lookForAlignDelims:
   tabular:
