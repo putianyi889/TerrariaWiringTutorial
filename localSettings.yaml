@@ -19,9 +19,8 @@ indentRulesGlobal:
   optionalArguments: "  "
   mandatoryArguments: "  "
   commands: ""
-  UnNamedGroupingBracesBrackets: ""
+  UnNamedGroupingBracesBrackets: "  "
   afterHeading: ""
-  keyEqualsValuesBracesBrackets: "  "
 
 indentRules:
   longtable: ""
@@ -29,11 +28,10 @@ indentRules:
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
-  lstdefinestyle: 0
-  keyEqualsValuesBracesBrackets: 0
 
 noAdditionalIndent:
   problem: 0
+  lstdefinestyle: 0
 
 lookForAlignDelims:
   tabular:
