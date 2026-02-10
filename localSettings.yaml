@@ -13,11 +13,7 @@ specialBeginEnd:
     begin: '\\path'
     body: [^;]*?
     end: ';'
-    specialBeforeCommand: 1
-  lstDefineStyle:
-    begin: '\\lstdefinestyle\{latex\}\{'
-    end: '\}'
-    specialBeforeCommand: 1
+  specialBeforeCommand: 1
 
 indentRulesGlobal:
   environments: "  "
@@ -29,7 +25,8 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
-  lstDefineStyle: "  "
+  lstdefinestyle:
+    mandatoryArguments: "  "
   tikzPath: 
     body: "  "
   caption:
