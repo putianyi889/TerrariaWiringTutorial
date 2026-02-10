@@ -20,11 +20,6 @@
   \definecolor{lst-linenumber}{HTML}{9AA0A6}
 \fi
 
-\def\beginlstdelim#1#2#3%
-{%
-    \def\endlstdelim{#2\egroup}%
-    \ttfamily#1\bgroup\color{#3}\aftergroup\endlstdelim%
-}
 \newcommand{\envBeginHighlight}[1]{\textcolor{lst-command}{\textbackslash{}begin}\textcolor{lst-bracket}{\{}\textcolor{lst-env}{#1}\textcolor{lst-bracket}{\}}}
 \newcommand{\envEndHighlight}[1]{\textcolor{lst-command}{\textbackslash{}end}\{\textcolor{lst-env}{#1}\}}
 \newcommand{\envLabel}[1]{\textcolor{lst-command}{\textbackslash{}label}\{\textcolor{lst-env}{#1}\}}
@@ -60,11 +55,8 @@
     \\subfloat,
     \\subref
   },
-  % Environment names via delimiters
   moredelim=[is][\envBeginHighlight]{\\begin\{}{\}},
   moredelim=[is][\envEndHighlight]{\\end\{}{\}},
-  %moredelim=[is][\beginlstdelim{\textbackslash{}label\{}{\}}{lst-env}]{\\label\{}{\}},
-  %moredelim=**[][\color{lst-bracket}]{\{}{\}},
   literate=%
    *{0}{{{\color{lst-number}0}}}1
     {1}{{{\color{lst-number}1}}}1

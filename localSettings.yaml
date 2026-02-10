@@ -28,6 +28,7 @@ indentRules:
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
+  lstdefinestyle: 0
 
 noAdditionalIndent:
   problem: 0
