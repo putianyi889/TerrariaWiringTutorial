@@ -19,7 +19,7 @@ indentRulesGlobal:
   optionalArguments: "  "
   mandatoryArguments: "  "
   commands: ""
-  UnNamedGroupingBracesBrackets: "  "
+  UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
 
 indentRules:
@@ -31,7 +31,9 @@ noAdditionalIndentGlobal:
 
 noAdditionalIndent:
   problem: 0
-  lstdefinestyle: 0
+  lstdefinestyle:
+    body: 0
+    mandatoryArguments: 0
 
 lookForAlignDelims:
   tabular:
