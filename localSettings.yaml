@@ -13,8 +13,8 @@ specialBeginEnd:
     begin: '\\path'
     end: ';'
   lstDefineStyle:
-    begin: '\\lstdefinestyle{.*}{'
-    end: '}'
+    begin: '\\lstdefinestyle\{.*\}\{'
+    end: '\}'
   specialBeforeCommand: 1
 
 indentRulesGlobal:
