@@ -9,10 +9,6 @@ replacements:
     when: after
 
 specialBeginEnd:
-  tikzPath:
-    begin: '\\path'
-    end: ';'
-    specialBeforeCommand: 1
   lstDefineStyle:
     begin: '\\lstdefinestyle\{latex\}\{'
     end: '\}'
@@ -29,7 +25,7 @@ indentRulesGlobal:
 indentRules:
   longtable: ""
   lstDefineStyle: "  "
-  tikzPath: 
+  path: 
     body: "  "
   caption:
     body: ""
