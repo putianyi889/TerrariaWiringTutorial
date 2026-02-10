@@ -24,6 +24,7 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
+  lstdefinestyle: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
