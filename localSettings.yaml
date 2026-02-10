@@ -32,7 +32,8 @@ indentRules:
   tikzPath: 
     body: "  "
   caption:
-    body: "  "
+    body: ""
+    mandatoryArguments: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
