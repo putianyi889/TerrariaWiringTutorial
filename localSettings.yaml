@@ -30,13 +30,13 @@ indentRules:
   longtable: ""
   lstDefineStyle: "  "
   tikzPath: "  "
-  caption: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
 
 noAdditionalIndent:
   problem: 0
+  caption: 0
 
 lookForAlignDelims:
   tabular:
