@@ -12,7 +12,11 @@ specialBeginEnd:
   tikzPath:
     begin: '\\path'
     end: ';'
-  specialBeforeCommand: 1
+    specialBeforeCommand: 1
+  lstDefineStyle:
+    begin: '\\lstdefinestyle\{latex\}\{'
+    end: '\}'
+    specialBeforeCommand: 0
 
 indentRulesGlobal:
   environments: "  "
@@ -24,6 +28,7 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
+  lstDefineStyle: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
