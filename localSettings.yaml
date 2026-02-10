@@ -12,6 +12,9 @@ specialBeginEnd:
   tikzPath:
     begin: '\\path'
     end: ';'
+  lstDefineStyle:
+    begin: '\\lstdefinestyle{.*}{'
+    end: '}'
   specialBeforeCommand: 1
 
 indentRulesGlobal:
@@ -24,16 +27,13 @@ indentRulesGlobal:
 
 indentRules:
   longtable: ""
-  lstdefinestyle: "  "
+  lstDefineStyle: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
 
 noAdditionalIndent:
   problem: 0
-  lstdefinestyle:
-    body: 0
-    mandatoryArguments: 0
 
 lookForAlignDelims:
   tabular:
