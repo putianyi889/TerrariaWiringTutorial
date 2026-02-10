@@ -13,9 +13,11 @@ specialBeginEnd:
     begin: '\\path'
     body: [^;]*?
     end: ';'
+    specialBeforeCommand: 1
   lstDefineStyle:
     begin: '\\lstdefinestyle\{latex\}\{'
     end: '\}'
+    specialBeforeCommand: 1
 
 indentRulesGlobal:
   environments: "  "
