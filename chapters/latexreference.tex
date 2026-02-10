@@ -1,25 +1,108 @@
 \chapter{文档开发引导}
 
-本文档使用\LaTeX 编写，在TeXLive 2022环境下编译。为了便于开发，文档导言区定义了一些命令与变量，本附录即为这些功能的文档。
+本文档使用\LaTeX 编写，在TeXLive 2025环境下编译。为了便于开发，文档导言区定义了一些命令与变量，本附录即为这些功能的文档。当然，可以直接在已有的代码中查看示例。
 
 \section{三种排版主题}
 
 本文档支持三种排版主题。优先保证电子版外观。
 
 \begin{itemize}
-  \item 打印版的文本内容最多。打印版不能用文本搜索功能，所以添加了索引；打印版不能点击超链接，所以链接均为明文。打印版的排版是针对双面打印的，页边距较宽，奇偶页边距不同。打印版通过编译\trvar{TerrariaWiringTutorial\_printed.tex}生成。
-  \item 电子版用于在电子屏幕上浏览。电子版的超链接地址全部隐藏用于节省空间，网站logo尽量采用小图标，页边距较窄，上下页边距极窄，便于电脑/手机浏览。电子版通过编译\trvar{TerrariaWiringTutorial\_onscreen.tex}生成。
-  \item 夜间模式是暗色主题的电子版，用于在低亮度环境下浏览。夜间模式通过编译\trvar{TerrariaWiringTutorial\_nightmode.tex}生成。
+  \item 打印版的文本内容最多。打印版不能用文本搜索功能，所以在末尾添加了索引；打印版不能点击超链接，所以链接均为明文。打印版的排版是针对双面打印的，页边距较宽，奇偶页边距不同。打印版通过编译\path{TerrariaWiringTutorial_printed.tex}生成。对于需要索引的关键词，用
+  \item 电子版用于在电子屏幕上浏览。电子版的超链接地址全部隐藏用于节省空间，网站logo尽量采用小图标，页边距较窄，上下页边距极窄，便于电脑/手机浏览。电子版通过编译\path{TerrariaWiringTutorial_onscreen.tex}生成。
+  \item 夜间模式是暗色主题的电子版，用于在低亮度环境下浏览。夜间模式通过编译\path{TerrariaWiringTutorial_nightmode.tex}生成。
 \end{itemize}
 
-\section{格式标准}
+\section{表格}
+小型表格直接用\lstinline{tabular}环境。大型表格用\lstinline{longtable}宏包提供的同名环境。一个单元格内的换行，可以使用\lstinline{makecell}提供的同名命令。
 
-\subsection{插图}
-插图使用\lstinline{adjustbox}宏包的\lstinline{\adjincludegraphics}
+\section{插图}
+
+\subsection{游戏截图}
+自制png/jpg插图放在\path{figures/}目录下。建议使用\lstinline{adjustbox}宏包的\lstinline{\adjincludegraphics}。如果是游戏内截图，建议用\wiki{夜明涂料}为图格打光，同时用\wiki{暗影漆}墙作为背景。截图建议保存为png格式并抠成透明背景。
+
+\subsection{插图排版}
+对于一行内多个插图，可以使用\lstinline|\smarthfill[每格大小，默认8pt]{插图总宽度，单位为格}[插图数量，默认为2]|调节间距。这个命令可以根据不同的页面宽度调整间距，使得间距均匀且至少2pt，至多2em。
+
+\subsection{指令绘制}
+可以用TikZ宏包直接绘制插图。关于TikZ的资料，互联网上非常丰富，AI也略知一二。这里介绍我们专门为\termTR 绘图创建的命令
+\begin{itemize}
+  \item \lstinline|\placetile{图格名称}{x}{y}|：以\lstinline{(x,y)}为中心绘制一个大小为$1\times 1$的图格。图格名称即为\path{textures/tile/}目录下的文件名（不包含后缀）。例如\lstinline|\placetile{Torch_On}{1}{1}|。
+  \item \lstinline|\placetiles{图格名称}{x1/y1,x2/y2,...}|：在很多位置绘制同一个图格。例如\lstinline|\placetiles{Torch_Off}{1/1,2/2,3/3}|。
+  \item \lstinline|\placetileGroupN{图格名称}{x}{y}|：绘制尺寸大于$1\times 1$的图格。\lstinline{N}为宽度，\lstinline{(x,y)}为左下角图格的中心。例如\lstinline|\placetileGroup2{Chest}{1}{1}|。
+  \item \lstinline|\placeAndGate[灯数]{灯的状态}{门x}{门y}|：绘制一个与门。灯数是可选参数，若不提供则由灯的状态推断。灯的状态是01串，从上到下。例如\lstinline|\placeAndGate{110}{1}{2}|。
+  \item \lstinline|\placeSevenSegment{七段线状态}|：以\lstinline{(1,1)}为左下角图格中心绘制一个火把七段线。每根线长度为2。七段线状态是01串，顺序是顶-左上-右上-中-左下-右下-底。例如显示4：\lstinline|\placeSevenSegment{0111010}|。
+\end{itemize}
+
+\subsection{示例}
+
+\begin{lstlisting}[style=latex]
+\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \placetile{Torch_On}{1}{1}
+  \placetile{Torch_Off}{3}{2}
+  \draw[red] (1,1) -- (3,2);
+\end{tikzpicture}%
+\smarthfill{16}[4]%
+\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \placetiles{Switch_Flat_Off}{1/1,2/1,2/2}
+  \draw[blue] (0.5,0.5) rectangle (2.5,2.5);
+\end{tikzpicture}%
+\smarthfill{16}[4]%
+\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \placetileGroup2{Gold_Chest}{1}{1}
+  \placetileGroup3{Extractinator}{3}{2}
+  \draw[xshift=12pt, yshift=12pt] (0,0) grid[step=1] (5,4);
+\end{tikzpicture}%
+\smarthfill{16}[4]%
+\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \placeAndGate{1101}{1}{1}
+  \placeAndGate{1111}{2}{1}
+  \begin{scope}[xshift=32pt,yshift=-48pt]
+    \placeSevenSegment{0111010}
+  \end{scope}
+\end{tikzpicture}
+\end{lstlisting}
+\begin{center}
+  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \placetile{Torch_On}{1}{1}
+    \placetile{Torch_Off}{3}{2}
+    \draw[red] (1,1) -- (3,2);
+  \end{tikzpictureC}%
+  \smarthfill{16}[4]%
+  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \placetiles{Switch_Flat_Off}{1/1,2/1,2/2}
+    \draw[blue] (0.5,0.5) rectangle (2.5,2.5);
+  \end{tikzpictureC}%
+  \smarthfill{16}[4]%
+  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \placetileGroup2{Gold_Chest}{1}{1}
+    \placetileGroup3{Extractinator}{3}{2}
+    \draw[xshift=12pt, yshift=12pt] (0,0) grid[step=1] (5,4);
+  \end{tikzpictureC}%
+  \smarthfill{16}[4]%
+  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \placeAndGate{1101}{1}{1}
+    \placeAndGate{1111}{2}{1}
+    \begin{scope}[xshift=32pt,yshift=-48pt]
+      \placeSevenSegment{0111010}
+    \end{scope}
+  \end{tikzpictureC}
+\end{center}
+
+\section{链接}
+\begin{itemize}
+  \item \lstinline|\wiki[页面的实际名称，默认为显示名称]{显示名称}|：到\termTR 中文维基的链接
+  \item \lstinline|\bilibili[#1，默认为video]{#2}|：生成链接\url{https://www.bilibili.com/#1/#2}
+  \item \lstinline|\youtube{#1}|：生成链接\url{https://www.youtu.be/#1}
+  \item \lstinline|\trforum[#1，默认为threads]{#2}|：生成链接\url{https://forums.terraria.org/index.php?#1/#2}
+  \item \lstinline|\tieba{#1}|：生成链接\url{https://tieba.baidu.com/p/#1}
+  \item \lstinline|\bbstr[#1，默认为t]{#2}|：生成链接\url{https://www.bbstr.net/#1/#2}
+  \item \lstinline|\github{#1}|：生成链接\url{https://github.com/#1}
+  \item \lstinline|\youku{#1}|：生成链接\url{https://v.youku.com/v_show/id_#1}
+\end{itemize}
 
 \section{预设颜色}
 
-预设颜色定义在\trvar{preambles/skin.tex}中。
+预设颜色定义在\path{preambles/skin.tex}中。
 
 \begin{longtable}{|c|c|}
 \hline

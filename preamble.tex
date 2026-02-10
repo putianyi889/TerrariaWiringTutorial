@@ -28,6 +28,8 @@
 }
 \makeatother
 
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+
 \ifcase\rendermode
 \or % 1
   \usepackage[a4paper, left=2cm, right=2cm, top=0.5cm, bottom=0.5cm]{geometry}
@@ -49,12 +51,12 @@
   \def\myind#1{#1}
 }
 
-\if\rendermode1
-  \NewDocumentCommand{\myind}{m}{#1}
-\else
+\if\rendermode2
   \usepackage{imakeidx}
   \makeindex
   \NewDocumentCommand{\myind}{m}{#1\index{#1}}
+\else
+  \NewDocumentCommand{\myind}{m}{#1}
 \fi
 
 \usepackage{seqsplit}
@@ -65,6 +67,7 @@
 \input{preambles/envs}
 \input{preambles/temps}
 \input{preambles/terms}
+\input{preambles/listing}
 
 \renewcommand{\figureautorefname}{图}
 \renewcommand{\tableautorefname}{表}

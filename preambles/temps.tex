@@ -61,17 +61,9 @@
 \setlength{\tiledim}{8pt}
 \NewDocumentCommand{\smarthfill}{O{\tiledim}mO{2}}{\hspace{\calchspace{#1*#2}{#3}}}
 
-%\if\rendermode1
-%  \NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
-%\else\if\rendermode2
-%\else\if\rendermode3
-%  \NewDocumentCommand{\twoobjects}{mmmm}{#1\hspace{\calchspace{\tiledim*(#2+#4)}{1}}#3}
-%\fi\fi\fi
-
 % 绘图
 \usepackage{bitset}
 \usepackage{xstring}
-\usepgfmodule{parser}
 
 \newcommand{\placetile}[3]{%
   \node at (16pt*#2,16pt*#3) {\includegraphics[width=16pt]{textures/tile/#1.png}};
@@ -91,21 +83,21 @@
 
 \newcommandAutoForward{\placeSevenSegment}[1]{
   \bitsetSetBin{sevenSeg}{#1}
-  \bitsetQuery{sevenSeg}{0}{
+  \bitsetQuery{sevenSeg}{6}{
     \placetile{Torch_On}{2}{7}
     \placetile{Torch_On}{3}{7}
   }{
     \placetile{Torch_Off}{2}{7}
     \placetile{Torch_Off}{3}{7}
   }
-  \bitsetQuery{sevenSeg}{1}{
+  \bitsetQuery{sevenSeg}{5}{
     \placetile{Torch_On}{1}{6}
     \placetile{Torch_On}{1}{5}
   }{
     \placetile{Torch_Off}{1}{6}
     \placetile{Torch_Off}{1}{5}
   }
-  \bitsetQuery{sevenSeg}{2}{
+  \bitsetQuery{sevenSeg}{4}{
     \placetile{Torch_On}{4}{6}
     \placetile{Torch_On}{4}{5}
   }{
@@ -119,21 +111,21 @@
     \placetile{Torch_Off}{2}{4}
     \placetile{Torch_Off}{3}{4}
   }
-  \bitsetQuery{sevenSeg}{4}{
+  \bitsetQuery{sevenSeg}{2}{
     \placetile{Torch_On}{1}{3}
     \placetile{Torch_On}{1}{2}
   }{
     \placetile{Torch_Off}{1}{3}
     \placetile{Torch_Off}{1}{2}
   }
-  \bitsetQuery{sevenSeg}{5}{
+  \bitsetQuery{sevenSeg}{1}{
     \placetile{Torch_On}{4}{3}
     \placetile{Torch_On}{4}{2}
   }{
     \placetile{Torch_Off}{4}{3}
     \placetile{Torch_Off}{4}{2}
   }
-  \bitsetQuery{sevenSeg}{6}{
+  \bitsetQuery{sevenSeg}{0}{
     \placetile{Torch_On}{2}{1}
     \placetile{Torch_On}{3}{1}
   }{

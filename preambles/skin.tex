@@ -39,12 +39,15 @@
 \definecolor{yellowwiredark}{RGB}{172, 153, 2}
 
 \if\rendermode3
-  \color{gray}
+  \color{lightgray}
   \pagecolor{black}
+
   \definecolor{thmcolback}{named}{black}
+  \definecolor{thmcoltext}{named}{lightgray}
+
   \definecolor{vipcolback}{named}{black}
-  \definecolor{thmcoltext}{named}{gray}
-  \definecolor{vipcoltext}{named}{gray}
+  \definecolor{vipcoltext}{named}{lightgray}
+
   \definecolor{redcolframe}{named}{redwiredarkborder}
   \definecolor{bluecolframe}{named}{bluewiredarkborder}
   \definecolor{greencolframe}{named}{greenwiredarkborder}
@@ -52,8 +55,10 @@
 \else
   \definecolor{thmcolback}{named}{white}
   \definecolor{vipcolback}{named}{white}
+
   \definecolor{thmcoltext}{named}{black}
   \definecolor{vipcoltext}{named}{black}
+
   \definecolor{redcolframe}{named}{redwiremiddle}
   \definecolor{bluecolframe}{named}{bluewiremiddle}
   \definecolor{greencolframe}{named}{greenwiremiddle}
