@@ -29,6 +29,8 @@ indentRulesGlobal:
 indentRules:
   longtable: ""
   lstDefineStyle: "  "
+  tikzPath: "  "
+  caption: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
