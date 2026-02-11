@@ -1,0 +1,23 @@
+\section{\texttt{NPC.cs}}\label{src:NPC}
+
+\subsection{\texttt{NPC.MechSpawn}}\label{src:NPCMechSpawn}
+函数接收三个参数，前两个是坐标，第三个是NPCID。函数检查当前位置的雕像是否可以生成某NPC。如果可以，返回true，否则返回false。
+
+对当前位置周围的冲突NPC计数，一般情况下仅计同ID的NPC，但是有如下例外情况：
+\begin{itemize}
+  \item 三种\wiki{鸟}(74, 297, 298)计作同一种。
+  \item 四种\wiki{兔兔}(46, 303, 337, 540)计作同一种。
+  \item 两种\wiki{鸭}(362, 364)计作同一种，同时也统计其飞行形态(363, 365)。
+  \item \wiki{海鸥}(602)也统计其飞行形态(603)。
+  \item \wiki{䴙䴘}(608)也统计其飞行形态(609)。
+  \item \wiki{龟}(616)和\wiki{丛林龟}(617)计作同一种。
+  \item \wiki{金鱼}(55)也统计其行走形态(230)。
+  \item 七种\wiki{蜻蜓}(595-601)计作同一种。
+\end{itemize}
+
+计数结果需要同时满足三个条件才能返回true，否则返回false。
+\begin{itemize}
+  \item 直线距离小于200像素的小于3个。
+  \item 直线距离小于600像素的小于6个。
+  \item 全图小于10个。
+\end{itemize}

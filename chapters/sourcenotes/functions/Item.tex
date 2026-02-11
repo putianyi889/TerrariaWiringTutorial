@@ -1,0 +1,11 @@
+\section{\texttt{Item.cs}}\label{src:Item}
+
+\subsection{\texttt{Item.MechSpawn}}\label{src:ItemMechSpawn}
+函数接收三个参数，前两个是坐标，第三个是物品ID。函数检查当前位置的雕像是否可以生成某物品。如果可以，返回true，否则返回false。
+
+对当前位置周围的同ID物品计数，计数结果需要同时满足三个条件才能返回true，否则返回false。
+\begin{itemize}
+  \item 直线距离小于300像素的小于3个。
+  \item 直线距离小于800像素的小于6个。
+  \item 全图小于10个。
+\end{itemize}
