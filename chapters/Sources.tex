@@ -164,7 +164,7 @@
 
 引爆器可以放在几乎所有平坦表面上。与控制杆不同的是，引爆器不是悬挂家具，所以不能放在砧上。
 
-\section{宝箱/陷阱箱/\DeadMansChest}\label{sec:TrappedChest}\label{sec:DeadMansChest}
+\section{宝箱/陷阱箱/\DeadMansChest}\label{sec:TrappedChest}\label{sec:DeadMansChest}\label{sec:chest}
 
 宝箱是用电器，被激活时会自动拾取周围的掉落物。拾取范围是以宝箱为中心，边长为192像素（12格）的正方形。拾取判定是掉落物碰撞箱与该范围接触。冷却时间60帧。\hyperref[tab:ItemsThatShouldNotBeInInventory]{不可储存物品}不可被拾取。上锁的宝箱不会触发拾取。这里的宝箱仅对应图格ID 21和467，因此包括\DeadMansChest、\wiki{桶}、\wiki{垃圾桶}，不包括陷阱箱、\wiki{梳妆台}、猪猪存钱罐、保险箱、护卫熔炉、虚空保险库。
 
@@ -258,12 +258,121 @@
 
 不使用电路开关门时，门会做为电源激活。如果在设置里打开自动开关门，那么门可以起到玩家感应器的作用。
 
+\section{雕像}
+
+\subsection{NPC雕像}\label{sec:npcstatue}
+\begin{longtable}{|cc|cc|}
+\hline
+亚ID & 雕像         & NPCID       & NPC \\\hline
+\endhead
+\hline
+\endfoot
+5    & 哥布林       & 73          & \wiki{哥布林侦察兵} \\
+13   & 小鬼         & 24          & \wiki{火焰小鬼} \\
+30   & 腐化         & 6           & \wiki{噬魂怪} \\
+35   & 魔眼         & 2           & \wiki{恶魔眼} \\
+51   & 松鼠         & 299,538     & \wiki{松鼠} \\
+52   & 蝴蝶         & 356         & \wiki{蝴蝶}(不含金蝴蝶和地狱蝴蝶) \\
+53   & 蠕虫         & 357         & \wiki{蠕虫} \\
+54   & 萤火虫       & 355,358     & \wiki{萤火虫}、\wiki{荧光虫} \\
+55   & 蝎子         & 366,367     & \wiki{蝎子} \\
+56   & 蜗牛         & 359,360     & \wiki{蜗牛}(4/5)、\wiki{发光蜗牛}(1/5) \\
+57   & 蚱蜢         & 377         & \wiki{蚱蜢} \\
+58   & 老鼠         & 300         & \wiki{老鼠} \\
+59   & 鸭           & 362,364     & \wiki{鸭} \\
+60   & 企鹅         & 148         & \wiki{企鹅} \\
+61   & 青蛙         & 361         & \wiki{青蛙} \\
+62   & 蚜虫         & 485-487     & \wiki{蛆虫}、\wiki{鼻涕虫}、\wiki{蚜虫} \\
+63   & 爬墙蜘蛛     & 164         & \wiki{爬墙蜘蛛} \\
+64   & 独角兽       & 86          & \wiki{独角兽} \\
+65   & 滴滴怪       & 490         & \wiki{滴滴怪} \\
+66   & 幻灵         & 82          & \wiki{幻灵} \\
+67   & 骨头骷髅     & 449         & \wiki{骨头投掷骷髅} \\
+68   & 亡灵维京海盗 & 167         & \wiki{亡灵维京海盗} \\
+69   & 蛇发女妖     & 480         & \wiki{蛇发女妖} \\
+70   & 鸟妖         & 48          & \wiki{鸟妖} \\
+71   & 猪龙         & 170,171,180 & \wiki{猪龙} \\
+72   & 装甲步兵     & 481         & \wiki{装甲步兵} \\
+73   & 花岗岩巨人   & 482         & \wiki{花岗岩巨人} \\
+74   & 武装僵尸     & 430         & \wiki{武装僵尸} \\
+75   & 血腥僵尸     & 489         & \wiki{血腥僵尸} \\
+76   & 猫头鹰       & 611         & \wiki{猫头鹰} \\
+77   & 海鸥         & 602         & \wiki{海鸥} \\
+78   & 蜻蜓         & 595-600     & \wiki{蜻蜓}(金蜻蜓除外) \\
+79   & 龟           & 616,617     & \wiki{龟}、\wiki{丛林龟} \\
+80   & 金刚鹦鹉     & 671,672     & \wiki{金刚鹦鹉} \\
+81   & 巨嘴鸟       & 673         & \wiki{巨嘴鸟} \\
+82   & 玄凤鹦鹉     & 674,675     & \wiki{玄凤鹦鹉} \\
+4    & 史莱姆       & 1           & \wiki{蓝史莱姆} \\
+7    & 蝙蝠         & 49          & \wiki{洞穴蝙蝠} \\
+8    & 金鱼         & 55          & \wiki{金鱼} \\
+9    & 兔兔         & 46,540      & \wiki{兔兔} \\
+10   & 骷髅         & 21          & \wiki{骷髅} \\
+16   & 黄蜂         & 42          & \wiki{黄蜂} \\
+18   & 螃蟹         & 67          & \wiki{螃蟹} \\
+23   & 水母         & 63          & \wiki{蓝水母} \\
+27   & 宝箱         & 85          & \wiki{宝箱怪} \\
+28   & 鸟           & 74,297,298  & \wiki{鸟} \\
+42   & 食人鱼       & 58          & \wiki{食人鱼} \\
+50   & 鲨鱼         & 65          & \wiki{鲨鱼} \\
+\end{longtable}
+注：第一列的顺序是依照源码中出现的顺序安排的。
+
+\paragraph{生成概率}可以生成多种NPC的雕像，生成NPC的概率是均等的，蜗牛雕像除外（蜗牛4/5，发光蜗牛1/5）。兔兔雕像在派对期间生成派对兔兔，其他时候生成普通兔兔，不会生成史莱姆兔兔或圣诞兔兔。
+
+\paragraph{空间限制}体积较大的NPC，即黄蜂、鲨鱼、独角兽和猪龙，要求足够的空间，否则生成失败。注意其他雕像不会做空间检查，所以用作弊手段使生成空间小于$2\times 3$也依然可以正常生成。
+
+\paragraph{数量限制}生成NPC前会检查附近同NPC的数量，以雕像底端中点为圆心，直线距离200像素内不得达到3个，600像素内不得达到6个，全图不得达到10个，否则生成失败。自然生成的NPC也参与计数。同一个雕像可以生成多种NPC时，有如下的三种情况：
+\begin{itemize}
+  \item 多种NPC共享一个计数器，即它们的总数达到上限后全部无法生成。这类包含鸭雕像、蜻蜓雕像、兔兔雕像、鸟雕像。注意兔兔雕像虽然不生成史莱姆兔兔或圣诞兔兔，但是会对它们计数。
+  \item 多种NPC有独立的计数器，一种达到上限后其他的可以正常生成，直到全部达到上限。注意雕像是先选择NPC再检查数量，所以这种情况下雕像有概率生成失败。这类包含松鼠雕像、萤火虫雕像、蝎子雕像、蜗牛雕像、蚜虫雕像、猪龙雕像、龟雕像、金刚鹦鹉雕像、玄凤鹦鹉雕像。
+  \item 一个特殊例外是爬墙蜘蛛。爬墙蜘蛛有两个不同形态，ID分别为164和165，这两个形态是分别计数的，有一个达到上限即生成失败。
+\end{itemize}
+
+\paragraph{频率限制}生成冷却30帧，生成失败也进入冷却。
+
+\subsection{物品雕像}\label{sec:itemstatue}
+\begin{center}
+  \adjincludegraphics{textures/item/Heart_Statue.png}
+  \adjincludegraphics{textures/item/Star_Statue.png}
+  \adjincludegraphics{textures/item/Bomb_Statue.png}
+\end{center}
+
+物品雕像和NPC雕像的机制基本一致，有如下区别：
+\begin{itemize}
+  \item 物品雕像的冷却是600帧。
+  \item 数量限制3个和6个对应的距离分别是300像素和800像素。
+  \item 红心和星星都有万圣节和圣诞节的变体，计数规则和爬墙蜘蛛一样，分别计数，有一个变体达到上限即生成失败。
+\end{itemize}
+另外需要注意，红心和星星生成时会自动转换为节日变体。炸弹会自动堆叠，每一堆只算作一个。
+
+\subsection{国王雕像和女王雕像}
+\begin{center}
+  \adjincludegraphics{textures/item/King_Statue.png}
+  \adjincludegraphics{textures/item/Queen_Statue.png}
+\end{center}
+
+这两个雕像冷却都是300帧。被激活时分别传送男NPC和女NPC到雕像位置。
+\paragraph{男NPC列表}商人(17)、军火商(19)、向导(22)、爆破专家(38)、服装商(54)、哥布林工匠(107)、巫师(108)、圣诞老人(142)、松露人(160)、染料商(207)、机器侠(209)、油漆工(227)、巫医(228)、海盗(229)、旅商(368)、渔夫(369)、税收官(441)、酒馆老板(550)、高尔夫球手(588)
+\paragraph{女NPC列表}护士(18)、树妖(20)、机械师(124)、蒸汽朋克人(178)、派对女孩(208)、发型师(353)、动物学家(633)、公主(663)
+\paragraph{选取规则}在世界中所有满足性别的NPC中随机选取。注意随机的对象是NPC个体而不是NPC种类，所以如果用作弊手段使同种NPC数量超过1个，则传送该种NPC概率会相应增加。如果满足性别的NPC数量超过50个，则仅取在NPC列表中排位靠前的50个。
+
+\subsection{其他雕像}
+\begin{center}
+  \adjincludegraphics{textures/item/Boulder_Statue.png}
+  \adjincludegraphics{textures/item/Mushroom_Statue.png}
+\end{center}
+
+滚石雕像冷却900帧。蘑菇雕像是双状态切换的用电器，无冷却时间。
+
+\begin{remark}{}{}
+  NPC雕像和物品雕像的数量限制参考\nameref{src:NPCMechSpawn}和\nameref{src:ItemMechSpawn}。
+\end{remark}
+
 \section{造雾机}
-\begin{figure}[!ht]
-  \centering
+\begin{center}
   \adjincludegraphics{textures/item/Fog_Machine.png}
-  \caption{造雾机}
-\end{figure}
+\end{center}
 造雾机是用电器，被激活时开/关切换。造雾机打开时会在一个狭长的横向区域生成白色的动态云雾。这个云雾必须要在设置-视频中打开溅血效果才可见。在设置-视频中将\wiki{照明模式}调为“颜色”可以让云雾更明显。
 
 \section{\myind{八音盒}/\myind{喷泉}/\myind{天塔柱}}
@@ -277,7 +386,7 @@
   参见\nameref{src:ScanOnScreenTiles}。
 \end{remark}
 
-\section{马桶}
+\section{马桶}\label{sec:toilet}
 \begin{figure}[!ht]
   \centering
   \adjincludegraphics{textures/item/Terra_Toilet.png}\quad\adjincludegraphics{textures/item/Diamond_Toilet.png}
@@ -290,13 +399,13 @@
   \caption{很多马桶连上驱动后的场景。图片来源：\protect\vip{yfd}}\label{fig75}
 \end{figure}
 
-\section{提炼机/叶绿提炼机}
+\section{提炼机}\label{sec:extractinator}
 \begin{center}
   \adjincludegraphics[scale=1.5]{textures/item/Extractinator.png}\qquad
   \adjincludegraphics[scale=1.5]{textures/item/Chlorophyte_Extractinator.png}
 \end{center}
 
-\myind{提炼机}和\myind{叶绿提炼机}（以下统称提炼机）在被激活时可以提炼周围宝箱中的物品，冷却时间60帧。提炼机大小$3\times 3$。首先在提炼机左和上2格，右和下3格，共$8\times 8$格内寻找宝箱的\emph{左上角}\footnote{参见\nameref{src:Chest}}。寻找规则如下：
+\myind{提炼机}和\myind{叶绿提炼机}统称提炼机，在被激活时可以提炼周围宝箱中的物品，冷却时间60帧。提炼机大小$3\times 3$。首先在提炼机左和上2格，右和下3格，共$8\times 8$格内寻找宝箱的\emph{左上角}\footnote{参见\nameref{src:Chest}}。寻找规则如下：
 \begin{itemize}
   \item 忽略上锁的宝箱。
   \item 按列从左到右扫描图格，每列从上到下。以第一个满足条件的为准。注意是宝箱的左上角图格而不是宝箱整体。
@@ -389,7 +498,7 @@
 
 地雷被激活时爆炸。与炸药的区别是地雷不破坏图格，伤害也更低。另一方面，地雷被玩家或NPC踩踏时也会爆炸，这使得引爆地雷可以不用电线，因此可以通过刷漆使地雷完全不可见。
 
-\section{炮台}
+\section{炮台}\label{sec:cannon}
 \begin{figure}[!ht]
   \centering
   \subfloat[大炮]{\adjincludegraphics{textures/item/Cannon.png}}\qquad
@@ -642,4 +751,4 @@
 
 \section{其他电路物品}
 
-剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{雕像}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{烟囱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GolfCup}、\wiki{\Grate}。
+剩余的电路物品在wiki之外的信息相当少，因此不专门介绍。它们是：\wiki{宝石锁}、\wiki{烟花喷泉}、\wiki{烟花盒}、\wiki{泡泡机}、\wiki{呆萌气球机}、\wiki{派对中心}、\wiki{烟囱}、\wiki{广播盒}、\wiki{制动器}、\wiki{传送带}、\wiki{彩线灯泡}、\wiki{增速轨道}、\wiki{\GolfCup}、\wiki{\Grate}。
