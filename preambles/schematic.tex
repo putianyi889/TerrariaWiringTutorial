@@ -1,0 +1,111 @@
+\usepackage{graphicx}
+\usepackage{bitset}
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usetikzlibrary{fill.image}
+
+\newcommand{\SolidTile}{Smooth_Marble_Block}
+\newcommand{\PlatformPlain}{Stone_Platform}
+\newcommand{\PlatformLava}{Stone_Platform}
+
+\tikzset{
+  water/.style = {opacity=0.2, blue},
+  solid tile/.style = {
+    thick,
+    rounded corners=2pt,
+    fill tile image*={width=16pt}{\TexturePath\SolidTile_C.png}
+  }
+}
+
+\newcommand{\placetile}[3]{%
+  \node at (16pt*#2+8pt,16pt*#3+8pt) {\includegraphics[width=16pt]{\TexturePath#1.png}};
+}
+
+\newcommand{\placetiles}[2]{%
+  \foreach \x/\y in {#2}{
+    \placetile{#1}{\x}{\y}
+  }
+}
+
+% 第一个参数是宽度，第二个参数是文件名，第三第四个参数是左下格坐标，第四个参数是宽度
+\newcommand{\placetileGroup}[4]{%
+  \pgfmathsetmacro{\w}{16*#1}
+  \node[anchor=south west] at (16pt*#3-4pt,16pt*#4-4pt) {\includegraphics[width=\w pt]{\TexturePath#2.png}};
+}
+
+\newcommand{\placeSevenSegment}[1]{
+  \bitsetSetBin{sevenSeg}{#1}
+  \bitsetQuery{sevenSeg}{6}{
+    \placetile{Torch_On}{1}{6}
+    \placetile{Torch_On}{2}{6}
+  }{
+    \placetile{Torch_Off}{1}{6}
+    \placetile{Torch_Off}{2}{6}
+  }
+  \bitsetQuery{sevenSeg}{5}{
+    \placetile{Torch_On}{0}{5}
+    \placetile{Torch_On}{0}{4}
+  }{
+    \placetile{Torch_Off}{0}{5}
+    \placetile{Torch_Off}{0}{4}
+  }
+  \bitsetQuery{sevenSeg}{4}{
+    \placetile{Torch_On}{3}{5}
+    \placetile{Torch_On}{3}{4}
+  }{
+    \placetile{Torch_Off}{3}{5}
+    \placetile{Torch_Off}{3}{4}
+  }
+  \bitsetQuery{sevenSeg}{3}{
+    \placetile{Torch_On}{1}{3}
+    \placetile{Torch_On}{2}{3}
+  }{
+    \placetile{Torch_Off}{1}{3}
+    \placetile{Torch_Off}{2}{3}
+  }
+  \bitsetQuery{sevenSeg}{2}{
+    \placetile{Torch_On}{0}{2}
+    \placetile{Torch_On}{0}{1}
+  }{
+    \placetile{Torch_Off}{0}{2}
+    \placetile{Torch_Off}{0}{1}
+  }
+  \bitsetQuery{sevenSeg}{1}{
+    \placetile{Torch_On}{3}{2}
+    \placetile{Torch_On}{3}{1}
+  }{
+    \placetile{Torch_Off}{3}{2}
+    \placetile{Torch_Off}{3}{1}
+  }
+  \bitsetQuery{sevenSeg}{0}{
+    \placetile{Torch_On}{1}{0}
+    \placetile{Torch_On}{2}{0}
+  }{
+    \placetile{Torch_Off}{1}{0}
+    \placetile{Torch_Off}{2}{0}
+  }
+}
+
+\newcommand{\placeAndGate}[4][]{
+  % 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+  \if\relax\detokenize{#1}\relax
+    \StrLen{#2}[\mylength]%
+  \else
+    \edef\mylength{#1}%
+  \fi
+  \bitsetSetBin{bits}{#2}
+  \pgfmathsetmacro\N{\mylength-1}
+  \foreach \i in {0,...,\N} {
+    \pgfmathsetmacro\y{\i+#4+1}
+    \bitsetQuery{bits}{\i}{
+      \placetile{Logic_Lamp_On}{#3}{\y}
+    }{
+      \placetile{Logic_Lamp_Off}{#3}{\y}
+    }
+  }
+  \ifnumcomp{\bitsetCardinality{bits}}{=}{\mylength}{
+    \placetile{And_Gate_On}{#3}{#4}
+  }{
+    \placetile{And_Gate_Off}{#3}{#4}
+  }
+}
