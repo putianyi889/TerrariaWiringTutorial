@@ -46,6 +46,7 @@ noAdditionalIndent:
 
 lookForAlignDelims:
   tabular:
+    multiColumnGrouping: 1
     dontMeasure:
       - abcefg
       - cf
