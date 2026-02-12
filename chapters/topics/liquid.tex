@@ -1,0 +1,39 @@
+\section{液体装置}
+
+\subsection{刷水机}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \placetileGroup2{Inlet_Pump}{16}{0}
+    \placetileGroup2{Outlet_Pump}{16}{15}
+    \placetile{\PlatformLava_R}{16}{14}
+    \placetile{\PlatformLava_L}{17}{14}
+    \fill[water] (0,0) rectangle (34,16);
+    \placetiles{\SolidTile}{16/12,15/10,17/10,14/8,16/8,18/8,13/6,15/6,17/6,19/6,12/4,14/4,16/4,18/4,20/4}
+    \draw[solid tile] (0,0) -- (34,0) -- (34,16) -- (35,16) -- (35,-1) -- (-1,-1) -- (-1,16) -- (0,16) -- cycle;
+    \draw[<->] (0,15) -- node[midway,above] {16} (16,15);
+    \draw[<->] (18,15) -- node[midway,above] {16} (34,15);
+    \draw[<->] (1,0) -- node[midway,right] {16} (1,16);
+  \end{tikzpictureC}
+  \caption{刷水机结构示意图}
+\end{figure}
+
+\begin{itemize}
+  \item 把液体填满才能正常工作。
+  \item 去掉中间的金字塔结构也能工作，效率只是略有降低。
+  \item 对水泵的驱动频率非常敏感。如下是实验数据，单位格/秒。
+
+        \begin{tabular}{|c|ccc|ccc|ccc|}
+          \hline
+          液体种类 & \multicolumn{3}{c|}{水} & \multicolumn{3}{c|}{熔岩} & \multicolumn{3}{c|}{蜂蜜} \\
+          驱动周期 & 30    & 45    & 60  & 105   & 120   & 135   & 165   & 180   & 195 \\\hline
+          无金字塔 & 1.532 & -     & -   & 0.542 & 0.503 & 0.444 & 0.300 & 0.312 & 0.293 \\
+          有金字塔 & 1.744 & 0.547 & 0.3 & 0.573 & 0.546 & 0.428 & 0.309 & 0.322 & 0.314 \\\hline
+        \end{tabular}
+  \item 退出游戏后可能会出现水量减少，导致刷水机失效，需要重新填满液体。这可以通过增加一个蓄水池解决。当刷水池不满时，从蓄水池向刷水池注水；当刷水池满时，从刷水池向蓄水池排水
+\end{itemize}
+
+\begin{remark}{}{}
+  刷水机设计\&测试：光明牛奶
+\end{remark}
