@@ -233,30 +233,7 @@
 
 宝石块比较特殊，因为其亮灭会显示在小地图中，可以用来实现大屏显示。
 
-\section{门/机关门/高门}
-\begin{figure}[!ht]
-  \centering
-  \subfloat[{非主题门。主题门见\hyperref[app44]{附录}。}]{
-    \begin{tabular}[b]{c}
-      \adjincludegraphics{textures/item/Pine_Door.png}\quad
-      \adjincludegraphics{textures/item/Iron_Door.png}\quad
-      \adjincludegraphics{textures/item/Lead_Door.png}\quad
-      \adjincludegraphics{textures/item/Dungeon_Door.png}
-    \end{tabular}
-  }\qquad
-  \subfloat[机关门]{\quad\adjincludegraphics{textures/item/Trap_Door.png}\quad}\qquad
-  \subfloat[高门]{\quad\adjincludegraphics{textures/item/Tall_Gate.png}\quad}
-  \caption{}
-\end{figure}
-门/机关门/高门既是电源也是用电器。
-
-上锁的丛林蜥蜴门无电路功能（废话）。门放置在上下两个实体块之间。图格、生物出现在门一侧的开启范围内（1*3）时门不会向这一侧开启；出现在门两侧开启范围内时门无法开启。当门可以向两侧开启时，如果右键开门，那么门向玩家面对方向开启；如果电路开门，那么门似乎是随机向两侧开启。
-
-和门相比，机关门的开启方向是上下。当机关门可以向两侧开启时，使用右键开门，根据玩家与门的相对位置确定开门方向：玩家在相对高处时门向下开启；玩家在相对低处时门向上开启。使用电路开门，固定向下开启。
-
-高门没有方向性，开门也不受阻挡。
-
-不使用电路开关门时，门会做为电源激活。如果在设置里打开自动开关门，那么门可以起到玩家感应器的作用。
+\input{chapters/mechitems/doors}
 
 \section{雕像}
 
@@ -280,7 +257,7 @@
 57   & 蚱蜢         & 377         & \wiki{蚱蜢} \\
 58   & 老鼠         & 300         & \wiki{老鼠} \\
 59   & 鸭           & 362,364     & \wiki{鸭} \\
-60   & 企鹅         & 148         & \wiki{企鹅} \\
+60   & 企鹅         & 148         & \wiki{蓝企鹅} \\
 61   & 青蛙         & 361         & \wiki{青蛙} \\
 62   & 蚜虫         & 485-487     & \wiki{蛆虫}、\wiki{鼻涕虫}、\wiki{蚜虫} \\
 63   & 爬墙蜘蛛     & 164         & \wiki{爬墙蜘蛛} \\
@@ -333,8 +310,8 @@
 
 \subsection{物品雕像}\label{sec:itemstatue}
 \begin{center}
-  \adjincludegraphics{textures/item/Heart_Statue.png}
-  \adjincludegraphics{textures/item/Star_Statue.png}
+  \adjincludegraphics{textures/item/Heart_Statue.png}\quad
+  \adjincludegraphics{textures/item/Star_Statue.png}\quad
   \adjincludegraphics{textures/item/Bomb_Statue.png}
 \end{center}
 
@@ -348,7 +325,7 @@
 
 \subsection{国王雕像和女王雕像}
 \begin{center}
-  \adjincludegraphics{textures/item/King_Statue.png}
+  \adjincludegraphics{textures/item/King_Statue.png}\quad
   \adjincludegraphics{textures/item/Queen_Statue.png}
 \end{center}
 
@@ -359,7 +336,7 @@
 
 \subsection{其他雕像}
 \begin{center}
-  \adjincludegraphics{textures/item/Boulder_Statue.png}
+  \adjincludegraphics{textures/item/Boulder_Statue.png}\quad
   \adjincludegraphics{textures/item/Mushroom_Statue.png}
 \end{center}
 
