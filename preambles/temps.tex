@@ -56,6 +56,7 @@
 
 % 插图排版
 % 计算空格宽度。第一个参数是对象宽度总和，第二个参数是对象数量
+% 空格不得小于2pt，大图不得大于平均图宽的一半，小图不得大于2em
 \NewDocumentCommand{\calchspace}{mm}{\maxof{2pt}{\minof{\maxof{2em}{#1/#2/2}}{(\linewidth-#1)/#2}}}
 \newlength{\tiledim}
 \setlength{\tiledim}{8pt}
