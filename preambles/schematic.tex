@@ -9,10 +9,16 @@
 \newcommand{\PlatformLava}{Stone_Platform}
 
 \tikzset{
+  TRsch/.style = {
+    scale=0.5,
+    transform shape,
+    x=16pt,
+    y=16pt
+  },
   water/.style = {opacity=0.2, blue},
   solid tile/.style = {
     thick,
-    rounded corners=2pt,
+    rounded corners=1pt,
     fill tile image*={width=16pt}{\TexturePath\SolidTile_C.png}
   }
 }
@@ -108,4 +114,13 @@
   }{
     \placetile{And_Gate_Off}{#3}{#4}
   }
+}
+
+\newcommand{\placePressurePlate}[3]{
+  \pgfmathsetmacro\y{#3-0.125}
+  \placetile{#1_Pressure_Plate}{#2}{\y}
+}
+\newcommand{\placeWeightedPressurePlate}[4]{
+  \pgfmathsetmacro\y{#4-0.25}
+  \placetile{#1_Weighted_Pressure_Plate_#2}{#3}{\y}
 }
