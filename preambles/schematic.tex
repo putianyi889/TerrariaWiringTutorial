@@ -66,8 +66,10 @@
 
 % 第一个参数是宽度，第二个参数是文件名，第三第四个参数是左下格坐标，第四个参数是宽度
 \newcommand{\placetileGroup}[4]{%
+  \begingroup
   \pgfmathsetmacro{\w}{16*#1}
   \node[anchor=south west] at (16pt*#3-4pt,16pt*#4-4pt) {\includegraphics[width=\w pt]{\TexturePath#2.png}};
+  \endgroup
 }
 
 \newcommand{\placeSevenSegment}[1]{
@@ -125,6 +127,7 @@
 
 \newcommand{\placeAndGate}[4][]{
   % 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+  \begingroup
   \if\relax\detokenize{#1}\relax
     \StrLen{#2}[\mylength]%
   \else
@@ -145,6 +148,31 @@
   }{
     \placetile{And_Gate_Off}{#3}{#4}
   }
+  \endgroup
+}
+
+\newcommand{\placeFaultyGate}[3]{
+  % 第一个参数是灯的状态，从上到下，2表示故障灯；后两个参数是门的坐标
+  \begingroup
+  \bitsetSetOct{bits}{#1}
+  \StrLen{#1}[\mylength]
+  \pgfmathsetmacro\N{\mylength-1}
+  \foreach \i in {0,...,\N} {
+    \pgfmathsetmacro{\faulty}{int(3*\i+1)}
+    \pgfmathsetmacro{\lamp}{int(3*\i)}
+    \pgfmathsetmacro{\y}{\i+#3+1}
+    \bitsetQuery{bits}{\faulty}{
+      \placetile{Logic_Lamp_Faulty}{#2}{\y}
+    }{
+      \bitsetQuery{bits}{\lamp}{
+        \placetile{Logic_Lamp_On}{#2}{\y}
+      }{
+        \placetile{Logic_Lamp_Off}{#2}{\y}
+      }
+    }
+  }
+  \placetile{Faulty_Gate}{#2}{#3}
+  \endgroup
 }
 
 \newcommand{\placePressurePlate}[3]{
@@ -154,4 +182,15 @@
 \newcommand{\placeWeightedPressurePlate}[4]{
   \pgfmathsetmacro\y{#4-0.25}
   \placetile{#1_Weighted_Pressure_Plate_#2}{#3}{\y}
+}
+
+\definecolor{playerSensorFrame}{RGB}{32, 178, 170}
+\newcommand{\drawPlayerSensorArea}[2]{%
+  \begingroup
+  \pgfmathsetmacro{\l}{#1-2.0625}
+  \pgfmathsetmacro{\r}{#1+3.0625}
+  \pgfmathsetmacro{\b}{#2+0.9375}
+  \pgfmathsetmacro{\t}{#2+11.0625}
+  \draw[playerSensorFrame, line width=1pt] (\l,\b) rectangle (\r,\t);
+  \endgroup%
 }
