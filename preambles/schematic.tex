@@ -17,11 +17,42 @@
   },
   water/.style = {opacity=0.2, blue},
   solid tile/.style = {
-    thick,
-    rounded corners=1pt,
-    fill tile image*={width=16pt}{\TexturePath\SolidTile_C.png}
+    preaction={
+      clip,
+      postaction={
+        draw=black,
+        line width=2pt,
+        line join=bevel,
+        fill tile image*={width=16pt}{\TexturePath\SolidTile_C.png}
+      }
+    },
+    draw=none
+  },
+}
+
+\newcommand{\addwirestyle}[1]{
+  \expandafter\tikzset{%
+    #1 wire/.style={
+      preaction={
+        draw,
+        line cap=round,
+        line width=2pt,
+        #1wirelightborder,
+        xshift=8pt,
+        yshift=8pt
+      },
+      line cap=round,
+      line width=1pt,
+      #1wirelight,
+      xshift=8pt,
+      yshift=8pt
+    }
   }
 }
+\addwirestyle{red}
+\addwirestyle{blue}
+\addwirestyle{green}
+\addwirestyle{yellow}
 
 \newcommand{\placetile}[3]{%
   \node at (16pt*#2+8pt,16pt*#3+8pt) {\includegraphics[width=16pt]{\TexturePath#1.png}};
