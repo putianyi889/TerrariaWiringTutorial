@@ -9,9 +9,11 @@ replacements:
     when: after
 
 specialBeginEnd:
+  tikzDraw:
+    begin: '\\draw'
+    end: ';'
   tikzPath:
     begin: '\\path'
-    body: [^;]*?
     end: ';'
   literate:
     begin: 'literate=%'
@@ -30,6 +32,7 @@ indentRules:
   longtable: ""
   lstdefinestyle:
     mandatoryArguments: "  "
+  tikzDraw: "  "
   tikzPath: "  "
   literate:
     body: "  "

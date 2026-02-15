@@ -87,62 +87,50 @@
 最简单的电路包含一个电源、一个用电器，以及连接电源与用电器的电线。在这个电路中，激活电源的瞬间，用电器会被自动激活。读者可以尝试用电线连接各种各样的电源和用电器，然后尝试激活电源，看看会发生什么。
 
 \begin{example}{}{}
-  用火把摆出数字“0”（\autoref{i32}），然后用电线连接一个开关和“0”左边三条边（\autoref{i33}）。在这个电路中，开关是电源，“0”的左边三条边上的火把是用电器。因为开关的激活条件是右击，我们右击开关就能激活它，然后开关上的红线激活，于是红线下“0”的左边三条边被激活。火把的激活响应是亮灭切换，所以这三条边就会灭，显示数字“1”（\autoref{fig74}）。反复右击开关，这些火把就会在亮灭之间切换，从而显示的数字在“0”和“1”之间切换。这就是最简单的二进制\textbf{数显}，\myind{数显}是数字显示器的简称。
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \placetiles{Torch_On}{
+        0/1,0/2,0/3,0/4,
+        3/1,3/2,3/3,3/4,
+        1/0,2/0,1/5,2/5
+      }
+      \placetile{Switch_Flat_Off}{0}{5}
+      \draw[red wire] (2,5) -- (0,5) -- (0,0) -- (2,0);
+    \end{tikzpictureC}%
+    \smarthfill{10}[3]%
+    \begin{tikzpictureC}[TRsch]
+      \placetiles{Torch_Off}{
+        1/2,1/3,1/4,1/5,
+        2/1,3/1,2/6,3/6
+      }
+      \placetiles{Torch_On}{4/2,4/3,4/4,4/5}
+    \end{tikzpictureC}
+  \end{center}
+  如左图，用火把摆出数字“0”，然后用电线连接一个开关和“0”左边三条边。在这个电路中，开关是电源，“0”的左边三条边上的火把是用电器。因为开关的激活条件是右击，我们右击开关就能激活它，然后开关上的红线激活，于是红线下“0”的左边三条边被激活。火把的激活响应是亮灭切换，所以这三条边就会灭，显示数字“1”（如右图）。反复右击开关，这些火把就会在亮灭之间切换，从而显示的数字在“0”和“1”之间切换。这就是最简单的二进制\textbf{数显}，\myind{数显}是数字显示器的简称。
 
-  \begin{figure}[H]
-    \centering
-    \subfloat[]{
-      \label{i32}
-      \begin{tikzpictureC}[scale=0.5, transform shape]
-        \placetiles{Torch_On}{
-          1/2,1/3,1/4,1/5,
-          4/2,4/3,4/4,4/5,
-          2/1,3/1,2/6,3/6
-        }
-      \end{tikzpictureC}
-    }%
-    \smarthfill{18}[3]%
-    \subfloat[]{\label{i33}\adjincludegraphics{images/33.png}}%
-    \smarthfill{18}[3]%
-    \subfloat[]{
-      \label{fig74}
-      \begin{tikzpictureC}[scale=0.5, transform shape]
-        \placetiles{Torch_Off}{
-          1/2,1/3,1/4,1/5,
-          2/1,3/1,2/6,3/6
-        }
-        \placetiles{Torch_On}{4/2,4/3,4/4,4/5}
-      \end{tikzpictureC}
-    }
-    \caption{}
-    \label{i32:33}
-  \end{figure}
   \begin{remark*}{}{}
     如果想要显示效果更醒目，可以将背景墙和火把都涂上\wiki{暗影漆}，也可以尝试其他的光源，甚至\myind{制动器}与实体块的组合。
   \end{remark*}
+
   \begin{problem}{}{}
-    设计如\autoref{i69:70}所示的二进制数显。显示方块是\wiki{晶莹宝石块}。
-    \begin{figure}[H]
-      \centering
-      \subfloat[0]{\label{i69}\adjincludegraphics{images/69.png}}%
+    设计如下图所示的二进制数显。显示方块是\wiki{晶莹宝石块}。
+    \begin{center}
+      \adjincludegraphics{images/69.png}%
       \smarthfill{8}%
-      \subfloat[1]{\label{i70}\adjincludegraphics{images/70.png}}
-      \caption{}
-      \label{i69:70}
-    \end{figure}
+      \adjincludegraphics{images/70.png}
+    \end{center}
   \end{problem}
 \end{example}
 
 \begin{example}{}{}
-  如\autoref{i3:4}所示，用电线连接\myind{逻辑感应器（夜）}和\myind{派对中心}。这个电路中，\myind{逻辑感应器}（夜）为电源，派对中心为用电器。入夜时，\myind{派对}事件结束，派对中心自动关闭，然后逻辑感应器（夜）激活，派对中心激活，又重新打开，进入派对事件。每天入夜时重复这个过程，地图就会保持在派对事件中。
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/3.png}%
-    \smarthfill{6}%
-    \adjincludegraphics{images/4.png}
-    \caption{}
-    \label{i3:4}
-  \end{figure}
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \placetileGroup3{Party_Center_On}{0}{0}
+      \placetile{Night_Sensor_Off}{4}{0}
+      \draw[red wire] (2,0) -- (4,0);
+    \end{tikzpictureC}
+  \end{center}
+  如图所示，用电线连接\myind{逻辑感应器（夜）}和\myind{派对中心}。这个电路中，\myind{逻辑感应器}（夜）为电源，派对中心为用电器。入夜时，\myind{派对}事件结束，派对中心自动关闭，然后逻辑感应器（夜）激活，派对中心激活，又重新打开，进入派对事件。每天入夜时重复这个过程，地图就会保持在派对事件中。
   \begin{remark*}{}{}
     需要注意的是该装置能够实现所需功能，依赖于入夜时事件结算先于感应器结算。
   \end{remark*}
@@ -182,7 +170,14 @@
       \placetiles{Switch_H_Off}{1/1,3/1}
     \end{tikzpictureC}%
     \smarthfill{10}%
-    \adjincludegraphics{images/39.png}
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placetiles{Switch_H_Off}{1/1,3/1}
+      \draw[red wire]
+        (1,1) -- (3,1)
+        (2,1) -- (2,3);
+      \placetiles{Actuator}{2/1,2/2,2/3}
+    \end{tikzpictureC}%
     \caption{使用制动器做的门，开关可以开关门。}
     \label{i38:39}
   \end{figure}
@@ -197,7 +192,15 @@
       \placePressurePlate{Gray}{3}{1}
     \end{tikzpictureC}%
     \smarthfill{10}%
-    \adjincludegraphics{images/41.png}
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placePressurePlate{Gray}{1}{1}
+      \placePressurePlate{Gray}{3}{1}
+      \draw[red wire]
+        (1,1) -- (3,1)
+        (2,1) -- (2,3);
+      \placetiles{Actuator}{2/1,2/2,2/3}
+    \end{tikzpictureC}%
     \caption{}
     \label{i40:41}
   \end{figure}
@@ -212,7 +215,15 @@
       \placeWeightedPressurePlate{Pink}{Off}{3}{1}
     \end{tikzpictureC}%
     \smarthfill{10}%
-    \adjincludegraphics{images/45.png}
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placeWeightedPressurePlate{Pink}{Off}{1}{1}
+      \placeWeightedPressurePlate{Pink}{Off}{3}{1}
+      \draw[red wire]
+        (1,1) -- (3,1)
+        (2,1) -- (2,3);
+      \placetiles{Actuator}{2/1,2/2,2/3}
+    \end{tikzpictureC}%
     \caption{}
     \label{i44:45}
   \end{figure}
@@ -288,7 +299,13 @@
 
   \begin{figure}[H]
     \centering
-    \adjincludegraphics{images/50.png}%
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placeWeightedPressurePlate{Pink}{Off}{1}{1}
+      \placeWeightedPressurePlate{Pink}{Off}{3}{1}
+      \placetiles{Logic_Lamp_Off}{4/2,4/3}
+      \placetile{Or_Gate_Off}{4}{1}
+    \end{tikzpictureC}%
     \smarthfill{10}%
     \adjincludegraphics{images/51.png}
     \caption{}
@@ -328,7 +345,7 @@
   \centering
   \subfloat[]{
     \label{i13}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \placetile{And_Gate_Off}{1}{1}
       \placetile{Logic_Lamp_Off}{1}{2}
     \end{tikzpictureC}
@@ -336,7 +353,7 @@
   \smarthfill{14}[3]%
   \subfloat[]{
     \label{i14}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \placetiles{Switch_Flat_Off}{1/2,5/1}
       \placetiles{Torch_On}{2/2,4/1}
       \placetile{Logic_Lamp_Off}{3}{2}
@@ -346,7 +363,7 @@
   \smarthfill{14}[3]%
   \subfloat[]{
     \label{i15}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \placetiles{Switch_Flat_Off}{1/2,5/1}
       \placetiles{Torch_On}{2/2,4/1}
       \placetile{Logic_Lamp_Off}{3}{2}
@@ -367,7 +384,7 @@
 
 \begin{figure}[!ht]
   \centering
-  \begin{tikzpictureC}[scale=0.5, transform shape]
+  \begin{tikzpictureC}[TRsch]
     \placetile{Switch_Flat_Off}{1}{3}
     \foreach \x in {2,...,16} {
       \placetile{Logic_Lamp_Off}{\x}{3}
@@ -376,7 +393,7 @@
     }
   \end{tikzpictureC}
   \smarthfill{32}%
-  \begin{tikzpictureC}[scale=0.5, transform shape]
+  \begin{tikzpictureC}[TRsch]
     \placetile{Switch_Flat_Off}{1}{3}
     \foreach \x in {2,...,16} {
       \placetile{Logic_Lamp_Off}{\x}{3}
@@ -431,7 +448,7 @@
   \centering
   \subfloat[]{
     \label{fig7}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \foreach \y in {2,3,4} {
         \placetile{Logic_Lamp_On}{1}{\y}
         \placetile{Logic_Lamp_On}{3}{\y}
@@ -443,7 +460,7 @@
   \smarthfill{8}%
   \subfloat[]{
     \label{fig8}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \foreach \y in {2,3,4} {
         \placetile{Logic_Lamp_On}{1}{\y}
         \placetile{Logic_Lamp_Off}{3}{\y}
@@ -471,7 +488,7 @@
   \centering
   \subfloat[]{
     \label{i34}
-    \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+    \begin{tikzpictureC}[TRsch]
       \placeSevenSegment{1111111}
 
       \draw (1,6) rectangle (3,7);
@@ -499,7 +516,7 @@
   \qquad
   \subfloat[]{
     \label{i35}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \placeSevenSegment{1111111}
 
       \placetiles{Wire_Red_R}{1/0,1/6}
@@ -538,7 +555,7 @@
   \centering
   \subfloat[]{
     \label{i36}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \foreach \y in {2,3,4,5} {
         \placetile{Switch_Flat_Off}{1}{\y}
         \placetile{Torch_Off}{2}{\y}
@@ -564,7 +581,7 @@
   \centering
   \subfloat[]{
     \label{i42}
-    \begin{tikzpictureC}[scale=0.5, transform shape]
+    \begin{tikzpictureC}[TRsch]
       \foreach \y in {9,10,11,12} {
         \placetile{Switch_Flat_Off}{3}{\y}
         \placetile{Torch_Off}{4}{\y}

@@ -33,27 +33,34 @@
   \item \lstinline|\placeSevenSegment{七段线状态}|：以\lstinline{(0,0)}为左下角绘制一个火把七段线。每根线长度为2。七段线状态是01串，顺序是顶-左上-右上-中-左下-右下-底。例如显示4：\lstinline|\placeSevenSegment{0111010}|。
 \end{itemize}
 
+以及模板
+\begin{itemize}
+  \item \lstinline{TRsch}：用于\lstinline{tikzpicture}的参数，将坐标和贴图对齐。
+  \item \lstinline{solid tile}：画一片实体块。例如\lstinline{\draw[solid tile] (0,0) rectangle (3,2);}。
+  \item \lstinline{water}：画一片水。例如\lstinline{\draw[water] (0,0) rectangle (3,2);}。
+\end{itemize}
+
 \subsection{示例}
 
 \begin{lstlisting}[style=latex]
-\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+\begin{tikzpicture}[TRsch]
   \placetile{Torch_On}{0}{0}
   \placetile{Torch_Off}{2}{1}
   \draw[red] (0,0) -- (2,1);
 \end{tikzpicture}%
 \smarthfill{16}[4]%
-\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+\begin{tikzpicture}[TRsch]
   \placetiles{Switch_Flat_Off}{0/0,1/0,1/1}
   \draw[blue] (0,0) rectangle (2,2);
 \end{tikzpicture}%
 \smarthfill{16}[4]%
-\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+\begin{tikzpicture}[TRsch]
   \placetileGroup2{Gold_Chest}{0}{0}
   \placetileGroup3{Extractinator}{2}{1}
   \draw (0,0) grid[step=1] (5,4);
 \end{tikzpicture}%
 \smarthfill{16}[4]%
-\begin{tikzpicture}[scale=0.5, transform shape, x=16pt, y=16pt]
+\begin{tikzpicture}[TRsch]
   \placeAndGate{1101}{0}{0}
   \placeAndGate{1111}{1}{0}
   \begin{scope}[xshift=32pt,yshift=-48pt]
@@ -62,24 +69,24 @@
 \end{tikzpicture}
 \end{lstlisting}
 \begin{center}
-  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \begin{tikzpictureC}[TRsch]
     \placetile{Torch_On}{0}{0}
     \placetile{Torch_Off}{2}{1}
     \draw[red] (0,0) -- (2,1);
   \end{tikzpictureC}%
   \smarthfill{16}[4]%
-  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \begin{tikzpictureC}[TRsch]
     \placetiles{Switch_Flat_Off}{0/0,1/0,1/1}
     \draw[blue] (0,0) rectangle (2,2);
   \end{tikzpictureC}%
   \smarthfill{16}[4]%
-  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \begin{tikzpictureC}[TRsch]
     \placetileGroup2{Gold_Chest}{0}{0}
     \placetileGroup3{Extractinator}{2}{1}
     \draw (0,0) grid[step=1] (5,4);
   \end{tikzpictureC}%
   \smarthfill{16}[4]%
-  \begin{tikzpictureC}[scale=0.5, transform shape, x=16pt, y=16pt]
+  \begin{tikzpictureC}[TRsch]
     \placeAndGate{1101}{0}{0}
     \placeAndGate{1111}{1}{0}
     \begin{scope}[xshift=32pt,yshift=-48pt]
