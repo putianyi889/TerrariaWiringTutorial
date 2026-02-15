@@ -30,7 +30,11 @@
   \item \lstinline|\placetiles{图格名称}{x1/y1,x2/y2,...}|：在很多位置绘制同一个图格。例如\lstinline|\placetiles{Torch_Off}{1/1,2/2,3/3}|。
   \item \lstinline|\placetileGroupN{图格名称}{x}{y}|：绘制尺寸大于$1\times 1$的图格。\lstinline{N}为宽度，\lstinline{(x,y)}为左下角。例如\lstinline|\placetileGroup2{Chest}{0}{0}|。
   \item \lstinline|\placeAndGate[灯数]{灯的状态}{门x}{门y}|：绘制一个与门。灯数是可选参数，若不提供则由灯的状态推断。灯的状态是01串，从上到下。例如\lstinline|\placeAndGate{110}{1}{2}|。
+  \item \lstinline|\placeFaultyGate{灯的状态}{门x}{门y}|：绘制一个故障逻辑门。灯的状态中用2表示故障逻辑灯，其余同\lstinline{\placeAndGate}。
   \item \lstinline|\placeSevenSegment{七段线状态}|：以\lstinline{(0,0)}为左下角绘制一个火把七段线。每根线长度为2。七段线状态是01串，顺序是顶-左上-右上-中-左下-右下-底。例如显示4：\lstinline|\placeSevenSegment{0111010}|。
+  \item \lstinline|\placePressurePlate{类型}{x}{y}|：绘制一个普通压力板。例如红压力板：\lstinline|\placePressurePlate{Red}{0}{0}|。
+  \item \lstinline|\placeWeightedPressurePlate{类型}{状态}{x}{y}|：绘制一个测重压力板。例如弹起的粉色测重压力板：\lstinline|\placeWeightedPressurePlate{Pink}{Off}{0}{0}|。
+  \item \lstinline|\playerSensorFrame{x}{y}|绘制一个位置在\lstinline{(x,y)}的玩家感应器的感应框。
 \end{itemize}
 
 以及模板
