@@ -151,6 +151,32 @@
   \endgroup
 }
 
+\newcommand{\placeXorGate}[4][]{
+  % 第一个参数（可选）：灯的数量；第二个参数是灯的状态，从上到下；后两个参数是门的坐标
+  \begingroup
+  \if\relax\detokenize{#1}\relax
+    \StrLen{#2}[\mylength]%
+  \else
+    \edef\mylength{#1}%
+  \fi
+  \bitsetSetBin{bits}{#2}
+  \pgfmathsetmacro\N{\mylength-1}
+  \foreach \i in {0,...,\N} {
+    \pgfmathsetmacro\y{\i+#4+1}
+    \bitsetQuery{bits}{\i}{
+      \placetile{Logic_Lamp_On}{#3}{\y}
+    }{
+      \placetile{Logic_Lamp_Off}{#3}{\y}
+    }
+  }
+  \ifnumcomp{\bitsetCardinality{bits}}{=}{1}{
+    \placetile{Xor_Gate_On}{#3}{#4}
+  }{
+    \placetile{Xor_Gate_Off}{#3}{#4}
+  }
+  \endgroup
+}
+
 \newcommand{\placeFaultyGate}[3]{
   % 第一个参数是灯的状态，从上到下，2表示故障灯；后两个参数是门的坐标
   \begingroup
