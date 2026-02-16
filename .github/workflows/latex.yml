@@ -30,3 +30,11 @@ jobs:
           root_file: TerrariaWiringTutorial_nightmode.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: wiring-tutorial-pdfs
+          path: |
+            TerrariaWiringTutorial_onscreen.pdf
+            TerrariaWiringTutorial_printed.pdf
+            TerrariaWiringTutorial_nightmode.pdf
