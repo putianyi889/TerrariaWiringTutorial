@@ -139,7 +139,7 @@
   \end{problem}
 \end{example}
 
-\begin{example}{\myind{传送带驱动}}{}
+\begin{example}{\myind{传送带驱动}}{}\label{exa:conveyorEngine}
 
   如\autoref{i5:6}所示，用电线连接\myind{传送带}（顺时针）和\myind{测重压力板}。在这个电路中，测重压力板是电源，传送带是用电器。人物站在传送带上。传送带使人物向右移动，人物进入测重压力板所在格时测重压力板激活，进而激活传送带，传送带变为逆时针，人物向左移动，移出测重压力板时测重压力板又激活，传送带变为顺时针，人物向右移动，如此反复。
   \begin{figure}[H]
@@ -424,16 +424,17 @@
 
   打开1秒计时器后计时器每隔1秒激活一次电路。我们希望做一个1秒延时，打开1秒\myind{延时器}后，经过1秒，1秒延时器激活一次，然后关闭。
 
-  装置如\autoref{i48:49}所示。打开1秒计时器，经过1秒，计时器激活电路，然后逻辑灯被激活，进而逻辑门激活，把1秒计时器关闭。
+  装置如下图所示。打开1秒计时器，经过1秒，计时器激活电路，然后逻辑灯被激活，进而逻辑门激活，把1秒计时器关闭。
 
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/48.png}%
-    \smarthfill{4}%
-    \adjincludegraphics{images/49.png}
-    \caption{}
-    \label{i48:49}
-  \end{figure}
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Timer_One_Off}{0}{1}
+      \placetile{Logic_Lamp_Off}{1}{1}
+      \placetile{And_Gate_Off}{1}{0}
+      \draw[red wire] (0,1) -- (1,1);
+      \draw[blue wire] (0,1) -- (0,0) -- (1,0);
+    \end{tikzpictureC}
+  \end{center}
 \end{example}
 
 \begin{example}{\myind{门驱}}{}
@@ -553,24 +554,28 @@
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{
-    \label{i36}
-    \begin{tikzpictureC}[TRsch]
-      \foreach \y in {2,3,4,5} {
-        \placetile{Switch_Flat_Off}{1}{\y}
-        \placetile{Torch_Off}{2}{\y}
-      }
-      \foreach \x in {0,...,9} {
-        \bitsetSetBin{mask}{1111}
-        \bitsetSetDec{bits}{\x}
-        \bitsetXor{bits}{mask}
-        \pgfmathsetmacro{\gatex}{\x+3}
-        \placeAndGate{\bitsetGetBin{bits}{4}}{\gatex}{1}
-      }
-    \end{tikzpictureC}
-  }%
-  \smarthfill{26}%
-  \subfloat[]{\label{i37}\adjincludegraphics{images/37.png}}
+  \begin{tikzpictureC}[TRsch]
+    \foreach \y in {1,2,3,4} {
+      \placetile{Switch_Flat_Off}{0}{\y}
+      \placetile{Torch_Off}{1}{\y}
+    }
+    \foreach \x in {0,...,9} {
+      \bitsetSetBin{mask}{1111}
+      \bitsetSetDec{bits}{\x}
+      \bitsetXor{bits}{mask}
+      \pgfmathsetmacro{\gatex}{\x+2}
+      \placeAndGate{\bitsetGetBin{bits}{4}}{\gatex}{0}
+      \node at (\gatex+0.5,-0.5) {\x};
+    }
+    \draw[red wire] (0,4) -- (11,4);
+    \draw[blue wire] (0,3) -- (11,3);
+    \draw[green wire] (0,2) -- (11,2);
+    \draw[yellow wire] (0,1) -- (11,1);
+    \node at (-0.5,4.5) {8};
+    \node at (-0.5,3.5) {4};
+    \node at (-0.5,2.5) {2};
+    \node at (-0.5,1.5) {1};
+  \end{tikzpictureC}
   \caption{十个与门从左到右依次代表0\~{}9，四个开关/火把从上到下依次代表8,4,2,1。例如火把4,2,1点亮，则代表数字4+2+1=7的逻辑门点亮，其他逻辑门熄灭。}
   \label{i36:37}
 \end{figure}
@@ -612,15 +617,40 @@
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{i54}\adjincludegraphics{images/54.png}}%
+  \subfloat[]{%
+    \label{i54}%
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21000000}{0}{0}
+    \end{tikzpictureC}
+  }%
   \smarthfill{10}[5]%
-  \subfloat[]{\label{i55}\adjincludegraphics{images/55.png}}%
+  \subfloat[]{%
+    \label{i55}%
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21001000}{0}{0}
+    \end{tikzpictureC}
+  }%
   \smarthfill{10}[5]%
-  \subfloat[]{\label{i56}\adjincludegraphics{images/56.png}}%
+  \subfloat[]{%
+    \label{i56}%
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21111011}{0}{0}
+    \end{tikzpictureC}
+  }%
   \smarthfill{10}[5]%
-  \subfloat[]{\label{i57}\adjincludegraphics{images/57.png}}%
+  \subfloat[]{%
+    \label{i57}%
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{20000201}{0}{0}
+    \end{tikzpictureC}
+  }%
   \smarthfill{10}[5]%
-  \subfloat[]{\label{i58}\adjincludegraphics{images/58.png}}
+  \subfloat[]{%
+    \label{i58}%
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{22222211}{0}{0}
+    \end{tikzpictureC}
+  }
   \caption{\protect\subref{i54}故障逻辑灯下一共有7个有效逻辑灯，其中1个是亮的，所以故障逻辑灯被激活时故障逻辑门有1/7的概率激活；\protect\subref{i55}2/7概率激活；\protect\subref{i56}6/7概率激活；\protect\subref{i57}只有最下方的故障逻辑灯下的两个逻辑灯是有效逻辑灯，无论激活哪个故障逻辑灯，故障逻辑门激活的概率都是1/2；\protect\subref{i58}有效逻辑灯全是亮的，所以激活任何一个故障逻辑灯，故障逻辑门激活的概率都是1。}
   \label{i54:58}
 \end{figure}
