@@ -42,6 +42,8 @@ indentRules:
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
+  environments:
+    optionalArguments: 1
 
 noAdditionalIndent:
   problem: 0
