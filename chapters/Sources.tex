@@ -498,8 +498,38 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/215.png}
-  \caption{红线右转，蓝线左转，绿线发射，黄线改变射弹颜色。}
+  \begin{tikzpictureC}[TRsch]
+    \begin{scope}
+      \placetileGroup4{Cannon_0}{0}{0}
+      \fill[blue, opacity=0.2] (0,0) rectangle (1,3);
+      \fill[green, opacity=0.2] (1,0) rectangle (3,3);
+      \fill[red, opacity=0.2] (3,0) rectangle (4,3);
+      \draw[gray] (0,0) grid[step=1] (4,3);
+    \end{scope}
+    \begin{scope}[xshift=80pt]
+      \placetileGroup4{Bunny_Cannon_0}{0}{0}
+      \fill[blue, opacity=0.2] (0,0) rectangle (1,3);
+      \fill[green, opacity=0.2] (1,0) rectangle (3,3);
+      \fill[red, opacity=0.2] (3,0) rectangle (4,3);
+      \draw[gray] (0,0) grid[step=1] (4,3);
+    \end{scope}
+    \begin{scope}[xshift=160pt]
+      \placetileGroup4{Confetti_Cannon_0}{0}{0}
+      \fill[blue, opacity=0.2] (0,0) rectangle (1,3);
+      \fill[green, opacity=0.2] (1,0) rectangle (3,3);
+      \fill[red, opacity=0.2] (3,0) rectangle (4,3);
+      \draw[gray] (0,0) grid[step=1] (4,3);
+    \end{scope}
+    \begin{scope}[xshift=240pt]
+      \placetileGroup4{Portal_Gun_Station_Yellow_0}{0}{0}
+      \fill[blue, opacity=0.2] (0,0) rectangle (1,3);
+      \fill[green, opacity=0.2] (1,0) rectangle (3,1);
+      \fill[yellow, opacity=0.2] (1,1) rectangle (3,3);
+      \fill[red, opacity=0.2] (3,0) rectangle (4,3);
+      \draw[gray] (0,0) grid[step=1] (4,3);
+    \end{scope}
+  \end{tikzpictureC}
+  \caption{红色右转，蓝色左转，绿色发射，黄色改变射弹颜色。}
   \label{i215}
 \end{figure}
 
