@@ -307,7 +307,17 @@
       \placetile{Or_Gate_Off}{4}{1}
     \end{tikzpictureC}%
     \smarthfill{10}%
-    \adjincludegraphics{images/51.png}
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placeWeightedPressurePlate{Pink}{Off}{1}{1}
+      \placeWeightedPressurePlate{Pink}{Off}{3}{1}
+      \placetiles{Logic_Lamp_Off}{4/2,4/3}
+      \placetile{Or_Gate_Off}{4}{1}
+      \draw[red wire] (3,1) -- (3,2) -- (4,2);
+      \draw[blue wire] (1,1) -- (1,4) -- (4,4) -- (4,3);
+      \draw[green wire] (2,3) -- (2,0) -- (4,0) -- (4,1);
+      \placetiles{Actuator}{2/1,2/2,2/3}
+    \end{tikzpictureC}%
     \caption{}
     \label{i50:51}
   \end{figure}
@@ -698,46 +708,55 @@
   \caption{单个普通逻辑门多换一换线器示例。\protect\subref{fig83}单灯换线器三换一；\protect\subref{fig84}双灯换线器利用隔线实现四换一，若用双灯异或则四个输入可以在和输出颜色不冲突的情况下随便选一个灯接；\protect\subref{fig85}利用双灯异或的逻辑特点和逻辑灯隔线实现7换1；\protect\subref{fig86}加一个隔线的逻辑灯实现8换1。}
 \end{figure}
 
-\paragraph*{双向换线器}
-
 \subsection{赋值电路}\label{sec14}
 
 \termTR 中的逻辑电路有个非常大的缺点，就是\myind{赋值}困难。在数电中，想要给电路赋值0或1，只用连上对应电平的电源即可。然而在\termTR 中，电线没有电平高低，只有激活，而激活只能改变逻辑灯状态。把一个逻辑灯赋值为0，就需要在这个逻辑灯本来是1的情况下激活一次（或激活奇数次），在逻辑灯本来是0的情况下不激活（或激活偶数次）。如\autoref{i52:53}所示的电路可以做到这一点：当逻辑灯灭时，激活红线会将故障逻辑灯激活，因为逻辑灯灭，逻辑门不激活，逻辑灯保持灭。当逻辑灯亮时，激活红线会将故障逻辑灯激活，因为逻辑灯亮，逻辑门激活蓝线，逻辑灯熄灭。无论如何，激活红线都会使逻辑灯熄灭。
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/52.png}%
-  \smarthfill{4}%
-  \adjincludegraphics{images/53.png}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{20}{1}{0}
+    \draw[red wire] (0,2) -- (1,2);
+    \draw[blue wire] (1,1) -- (1,0);
+  \end{tikzpictureC}
   \caption{}
   \label{i52:53}
 \end{figure}
 
-如果将逻辑灯与一个火把同步，就可以做到激活红线使火把熄灭。如果将逻辑灯与火把反向同步，就可以做到激活红线使火把点亮（\autoref{i59:60}）。
+如果将逻辑灯与一个火把同步，就可以做到激活红线使火把熄灭。如果将逻辑灯与火把反向同步，就可以做到激活红线使火把点亮（下图）。
 
-\begin{figure}[!ht]
-  \centering
-  \adjincludegraphics{images/59.png}%
-  \smarthfill{6}%
-  \adjincludegraphics{images/60.png}
-  \caption{左边开关使火把点亮（赋值1），右边开关使火把关闭（赋值0）。}
-  \label{i59:60}
-\end{figure}
+\begin{center}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{20}{0}{0}
+    \placeFaultyGate{21}{1}{0}
+    \placetile{Torch_On}{2}{1}
+    \draw[red wire] (0,2) -- (-1,2);
+    \node[anchor=east] at (-0.5,2.5) {红线使火把点亮(赋值1)};
+    \draw[green wire] (1,2) -- (2,2);
+    \node[anchor=west] at (2.5,2.5) {绿线使火把熄灭(赋值0)};
+    \draw[blue wire] (1,1) -- (1,0) -- (0,0) -- (0,1) -- (2,1);
+  \end{tikzpictureC}
+\end{center}
 
 \begin{example}{\myind{D触发器}}{sec15}
 
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/237.png}%
-    \smarthfill{14}%
-    \adjincludegraphics{images/238.png}
-    \caption{左边的开关改变A火把的状态，右边的开关将A火把状态更新到B火把。}
-    \label{i237:238}
-  \end{figure}
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{20}{1}{0}
+      \placetiles{Torch_On}{0/1,2/1}
+      \draw[red wire] (-1,2) -- (0,2) -- (0,1) -- (1,1);
+      \draw[blue wire] (1,0) -- (1,1) -- (2,1);
+      \draw[green wire] (1,2) -- (2,2);
+      \node at (-0.5,1.5) {A};
+      \node at (3.5,1.5) {B};
+      \node[anchor=east] at (-0.5,2.5) {红线改变A};
+      \node[anchor=west] at (2.5,2.5) {绿线将A的状态更新到B};
+    \end{tikzpictureC}
+  \end{center}
 
-  D触发器是数电的术语，其功能非常简单，就是存储并发送状态。见\autoref{i237:238}，左边的开关可以随意控制左边的火把，而右边的开关会使得右边的火把和左边的火把状态同步。换言之，D触发器存储了左边火把的值，而右边的开关命令D触发器将它存储的值发出。
+  D触发器是数电的术语，其功能非常简单，就是存储并发送状态。如上图，红线可以随意控制左边的火把，而激活绿线会使得右边的火把和左边的火把状态同步。换言之，D触发器存储了左边火把的值，而绿线命令D触发器将它存储的值发出。
 
-  回顾\nameref{sec14}，它可以把火把的值设定为一个常数，而该常数可以通过故障逻辑门上的有效逻辑灯来调节。而在\autoref{i237:238}中，我们让左边的火把来调节故障逻辑门上的有效逻辑灯，当左边火把为1时，故障逻辑门的作用是赋值1；当左边火把为0时，故障逻辑门的作用是赋值0。这样一来，这个故障逻辑门的功能实际上是把右边火把的值赋值为左边火把的值。
+  回顾\nameref{sec14}，它可以把火把的值设定为一个常数，而该常数可以通过故障逻辑门上的有效逻辑灯来调节。而在上图中，我们让左边的火把来调节故障逻辑门上的有效逻辑灯，当左边火把为1时，故障逻辑门的作用是赋值1；当左边火把为0时，故障逻辑门的作用是赋值0。这样一来，这个故障逻辑门的功能实际上是把右边火把的值赋值为左边火把的值。
 \end{example}
 
 \subsection{\ShiftRegister}\label{sec35}
