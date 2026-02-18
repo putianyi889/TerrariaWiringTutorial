@@ -67,23 +67,23 @@
 
 \NewDocumentCommand{\drawGreenYellow}{O{}mO{}m}{
   \begin{scope}[blend group=soft light]
-  \begin{scope}[blend group=hue]
-    \begin{scope}[blend group=normal]
-      \draw[yellow wire,#3] #4
+    \begin{scope}[blend group=hue]
+      \begin{scope}[blend group=normal]
+        \draw[yellow wire,#3] #4
+      \end{scope}
+      \begin{scope}[blend group=normal]
+        \draw[green wire,#1] #2
+      \end{scope}
     \end{scope}
-    \begin{scope}[blend group=normal]
-      \draw[green wire,#1] #2
+    \begin{scope}[blend group=hue]
+      \begin{scope}[blend group=normal]
+        \draw[green wire,#1] #2
+      \end{scope}
+      \begin{scope}[blend group=normal]
+        \draw[yellow wire,#3] #4
+      \end{scope}
     \end{scope}
   \end{scope}
-  \begin{scope}[blend group=hue]
-    \begin{scope}[blend group=normal]
-      \draw[green wire,#1] #2
-    \end{scope}
-    \begin{scope}[blend group=normal]
-      \draw[yellow wire,#3] #4
-    \end{scope}
-  \end{scope}
-\end{scope}
 }
 
 \newcommand{\placetile}[3]{%
