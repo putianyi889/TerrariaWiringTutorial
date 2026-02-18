@@ -25,9 +25,7 @@ indentRulesGlobal:
   optionalArguments: "  "
   mandatoryArguments: "  "
   commands: "  "
-  UnNamedGroupingBracesBrackets:
-    body: ""
-    mandatoryArguments: "  "
+  UnNamedGroupingBracesBrackets: ""
   afterHeading: ""
 
 indentRules:
