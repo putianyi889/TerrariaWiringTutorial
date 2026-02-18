@@ -10,7 +10,7 @@ replacements:
 
 specialBeginEnd:
   tikzDraw:
-    begin: '\\draw'
+    begin: ^\\draw(?![A-Za-z])
     end: ';'
   tikzPath:
     begin: '\\path'
