@@ -39,8 +39,6 @@ indentRules:
   caption:
     body: ""
     mandatoryArguments: "  "
-  NewDocumentCommand:
-    body: ""
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
@@ -49,7 +47,6 @@ noAdditionalIndentGlobal:
 noAdditionalIndent:
   problem: 0
   caption: 0
-  NewDocumentCommand: 1
 
 lookForAlignDelims:
   tabular:
