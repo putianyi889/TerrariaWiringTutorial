@@ -54,6 +54,38 @@
 \addwirestyle{green}
 \addwirestyle{yellow}
 
+\NewDocumentCommand{\drawRedBlue}{O{}mO{}m}{
+  \begin{scope}[blend group=difference]
+    \begin{scope}[blend group=normal]
+      \draw[red wire,#1] #2
+    \end{scope}
+    \begin{scope}[blend group=normal]
+      \draw[blue wire,#3] #4
+    \end{scope}
+  \end{scope}
+}
+
+\NewDocumentCommand{\drawGreenYellow}{O{}mO{}m}{
+  \begin{scope}[blend group=soft light]
+  \begin{scope}[blend group=hue]
+    \begin{scope}[blend group=normal]
+      \draw[yellow wire,#3] #4
+    \end{scope}
+    \begin{scope}[blend group=normal]
+      \draw[green wire,#1] #2
+    \end{scope}
+  \end{scope}
+  \begin{scope}[blend group=hue]
+    \begin{scope}[blend group=normal]
+      \draw[green wire,#1] #2
+    \end{scope}
+    \begin{scope}[blend group=normal]
+      \draw[yellow wire,#3] #4
+    \end{scope}
+  \end{scope}
+\end{scope}
+}
+
 \newcommand{\placetile}[3]{%
   \node at (16pt*#2+8pt,16pt*#3+8pt) {\includegraphics[width=16pt]{\TexturePath#1.png}};
 }
