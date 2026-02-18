@@ -133,28 +133,59 @@
   \caption{常用的传统递次电路}
 \end{figure}
 
-\autoref{fig52}和\autoref{fig53}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。
+\autoref{fig52}就是我们在\autoref{sec35}中已经学习的基础电路。\autoref{fig53}是我们在\autoref{sec36}中使用到的模块。\autoref{fig55}耗尽了电线颜色，所以实际应用时需要谨慎选择。
 
 \autoref{fig56}的复位部分使用了\nameref{sec37}。
 
-\subsection{传统双向递次电路}\label{sec3}
+\subsection{双向递次电路}\label{sec3}
 双向递次电路就是可以正反两个方向循环的递次电路。正反分别用两根线控制。
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[传统双向递次]{
-    \adjincludegraphics{images/263.png}%
-    \quad%
-    \adjincludegraphics{images/264.png}
+  \subfloat[双向递次]{
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21}{0}{0}
+      \placeFaultyGate{21}{1}{0}
+      \foreach \x in {3,4,6,7,9,10} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[blue wire]
+        (3,1) -- (7,1)
+        (9,1) -- (11,1) -- (11,3) -- (-1,3) -- (-1,1) -- (1,1)
+        (0,0) -- (0,1)
+        (4,0) -- (4,1)
+        (6,0) -- (6,1)
+        (10,0) -- (10,1);
+      \draw[red wire]
+        (0,0.75) -- (4,0.75)
+        (6,0.75) -- (10,0.75)
+        (1,0) -- (1,0.75)
+        (3,0) -- (3,0.75)
+        (7,0) -- (7,0.75)
+        (9,0) -- (9,0.75);
+      \draw[green wire]
+        (-1,3.25) -- (11,3.25)
+        (0,2) -- (0,3.25)
+        (3,2) -- (3,3.25)
+        (6,2) -- (6,3.25)
+        (9,2) -- (9,3.25);
+      \draw[yellow wire]
+        (-1,3.5) -- (11,3.5)
+        (1,2) -- (1,3.5)
+        (4,2) -- (4,3.5)
+        (7,2) -- (7,3.5)
+        (10,2) -- (10,3.5);
+    \end{tikzpictureC}
   }%
   \smarthfill{42}%
-  \subfloat[密排传统双向递次]{
+  \subfloat[密排]{
     \adjincludegraphics{images/261.png}%
     \quad%
     \adjincludegraphics{images/262.png}
   }
 
-  \subfloat[带复位的传统双向递次]{
+  \subfloat[带复位]{
     \adjincludegraphics{images/265.png}
     \quad
     \adjincludegraphics{images/266.png}
