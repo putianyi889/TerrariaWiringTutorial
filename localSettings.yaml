@@ -39,6 +39,8 @@ indentRules:
   caption:
     body: ""
     mandatoryArguments: "  "
+  NewDocumentCommand:
+    mandatoryArguments: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
