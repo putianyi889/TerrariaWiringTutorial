@@ -41,6 +41,8 @@ indentRules:
     mandatoryArguments: "  "
   NewDocumentCommand:
     body: ""
+  drawRedBlue:
+    mandatoryArguments: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
