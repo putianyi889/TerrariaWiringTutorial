@@ -19,7 +19,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          latexindent --GCString -t -r -l -w -c /tmp $(git ls-files '*.tex')
+          latexindent --GCString -sl -r -l -w -s -c /tmp $(git ls-files '*.tex')
           ls
           git diff --exit-code
 
