@@ -19,7 +19,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          latexindent --GCString -sl -kv -r -l -wd -s -c /tmp $(git ls-files '*.tex')
+          latexindent --GCString -sl -kv -r -l -wd -s -c -t /tmp $(git ls-files '*.tex')
 
       - name: Upload Log
         if: failure()
