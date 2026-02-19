@@ -19,12 +19,12 @@ jobs:
 
       - name: Check formatting
         run: |
-          latexindent --GCString -t -r -l -w -s -c /tmp $(git ls-files '*.tex')
+          latexindent --GCString -t -r -l -w -c /tmp $(git ls-files '*.tex')
           ls
           git diff --exit-code
-        continue-on-error: true
 
       - name: Upload Log
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           path: indent.log
