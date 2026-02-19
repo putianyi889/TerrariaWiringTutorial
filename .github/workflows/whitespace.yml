@@ -25,4 +25,4 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          path: indent.log
+          path: -t/indent.log
