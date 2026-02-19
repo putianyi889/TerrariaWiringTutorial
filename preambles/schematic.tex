@@ -54,6 +54,7 @@
 \addwirestyle{green}
 \addwirestyle{yellow}
 
+% \begin{noindent}
 \NewDocumentCommand{\drawRedBlue}{O{}mO{}m}{
   \begin{scope}[blend group=difference]
     \begin{scope}[blend group=normal]
@@ -64,7 +65,9 @@
     \end{scope}
   \end{scope}
 }
+% \end{noindent}
 
+% \begin{noindent}
 \NewDocumentCommand{\drawGreenYellow}{O{}mO{}m}{%
   \begin{scope}[blend group=soft light]
     \begin{scope}[blend group=hue]
@@ -85,6 +88,7 @@
     \end{scope}
   \end{scope}
 }
+% \end{noindent}
 
 \newcommand{\placetile}[3]{%
   \node at (16pt*#2+8pt,16pt*#3+8pt) {\includegraphics[width=16pt]{\TexturePath#1.png}};
