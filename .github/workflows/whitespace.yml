@@ -21,9 +21,9 @@ jobs:
         run: |
           latexindent --GCString -r -l -w -s -c /tmp $(git ls-files '*.tex')
           git diff --exit-code
+        continue-on-error: true
 
       - name: Upload Log
-        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           path: indent.log
