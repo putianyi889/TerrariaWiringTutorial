@@ -10,7 +10,7 @@ replacements:
 
 specialBeginEnd:
   tikzDraw:
-    begin: '\\draw'
+    begin: \\draw(?![A-Za-z])
     end: ';'
   tikzPath:
     begin: '\\path'
@@ -39,6 +39,9 @@ indentRules:
   caption:
     body: ""
     mandatoryArguments: "  "
+  NewDocumentCommand:
+    body: "  "
+    mandatoryArguments: "  "
 
 noAdditionalIndentGlobal:
   keyEqualsValuesBracesBrackets: 1
@@ -47,6 +50,9 @@ noAdditionalIndentGlobal:
 noAdditionalIndent:
   problem: 0
   caption: 0
+  NewDocumentCommand:
+    body: 0
+    mandatoryArguments: 0
 
 lookForAlignDelims:
   tabular:

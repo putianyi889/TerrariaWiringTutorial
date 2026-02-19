@@ -19,5 +19,10 @@ jobs:
 
       - name: Check formatting
         run: |
-          latexindent --GCString -r -l -w -s -c /tmp $(git ls-files '*.tex')
-          git diff --exit-code
+          latexindent --GCString -sl -kv -r -l -wd -s -c -tt $(git ls-files '*.tex')
+
+      - name: Upload Log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          path: -t/indent.log

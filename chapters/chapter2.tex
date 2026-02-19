@@ -809,18 +809,9 @@
   \label{i88:89}
 \end{figure}
 
+各种不同布局的递次电路整理在\autoref{sec3}。
+
 将\autoref{i88:89}中下面一排复位电路穿插到上面\ShiftRegister 的缝隙里，可以得到占用空间更小的版本（\autoref{i106:107}）。
-
-\begin{figure}[!ht]
-  \centering
-  \adjincludegraphics{images/106.png}%
-  \smarthfill{30}%
-  \adjincludegraphics{images/107.png}
-  \caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。}
-  \label{i106:107}
-\end{figure}
-
-另外，偶尔我们可能需要用到双向\ShiftRegister ，它的各种做法见\autoref{sec3}。
 
 \subsection{降频电路}\label{sec2:1}
 
@@ -1108,21 +1099,32 @@
 绿线等可能地激活0\~{}5次，经过下面的\ShiftRegister ，就会导致点亮的火把等可能地循环右移0\~{}5个。无论激活顶端黄线之前哪个火把是亮的，这都意味着六个火把有等可能的概率点亮。
 
 \begin{problem}{}{}
-  做一个可以显示点数的骰子，六个点数效果如\autoref{i100:105}。
-  \begin{figure}[H]
-    \centering
-    \subfloat[1]{\label{i100}\adjincludegraphics{images/100.png}}%
+  做一个可以显示点数的骰子，六个点数效果如下。
+  \begin{center}
+    \begin{tikzpicture}[TRsch]
+      \placetile{Torch_On}{2}{2}
+      \draw[draw=none] (0,0) rectangle (4,4);
+    \end{tikzpicture}%
     \smarthfill{36}[6]%
-    \subfloat[2]{\label{i101}\adjincludegraphics{images/101.png}}%
+    \begin{tikzpicture}[TRsch]
+      \placetiles{Torch_On}{2/0,2/4}
+      \draw[draw=none] (0,0) rectangle (4,4);
+    \end{tikzpicture}%
     \smarthfill{36}[6]%
-    \subfloat[3]{\label{i102}\adjincludegraphics{images/102.png}}%
+    \begin{tikzpicture}[TRsch]
+      \placetiles{Torch_On}{0/4,2/2,4/0}
+    \end{tikzpicture}%
     \smarthfill{36}[6]%
-    \subfloat[4]{\label{i103}\adjincludegraphics{images/103.png}}%
+    \begin{tikzpicture}[TRsch]
+      \placetiles{Torch_On}{0/0,4/0,0/4,4/4}
+    \end{tikzpicture}%
     \smarthfill{36}[6]%
-    \subfloat[5]{\label{i104}\adjincludegraphics{images/104.png}}%
+    \begin{tikzpicture}[TRsch]
+      \placetiles{Torch_On}{0/0,2/2,0/4,4/0,4/4}
+    \end{tikzpicture}%
     \smarthfill{36}[6]%
-    \subfloat[6]{\label{i105}\adjincludegraphics{images/105.png}}
-    \caption{}
-    \label{i100:105}
-  \end{figure}
+    \begin{tikzpicture}[TRsch]
+      \placetiles{Torch_On}{0/0,2/0,4/0,0/4,2/4,4/4}
+    \end{tikzpicture}
+  \end{center}
 \end{problem}
