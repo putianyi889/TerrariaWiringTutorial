@@ -735,15 +735,15 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
         0. 黄线复位到初始状态 \\
         \phantom{0. }三个故障逻辑门功能类似 \\
         \phantom{0. }错开颜色是为了接线
-        };
+      };
       \draw[decorate, decoration={calligraphic brace}] (19,8) -- node[midway,right=8pt] {1. 延迟两个逻辑帧} (19,5);
       \draw[-Stealth] (19,2.5) node[right, align=left] {
-        2. 黄线双激活 \\
-        \phantom{2. }这个灯仅在一个逻辑帧亮
+          2. 黄线双激活 \\
+          \phantom{2. }这个灯仅在一个逻辑帧亮
         } -- (17.75,1.5);
       \draw[-Stealth] (19,-1) node[right, align=left] {
-        3. 黄线激活，发送红绿 \\
-        \phantom{3. }黄蓝同时激活，发送红蓝
+          3. 黄线激活，发送红绿 \\
+          \phantom{3. }黄蓝同时激活，发送红蓝
         } -- (17.75,-0.5);
     \end{scope}
   \end{tikzpictureC}
