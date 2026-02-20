@@ -541,9 +541,212 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!htp]
   \centering
-  \adjincludegraphics{images/146.png}%
-  \smarthfill{60}%
-  \adjincludegraphics{images/147.png}
+  \begin{tikzpictureC}[TRsch]
+    % 六选三
+    \begin{scope}
+      \placeFaultyGate{21}{0}{0}
+      \placeFaultyGate{211}{1}{0}
+      \placeFaultyGate{2111}{2}{0}
+      \placeFaultyGate{20111}{3}{0}
+      \placeFaultyGate{200111}{4}{0}
+      \placeFaultyGate{2000111}{5}{0}
+
+      \placeFaultyGate{21}{6}{3}
+      \placeFaultyGate{20}{7}{2}
+      \placeFaultyGate{20}{8}{1}
+
+      \placeAndGate{0}{-1}{1}
+
+      \draw[yellow wire]
+        (-1.125,1) -- (-1.125,-1.25) -- (7,-1.25) -- (7,3)
+        (1,2) -- (8,2);
+      \draw[green wire]
+        (-0.875,1) -- (-0.875,-1) -- (6,-1) -- (6,4)
+        (2,3) -- (7,3);
+      \draw[red wire] (-1,1) -- (8,1) -- (8,2);
+
+      % 向右连接
+      \draw[blue wire, -Butt Cap]
+        (0,0) -- (9,0) -- (9,3)
+        (6,5) -- (7,5) -- (7,4) -- (8,4) -- (8,3) -- (9.5,3);
+    \end{scope}
+
+    % 九选六
+    \begin{scope}[xshift=160pt, yshift=112pt]
+      \placeFaultyGate{2000111111}{0}{0}
+      \placeFaultyGate{200111111}{2}{0}
+      \placeFaultyGate{20111111}{4}{0}
+      \placeFaultyGate{2111111}{6}{0}
+      \placeFaultyGate{211111}{8}{0}
+      \placeFaultyGate{21111}{10}{0}
+      \placeFaultyGate{2111}{12}{0}
+      \placeFaultyGate{211}{14}{0}
+      \placeFaultyGate{21}{16}{0}
+
+      \foreach \i in {1,...,8} {
+        \pgfmathsetmacro{\x}{\i*2-1}
+        \pgfmathsetmacro{\y}{10-\i}
+        \pgfmathsetmacro{\z}{12-\i}
+
+        \placeAndGate{0}{\x}{\y}
+        \placeAndGate{0}{\x}{\z}
+
+        \draw[red wire] (\x,\y+1) -- (\x,\z);
+      }
+      \foreach \i in {1,...,7} {
+        \pgfmathsetmacro{\x}{\i*2}
+        \pgfmathsetmacro{\y}{11-\i}
+
+        \draw[green wire] (\x-1,\y-1) -- (\x,\y-1) -- (\x,\y+1) -- (\x+1,\y+1);
+      }
+      \placeAndGate{0}{17}{1}
+      \draw[green wire] (15,2) -- (17,2);
+
+      \draw[yellow wire]
+        (0,6) -- (0,1.25) -- (17,1.25)
+        (2,6) -- (2,1.25)
+        (4,6) -- (4,1.25)
+        (6,6) -- (6,1.25)
+        (8,5) -- (8,1.25)
+        (10,4) -- (10,1.25)
+        (12,3) -- (12,1.25)
+        (14,2) -- (14,1.25);
+
+      % 向左连接
+      \draw[red wire, -Butt Cap] (6,6) -- (-0.5,6);
+      \draw[blue wire, -Butt Cap] (8,5) -- (-0.5,5);
+      \draw[red wire, -Butt Cap] (10,4) -- (-0.5,4);
+      \draw[blue wire, -Butt Cap] (12,3) -- (-0.5,3);
+      \draw[red wire, -Butt Cap] (14,2) -- (-0.5,2);
+      \draw[blue wire, -Butt Cap] (16,1) -- (-0.5,1);
+      \draw[green wire, -Butt Cap] (16,0) -- (-0.5,0);
+
+      % 向下连接
+      \draw[yellow wire, -Butt Cap] (0,10) -- (0,12) -- (18,12) -- (18,-0.5);
+    \end{scope}
+
+    % 左上递次
+    \begin{scope}[yshift=128pt]
+      \placeFaultyGate{20}{0}{0}
+      \placeFaultyGate{20}{1}{1}
+      \placeFaultyGate{20}{2}{2}
+      \placeFaultyGate{20}{3}{3}
+      \placeFaultyGate{20}{4}{4}
+      \placeFaultyGate{21}{5}{5}
+
+      \placetiles{Junction_Box_X}{2/0,3/1,4/0,4/2,5/1,5/3,6/2,6/4}
+
+      \draw[red wire, -Butt Cap]
+        (5,6) -- (5,-1)
+        (4,5) -- (9.5,5);
+      \draw[blue wire, -Butt Cap]
+        (4,5) -- (4,-2)
+        (3,4) -- (9.5,4);
+      \draw[red wire, -Butt Cap]
+        (3,4) -- (3,-3)
+        (2,3) -- (9.5,3);
+      \draw[blue wire, -Butt Cap]
+        (2,3) -- (2,-4)
+        (1,2) -- (9.5,2);
+      \draw[red wire, -Butt Cap]
+        (1,2) -- (1,-5)
+        (0,1) -- (9.5,1);
+      \draw[blue wire, -Butt Cap]
+        (0,1) -- (0,-6) -- (-1,-6)
+        (5,6) -- (6,6) -- (6,0)
+        (0,0) -- (9.5,0);
+
+      \draw[green wire, -Butt Cap] (0,2) -- (0,3) -- (1,3) -- (1,4) -- (2,4) -- (2,5) -- (3,5) -- (3,6) -- (4,6) -- (4,7) -- (7,7) -- (7,-1) -- (9.5,-1);
+    \end{scope}
+
+    % 输出部分
+    \begin{scope}[xshift=160pt, yshift=-16pt]
+      \foreach \i in {0,...,8} {
+        \pgfmathsetmacro{\x}{\i*2}
+        \pgfmathsetmacro{\xx}{\x+1}
+
+        % 2个逻辑延迟
+        \placetile{Wire_Bulb_R}{\x}{-15}
+        \placeAndGate{0}{\x}{5}
+        \placeAndGate{0}{\x+1}{6}
+        \draw[red wire] (\x,8) -- (\x,7) -- (\x+1,7);
+        \ifodd\i
+          \draw[green wire] (\x,6) -- (\x+1,6);
+        \else
+          \draw[blue wire] (\x,6) -- (\x+1,6);
+        \fi
+
+        % 信号处理
+        \pgfmathtruncatemacro{\k}{mod(\i,3)}
+        \pgfmathsetmacro{\y}{2-\k}
+        \placeAndGate{0}{\x}{\y}
+        \placeFaultyGate{20}{\x+1}{\y}
+        \ifnum\k=0
+          \placetile{Junction_Box_X}{\x}{\y-2}
+        \else
+          \placetile{Junction_Box_X}{\x}{\y+2}
+        \fi
+        \draw[yellow wire]
+          (\x,\y) -- (\x,5)
+          (\x,\y+1) -- (\x+1,\y+1);
+        \draw[blue wire] (\x+1,\y) -- (\x+1,\y-1) -- (\x+0.2,\y-1) -- (\x+0.2,-15);
+        \draw[red wire] (\x-0.2,\y) -- (\x-0.2,-15);
+        \draw[green wire] (\x+1,\y) -- (\x,\y) -- (\x,-15);
+
+        % 复位部分
+        \placeFaultyGate{20}{\x+1}{-12}
+        \placeFaultyGate{20}{\x+1}{-8}
+        \placeFaultyGate{20}{\x+1}{-4}
+        \placetiles{Junction_Box_L}{\xx/-13,\xx/-9,\xx/-5})
+
+        % 三色循环
+        \pgfmathsetmacro{\redy}{-4-4*mod(\i,3)}
+        \pgfmathsetmacro{\bluey}{-4-4*mod(\i+2,3)}
+        \pgfmathsetmacro{\greeny}{-4-4*mod(\i+1,3)}
+        \draw[red wire, -Butt Cap] (\x+1,\redy+1) -- (\x+1,\redy-1) -- (\x-0.1375,\redy-1);
+        \draw[blue wire, -Butt Cap] (\x+1,\bluey+1) -- (\x+1,\bluey-1) -- (\x+0.2625,\bluey-1);
+        \draw[green wire, -Butt Cap] (\x+1,\greeny+1) -- (\x+1,\greeny-1) -- (\x+0.0625,\greeny-1);
+
+        \begin{scope}[opacity=0.4]
+          \foreach \j in {-3,-4,-7,-8,-11,-12} {
+            \placetile{Junction_Box_X}{\x}{\j}
+          }
+        \end{scope}
+      }
+
+      % 向左连接
+      \draw[blue wire, -Butt Cap]
+        (3,3) -- (3,4)
+        (5,2) -- (5,4)
+        (9,3) -- (9,4)
+        (11,2) -- (11,4)
+        (15,3) -- (15,4)
+        (17,2) -- (17,4) -- (-0.5,4);
+
+      %向上连接
+      \draw[yellow wire, -Butt Cap]
+        (1,-2) -- (18,-2)
+        (1,-6) -- (18,-6)
+        (1,-10) -- (18,-10) -- (18,7.5);
+
+      % 注释
+      \draw[-Stealth] (19,-14.5) node[right] {初始状态为全红} -- (17.5,-14.5);
+      \node[right, align=left] at (19,-5.5) {
+        0. 黄线复位到初始状态 \\
+        \phantom{0. }三个故障逻辑门功能类似 \\
+        \phantom{0. }错开颜色是为了接线
+        };
+      \draw[decorate, decoration={calligraphic brace}] (19,8) -- node[midway,right=8pt] {1. 延迟两个逻辑帧} (19,5);
+      \draw[-Stealth] (19,2.5) node[right, align=left] {
+        2. 黄线双激活 \\
+        \phantom{2. }这个灯仅在一个逻辑帧亮
+        } -- (17.75,1.5);
+      \draw[-Stealth] (19,-1) node[right, align=left] {
+        3. 黄线激活，发送红绿 \\
+        \phantom{3. }黄蓝同时激活，发送红蓝
+        } -- (17.75,-0.5);
+    \end{scope}
+  \end{tikzpictureC}
   \caption{}
   \label{i146:147}
 \end{figure}
