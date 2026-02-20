@@ -3,6 +3,7 @@
 \usepackage{etoolbox}
 \usepackage{xstring}
 \usetikzlibrary{fill.image}
+\usetikzlibrary{calc}
 
 \newcommand{\SolidTile}{Smooth_Marble_Block}
 \newcommand{\PlatformPlain}{Stone_Platform}
@@ -91,7 +92,7 @@
 % \end{noindent}
 
 \newcommand{\placetile}[3]{%
-  \node at (16pt*#2+8pt,16pt*#3+8pt) {\includegraphics[width=16pt]{\TexturePath#1.png}};
+  \node at ($(#2,#3)+(0.5,0.5)$) {\includegraphics[width=16pt]{\TexturePath#1.png}};
 }
 
 \newcommand{\placetiles}[2]{%
