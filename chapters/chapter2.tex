@@ -237,7 +237,13 @@
       \placetile{Player_Sensor_Off}{2}{-3}
     \end{tikzpictureC}%
     \smarthfill{14}%
-    \adjincludegraphics{images/47.png}
+    \begin{tikzpictureC}[TRsch]
+      \draw[solid tile] (0,0) -- (5,0) -- (5,1) -- (3,1) -- (3,4) -- (5,4) -- (5,5) -- (0,5) -- (0,4) -- (2,4) -- (2,1) -- (0,1) -- cycle;
+      \placetile{Player_Sensor_Off}{2}{-3}
+      \draw[red wire] (2,-3) -- (2,3);
+      \placetiles{Actuator}{2/1,2/2,2/3}
+      \drawPlayerSensorArea{2}{-3}
+    \end{tikzpictureC}%
     \caption{}
     \label{i46:47}
   \end{figure}
@@ -815,30 +821,36 @@
 
 \subsection{降频电路}\label{sec2:1}
 
-我们已经讲过了如何利用\ShiftRegister\myind{降频}。例如\autoref{i92:97}\subref{i92:93}中，绿线激活奇数次时红线激活，偶数次时蓝线激活。事实上降频一半有更简单的方式。在\autoref{i92:97}\subref{i94:95}中，激活绿线会激活故障逻辑灯并同时点亮有效逻辑灯，此时故障逻辑门会激活，红线激活；再次激活绿线会激活故障逻辑灯并同时熄灭有效逻辑灯，此时故障逻辑门不激活。\autoref{i92:97}\subref{i94:95}也可以做到在绿线激活奇数次时红线激活，\autoref{i92:97}\subref{i96:97}也可以做到在绿线激活偶数次时蓝线激活。一般说的降频电路就指这种使用一个故障逻辑门，把频率降低一半的电路。一般不要求精确频率时，使用降频电路比\ShiftRegister 更节省空间。
+我们已经讲过了如何利用\ShiftRegister\myind{降频}。例如\autoref{i92:93}中，绿线每激活两次，蓝线激活一次。事实上降频一半有更简单的方式。在\autoref{i94:95}中，第一次激活绿线会激活故障逻辑灯并同时熄灭有效逻辑灯，此时故障逻辑门不会激活；再次激活绿线会激活故障逻辑灯并同时点亮有效逻辑灯，此时故障逻辑门激活；如此循环。一般说的降频电路就指这种使用一个故障逻辑门，把频率降低一半的电路。
 
 \begin{figure}[!ht]
   \centering
   \subfloat[]{
     \label{i92:93}
-    \adjincludegraphics{images/92.png}%
-    \quad%
-    \adjincludegraphics{images/93.png}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21}{0}{0}
+      \placeFaultyGate{20}{1}{0}
+      \draw[green wire] (-1,2) -- (1,2);
+      \node[anchor=east] at (-0.5,2.5) {输入};
+      \drawRedBlue{
+        (0,0) -- (0,1) -- (1,1);
+      }{
+        (0,1) -- (1,1) -- (1,0) -- (2,0);
+      }
+      \node[anchor=west] at (2.5,0.5) {输出};
+    \end{tikzpictureC}
   }%
-  \smarthfill{14}[3]%
+  \smarthfill{13}%
   \subfloat[]{
     \label{i94:95}
-    \adjincludegraphics{images/94.png}%
-    \quad%
-    \adjincludegraphics{images/95.png}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21}{0}{0}
+      \draw[green wire] (-1,2) -- (0,2) -- (0,1);
+      \draw[red wire] (0,0) -- (1,0);
+      \node[anchor=east] at (-0.5,2.5) {输入};
+      \node[anchor=west] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
   }%
-  \smarthfill{14}[3]%
-  \subfloat[]{
-    \label{i96:97}
-    \adjincludegraphics{images/96.png}%
-    \quad%
-    \adjincludegraphics{images/97.png}
-  }
   \caption{}
   \label{i92:97}
 \end{figure}
