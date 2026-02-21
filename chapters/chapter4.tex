@@ -37,7 +37,14 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{i274}\adjincludegraphics{images/274.png}}%
+  \subfloat[]{
+    \label{i274}
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{0}{0}
+      \placetile{Torch_On}{5}{0}
+      \draw[red wire] (0,0) -- (5,0);
+    \end{tikzpictureC}
+  }%
   \smarthfill{12}%
   \subfloat[]{\label{i277}\adjincludegraphics[scale=0.75]{images/277.png}}
   \caption{}
@@ -68,7 +75,11 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{example}{逐格步进}{}
 
   \begin{center}
-    \adjincludegraphics{images/274.png}
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{0}{0}
+      \placetile{Torch_On}{5}{0}
+      \draw[red wire] (0,0) -- (5,0);
+    \end{tikzpictureC}
   \end{center}
 
   上图中一根红线连接了一个开关和一个火把。设置菜单中选择逐格步进，\shortcut{Num1}启用MechScope，然后右键点击开关进入下图所示的步进模式。开关上出现了\textcolor{red}{红}框，表示开关作为电源，激活了它上面的\textcolor{red}{红}线。每按一次\shortcut{Num2}，红框都往右延伸一格，表示红线激活的范围。最后一步中，红线激活到火把，使火把熄灭。
@@ -96,7 +107,14 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{example}{逐线步进}{}
 
   \begin{center}
-    \adjincludegraphics[scale=0.75]{images/285.png}
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{0}{0}
+      \placetiles{Torch_On}{0/5,5/0,-5/0,0/-5}
+      \draw[red wire] (0,0) -- (0,5);
+      \draw[blue wire] (0,0) -- (5,0);
+      \draw[green wire] (0,0) -- (0,-5);
+      \draw[yellow wire] (0,0) -- (-5,0);
+    \end{tikzpictureC}
   \end{center}
 
   上图中四色电线分别连接开关和四个火把。设置菜单中选择逐线步进，在下图所示的步进模式中可以看到红线、蓝线、绿线、黄线依次激活。
@@ -116,7 +134,21 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 \begin{example}{逐逻辑帧步进}{}
 
   \begin{center}
-    \adjincludegraphics{images/290.png}
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{-2}{1}
+      \placeAndGate{0}{0}{0}
+      \placeAndGate{0}{2}{0}
+      \placeAndGate{0}{4}{0}
+      \placeAndGate{0}{6}{0}
+      \placeAndGate{0}{8}{0}
+      \placetile{Torch_On}{10}{0}
+      \draw[red wire] (-2,1) -- (0,1);
+      \draw[blue wire] (0,0) -- (1,0) -- (1,1) -- (2,1);
+      \draw[red wire] (2,0) -- (3,0) -- (3,1) -- (4,1);
+      \draw[blue wire] (4,0) -- (5,0) -- (5,1) -- (6,1);
+      \draw[red wire] (6,0) -- (7,0) -- (7,1) -- (8,1);
+      \draw[blue wire] (8,0) -- (10,0);
+    \end{tikzpictureC}
   \end{center}
 
   在逐逻辑帧步进模式下，每次步进会前进一个逻辑帧。如下图所示，开关发出的信号经过6个逻辑帧到达火把，每个逻辑门产生了一个逻辑延迟。每个逻辑帧中执行的内容是逻辑门激活、电线激活、用电器激活。“\textcolor{red}{□}”标记出了当前逻辑帧激活的逻辑门，“✗”标记出了本次逻辑结算中已经激活过的逻辑门，“\textcolor{red}{⬯}”标记出了下个逻辑帧中需要激活的逻辑门。
