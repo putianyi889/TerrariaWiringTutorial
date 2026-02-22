@@ -16,9 +16,9 @@ specialBeginEnd:
     begin: '\\path'
     end: ';'
   tikzForEach:
-    begin: \\foreach\s+\\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s+in\s+\{
-    middle: \}\s+\{
-    end: \}(?!\s+\{)
+    begin: \\foreach\s*\\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s*in\s*\{
+    middle: \}\s*\{
+    end: \}(?!\s*\{)
   literate:
     begin: 'literate=%'
     end: ','
