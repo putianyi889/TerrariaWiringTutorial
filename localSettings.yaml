@@ -38,6 +38,7 @@ indentRules:
     mandatoryArguments: "  "
   tikzDraw: "  "
   tikzPath: "  "
+  tikzForEach: "  "
   literate:
     body: "  "
   caption:
