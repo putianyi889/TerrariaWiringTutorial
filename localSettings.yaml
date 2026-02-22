@@ -15,10 +15,6 @@ specialBeginEnd:
   tikzPath:
     begin: '\\path'
     end: ';'
-  tikzForEach:
-    begin: \\foreach\s*\\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s*in\s*\{
-    middle: \}\s*\{
-    end: \}(?!\s*\{)
   literate:
     begin: 'literate=%'
     end: ','
@@ -38,7 +34,6 @@ indentRules:
     mandatoryArguments: "  "
   tikzDraw: "  "
   tikzPath: "  "
-  tikzForEach: "  "
   literate:
     body: "  "
   caption:
@@ -79,3 +74,8 @@ lookForAlignDelims:
     alignDoubleBackSlash: 0
   split:
     alignDoubleBackSlash: 0
+
+commandCodeBlocks:
+  stringsAllowedBetweenArguments:
+    - amalgamate: 0
+    - \\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s*in
