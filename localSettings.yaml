@@ -15,6 +15,10 @@ specialBeginEnd:
   tikzPath:
     begin: '\\path'
     end: ';'
+  tikzForEach:
+    begin: \\foreach\s+\\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s+in\s+\{
+    middle: \}\s+\{
+    end: \}
   literate:
     begin: 'literate=%'
     end: ','
@@ -77,5 +81,3 @@ lookForAlignDelims:
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
-    - \\([a-zA-Z@]+)\s+in\b
-    - \\([a-zA-Z@]+)/([a-zA-Z@]+)\s+in\b
