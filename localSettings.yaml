@@ -18,7 +18,7 @@ specialBeginEnd:
   tikzForEach:
     begin: \\foreach\s+\\(?:[a-zA-Z@]+)(?:/\\(?:[a-zA-Z@]+))?\s+in\s+\{
     middle: \}\s+\{
-    end: \}
+    end: \}(?!\s+\{)
   literate:
     begin: 'literate=%'
     end: ','
@@ -38,8 +38,6 @@ indentRules:
     mandatoryArguments: "  "
   tikzDraw: "  "
   tikzPath: "  "
-  tikzForEach:
-    body: "  "
   literate:
     body: "  "
   caption:
