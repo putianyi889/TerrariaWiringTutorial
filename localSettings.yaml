@@ -77,8 +77,5 @@ lookForAlignDelims:
 commandCodeBlocks:
   stringsAllowedBetweenArguments:
     - amalgamate: 0
-    - '\\x\/\\y in'
-    - '\\x in'
-    - '\\y in'
-    - '\\i in'
-    - '\\j in'
+    - \\([a-zA-Z@]+)\s+in\b
+    - \\([a-zA-Z@]+)/([a-zA-Z@]+)\s+in\b
