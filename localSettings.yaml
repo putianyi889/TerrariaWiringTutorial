@@ -38,7 +38,8 @@ indentRules:
     mandatoryArguments: "  "
   tikzDraw: "  "
   tikzPath: "  "
-  tikzForEach: "  "
+  tikzForEach:
+    body: "  "
   literate:
     body: "  "
   caption:
@@ -79,7 +80,3 @@ lookForAlignDelims:
     alignDoubleBackSlash: 0
   split:
     alignDoubleBackSlash: 0
-
-commandCodeBlocks:
-  stringsAllowedBetweenArguments:
-    - amalgamate: 0
