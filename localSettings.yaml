@@ -50,7 +50,6 @@ noAdditionalIndentGlobal:
 noAdditionalIndent:
   problem: 0
   caption: 0
-  tikzForEach: 0
   NewDocumentCommand:
     body: 0
     mandatoryArguments: 0
