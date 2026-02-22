@@ -680,7 +680,20 @@
   \centering
   \subfloat[单灯换线器]{\label{fig9}\adjincludegraphics{images/361.png}}%
   \smarthfill{18}%
-  \subfloat[双灯换线器]{\label{fig10}\quad\adjincludegraphics{images/362.png}\quad}
+  \subfloat[双灯换线器]{%
+    \label{fig10}%
+    \quad%
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{01}{0}{0}
+      \placeXorGate{00}{2}{0}
+      \placeFaultyGate{21}{4}{0}
+      \draw[red wire] (-1,2) -- (5,2);
+      \draw[blue wire] (-1,0) -- (5,0);
+      \node[left] at (-0.5,2.5) {输入};
+      \node[right] at (5.5,0.5) {输出};
+    \end{tikzpictureC}%
+    \quad
+  }
   \caption{换线器}
 \end{figure}
 
@@ -690,9 +703,40 @@
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[与门vs故障门]{\label{fig11}\adjincludegraphics{images/363.png}\quad\adjincludegraphics{images/364.png}}%
+  \subfloat[与门vs故障门]{%
+    \label{fig11}%
+    \qquad%
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{-1}{2}
+      \placeAndGate{01}{0}{0}
+      \placeFaultyGate{21}{2}{0}
+      \placetiles{Torch_On}{0/-1,2/-1}
+      \drawRedBlue{
+        (-1,2) -- (2,2);
+      }{
+        (-1,2) -- (2,2);
+      }
+      \draw[green wire] (0,0) -- (0,-1);
+      \draw[green wire] (2,0) -- (2,-1);
+    \end{tikzpictureC}%
+    \qquad
+  }%
   \smarthfill{16}%
-  \subfloat[异或门抗干扰]{\label{fig12}\adjincludegraphics{images/365.png}\quad\adjincludegraphics{images/366.png}}
+  \subfloat[异或门抗干扰]{%
+    \label{fig12}%
+    \qquad%
+    \begin{tikzpictureC}[TRsch]
+      \placetile{Switch_Flat_Off}{-1}{2}
+      \placeXorGate{00}{0}{0}
+      \placetile{Torch_On}{0}{-1}
+      \draw[red wire] (-1,2) -- (1,2);
+      \draw[blue wire]
+        (-1,1) -- (1,1)
+        (0,1) -- (0,2);
+      \draw[green wire] (0,0) -- (0,-1);
+    \end{tikzpictureC}%
+    \qquad
+  }
   \caption{\protect\subref{fig11}右击开关，红蓝线同时激活，左边火把不响应，右边火把响应；\protect\subref{fig12}无论蓝线如何激活，都不影响换线器工作。}
 \end{figure}
 
@@ -707,10 +751,50 @@
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{fig83}\includegraphics{images/438.png}}\qquad
-  \subfloat[]{\label{fig84}\includegraphics{images/439.png}}\qquad
-  \subfloat[]{\label{fig85}\includegraphics{images/440.png}}\qquad
-  \subfloat[]{\label{fig86}\includegraphics{images/441.png}}\qquad
+  \subfloat[]{
+    \label{fig83}
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{0}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,1) -- (1,1);
+      \node[left] at (-0.5,1.5) {三线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig84}
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{01}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,2) -- (1,2);
+      \node[left] at (-0.5,2.5) {四线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig85}
+    \begin{tikzpictureC}[TRsch]
+      \placeXorGate{000}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,3) -- (1,3);
+      \draw[green wire] (-1,1) -- (1,1);
+      \node[left] at (-0.5,3.5) {四线输入};
+      \node[left] at (-0.5,1.5) {三线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig86}
+    \begin{tikzpictureC}[TRsch]
+      \placeXorGate{0000}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,4) -- (1,4);
+      \draw[green wire] (-1,2) -- (1,2);
+      \node[left] at (-0.5,4.5) {四线输入};
+      \node[left] at (-0.5,2.5) {四线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
   \caption{单个普通逻辑门多换一换线器示例。\protect\subref{fig83}单灯换线器三换一；\protect\subref{fig84}双灯换线器利用隔线实现四换一，若用双灯异或则四个输入可以在和输出颜色不冲突的情况下随便选一个灯接；\protect\subref{fig85}利用双灯异或的逻辑特点和逻辑灯隔线实现7换1；\protect\subref{fig86}加一个隔线的逻辑灯实现8换1。}
 \end{figure}
 
@@ -771,9 +855,22 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/72.png}%
-  \smarthfill{28}%
-  \adjincludegraphics{images/73.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Switch_Flat_Off}{-2}{2}
+    \placeFaultyGate{21}{0}{0}
+    \foreach \x in {2,4,6,8,10} {
+      \placeFaultyGate{20}{\x}{0}
+    }
+    \draw[blue wire]
+      (10,0) -- (10,1) -- (11,1) -- (11,3) -- (-1,3) -- (-1,1) -- (0,1)
+      (2,0) -- (2,1) -- (4,1)
+      (6,0) -- (6,1) -- (8,1);
+    \draw[red wire]
+      (0,0) -- (0,1) -- (2,1)
+      (4,0) -- (4,1) -- (6,1)
+      (8,0) -- (8,1) -- (10,1);
+    \draw[green wire] (-2,2) -- (10,2);
+  \end{tikzpictureC}
   \caption{}
   \label{i72:73}
 \end{figure}
