@@ -589,10 +589,24 @@
 \begin{figure}[!ht]
   \centering
   \subfloat[]{\label{i414}\adjincludegraphics{images/414.png}}%
-  \smarthfill{25}[3]%
+  \smarthfill{27}[3]%
   \subfloat[]{\label{i415}\adjincludegraphics{images/415.png}}%
-  \smarthfill{25}[3]%
-  \subfloat[]{\label{i416}\adjincludegraphics{images/416.png}}
+  \smarthfill{27}[3]%
+  \subfloat[]{%
+    \label{i416}%
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+      \draw[blue wire]
+        (6,0) -- (6,1) -- (7,1) -- (7,3) -- (-1,3) -- (-1,1) -- (0,1)
+        (2,0) -- (2,1) -- (4,1);
+      \draw[red wire]
+        (0,0) -- (0,1) -- (2,1)
+        (4,0) -- (4,1) -- (6,1);
+      \draw[green wire] (-2,2) -- (8,2);
+    \end{tikzpictureC}
+  }
   \caption{递次电路移位。\protect\subref{i414}逻辑右移一位；\protect\subref{i415}算术右移一位；\protect\subref{i416}循环右移一位。}\label{fig40}
 \end{figure}
 

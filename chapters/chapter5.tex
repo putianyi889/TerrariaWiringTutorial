@@ -276,40 +276,39 @@
 递次电路能形成循环，是靠的故障逻辑门改变逻辑灯状态，而逻辑灯状态又能反过来决定故障逻辑门是否激活。换言之，每一步中电路的状态都可以决定下一步的状态。这样依次下去，就形成了一个状态链。我们有理由相信，在某些特定的接线方式下，状态链会形成循环。
 
 \begin{example}{}{}
-  分析如\autoref{fig59}所示的4-传统递次电路。
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/416.png}
-    \caption{}\label{fig59}
-  \end{figure}
+  分析如下所示的4-传统递次电路。
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+      \draw[blue wire]
+        (6,0) -- (6,1) -- (7,1) -- (7,3) -- (-1,3) -- (-1,1) -- (0,1)
+        (2,0) -- (2,1) -- (4,1);
+      \draw[red wire]
+        (0,0) -- (0,1) -- (2,1)
+        (4,0) -- (4,1) -- (6,1);
+      \draw[green wire] (-2,2) -- (8,2);
+    \end{tikzpictureC}
+  \end{center}
   \begin{proof}[解]
-    4-传统递次总共有16种状态，它们对应的后继如\autoref{tab14}所示。
-    \begin{table}[H]
-      \centering
-      \begin{tabular}{|c|c|}
+    4-传统递次总共有16种状态，它们对应的后继如下表所示。
+    \begin{center}
+      \begin{tabular}{|c|c||c|c|}
         \hline
-        当前状态 & 下一状态 \\\hline
-        0000     & 0000 \\\hline
-        0001     & 1000 \\\hline
-        0010     & 0001 \\\hline
-        0011     & 1001 \\\hline
-        0100     & 0010 \\\hline
-        0101     & 1010 \\\hline
-        0110     & 0011 \\\hline
-        0111     & 1011 \\\hline
-        1000     & 0100 \\\hline
-        1001     & 1100 \\\hline
-        1010     & 0101 \\\hline
-        1011     & 1101 \\\hline
-        1100     & 0110 \\\hline
-        1101     & 1110 \\\hline
-        1110     & 0111 \\\hline
-        1111     & 1111 \\\hline
+        当前状态 & 下一状态 & 当前状态 & 下一状态 \\\hline
+        0000     & 0000     & 1000     & 0100 \\\hline
+        0001     & 1000     & 1001     & 1100 \\\hline
+        0010     & 0001     & 1010     & 0101 \\\hline
+        0011     & 1001     & 1011     & 1101 \\\hline
+        0100     & 0010     & 1100     & 0110 \\\hline
+        0101     & 1010     & 1101     & 1110 \\\hline
+        0110     & 0011     & 1110     & 0111 \\\hline
+        0111     & 1011     & 1111     & 1111 \\\hline
       \end{tabular}
-      \caption{}\label{tab14}
-    \end{table}
+    \end{center}
 
-    根据\autoref{tab14}，我们得出4-传统递次的所有循环：
+    根据上表，我们得出4-传统递次的所有循环：
     \begin{align*}
       0000 & \to 0000                         \\
       1000 & \to 0100\to 0010\to 0001\to 1000 \\
@@ -324,38 +323,39 @@
 
 
 \begin{example}{}{}
-  分析如\autoref{fig57}所示的推广递次电路。
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/426.png}
-    \caption{}\label{fig57}
-  \end{figure}
+  分析如下所示的推广递次电路。
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+      \drawRedBlue{
+        (0,0) -- (0,1) -- (4,1);
+      }{
+        (6,0) -- (6,1) -- (7,1) -- (7,3) -- (-1,3) -- (-1,1) -- (0,1)
+        (2,0) -- (2,1) -- (4,1);
+      }
+      \draw[green wire] (4,0) -- (4,1) -- (6,1);
+      \draw[yellow wire] (-2,2) -- (8,2);
+    \end{tikzpictureC}
+  \end{center}
   \begin{proof}[解]
-    \begin{table}[H]
-      \centering
-      \begin{tabular}{|c|c|}
+
+    \begin{center}
+      \begin{tabular}{|c|c||c|c|}
         \hline
-        当前状态 & 下一状态 \\\hline
-        0000     & 0000 \\\hline
-        0001     & 1000 \\\hline
-        0010     & 0001 \\\hline
-        0011     & 1001 \\\hline
-        0100     & 0010 \\\hline
-        0101     & 1010 \\\hline
-        0110     & 0011 \\\hline
-        0111     & 1011 \\\hline
-        1000     & 0110 \\\hline
-        1001     & 1110 \\\hline
-        1010     & 0111 \\\hline
-        1011     & 1111 \\\hline
-        1100     & 0100 \\\hline
-        1101     & 1100 \\\hline
-        1110     & 0101 \\\hline
-        1111     & 1101 \\\hline
+        当前状态 & 下一状态 & 当前状态 & 下一状态 \\\hline
+        0000     & 0000     & 1000     & 0110 \\\hline
+        0001     & 1000     & 1001     & 1110 \\\hline
+        0010     & 0001     & 1010     & 0111 \\\hline
+        0011     & 1001     & 1011     & 1111 \\\hline
+        0100     & 0010     & 1100     & 0100 \\\hline
+        0101     & 1010     & 1101     & 1100 \\\hline
+        0110     & 0011     & 1110     & 0101 \\\hline
+        0111     & 1011     & 1111     & 1101 \\\hline
       \end{tabular}
-      \caption{}\label{tab15}
-    \end{table}
-    根据\autoref{tab15}，我们得出该推广递次的所有循环：
+    \end{center}
+    根据上表，我们得出该推广递次的所有循环：
     \begin{align*}
       0000\to & 0000                                                         \\
       0001\to & 1000\to 0110\to 0011\to 1001\to 1110\to 0101\to 1010\to      \\
@@ -369,30 +369,39 @@
 不难看出，无论推广递次如何连接，$0000\to 0000$的1循环是不会变的，我们把这个循环叫做\textbf{平凡循环}并在之后的讨论中忽略它。如果一个推广递次的所有非零状态共同构成了一个循环，那么我们把这个循环叫做\textbf{全循环}。推广递次连接的多样化、状态的多样化、循环的多样化带来了更多的可能性。
 
 \begin{example}{}{}
-  分析\autoref{fig58}中的降频电路。
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/332.png}
-    \caption{}\label{fig58}
-  \end{figure}
+  分析下图中的降频电路。
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{21}{0}{0}
+      \placeFaultyGate{21}{1}{0}
+      \placeFaultyGate{21}{2}{0}
+      \drawRedBlue{
+        (0,0) rectangle (1,1);
+      }{
+        (1,0) -- (1,1) -- (2,1) -- (2,2);
+      }
+      \draw[green wire] (-1,2) -- (1,2);
+      \draw[yellow wire] (2,0) -- (3,0);
+      \node[left] at (-0.5,2.5) {输入};
+      \node[right] at (3.5,0.5) {输出};
+    \end{tikzpictureC}
+  \end{center}
   \begin{proof}[解]
-    该电路分为两部分：左边两个门为2-推广递次电路，右边一个门为2-降频电路，2-推广递次的绿线接到2-降频电路的输入。
+    该电路分为两部分：左边两个门为2-推广递次电路，右边一个门为2-降频电路，2-推广递次的蓝线接到2-降频电路的输入。
 
-    分析推广递次的输出时，不光要分析各个灯的状态，还要分析各根线的状态。本例中2-推广递次的两个灯与两根线的状态如\autoref{tab16}所示，其中两根线的初始状态设为0。
+    分析推广递次的输出时，不光要分析各个灯的状态，还要分析各根线的状态。本例中2-推广递次的两个灯与两根线的状态如下表所示，其中两根线的初始状态设为0。
 
-    \begin{table}[H]
-      \centering
+    \begin{center}
       \begin{tabular}{|c|c|c|c|}
         \hline
-        状态编号 & 两灯状态 & 蓝线状态 & 绿线状态 \\\hline
+        状态编号 & 两灯状态 & 红线状态 & 蓝线状态 \\\hline
         0        & 10       & 0        & 0 \\\hline
         1        & 01       & 1        & 0 \\\hline
         2        & 11       & 0        & 1 \\\hline
       \end{tabular}
-      \caption{}\label{tab16}
-    \end{table}
+    \end{center}
 
-    这个推广递次的循环为3，而且每个循环中绿线激活两次，通过2-降频电路后，每个循环中火把被激活一次。所以\autoref{fig58}中的降频电路是3-降频电路。
+    这个推广递次的循环为3，而且每个循环中蓝线激活两次，通过2-降频电路后，每个循环中输出一次。所以本例中的降频电路是3-降频电路。
 
     如果使用3-传统递次电路实现降频，因为摆线的原因，电路的宽或高至少要增加一格。推广递次在这种简单功能上有体积的优势。
 
@@ -613,7 +622,7 @@
   \caption{十进制数显传统接线的显示矩阵}\label{sjzsxctjxdxsjz}
 \end{table}
 
-上面的矩阵在$\mathbb{F}_2$\footnote{域$\mathbb{F}_2$包含0,1两个元素，可以将0看作偶数，1看作奇数。加法规则：0+0=1+1=0，0+1=1+0=1；乘法规则：0*0=0*1=1*0=0，1*1=1。}下的秩为7\footnote{后文中会介绍该矩阵的初等列变换操作并证明矩阵的列秩为7。}，所以显示器至少要分成7段，没有办法减少段数。那么就没有可能减少控制电路中的换线器数量了吗？有的。在某些情况下，可以将同色的两段线连接到同一排换线器上并且使其不重叠（\autoref{}）。用这种方法，7段线至多可以合并三对，这样就可以接在一行中。
+上面的矩阵在$\mathbb{F}_2$\footnote{域$\mathbb{F}_2$包含0,1两个元素，可以将0看作偶数，1看作奇数。加法规则：0+0=1+1=0，0+1=1+0=1；乘法规则：0*0=0*1=1*0=0，1*1=1。}下的秩为7\footnote{后文中会介绍该矩阵的初等列变换操作并证明矩阵的列秩为7。}，所以显示器至少要分成7段，没有办法减少段数。那么就没有可能减少控制电路中的换线器数量了吗？有的。在某些情况下，可以将同色的两段线连接到同一排换线器上并且使其不重叠。用这种方法，7段线至多可以合并三对，这样就可以接在一行中。
 
 我们对对应矩阵进行初等列变换，尝试将两列中的1分离。每列的列标是集合\{a, b, c, d, e, f, g\}的子集，列标为X的列的内容称为列X。初等列变换分为两种操作：
 \begin{enumerate}
@@ -621,7 +630,7 @@
   \item 将列X加到列Y上（$\mathbb{F}_2$加法），同时将X改为X和Y的对称差\footnote{集合A与集合B的对称差定义为$A\triangle B=(A\cup B)-(A\cap B)$}。
 \end{enumerate}
 
-初等列变换过程如\autoref{bianhuanp1}和\autoref{bianhuanp2}。\autoref{bianhuanp1}使靠右的列的上部为0，经过这一步可以看出来矩阵的列秩为7；\autoref{bianhuanp2}使靠左的列的下部为0。经过变换后，第1列可以和第5列合并，第2列可以和第6列合并，第3列可以和第7列合并。合并后接线如\autoref{}，注意由于合并的两列有重复段，在显示屏上不能使用同色电线，必须要使用额外的换线器。继续使用初等列变换可以减少换线器使用（\autoref{}）。
+初等列变换过程如\autoref{bianhuanp1}和\autoref{bianhuanp2}。\autoref{bianhuanp1}使靠右的列的上部为0，经过这一步可以看出来矩阵的列秩为7；\autoref{bianhuanp2}使靠左的列的下部为0。经过变换后，第1列可以和第5列合并，第2列可以和第6列合并，第3列可以和第7列合并。注意由于合并的两列有重复段，在显示屏上不能使用同色电线，必须要使用额外的换线器。继续使用初等列变换可以减少换线器使用。
 
 \begin{figure}[p]
   \centering
@@ -803,7 +812,7 @@
 
 这里使用另一种技巧，我们先做一种预处理来减少矩阵中1的数量，这样有利于分离。定义矩阵列的反向操作：将该列列标的大小写互换，将该列01互换。标有大写的分段在接线时，其火把的01状态与正常情况相反。显然这个操作只有在初等列变换之前进行才有意义。
 
-在初始的显示矩阵中，除了e列的1比0少，其他所有列的1都比0多，所以将其他所有列反向，可以减少矩阵中1的个数（\autoref{tab1}）。对这个矩阵进行化简得到\autoref{}，再作一些技巧上的处理（\autoref{}），就可以不使用换线器（\autoref{}）。
+在初始的显示矩阵中，除了e列的1比0少，其他所有列的1都比0多，所以将其他所有列反向，可以减少矩阵中1的个数（\autoref{tab1}）。对这个矩阵进行化简得到，再作一些技巧上的处理，就可以不使用换线器。
 
 \begin{table}[!ht]
   \centering
