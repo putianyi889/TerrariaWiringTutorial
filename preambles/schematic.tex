@@ -8,6 +8,7 @@
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{calligraphy}
 \usetikzlibrary{fill.image}
+\usetikzlibrary{patterns}
 
 \newcommand{\SolidTile}{Smooth_Marble_Block}
 \newcommand{\PlatformPlain}{Stone_Platform}
@@ -21,6 +22,7 @@
     y=16pt
   },
   water/.style = {opacity=0.2, blue},
+  actuated/.style = {opacity=0.7, black},
   solid tile/.style = {
     preaction={
       clip,
