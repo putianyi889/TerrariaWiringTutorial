@@ -12,6 +12,9 @@
   \item 夜间模式是暗色主题的电子版，用于在低亮度环境下浏览。夜间模式通过编译\path{TerrariaWiringTutorial_nightmode.tex}生成。
 \end{itemize}
 
+\section{额外配置}
+本文档中大量的插图使用\lstinline{robust-externalize}宏包独立编译。为了减少GitHub Actions的编译时间，使用了多线程选项\lstinline{compile in parallel}。该选项在Windows系统不可用，因此如果你使用Windows系统，需要注释掉该行。该行位于\lstinline{main.tex}的\lstinline|\robExtConfigure|参数中。
+
 \section{表格}
 小型表格直接用\lstinline{tabular}环境。大型表格用\lstinline{longtable}宏包提供的同名环境。一个单元格内的换行，可以使用\lstinline{makecell}提供的同名命令。
 
