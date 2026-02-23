@@ -276,40 +276,39 @@
 递次电路能形成循环，是靠的故障逻辑门改变逻辑灯状态，而逻辑灯状态又能反过来决定故障逻辑门是否激活。换言之，每一步中电路的状态都可以决定下一步的状态。这样依次下去，就形成了一个状态链。我们有理由相信，在某些特定的接线方式下，状态链会形成循环。
 
 \begin{example}{}{}
-  分析如\autoref{fig59}所示的4-传统递次电路。
-  \begin{figure}[H]
-    \centering
-    \adjincludegraphics{images/416.png}
-    \caption{}\label{fig59}
-  \end{figure}
+  分析如下所示的4-传统递次电路。
+  \begin{center}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+      \draw[blue wire]
+        (6,0) -- (6,1) -- (7,1) -- (7,3) -- (-1,3) -- (-1,1) -- (0,1)
+        (2,0) -- (2,1) -- (4,1);
+      \draw[red wire]
+        (0,0) -- (0,1) -- (2,1)
+        (4,0) -- (4,1) -- (6,1);
+      \draw[green wire] (-2,2) -- (8,2);
+    \end{tikzpictureC}
+  \end{center}
   \begin{proof}[解]
-    4-传统递次总共有16种状态，它们对应的后继如\autoref{tab14}所示。
-    \begin{table}[H]
-      \centering
-      \begin{tabular}{|c|c|}
+    4-传统递次总共有16种状态，它们对应的后继如下表所示。
+    \begin{center}
+      \begin{tabular}{|c|c||c|c|}
         \hline
-        当前状态 & 下一状态 \\\hline
-        0000     & 0000 \\\hline
-        0001     & 1000 \\\hline
-        0010     & 0001 \\\hline
-        0011     & 1001 \\\hline
-        0100     & 0010 \\\hline
-        0101     & 1010 \\\hline
-        0110     & 0011 \\\hline
-        0111     & 1011 \\\hline
-        1000     & 0100 \\\hline
-        1001     & 1100 \\\hline
-        1010     & 0101 \\\hline
-        1011     & 1101 \\\hline
-        1100     & 0110 \\\hline
-        1101     & 1110 \\\hline
-        1110     & 0111 \\\hline
-        1111     & 1111 \\\hline
+        当前状态 & 下一状态 & 当前状态 & 下一状态 \\\hline
+        0000     & 0000     & 1000     & 0100 \\\hline
+        0001     & 1000     & 1001     & 1100 \\\hline
+        0010     & 0001     & 1010     & 0101 \\\hline
+        0011     & 1001     & 1011     & 1101 \\\hline
+        0100     & 0010     & 1100     & 0110 \\\hline
+        0101     & 1010     & 1101     & 1110 \\\hline
+        0110     & 0011     & 1110     & 0111 \\\hline
+        0111     & 1011     & 1111     & 1111 \\\hline
       \end{tabular}
-      \caption{}\label{tab14}
-    \end{table}
+    \end{center}
 
-    根据\autoref{tab14}，我们得出4-传统递次的所有循环：
+    根据上表，我们得出4-传统递次的所有循环：
     \begin{align*}
       0000 & \to 0000                         \\
       1000 & \to 0100\to 0010\to 0001\to 1000 \\
@@ -324,38 +323,27 @@
 
 
 \begin{example}{}{}
-  分析如\autoref{fig57}所示的推广递次电路。
-  \begin{figure}[H]
-    \centering
+  分析如下所示的推广递次电路。
+  \begin{center}
     \adjincludegraphics{images/426.png}
     \caption{}\label{fig57}
-  \end{figure}
+  \end{center}
   \begin{proof}[解]
-    \begin{table}[H]
-      \centering
-      \begin{tabular}{|c|c|}
+    \begin{center}
+      \begin{tabular}{|c|c||c|c|}
         \hline
-        当前状态 & 下一状态 \\\hline
-        0000     & 0000 \\\hline
-        0001     & 1000 \\\hline
-        0010     & 0001 \\\hline
-        0011     & 1001 \\\hline
-        0100     & 0010 \\\hline
-        0101     & 1010 \\\hline
-        0110     & 0011 \\\hline
-        0111     & 1011 \\\hline
-        1000     & 0110 \\\hline
-        1001     & 1110 \\\hline
-        1010     & 0111 \\\hline
-        1011     & 1111 \\\hline
-        1100     & 0100 \\\hline
-        1101     & 1100 \\\hline
-        1110     & 0101 \\\hline
-        1111     & 1101 \\\hline
+        当前状态 & 下一状态 & 当前状态 & 下一状态 \\\hline
+        0000     & 0000     & 1000     & 0110 \\\hline
+        0001     & 1000     & 1001     & 1110 \\\hline
+        0010     & 0001     & 1010     & 0111 \\\hline
+        0011     & 1001     & 1011     & 1111 \\\hline
+        0100     & 0010     & 1100     & 0100 \\\hline
+        0101     & 1010     & 1101     & 1100 \\\hline
+        0110     & 0011     & 1110     & 0101 \\\hline
+        0111     & 1011     & 1111     & 1101 \\\hline
       \end{tabular}
-      \caption{}\label{tab15}
-    \end{table}
-    根据\autoref{tab15}，我们得出该推广递次的所有循环：
+    \end{center}
+    根据上表，我们得出该推广递次的所有循环：
     \begin{align*}
       0000\to & 0000                                                         \\
       0001\to & 1000\to 0110\to 0011\to 1001\to 1110\to 0101\to 1010\to      \\
