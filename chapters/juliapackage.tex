@@ -50,7 +50,7 @@ pkg> update # 自动更新所有的包
 pkg> remove TerrariaWiringHelper # 卸载
 \end{lstlisting}
 
-\section{$\mathbb{Z}_2$相关功能}
+\section{\texorpdfstring{$\mathbb{Z}_2$}{Z\textbackslash 2}相关功能}
 \begin{lstlisting}[language=Julia, style=julia]
 julia> using TerrariaWiringHelper
 
@@ -64,7 +64,7 @@ julia> x + x # Z_2中的加法
 0
 \end{lstlisting}
 
-\subsection{$\mathbb{Z}_2$向量}
+\subsection{\texorpdfstring{$\mathbb{Z}_2$}{Z\textbackslash 2}向量}
 \begin{lstlisting}[language=Julia, style=julia]
 julia> v = Z2Vector([1,0,1,1,0]) # 创建一个Z_2向量
 5-element Z2Algebra.Z2RowVector{Vector{Z2Algebra.Z2Block}}:
@@ -99,7 +99,7 @@ julia> u .* v # 逐个元素相乘
 0
 \end{lstlisting}
 
-\subsection{$\mathbb{Z}_2$矩阵}
+\subsection{\texorpdfstring{$\mathbb{Z}_2$}{Z\textbackslash 2}矩阵}
 \begin{lstlisting}[language=Julia, style=julia]
 julia> A = Z2Matrix([1 0 0;1 1 0;1 1 1]) # 创建一个矩阵
 3×3 Z2Matrix{Matrix{Z2Algebra.Z2Block}}:
