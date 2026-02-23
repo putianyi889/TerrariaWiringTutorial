@@ -390,11 +390,22 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{i173}\adjincludegraphics{images/173.png}}%
-  \smarthfill{7}[3]%
-  \subfloat[]{\label{i174}\adjincludegraphics{images/174.png}}%
-  \smarthfill{7}[3]%
-  \subfloat[]{\label{i175}\adjincludegraphics{images/175.png}}
+  \subfloat[]{
+    \label{i174}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{20}{0}{0}
+      \draw[red wire] (-1,2) -- (0,2) -- (0,1);
+    \end{tikzpictureC}
+  }%
+  \smarthfill{7}%
+  \subfloat[]{
+    \label{i175}
+    \begin{tikzpictureC}[TRsch]
+      \placeFaultyGate{20}{0}{0}
+      \draw[red wire] (-1,1) -- (0,1);
+      \draw[blue wire] (0,2) -- (1,2);
+    \end{tikzpictureC}
+  }
   \caption{红线控制有效逻辑灯状态。\protect\subref{i174}有效逻辑灯点亮时立刻激活；\protect\subref{i175}事后激活，在某个时刻激活蓝线可以将有效逻辑灯的亮/灭转换为故障逻辑门的激活/不激活。}
   \label{i173:175}
 \end{figure}
@@ -407,9 +418,11 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{i173b}\adjincludegraphics{images/173.png}}
-  \smarthfill{5}
-  \subfloat[]{\label{i176}\adjincludegraphics{images/176.png}}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{20}{0}{0}
+    \draw[red wire] (-1,1) -- (0,1) -- (0,0);
+    \draw[blue wire] (0,2) -- (1,2);
+  \end{tikzpictureC}
   \caption{无论红线是否激活，首先激活蓝线将有效逻辑灯置0，随后红线激活则有效逻辑灯变为1，否则有效逻辑灯为0。}
   \label{i173:176}
 \end{figure}
