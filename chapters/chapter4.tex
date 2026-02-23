@@ -505,24 +505,52 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{
-    \label{i138:139}
-    \adjincludegraphics{images/138.png}%
-    \quad%
-    \adjincludegraphics{images/139.png}
+  \subfloat[]{%
+    \label{i138:139}%
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{0}{0}{0}
+      \placeAndGate{0}{0}{2}
+      \placeAndGate{010}{1}{0}
+      \drawRedBlue{
+        (-2,3) -- (1,3)
+        (-2,2) -- (0,2) -- (0,3);
+      }{
+        (-2,1) -- (1,1)
+        (-2,2) -- (-1,2) -- (-1,1)
+        (0,0) -- (0,1);
+      }
+      \node[left] at (-1.5,3.5) {只输入红};
+      \node[left] at (-1.5,1.5) {只输入蓝};
+      \node[left] at (-1.5,2.5) {同时输入};
+      \draw[green wire] (1,0) -- (2,0);
+      \node[right] at (2.5,0.5) {输出};
+    \end{tikzpictureC}
   }%
-  \smarthfill{20}%
-  \subfloat[]{
-    \label{i140:141}
-    \adjincludegraphics{images/140.png}%
-    \quad%
-    \adjincludegraphics{images/141.png}
+  \smarthfill{18}%
+  \subfloat[]{%
+    \label{i140:141}%
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{0}{0}{0}
+      \placeFaultyGate{20}{1}{0}
+      \drawRedBlue{
+        (-2,0) -- (0,0) -- (0,1) -- (1,1)
+        (-2,1) -- (0,1);
+      }{
+        (-2,2) -- (1,2)
+        (-2,1) -- (-1,1) -- (-1,2);
+      }
+      \node[left] at (-1.5,2.5) {只输入蓝};
+      \node[left] at (-1.5,0.5) {只输入红};
+      \node[left] at (-1.5,1.5) {同时输入};
+      \draw[green wire] (1,0) -- (2,0);
+      \node[right] at (2.5,0.5) {输出};
+    \end{tikzpictureC}
   }
-  \caption{只有激活蓝线和红线重合处的开关，火把才会响应。}
+  \caption{只有在同一个逻辑帧激活红蓝，才会产生输出。}
   \label{i138:141}
 \end{figure}
 
-例如\autoref{i138:141}中的两个电路，只当蓝线和红线在一个逻辑帧激活时，右侧的逻辑门才会激活。换个思路，也可以认为这里的一根线对另一根线实现了精确到逻辑帧的信号检测。这两个电路也有细微差别。故障逻辑门上的有效逻辑灯是灭的情况下故障逻辑灯怎么激活都不会爆门，而双激活电路是一次性的，所以\autoref{i138:139}的激活条件实际上是蓝线与红线的第一次激活在同一个逻辑帧；\autoref{i140:141}的激活条件是红线第一次激活的同一个逻辑帧蓝线也激活。
+例如\autoref{i138:141}中的两个电路，只当蓝线和红线在一个逻辑帧激活时，右侧的逻辑门才会激活。换个思路，也可以认为这里的一根线对另一根线实现了精确到逻辑帧的信号检测。这两个电路也有细微差别。故障逻辑门上的有效逻辑灯是灭的情况下故障逻辑灯怎么激活都不会爆门，而双激活电路是一次性的，所以\autoref{i138:139}的输出条件实际上是蓝线与红线的第一次激活在同一个逻辑帧；\autoref{i140:141}的输出条件是红线第一次激活的同一个逻辑帧蓝线也激活。
 
 \subsection{嵌入式赋值电路}\label{sec37}
 我们已经知道如何用故障逻辑门做\nameref{sec14}。有了\nameref{sec33}以后，我们可以用普通逻辑门做\nameref{sec14}。
