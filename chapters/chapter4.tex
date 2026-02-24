@@ -956,9 +956,15 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/167.png}%
-  \smarthfill{10}%
-  \adjincludegraphics{images/168.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Switch_Flat_Off}{0}{0}
+    \placetiles{Dart_Trap_U}{2/0,4/0}
+    \placetiles{Smooth_Marble_Block}{2/5,4/5}
+    \placeTealPressurePad{T}{2}{4}
+    \placeTealPressurePad{T}{4}{4}
+
+    \draw[red wire] (0,0) -- (4,0);
+  \end{tikzpictureC}
   \caption{}
   \label{i167:168}
 \end{figure}
@@ -967,9 +973,22 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/169.png}%
-  \smarthfill{20}%
-  \adjincludegraphics{images/170.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Switch_Flat_Off}{0}{0}
+    \placetiles{Dart_Trap_U}{2/0,4/0}
+    \placetiles{Smooth_Marble_Block}{2/5,4/5}
+    \placeTealPressurePad{T}{2}{4}
+    \placeTealPressurePad{T}{4}{4}
+    \placeFaultyGate{20}{7}{2}
+    \placeFaultyGate{21}{9}{2}
+    \placetiles{Torch_On}{7/0,9/0}
+
+    \draw[red wire] (0,0) -- (4,0);
+    \draw[blue wire] (4,4) -- (4,3) -- (9,3);
+    \draw[green wire] (2,4) -- (2,5) -- (6,5) -- (6,4) -- (9,4);
+    \draw[yellow wire] (7,0) -- (7,2);
+    \draw[yellow wire] (9,0) -- (9,2);
+  \end{tikzpictureC}
   \caption{}
   \label{i169:170}
 \end{figure}
@@ -978,9 +997,22 @@ MechScope 模组可以将电路结算过程可视化。其下载链接已经在\
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/171.png}%
-  \smarthfill{20}%
-  \adjincludegraphics{images/172.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Switch_Flat_Off}{0}{0}
+    \placetiles{Dart_Trap_U}{2/0,4/0}
+    \placetiles{Smooth_Marble_Block}{2/5,4/5}
+    \placeTealPressurePad{T}{2}{4}
+    \placeTealPressurePad{T}{4}{4}
+    \placeAndGate{10}{7}{2}
+    \placeFaultyGate{21}{9}{2}
+    \placetiles{Torch_On}{7/0,9/0}
+
+    \draw[red wire] (0,0) -- (4,0);
+    \draw[blue wire] (4,4) -- (7,4);
+    \draw[green wire] (2,4) -- (2,3) -- (7,3);
+    \draw[yellow wire] (7,2) -- (8,2) -- (8,3) -- (9,3) -- (9,4);
+    \draw[red wire] (9,0) -- (9,2);
+  \end{tikzpictureC}
   \caption{}
   \caption{最右边是降频电路，火把响应一次代表与门激活两次。}
   \label{i171:172}
