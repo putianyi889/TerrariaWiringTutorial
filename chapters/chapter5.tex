@@ -9,31 +9,31 @@
 如下图，双灯换线器有三种：与门、异或门、故障门。
 \begin{center}
   \begin{tikzpictureC}[TRsch]
-      \placeAndGate{01}{0}{0}
-      \placeXorGate{00}{2}{0}
-      \placeFaultyGate{21}{4}{0}
-      \draw[red wire] (-1,2) -- (5,2);
-      \draw[blue wire] (-1,0) -- (5,0);
-      \node[left] at (-0.5,2.5) {输入};
-      \node[right] at (5.5,0.5) {输出};
-    \end{tikzpictureC}%
+    \placeAndGate{01}{0}{0}
+    \placeXorGate{00}{2}{0}
+    \placeFaultyGate{21}{4}{0}
+    \draw[red wire] (-1,2) -- (5,2);
+    \draw[blue wire] (-1,0) -- (5,0);
+    \node[left] at (-0.5,2.5) {输入};
+    \node[right] at (5.5,0.5) {输出};
+  \end{tikzpictureC}%
 \end{center}
 
 这三种双灯换线器各有各的特性。当输入在一个逻辑帧内多次激活时，故障门换线器会输出，而与门和异或门仅在输入奇数次时才会输出。如果一条无关的线连接了异或门换线器的两个灯，那么这条线的激活不会影响异或门的工作（如下图），这个特性对于狭小空间的接线有帮助。
 
 \begin{center}
   \begin{tikzpictureC}[TRsch]
-      \placeXorGate{00}{0}{0}
-      \draw[red wire] (-1,2) -- (1,2);
-      \draw[blue wire]
-        (-1,1) -- (1,1)
-        (0,1) -- (0,2);
-      \draw[green wire] (-1,0) -- (1,0);
+    \placeXorGate{00}{0}{0}
+    \draw[red wire] (-1,2) -- (1,2);
+    \draw[blue wire]
+      (-1,1) -- (1,1)
+      (0,1) -- (0,2);
+    \draw[green wire] (-1,0) -- (1,0);
 
-      \node[left] at (-0.5,2.5) {输入};
-      \node[right] at (1.5,0.5) {输出};
-      \node[left] at (-0.5,1.5) {激活蓝线不影响换线器工作};
-    \end{tikzpictureC}%
+    \node[left] at (-0.5,2.5) {输入};
+    \node[right] at (1.5,0.5) {输出};
+    \node[left] at (-0.5,1.5) {激活蓝线不影响换线器工作};
+  \end{tikzpictureC}%
 \end{center}
 
 \subsection{多换一换线器}
