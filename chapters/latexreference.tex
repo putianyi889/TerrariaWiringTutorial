@@ -37,7 +37,8 @@
   \item \lstinline|\placeFaultyGate{灯的状态}{门x}{门y}|：绘制一个故障逻辑门。灯的状态中用2表示故障逻辑灯，其余同\lstinline{\placeAndGate}。
   \item \lstinline|\placeSevenSegment{七段线状态}|：以\lstinline{(0,0)}为左下角绘制一个火把七段线。每根线长度为2。七段线状态是01串，顺序是顶-左上-右上-中-左下-右下-底。例如显示4：\lstinline|\placeSevenSegment{0111010}|。
   \item \lstinline|\placePressurePlate{类型}{x}{y}|：绘制一个普通压力板，因为压力板的贴图有一个偏移。例如红压力板：\lstinline|\placePressurePlate{Red}{0}{0}|。
-  \item \lstinline|\placeWeightedPressurePlate{类型}{状态}{x}{y}|：绘制一个测重压力板，因为测重压力板的贴图有偏移。例如弹起的粉色测重压力板：\lstinline|\placeWeightedPressurePlate{Pink}{Off}{0}{0}|。
+  \item \lstinline|\placeWeightedPressurePlate{类型}{状态}{x}{y}|：绘制一个测重压力板，因为其贴图有偏移。例如弹起的粉色测重压力板：\lstinline|\placeWeightedPressurePlate{Pink}{Off}{0}{0}|。
+  \item \lstinline|\placeTealPressurePad{方向}{x}{y}|：绘制一个青绿压力垫板，因为其贴图有偏移。方向表示该垫板紧贴的实体块方向，取值为\lstinline|{T,B,L,R}|。
   \item \lstinline|\playerSensorFrame{x}{y}|绘制一个位置在\lstinline{(x,y)}的玩家感应器的感应框。
 \end{itemize}
 
@@ -45,7 +46,8 @@
 \begin{itemize}
   \item \lstinline{TRsch}：用于\lstinline{tikzpicture}的参数，将坐标和贴图对齐。
   \item \lstinline{solid tile}：画一片实体块。例如\lstinline{\draw[solid tile] (0,0) rectangle (3,2);}。
-  \item \lstinline{water}：画一片水。例如\lstinline{\draw[water] (0,0) rectangle (3,2);}。
+  \item \lstinline{water}：画一片水。例如\lstinline{\draw[water] (0,0) rectangle (3,2);}。这个模板实际上就是蓝色滤镜。
+  \item \lstinline{actuated}：被虚化。和\lstinline{water}类似，这实际上就是黑色滤镜。
 \end{itemize}
 
 \subsection{示例}
