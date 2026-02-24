@@ -2,6 +2,110 @@
 
 在前面我们已经学习了所有电路原理。在这一章中我们以电路功能分类，介绍一些常用的电路模块。
 
+\section{换线器}
+单灯换线器略。
+
+\subsection{双灯换线器}
+如下图，双灯换线器有三种：与门、异或门、故障门。
+\begin{center}
+  \begin{tikzpictureC}[TRsch]
+      \placeAndGate{01}{0}{0}
+      \placeXorGate{00}{2}{0}
+      \placeFaultyGate{21}{4}{0}
+      \draw[red wire] (-1,2) -- (5,2);
+      \draw[blue wire] (-1,0) -- (5,0);
+      \node[left] at (-0.5,2.5) {输入};
+      \node[right] at (5.5,0.5) {输出};
+    \end{tikzpictureC}%
+\end{center}
+
+这三种双灯换线器各有各的特性。当输入在一个逻辑帧内多次激活时，故障门换线器会输出，而与门和异或门仅在输入奇数次时才会输出。如果一条无关的线连接了异或门换线器的两个灯，那么这条线的激活不会影响异或门的工作（如下图），这个特性对于狭小空间的接线有帮助。
+
+\begin{center}
+  \begin{tikzpictureC}[TRsch]
+      \placeXorGate{00}{0}{0}
+      \draw[red wire] (-1,2) -- (1,2);
+      \draw[blue wire]
+        (-1,1) -- (1,1)
+        (0,1) -- (0,2);
+      \draw[green wire] (-1,0) -- (1,0);
+
+      \node[left] at (-0.5,2.5) {输入};
+      \node[right] at (1.5,0.5) {输出};
+      \node[left] at (-0.5,1.5) {激活蓝线不影响换线器工作};
+    \end{tikzpictureC}%
+\end{center}
+
+\subsection{多换一换线器}
+单灯换线器至多实现三换一，双灯至多实现四换一。如果只用一个逻辑门，组合逻辑门最多可以实现八换一(\autoref{fig104})，故障逻辑门没有上限。双灯换线器中故障门的特性在这里仍然成立，即其只检测是否有激活，而不会检测激活次数的奇偶性。
+
+\begin{figure}[!ht]
+  \centering
+  \subfloat[]{
+    \label{fig83}
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{0}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,1) -- (1,1);
+      \node[left] at (-0.5,1.5) {三线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig84}
+    \begin{tikzpictureC}[TRsch]
+      \placeAndGate{01}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,2) -- (1,2);
+      \node[left] at (-0.5,2.5) {四线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig85}
+    \begin{tikzpictureC}[TRsch]
+      \placeXorGate{000}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,3) -- (1,3);
+      \draw[green wire] (-1,1) -- (1,1);
+      \node[left] at (-0.5,3.5) {四线输入};
+      \node[left] at (-0.5,1.5) {三线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \subfloat[]{
+    \label{fig86}
+    \begin{tikzpictureC}[TRsch]
+      \placeXorGate{0000}{0}{0}
+      \draw[red wire] (-1,0) -- (1,0);
+      \draw[green wire] (-1,4) -- (1,4);
+      \draw[green wire] (-1,2) -- (1,2);
+      \node[left] at (-0.5,4.5) {四线输入};
+      \node[left] at (-0.5,2.5) {四线输入};
+      \node[right] at (1.5,0.5) {输出};
+    \end{tikzpictureC}
+  }\qquad
+  \caption{单个普通逻辑门多换一换线器示例。\protect\subref{fig83}单灯换线器三换一；\protect\subref{fig84}双灯换线器四换一，若用双灯异或则四个输入可以在和输出颜色不冲突的情况下随便选一个灯接；\protect\subref{fig85}利用双灯异或的逻辑特点和逻辑灯隔线实现7换1；\protect\subref{fig86}加一个隔线的逻辑灯实现8换1。}
+  \label{fig104}
+\end{figure}
+
+\subsection{双向换线器}
+\begin{center}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{20}{0}{0}
+    \placeFaultyGate{20}{1}{0}
+
+    \drawRedBlue{
+      (-1,1) -- (1,1) -- (1,2)
+      (0,0) -- (0,1);
+    }{
+      (0,2) -- (0,1) -- (2,1)
+      (1,0) -- (1,1);
+    }
+  \end{tikzpictureC}
+\end{center}
+图中的双向换线器仅支持单逻辑帧中一侧一次激活。双侧同时激活起不到换线作用。
+
 \section{递次电路}\label{sec2}
 在\autoref{sec35}中我们介绍了传统递次电路的原理，这里我们来看一下各式各样的递次电路。
 
