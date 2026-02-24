@@ -260,6 +260,9 @@
   \placetile{#1_Weighted_Pressure_Plate_#2}{#3}{\placeWeightedPressurePlate@y}
   \endgroup
 }
+\newcommand{\placeTealPressurePad}[3]{
+  \node at ($(#2,#3)+(0.5,0.5)$) {\includegraphics[width=20pt]{\TexturePath Teal_Pressure_Pad_#1.png}};
+}
 
 \definecolor{playerSensorFrame}{RGB}{32, 178, 170}
 \newcommand{\drawPlayerSensorArea}[2]{%
