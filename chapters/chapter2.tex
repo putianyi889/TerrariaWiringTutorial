@@ -148,7 +148,7 @@
       \placetile{Conveyor_Belt_Clockwise}{0}{0}
       \placetile{\SolidTile}{1}{0}
       \placeWeightedPressurePlate{Pink}{Off}{1}{1}
-      
+
       \draw[red wire] (0,0) -- (1,0) -- (1,1);
     \end{tikzpictureC}
     \caption{传送带驱动。图中传送带为顺时针。}
@@ -830,9 +830,22 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/90.png}%
-  \smarthfill{10}%
-  \adjincludegraphics{images/91.png}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{21}{0}{0}
+    \placeFaultyGate{20}{1}{0}
+    \placeFaultyGate{20}{2}{0}
+    \placetile{Conveyor_Belt_Clockwise}{0}{4}
+    \placetile{\SolidTile}{1}{4}
+    \placeWeightedPressurePlate{Pink}{Off}{1}{5}
+
+    \draw[yellow wire] (2,0) -- (2,1) -- (3,1) -- (3,3) -- (-1,3) -- (-1,1) -- (0,1);
+    \draw[green wire]
+      (0,2) -- (2,2)
+      (1,2) -- (1,5)
+      (0,4) -- (1,4);
+    \draw[blue wire] (1,0) -- (1,1) -- (2,1);
+    \draw[red wire] (0,0) -- (0,1) -- (1,1);
+  \end{tikzpictureC}
   \caption{将黄线接出即得到20Hz的驱动，因为绿线每激活3次，黄线都激活1次。}
   \label{i90:91}
 \end{figure}
@@ -841,10 +854,44 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/86.png}%
-  \smarthfill{28}%
-  \adjincludegraphics{images/87.png}
-  \caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。除了横穿所有故障逻辑灯的绿线和黄线外，红线和蓝线用来进行\ShiftRegister 中的循环并将上面有效逻辑灯的状态同步到下面，绿线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{220}{0}{0}
+    \placeFaultyGate{221}{0}{4}
+
+    \foreach \i in {1,2,3,4,5} {
+      \pgfmathsetmacro{\x}{\i*2}
+      \placeFaultyGate{220}{\x}{0}
+      \placeFaultyGate{220}{\x}{4}
+      \placetile{Junction_Box_X}{\x-1}{3}
+
+      \ifodd\i
+        \let\foo\drawGreenYellow
+      \else
+        \let\foo\drawRedBlue
+      \fi
+      \foo{
+        (\x,1) -- (\x-2,1)
+        (\x-1,1) -- (\x-1,5) -- (\x,5)
+        (\x-1,4) -- (\x-2,4) -- (\x-2,5) -- (\x-1,5);
+      }{
+        (\x,0) -- (\x,1) -- (\x-1,1) -- (\x-1,5) -- (\x,5);
+      }
+    }
+
+    \drawRedBlue{
+      (10,1) -- (11,1) -- (11,8) -- (-1,8) -- (-1,1) -- (0,1)
+      (11,4) -- (10,4) -- (10,5) -- (11,5)
+      (-1,5) -- (0,5);
+    }{
+      (0,0) -- (0,1) -- (-1,1) -- (-1,5) -- (0,5);
+    }
+
+    \draw[green wire] (-2,7) -- (12,7);
+    \draw[yellow wire] (-2,3) -- (12,3);
+    \node[left] at (-1.5,7.5) {步进};
+    \node[left] at (-1.5,3.5) {复位};
+  \end{tikzpictureC}
+  \caption{可复位的\ShiftRegister。激活绿横线步进，激活黄横线用来复位。除了用来步进和复位的绿线和黄线外，红线和绿线用来进行\ShiftRegister 中的循环并将上面有效逻辑灯的状态同步到下面，蓝线和黄线用来赋值。多加一排故障逻辑灯是为了将颜色冲突的线分开。}
   \label{i86:87}
 \end{figure}
 
@@ -852,10 +899,34 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/88.png}%
-  \smarthfill{28}%
-  \adjincludegraphics{images/89.png}
-  \caption{上面的开关用来正常激活\ShiftRegister ，下面的开关用来复位。}
+  \begin{tikzpictureC}[TRsch]
+    \placeFaultyGate{20}{0}{0}
+    \placeFaultyGate{20}{0}{3}
+
+    \foreach \i in {1,2,3,4,5} {
+      \pgfmathsetmacro{\x}{\i*2}
+      \placeFaultyGate{20}{\x}{0}
+      \placeFaultyGate{20}{\x}{3}
+
+      \ifodd\i
+        \def\c{red wire}
+      \else
+        \def\c{blue wire}
+      \fi
+      \draw[\c]
+        (\x-2,0) -- (\x-2,1) -- (\x-1,1) -- (\x-1,4)
+        (\x-1,3) -- (\x-2,3) -- (\x-2,4) -- (\x,4);
+    }
+
+    \draw[blue wire]
+      (10,0) -- (10,1) -- (11,1) -- (11,6) -- (-1,6) -- (-1,4) -- (0,4)
+      (11,3) -- (10,3) -- (10,4) -- (11,4);
+    \draw[green wire] (-2,5) -- (12,5);
+    \draw[yellow wire] (-2,2) -- (12,2);
+    \node[left] at (-1.5,5.5) {步进};
+    \node[left] at (-1.5,2.5) {复位};
+  \end{tikzpictureC}
+  \caption{可复位的\ShiftRegister。激活绿线步进，激活黄线复位。}
   \label{i88:89}
 \end{figure}
 
