@@ -12,8 +12,11 @@ specialBeginEnd:
   tikzDraw:
     begin: \\draw(?![A-Za-z])
     end: ';'
+  tikzNode:
+    begin: \\node(?![A-Za-z])
+    end: ';'
   tikzPath:
-    begin: '\\path'
+    begin: \\path(?![A-Za-z])
     end: ';'
   literate:
     begin: 'literate=%'
@@ -33,6 +36,7 @@ indentRules:
   lstdefinestyle:
     mandatoryArguments: "  "
   tikzDraw: "  "
+  tikzNode: "  "
   tikzPath: "  "
   literate:
     body: "  "
