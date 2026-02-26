@@ -588,9 +588,37 @@
 
 \begin{figure}[!ht]
   \centering
-  \subfloat[]{\label{i414}\adjincludegraphics{images/414.png}}%
+  \subfloat[]{
+    \label{i414}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[red wire] (0,0) -- (0,1) -- (2,1);
+      \draw[blue wire] (2,0) -- (2,1) -- (4,1);
+      \draw[red wire] (4,0) -- (4,1) -- (6,1);
+      \draw[blue wire] (6,0) -- (6,1);
+
+      \draw[green wire] (-1,2) -- (7,2);
+    \end{tikzpictureC}
+  }%
   \smarthfill{27}[3]%
-  \subfloat[]{\label{i415}\adjincludegraphics{images/415.png}}%
+  \subfloat[]{
+    \label{i415}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[red wire] (0,0) -- (1,0) -- (1,1) -- (2,1);
+      \draw[blue wire] (2,0) -- (2,1) -- (4,1);
+      \draw[red wire] (4,0) -- (4,1) -- (6,1);
+      \draw[blue wire] (6,0) -- (6,1);
+
+      \draw[green wire] (-1,2) -- (7,2);
+    \end{tikzpictureC}
+  }%
   \smarthfill{27}[3]%
   \subfloat[]{%
     \label{i416}%

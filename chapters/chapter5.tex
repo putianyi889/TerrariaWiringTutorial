@@ -760,7 +760,18 @@
   \autoref{fig60}所示推广递次的状态链见\autoref{fig61}。这个状态链是一棵树，不包含任何一个非平凡循环。
   \begin{figure}[H]
     \centering
-    \adjincludegraphics{images/414.png}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[red wire] (0,0) -- (0,1) -- (2,1);
+      \draw[blue wire] (2,0) -- (2,1) -- (4,1);
+      \draw[red wire] (4,0) -- (4,1) -- (6,1);
+      \draw[blue wire] (6,0) -- (6,1);
+
+      \draw[green wire] (-1,2) -- (7,2);
+    \end{tikzpictureC}
     \caption{}\label{fig60}
   \end{figure}
   \begin{figure}[H]
@@ -794,7 +805,18 @@
   \autoref{fig62}所示推广递次的状态链见\autoref{fig63}。这个状态链由两棵树组成。
   \begin{figure}[H]
     \centering
-    \adjincludegraphics{images/415.png}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[red wire] (0,0) -- (1,0) -- (1,1) -- (2,1);
+      \draw[blue wire] (2,0) -- (2,1) -- (4,1);
+      \draw[red wire] (4,0) -- (4,1) -- (6,1);
+      \draw[blue wire] (6,0) -- (6,1);
+
+      \draw[green wire] (-1,2) -- (7,2);
+    \end{tikzpictureC}
     \caption{}\label{fig62}
   \end{figure}
   \begin{figure}[H]
@@ -835,7 +857,18 @@
   \autoref{fig65}所示推广递次的状态链见\autoref{fig64}，其中既有环结构也有树结构。
   \begin{figure}[H]
     \centering
-    \adjincludegraphics{images/427.png}
+    \begin{tikzpictureC}[TRsch]
+      \foreach \x in {0,2,4,6} {
+        \placeFaultyGate{20}{\x}{0}
+      }
+
+      \draw[red wire] (0,0) -- (0,1) -- (2,1);
+      \draw[blue wire] (2,0) -- (2,1) -- (4,1);
+      \draw[red wire] (4,0) -- (4,1) -- (6,1);
+      \draw[green wire] (6,0) -- (6,1.25) -- (0,1.25);
+
+      \draw[yellow wire] (-1,2) -- (7,2);
+    \end{tikzpictureC}
     \caption{}\label{fig65}
   \end{figure}
   \begin{figure}[H]
