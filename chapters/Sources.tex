@@ -668,9 +668,42 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/385.png}%
-  \smarthfill{46}%
-  \adjincludegraphics{images/386.png}
+  \begin{tikzpictureC}[
+    TRsch,
+    teleporter/.pic = {
+      \placetileGroup3{Teleporter}{0}{0}
+      \placetile{Stone_Platform_R}{0}{-1}
+      \placetile{Stone_Platform_C}{1}{-1}
+      \placetile{Stone_Platform_L}{2}{-1}
+    }]
+    \foreach \x/\y in {0/0, 4/0, 8/0, 12/0, 16/0, 20/0, 10/5, 10/10} {
+      \pic at (\x,\y) {teleporter};
+    }
+    \placetiles{Switch_H_Off}{2/1, 6/1, 10/1, 12/1, 16/1, 20/1}
+    \placetiles{Switch_Flat_Off}{8/8, 9/8, 10/8, 12/8, 13/8, 14/8}
+    \foreach \x/\y in {8/4, 9/5, 10/6, 12/6, 13/5, 14/4} {
+      \placeAndGate{0}{\x}{\y}
+    }
+
+    \draw[blue wire] (10,8) -- (10,0);
+    \draw[blue wire] (12,8) -- (12,0);
+    \draw[green wire]
+      (9,8) -- (9,1) -- (6,1) -- (6,0)
+      (9,5) -- (10,5);
+    \draw[green wire]
+      (13,8) -- (13,1) -- (16,1) -- (16,0)
+      (13,5) -- (12,5);
+    \draw[yellow wire]
+      (8,8) -- (8,2) -- (2,2) -- (2,0)
+      (8,4) -- (9.75,4) -- (9.75,5);
+    \draw[yellow wire]
+      (14,8) -- (14,2) -- (20,2) -- (20,0)
+      (14,4) -- (12.25,4) -- (12.25,5);
+
+    \draw[red wire]
+      (8.25,3.75) -- (9.25,3.75) -- (9.25,4.75) -- (10.25,4.75) -- (10.25,5.75) -- (11.75,5.75) -- (11.75,4.75) -- (12.75,4.75) -- (12.75,3.75) -- (14,3.75)
+      (11,5.75) -- (11,10);
+  \end{tikzpictureC}
   \caption{双向1转6技术。}\label{fig22}
 \end{figure}
 将6个近-远中继的近端合并，就可以得到双向1转6技术，如\autoref{fig22}所示。6个远端传送机可以非常远，而且只有一根线连接即可，不需要额外的控制。
