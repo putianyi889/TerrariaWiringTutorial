@@ -668,9 +668,42 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/385.png}%
-  \smarthfill{46}%
-  \adjincludegraphics{images/386.png}
+  \begin{tikzpictureC}[
+    TRsch,
+    teleporter/.pic = {
+      \placetileGroup3{Teleporter}{0}{0}
+      \placetile{Stone_Platform_R}{0}{-1}
+      \placetile{Stone_Platform_C}{1}{-1}
+      \placetile{Stone_Platform_L}{2}{-1}
+    }]
+    \foreach \x/\y in {0/0, 4/0, 8/0, 12/0, 16/0, 20/0, 10/5, 10/10} {
+      \pic at (\x,\y) {teleporter};
+    }
+    \placetiles{Switch_H_Off}{2/1, 6/1, 10/1, 12/1, 16/1, 20/1}
+    \placetiles{Switch_Flat_Off}{8/8, 9/8, 10/8, 12/8, 13/8, 14/8}
+    \foreach \x/\y in {8/4, 9/5, 10/6, 12/6, 13/5, 14/4} {
+      \placeAndGate{0}{\x}{\y}
+    }
+
+    \draw[blue wire] (10,8) -- (10,0);
+    \draw[blue wire] (12,8) -- (12,0);
+    \draw[green wire]
+      (9,8) -- (9,1) -- (6,1) -- (6,0)
+      (9,5) -- (10,5);
+    \draw[green wire]
+      (13,8) -- (13,1) -- (16,1) -- (16,0)
+      (13,5) -- (12,5);
+    \draw[yellow wire]
+      (8,8) -- (8,2) -- (2,2) -- (2,0)
+      (8,4) -- (9.75,4) -- (9.75,5);
+    \draw[yellow wire]
+      (14,8) -- (14,2) -- (20,2) -- (20,0)
+      (14,4) -- (12.25,4) -- (12.25,5);
+
+    \draw[red wire]
+      (8.25,3.75) -- (9.25,3.75) -- (9.25,4.75) -- (10.25,4.75) -- (10.25,5.75) -- (11.75,5.75) -- (11.75,4.75) -- (12.75,4.75) -- (12.75,3.75) -- (14,3.75)
+      (11,5.75) -- (11,10);
+  \end{tikzpictureC}
   \caption{双向1转6技术。}\label{fig22}
 \end{figure}
 将6个近-远中继的近端合并，就可以得到双向1转6技术，如\autoref{fig22}所示。6个远端传送机可以非常远，而且只有一根线连接即可，不需要额外的控制。
@@ -687,7 +720,43 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/392.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Stone_Platform_R}{0}{0}
+    \foreach \i in {1,...,25} {
+      \placetile{Stone_Platform_C}{\i}{0}
+    }
+    \placetile{Stone_Platform_L}{26}{0}
+    \foreach \i in {0,...,8} {
+      \placetileGroup3{Teleporter}{3*\i}{1}
+      \placetile{Switch_H_Off}{3*\i+1}{2}
+      \placetile{Switch_Flat_Off}{9+\i}{9}
+    }
+    \foreach \i in {4,10,16,22} {
+      \placeAndGate{0}{\i}{3}
+    }
+
+    \placetile{Stone_Platform_R}{12}{10}
+    \placetile{Stone_Platform_C}{13}{10}
+    \placetile{Stone_Platform_L}{14}{10}
+    \placetileGroup3{Teleporter}{12}{11}
+
+    \draw[red wire]
+      (12,11) -- (1,11) -- (1,1) -- (25,1) -- (25,11) -- (14,11)
+      (9,9) -- (9,7) -- (1,7)
+      (4,3) -- (4,1)
+      (11,9) -- (11,5) -- (7,5) -- (7,1)
+      (10,3) -- (10,1)
+      (13,9) -- (13,1)
+      (16,3) -- (16,1)
+      (15,9) -- (15,5) -- (19,5) -- (19,1)
+      (22,3) -- (22,1)
+      (17,9) -- (17,7) -- (25,7);
+    \draw[blue wire]
+      (10,9) -- (10,6) -- (4,6) -- (4,4)
+      (12,9) -- (12,4) -- (10,4)
+      (14,9) -- (14,4) -- (16,4)
+      (16,9) -- (16,6) -- (22,6) -- (22,4);
+  \end{tikzpictureC}
   \caption{双向1传9传送阵。下面有多少传送机就要向上接多少根线}\label{fig24}
 \end{figure}
 
@@ -695,7 +764,57 @@
 
 \begin{figure}[!ht]
   \centering
-  \adjincludegraphics{images/390.png}
+  \begin{tikzpictureC}[TRsch]
+    \placetile{Stone_Platform_R}{0}{0}
+    \foreach \i in {1,...,25} {
+      \placetile{Stone_Platform_C}{\i}{0}
+    }
+    \placetile{Stone_Platform_L}{26}{0}
+    \foreach \i in {0,...,8} {
+      \placetileGroup3{Teleporter}{3*\i}{1}
+      \placetile{Switch_Flat_Off}{3*\i+1}{-1}
+      \placeAndGate{0}{3*\i+1}{5}
+
+      \placetile{Switch_Flat_Off}{9+\i}{10}
+      \placeAndGate{0}{9+\i}{8}
+    }
+
+    \foreach \i in {1,7,13,19} {
+      \placeFaultyGate{20}{\i}{2}
+      \placeFaultyGate{21}{\i+3}{2}
+      \draw[red wire] (\i,4) -- (\i,5) -- (\i+1,5) -- (\i+1,6) -- (\i+3,6);
+      \draw[green wire] (\i+3,4) -- (\i+3,5) -- (\i+4,5) -- (\i+4,6) -- (\i+6,6);
+    }
+    \placeFaultyGate{20}{25}{2}
+    \draw[red wire] (25,4) -- (25,5);
+
+    \foreach \i in {9,12} {
+      \draw[green wire] (\i,10) -- (\i,8) -- (\i+1,8);
+      \draw[red wire] (\i+1,10) -- (\i+1,8) -- (\i+2,8);
+      \draw[yellow wire] (\i+2,10) -- (\i+2,8) -- (\i+3,8);
+    }
+    \draw[green wire] (15,10) -- (15,8) -- (16,8);
+    \draw[red wire] (16,10) -- (16,8) -- (17,8);
+    \draw[yellow wire] (17,10) -- (17,8);
+
+    \placetile{Stone_Platform_R}{12}{11}
+    \placetile{Stone_Platform_C}{13}{11}
+    \placetile{Stone_Platform_L}{14}{11}
+    \placetileGroup3{Teleporter}{12}{12}
+
+    \draw[blue wire] (17,7.75) -- (1,7.75) -- (1,6) -- (0.25,6) -- (0.25,3) -- (25,3) -- (25,2);
+    \draw[yellow wire]
+      (12,12) -- (0,12) -- (0,2) -- (1,2) -- (1,-1)
+      (14,12) -- (26,12) -- (26,2) -- (25,2) -- (25,-1)
+      (1,1) -- (25,1)
+      (4,2) -- (4,-1)
+      (7,2) -- (7,-1)
+      (10,2) -- (10,-1)
+      (13,2) -- (13,-1)
+      (16,2) -- (16,-1)
+      (19,2) -- (19,-1)
+      (22,2) -- (22,-1);
+  \end{tikzpictureC}
   \caption{双向1传11传送阵。无论下面有多少传送机，都只用向上接两根线。}\label{fig25}
 \end{figure}
 
