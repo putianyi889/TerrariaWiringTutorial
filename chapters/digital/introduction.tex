@@ -1,0 +1,563 @@
+\chapter{基本概念}
+
+\section{模拟电路与数字电路}
+
+在现实中存在着许多物理量，其中有一些物理量，比如温度、湿度、压力、速度等，它们在时间上和数值上都具有连续变化的特点，在一定范围内可以取任意实数值，通常称这种连续变化的物理量为\textbf{模拟量}，表示模拟量的电信号称为\textbf{模拟信号}。而处理模拟信号的电路称为\textbf{模拟电路}。
+
+还有一类物理量在时间和数值上都是离散的，它们的大小以及每次的增减变化都是某个最小单位的整数倍。比如每年的利润，若最小单位为元，显然它只能以元为单位增加或减少，并且以年为时间单位记录。这一类物理量称为\textbf{数字量}，表示数字量的电信号称为\textbf{数字信号}。而处理数字信号的电路称为\textbf{数字电路}。
+
+\begin{note}{}{}
+  泰拉瑞亚的电路中并没有电压和电流这样的模拟量，电源、用电器和电线的状态在时间上和数值上都是离散的，泰拉瑞亚中只存在数字电路。
+\end{note}
+
+在数字电路中，最常用的是只由 0 和 1 两种数值组成的数字信号，这种二值数字信号又被称为\textbf{二进制信号}，这类信号中的数值 0 或 1 可以用电平的低或高来表示，也可以用脉冲的有或无来表示。数字电路中最小时间单位被称为\textbf{周期}，电路中所有变化都会以周期为单位发生。
+
+\begin{note}{}{}
+  泰拉瑞亚逻辑门电路的周期被称为\textbf{逻辑帧}，一个物理帧内可以有任意数量的逻辑帧。一个常见的错误是认为逻辑帧与物理帧相等，实际上在泰拉瑞亚中任意规模的电路都能在瞬间（一个物理帧内）计算完成，详细内容会在后文介绍。
+\end{note}
+
+\begin{remark}{}{}
+  后文中的在描述电路时使用的“同时”指的是指某些事情在同一个周期（逻辑帧）内发生，它们的先后关系对结果没有影响。
+\end{remark}
+
+数字电路中处理的电信号一般有两种，\textbf{电平（状态）型数字信号}和\textbf{脉冲（激活）型数字信号}。
+
+状态信号会在每个周期内维持一个状态（电平）不变，只有在周期间才会发生变化，一般设定高电平为 1、低电平为 0，所以又叫不归零型数字信号，通常关注状态信号在周期内的状态。
+
+脉冲是一种特殊的信号，指电平在短时间内（小于一个周期）突变，随后又迅速返回初始值的变化过程。对于激活信号，一般设定有脉冲为 1、无脉冲为 0，在每个周期中除了有脉冲的瞬间外，会一直维持低电平，所以又叫归零型数字信号，通常关注周期内是否有脉冲存在。
+
+\begin{note}{}{}
+  泰拉瑞亚的电线中传递的只有激活信号，而在电源和用电器中存在状态信号和激活信号，其中逻辑门电路中只有 0 和 1 两种数值所组成的二进制数字信号。
+\end{note}
+
+\begin{example}{}{}
+  \begin{tikztimingtable}
+    a & h..lhlh. \\
+    b & p..lplpp \\
+    \extracode
+    \vertlines[help lines]{}
+  \end{tikztimingtable}
+
+  上图为两个数字信号 a 与 b 的波形图，信号内容都是 $(11101011)_2$ ，波形图是反映信号的幅值（电平）随时间的变化图像。
+
+  \begin{itemize}
+    \item 信号 a 是以高电平代表 $1$ ，低电平代表 $0$ ，称为状态（电平）型数字信号或不归零型数字信号；
+    \item 信号 b 是以有脉冲代表 $1$ ，无脉冲代表 $0$ ，称为激活（脉冲）型数字信号或归零型数字信号；
+  \end{itemize}
+  
+  脉冲除了是方波以外，还可以是三角波、正弦波、尖顶余弦等等，我们并不关心其波形与持续时间，只关心它是否存在。
+\end{example}
+
+\section{进制}
+
+按进位规则进行计数称为\textbf{进位计数制}，简称\textbf{进制}。在日常生活中我们最广泛使用的是\textbf{十进制（Decimal）}，十进制有 0 \textasciitilde{} 9 十个数字。但在数字电路和计算机中，通常只有类似灯的亮灭、电线的通断、开关的闭合和抬起，这样的两种状态，所以只需要 0 和 1 两个数字来表示，使用的是\textbf{二进制（Binary）}。
+
+\begin{note}{}{}
+  在泰拉瑞亚逻辑门电路中，只有二进制信号，所以其它类型的信号，比如数字、文字、图像、视频、程序等信息，需要先使用特定的编码转换为二进制信号，才能在电路中传输和处理。处理完成后，由需要将二进制信号转换为其它类型的信号进行表示。
+\end{note}
+
+十进制数可以被写做 $(345)_{10}$ ，读做“三百四十五”，这种使用 0 \textasciitilde{} 9 十个数字，每个数字在不同的数位上表示的大小不同的形式，被称为\textbf{位置记数法}。
+
+\begin{remark}{}{}
+  下角标 10 表示括号里的数是十进制，下角标 2 表示括号里的数是二进制，以此类推。
+\end{remark}
+
+在十进制中，由于只有 0 \textasciitilde{} 9 十个数字，当表示大于 9 的数时，需要进行进位，也就是满 10 进 1 ， 9 + 1 = 10 。当 1 在十位上时，它是个位上的 1 的十倍。对于十进制数 $(345)_{10}$ ，3 在百位上，4 在十位上，5 在个位上；3 代表有三个 100，4 代表有四个 10，5 代表有五个 1。这里的 100、10、1 ，也就是 $10 ^ 2$、$10 ^ 1$、$10 ^ 0$ 是十进制数的\textbf{位权}，十进制数的各个数位的位权是 10 的位数次幂，幂数的底 10 被称为\textbf{基数}，几进制的基数就是几。十进制数第 $n$ 位数的位权是 $10 ^ {n-1}$。
+
+$$ (345)_{10} = 3 \times 10 ^ 2 + 4 \times 10 ^ 1 + 5 \times 10 ^ 0 $$
+
+\begin{note}{}{}
+  这种把一个数字的每一数位拆开，写成数码乘以位权的形式，被称为\textbf{位权展开式}。
+\end{note}
+
+同理，二进制中满足满 2 进 1 的进位规则，二进制数也可以按照位置记数法，被写做形如 $(10010)_{2}$ 的形式，表示有 1 个 16，0 个 8，0 个 4，1 个 2，0 个 1。每位的乘数 16、8、4、2、1，也就是 $2 ^ 4$、$2 ^ 3$、$2 ^ 2$、$2 ^ 1$、$2 ^ 0$ 是二进制数的位权，而二进制数的基数是 2。二进制数第 $n$ 位数的位权是 $2 ^ {n-1}$。$R$ 进制数第 $n$ 位数的位权是 $R ^ {n-1}$
+
+$$ (10010)_{2} = 1 \times 2 ^ 4 + 0 \times 2 ^ 3 + 0 \times 2 ^ 2 + 1 \times 2 ^ 1 + 0 \times 2 ^ 0 $$
+
+\begin{note}{}{}
+  任何进制的数字都可以写成位权表达式的形式，计算位权表达式的同时也能将其它进制的数字转换为十进制，而与之对应的，也可以使用短除法将十进制转换为其它进制的数字，详细内容会在后文介绍。
+\end{note}
+
+\begin{example}{}{}
+  $$(BEEF)_{16} = 11 \times 16 ^ 3 + 14 \times 16 ^ 2 + 14 \times 16 ^ 1 + 15 \times 16 ^ 0$$
+  这是一个十六进制数字 $(BEEF)_{16}$ 的位权展开式，在十六进制中，会使用 $A$ \textasciitilde{} $F$ 来表示 $10$ \textasciitilde{} $15$ 六个数字。
+\end{example}
+
+\begin{example}{}{}
+  $$ (a_{n-1} ​a_{n-2} \dots a_{1​} a_{0} . a_{-1} \dots a_{-m+1} a_{-m}​)_R​ = \sum_{i=-m}^{n-1} a_i \times R^{i} $$
+  这是一个具有 $n$ 位整数和 $m$ 位小数的 $R$ 进制实数的位权展开式。
+\end{example}
+
+对于 3 位十进制数，可以表示 $(000)_{10}$ \textasciitilde{} $(999)_{10}$ ，共计 1000 （$10 ^ 3$）个数，也就是第四位的位权。同理对于五位二进制数，可以表示 $(00000)_{2}$ \textasciitilde{} $(11111)_{2}$ ，共计 32 （$2 ^ 5$）个数。由此可见，对于 $n$ 位二进制数，可以表示 $2 ^ n$ 个数；对于 $n$ 位 $R$ 进制数，可以表示 $R ^ n$ 个数。
+
+\section{常用进制}
+
+10 并不是 2 的整数次幂，在十进制和二进制间转换是比较困难的。虽然在电路中使用的都是二进制，但是二进制的数码比较少，数字会比较长，难以阅读。而\textbf{八进制}和\textbf{十六进制} 的基数是二的整数次幂，数码的数量相对较多，是电路和计算机中另外两个比较常用的进制。
+
+\begin{longtable}{|l|l|l|l|l|}
+\hline
+\textbf{进制} & \textbf{规则} & \textbf{数码} & \textbf{基数} & \textbf{位权} \\ \hline
+\endhead
+二进制 & 逢二进一 & $0$ \textasciitilde{} $1$ & $2$ & $2 ^ {n-1}$ \\ \hline
+八进制 & 逢八进一 & $0$ \textasciitilde{} $7$ & $8$ & $8 ^ {n-1}$ \\ \hline
+十进制 & 逢十进一 & $0$ \textasciitilde{} $9$ & $10$ & $10 ^ {n-1}$ \\ \hline
+十六进制 & 逢十六进一 & $0$ \textasciitilde{} $9$, $A$ \textasciitilde{} $F$ & $16$ & $16 ^ {n-1}$ \\ \hline
+\end{longtable}
+
+八进制和十六进制的基数分别是 8 和 16，所以每一位八进制和十六进制可以直接转换为 3 位和 4 位二进制，同理每 3 位和 4 位二进制也可以直接转换为一位八进制和十六进制。
+
+\begin{example}{}{}
+  $(1110\_0000\_0000\_0010)_{2} = (E002)_{16}$，$(101\_110\_111)_{2} = (567)_{8}$。
+\end{example}
+
+具体的对应关系可以在下方的速查表中找到，使用速查表可以快速的完成二进制与八进制与十六进制数字间的转换。
+
+\begin{longtable}{|c|c|c|c|}
+\hline
+\textbf{十进制} & \textbf{二进制} & \textbf{八进制} & \textbf{十六进制} \\ \hline
+\endhead
+0 & 0000 & 0 & 0 \\ \hline
+1 & 0001 & 1 & 1 \\ \hline
+2 & 0010 & 2 & 2 \\ \hline
+3 & 0011 & 3 & 3 \\ \hline
+4 & 0100 & 4 & 4 \\ \hline
+5 & 0101 & 5 & 5 \\ \hline
+6 & 0110 & 6 & 6 \\ \hline
+7 & 0111 & 7 & 7 \\ \hline
+8 & 1000 & 10 & 8 \\ \hline
+9 & 1001 & 11 & 9 \\ \hline
+10 & 1010 & 12 & A \\ \hline
+11 & 1011 & 13 & B \\ \hline
+12 & 1100 & 14 & C \\ \hline
+13 & 1101 & 15 & D \\ \hline
+14 & 1110 & 16 & E \\ \hline
+15 & 1111 & 17 & F \\ \hline
+\end{longtable}
+
+对于十进制，可以将每一位十进制直接转换为 \textbf{BCD（Binary-Coded Decimal）码}，这种编码将十进制的 0 \textasciitilde{} 9 使用四位二进制来表示。
+
+\begin{example}{}{}
+  十进制数 $1857$ 可以使用 8421 BCD 码表示为 $0001\_1000\_0101\_0111$ 。
+\end{example}
+
+具体的对应关系可以在下方速查表中找到，使用速查表可以快速的完成十进制数字与 BCD 码间的转换。
+
+\begin{longtable}{|c|c|c|c|c|}
+\hline
+\textbf{十进制} & \textbf{8421 码} & \textbf{5421 码} & \textbf{余 3 码} & \textbf{格雷码} \\ \hline
+\endhead
+0 & 0000 & 0000 & 0011 & 0000 \\ \hline
+1 & 0001 & 0001 & 0100 & 0001 \\ \hline
+2 & 0010 & 0010 & 0101 & 0011 \\ \hline
+3 & 0011 & 0011 & 0110 & 0010 \\ \hline
+4 & 0100 & 0100 & 0111 & 0110 \\ \hline
+5 & 0101 & 1000 & 1000 & 0111 \\ \hline
+6 & 0110 & 1001 & 1001 & 0101 \\ \hline
+7 & 0111 & 1010 & 1010 & 0100 \\ \hline
+8 & 1000 & 1011 & 1011 & 1100 \\ \hline
+9 & 1001 & 1100 & 1100 & 1101 \\ \hline
+\end{longtable}
+
+\begin{remark}{}{}
+  还有一些 BCD 码未列出（如 2421 码和余 3 循环码），读者可自行了解。最常用的 BCD 码是 8421 BCD 码，后文中提到的 BCD 码默认是 8421 BCD 码。
+\end{remark}
+
+\begin{note}{}{}
+  对于二进制、八进制、十六进制数字，除了使用下标 $2$、$8$、$16$，还可以使用前缀 0b、0o、0x，或后缀 B、O、H 来表示。十进制无前缀，后缀是 D。
+\end{note}
+
+\begin{remark}{}{}
+  下文中十进制数字不会使用特殊表示，其它进制数字会使用前缀表示。
+\end{remark}
+
+\begin{longtable}{|l|l|l|l|}
+\hline
+\textbf{进制} & \textbf{英文} & \textbf{前缀} & \textbf{后缀} \\ \hline
+\endhead
+二进制 & Binary & 0b & B \\ \hline
+八进制 & Octal & 0o & O \\ \hline
+十进制 & Decimal & 无 & D \\ \hline
+十六进制 & Hexadecimal & 0x & H \\ \hline
+\end{longtable}
+
+\section{逻辑函数}
+
+\subsection{逻辑量}
+
+对于会变化的量，我们将其称为\textbf{变量}；而对于维持一个值不变的量，我们将其称为\textbf{常量}。
+
+数字电路的基本单元是开关器件，开关器件只有“接通”和“断开”两种状态，可以使用\textbf{逻辑变量}（二值变量）来描述这种变量；对应的，对于数字电路中固定不变的量，可以使用\textbf{逻辑常量}（二值常量）来描述这种常量。数字电路中计算、传输、表示的量都是逻辑变量或逻辑常量。
+
+逻辑变量和逻辑常量只有 0 和 1 两种可能的取值，也就是一位二进制。逻辑变量会在 0 和 1 中任意取值，而逻辑常量会固定为 0 或固定为 1。逻辑变量和逻辑常量统称为\textbf{逻辑量}。
+
+\subsection{标量、向量、矩阵}
+
+在数字电路中，我们不仅需要关心某一个逻辑量，也常常需要同时描述一组逻辑量，甚至多组逻辑量的组合关系。所以我们引入\textbf{标量}、\textbf{向量}、\textbf{矩阵}来描述这些情况。
+
+标量表示单独的逻辑量，可以是一个逻辑变量或一个逻辑常量。当我们把多个逻辑量按顺序排成一行时，就得到了向量，向量的每一个分量都是一个标量。当我们把多行矢量叠放在一起时，就得到了矩阵，矩阵的每一行都可以看作一个长度一样的矢量。
+
+\begin{remark}{}{}
+  对于标量，使用普通小写字母表示；
+  $$x = 0,\qquad y = 1$$
+
+  对于向量，使用粗体小写字母表示；
+  $$\mathbf{x} = (x_1, x_2, x_3),\qquad \mathbf{y} = (0, 1, 1)$$
+
+  对于矩阵，使用粗体大写字母表示；
+  $$
+    \mathbf{X} = \begin{bmatrix} x_{11} & x_{12} & x_{13} \\ x_{21} & x_{22} & x_{23} \end{bmatrix},
+    \qquad
+    \mathbf{Y} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \end{bmatrix}
+  $$
+\end{remark}
+
+\subsection{逻辑函数}
+
+函数是一种将一个集合中的每个元素（自变量）与另一个集合中的一个元素（因变量）关联起来的关系，\textbf{逻辑函数}是研究逻辑量之间的因果关系的函数。对于有 $n$ 个逻辑量 $(a_1, a_2, \cdots, a_n)$ 的逻辑函数，当 $n$ 个逻辑量取任意一组确定值后，逻辑函数 $y = f(a_1, a_2, \cdots, a_n)$ 的值也就被唯一地确定了，显然 $y$ 也只有 0 或 1 两种可能的取值。
+
+\begin{example}{}{}
+  存在一个两变量的逻辑函数 $y = f(a, b)$ ，对于二位二进制，存在 $2 ^ 2 = 4$ 个不同的取值，所以对于变量 $a$，$b$ 有 4 种可能的取值：00，01，10，11。令 $f(0, 0) = 0$， $f(0, 1) = 0$， $f(1, 0) = 0$， $f(1, 1) = 1$ ，可得 $a$，$b$ 与 $y$ 的完整映射关系。
+
+  输入为 00 时，可知输出为 0；
+  输入为 01 时，可知输出为 0；
+  输入为 10 时，可知输出为 0；
+  输入为 11 时，可知输出为 1。
+\end{example}
+
+对于 $n$ 变量的逻辑函数，存在 $2 ^ n$ 个可能的取值，当我们建立起全部可能的自变量取值与对应的因变量的完整映射关系，即可唯一确定逻辑函数。
+
+\section{真值表}
+
+对于一个逻辑函数，我们可以使用\textbf{真值表}来描述它。真值表是一种列出一个逻辑函数的所有输入与其对应输出的表格。例如上一节所述函数，我们可以使用下面的真值表来描述：
+
+\begin{example}{}{}
+  \begin{longtable}{|c|c|c|}
+  \hline
+  \textbf{a} & \textbf{b} & \textbf{y} \\ \hline
+  \endhead
+  0 & 0 & 0 \\ \hline
+  0 & 1 & 0 \\ \hline
+  1 & 0 & 0 \\ \hline
+  1 & 1 & 1 \\ \hline
+  \end{longtable}
+
+  输入为 00 时，查表可知输出为 0；
+  输入为 01 时，查表可知输出为 0；
+  输入为 10 时，查表可知输出为 0；
+  输入为 11 时，查表可知输出为 1。
+\end{example}
+
+对于 $n$ 个输入的逻辑函数，会有 $2 ^ n$ 个可能的输入取值，和与之对应的输出，真值表会有 $n + 1$ 列， $2 ^ n$ 行。
+
+有时候部分输入情况是不存在或不需要考虑的，此时我们可以省略这些情况对应的行，或者将对应输出用 x 表示。
+
+\begin{example}{}{}
+  独热码是一种全部位中只有一位为 1 的二进制编码，所以对于一个输入为独热码的逻辑函数来说，非独热码的输入情况是不需要考虑的。
+
+  \begin{longtable}{|c|c|c|c|}
+  \hline
+  \textbf{a} & \textbf{b} & \textbf{c} & \textbf{y} \\ \hline
+  \endhead
+  0 & 0 & 0 & x \\ \hline
+  0 & 0 & 1 & 0 \\ \hline
+  0 & 1 & 0 & 0 \\ \hline
+  0 & 1 & 1 & x \\ \hline
+  1 & 0 & 0 & 1 \\ \hline
+  1 & 0 & 1 & x \\ \hline
+  1 & 1 & 0 & x \\ \hline
+  1 & 1 & 1 & x \\ \hline
+  \end{longtable}
+
+  也可以表示为：
+
+  \begin{longtable}{|c|c|c|c|}
+  \hline
+  \textbf{a} & \textbf{b} & \textbf{c} & \textbf{y} \\ \hline
+  \endhead
+  0 & 0 & 1 & 0 \\ \hline
+  0 & 1 & 0 & 0 \\ \hline
+  1 & 0 & 0 & 1 \\ \hline
+  \end{longtable}
+\end{example}
+
+\section{基本逻辑运算}
+
+类似加、减、乘、除四则运算，在逻辑函数中，存在最基本的逻辑运算：\textbf{与、异或、非}。任何逻辑运算和任何逻辑函数都可以使用这三种运算来表示。
+
+\begin{note}{}{}
+  现实数电的基本逻辑运算是\textbf{与、或、非}，产生这种区别的原因会在下文介绍。
+\end{note}
+
+\subsection{与（AND）}
+
+与运算用符号“$\land$”表示，称为\textbf{与}。
+
+与运算是二元运算，在所有输入都为 1 时，输出才为 1；有任一输入为 0 时输出为 0。
+
+两个变量与运算的逻辑表达式为$a \land b$，读作 a 与 b。
+
+两个变量与运算的真值表为：
+
+\begin{longtable}{|c|c|c|}
+\hline
+\textbf{a} & \textbf{b} & \textbf{y} \\ \hline
+\endhead
+0 & 0 & 0 \\ \hline
+0 & 1 & 0 \\ \hline
+1 & 0 & 0 \\ \hline
+1 & 1 & 1 \\ \hline
+\end{longtable}
+
+$n$ 个变量与运算的逻辑表达式为：
+
+$$a_1 \land a_2 \land \cdots \land a_n$$
+
+\begin{remark}{}{}
+  与满足结合律，多个变量与和多个变量两两与等价。
+  $$a_1 \land a_2 \land \cdots \land a_n = (( \cdots ((a_1 \land a_2) \land a_3) \land \cdots) \land a_n)$$
+\end{remark}
+
+\subsection{异或（XOR）}
+
+异或运算用符号“$\oplus$”表示，称为\textbf{异或}。
+
+异或运算是二元运算，在只有一个输入为 1 时，输出为 1；全部输入为 0 或 1 时输出为 0。
+
+\begin{remark}{}{}
+  异或运算也叫奇校验，只有在全部输入中有奇数个 1 时输出才为 1，否则为 0。
+\end{remark}
+
+两个变量异或运算的逻辑表达式为$a \oplus b$，读作 a 异或 b。
+
+两个变量异或运算的真值表为：
+
+\begin{longtable}{|c|c|c|}
+\hline
+\textbf{a} & \textbf{b} & \textbf{y} \\ \hline
+\endhead
+0 & 0 & 0 \\ \hline
+0 & 1 & 1 \\ \hline
+1 & 0 & 1 \\ \hline
+1 & 1 & 0 \\ \hline
+\end{longtable}
+
+$n$ 个变量异或运算的逻辑表达式为：
+
+$$a_1 \oplus a_2 \oplus \cdots \oplus a_n$$
+
+\begin{remark}{}{}
+  异或满足结合律，多个变量异或和多个变量两两异或等价。
+  $$a_1 \oplus a_2 \oplus \cdots \oplus a_n = (( \cdots ((a_1 \oplus a_2) \oplus a_3) \oplus \cdots) \oplus a_n)$$
+\end{remark}
+
+\subsection{非（NOT）}
+
+非运算用符号“$\lnot$”表示，称为\textbf{非}。
+
+非运算是一元运算。在输入为 0 时，输出 1；在输入为 1 时，输出 0。
+
+\begin{remark}{}{}
+  非运算也叫反相运算，或者取反运算。
+\end{remark}
+
+非运算的逻辑表达式为$\lnot a$，读作 a 非，非运算只能有一个逻辑量输入。
+
+非运算的真值表为：
+
+\begin{longtable}{|c|c|}
+\hline
+\textbf{a} & \textbf{y} \\ \hline
+\endhead
+0 & 1 \\ \hline
+1 & 0 \\ \hline
+\end{longtable}
+
+\section{逻辑表达式}
+
+上一节介绍了与、异或、非三种基本逻辑运算，以及对应的运算符号“$\land$”、“$\oplus$”、“$\lnot$”，它们统称为\textbf{逻辑运算符}。由逻辑量和逻辑运算符组成的表达式被称为\textbf{逻辑函数表达式}或\textbf{逻辑表达式}，简称为\textbf{逻辑式}。它是描述逻辑函数与逻辑量之间关系的表达式，逻辑式和真值表都是描述逻辑函数的重要工具。
+
+有一些较为复杂的逻辑式也是由基本运算符组合而成的。在逻辑式中，相同运算符的运算次序是\textbf{先左后右}，而不同运算符的运算次序是\textbf{非 > 与 > 异或}，若有括号，则\textbf{先进行括号内运算}。
+
+\begin{example}{}{}
+  逻辑式 $a \land \lnot b \land \lnot c \oplus \lnot a \land b \land \lnot c \oplus \lnot a \land \lnot b \land c$ ，读作 a 与 b 非 与 c 非 异或 a 非 与 b 与 c 非 异或 a 非 与 b 非 与 c。计算时先计算六个非运算，然后再计算六个与运算，最后再计算两个异或运算。
+\end{example}
+
+\subsection{逻辑等价}
+
+设有两个逻辑函数：
+$$f_1(a_1, a_2, \cdots, a_n)$$
+$$f_2(a_1, a_2, \cdots, a_n)$$
+
+如果对于 $a_1$ \textasciitilde{} $a_n$ 的任何一组取值使 $f_1$ 和 $f_2$ 具有相同的值，则称这两个逻辑函数\textbf{相等}或\textbf{等价}，即$f_1 = f_2$。相等的逻辑函数一定有相同的真值表，反之亦然。
+
+\begin{example}{}{}
+  对于逻辑表达式 $\lnot (\lnot a \land \lnot b)$ ：
+
+  输入 00 时 $\lnot (\lnot 0 \land \lnot 0) = \lnot (1 \land 1) = \lnot 1 = 0$ ；
+  输入 01 时 $\lnot (\lnot 0 \land \lnot 1) = \lnot (1 \land 0) = \lnot 0 = 1$ ；
+  输入 10 时 $\lnot (\lnot 1 \land \lnot 0) = \lnot (0 \land 1) = \lnot 0 = 1$ ；
+  输入 11 时 $\lnot (\lnot 1 \land \lnot 1) = \lnot (0 \land 0) = \lnot 0 = 1$ 。
+
+  进行与、异或、非运算时可以通过查上一节的真值表得到结果。
+\end{example}
+
+\section{其它常用逻辑运算}
+
+在电路中，除了与、异或、非三种基本逻辑运算外，也有其他一些常用的逻辑运算。
+
+\subsection{或（OR）}
+
+或运算用符号“$\lor$”表示，称为\textbf{或}。
+
+或运算是二元运算，在输入中有至少一个 1 时，输出为 1；全部输入为 0 时输出为 0。
+
+两个变量的或运算的逻辑表达式为$a \lor b$，读作 a 或 b。
+
+两个变量或运算的真值表为：
+
+\begin{longtable}{|c|c|c|}
+\hline
+\textbf{a} & \textbf{b} & \textbf{y} \\ \hline
+\endhead
+0 & 0 & 0 \\ \hline
+0 & 1 & 1 \\ \hline
+1 & 0 & 1 \\ \hline
+1 & 1 & 1 \\ \hline
+\end{longtable}
+
+$n$ 个变量或运算的逻辑表达式为：
+$$a_1 \lor a_2 \lor \cdots \lor a_n$$
+
+\begin{remark}{}{}
+  或满足结合律，多个变量或和多个变量两两或等价。
+  $$a_1 \lor a_2 \lor \cdots \lor a_n = (( \cdots ((a_1 \lor a_2) \lor a_3) \lor \cdots) \lor a_n)$$
+\end{remark}
+
+\begin{note}{}{}
+  或运算的逻辑表达式也可以用与、异或、非来表示：
+  $$a \lor b = \lnot (\lnot a \land \lnot b)$$
+  两者等价的证明已于上一节完成。
+\end{note}
+
+\subsection{独热（One-hot）}
+
+独热运算用函数“ $\mathrm{OneHot}$ ”表示，称为\textbf{独热}。
+
+独热运算是多元运算，在全部输入中只有一个输入为 1 时，输出为 1；其余情况输出为 0。
+
+\begin{note}{}{}
+  独热运算得名于独热码检测，只有在输入为独热码时输出为 1，非独热码时为 0。
+\end{note}
+
+两个变量独热运算的逻辑表达式为$\mathrm{OneHot}(a, b)$，读作独热 a, b。
+
+两个变量独热运算的真值表为：
+
+\begin{longtable}{|c|c|c|}
+\hline
+\textbf{a} & \textbf{b} & \textbf{y} \\ \hline
+\endhead
+0 & 0 & 0 \\ \hline
+0 & 1 & 1 \\ \hline
+1 & 0 & 1 \\ \hline
+1 & 1 & 0 \\ \hline
+\end{longtable}
+
+\begin{remark}{}{}
+  可以发现两个变量独热运算和异或运算输出完全相同：
+  $$\mathrm{OneHot}(a, b) = a \oplus b$$
+  但是当输入变量在三个或以上时，独热运算和异或运算不同。
+
+  \begin{example}{}{}
+    三个变量异或的真值表是：
+    \begin{longtable}{|c|c|c|c|}
+    \hline
+    \textbf{a} & \textbf{b} & \textbf{c} & \textbf{y} \\ \hline
+    \endhead
+    0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 1 \\ \hline
+    0 & 1 & 0 & 1 \\ \hline
+    0 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 0 & 0 \\ \hline
+    1 & 1 & 1 & 1 \\ \hline
+    \end{longtable}
+
+    三个变量独热运算的真值表是：
+    \begin{longtable}{|c|c|c|c|}
+    \hline
+    \textbf{a} & \textbf{b} & \textbf{c} & \textbf{y} \\ \hline
+    \endhead
+    0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 1 \\ \hline
+    0 & 1 & 0 & 1 \\ \hline
+    0 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 0 & 0 \\ \hline
+    1 & 1 & 1 & 0 \\ \hline
+    \end{longtable}
+
+    可以发现在三个输入全为 1 时异或和独热的结果不同。
+  \end{example}
+\end{remark}
+
+$n$ 个变量独热运算的逻辑表达式为：
+$$\mathrm{OneHot}(a_1, a_2, \cdots , a_n)$$
+
+\begin{remark}{}{}
+  独热不满足结合律，多个变量独热和多个变量两两独热不等价。多个变量独热运算需要同时考虑所有输入，不能两两分别运算。
+  $$\mathrm{OneHot}(a_1, a_2, \cdots, a_n) \neq \\ \mathrm{OneHot}(\mathrm{OneHot}( \cdots \mathrm{OneHot}(\mathrm{OneHot}(a_1, a_2), a_3), \cdots a_{n - 1}), a_n)$$
+  \begin{example}{}{}
+    上述三变量输入独热和异或的例子中，全部输入为 1 的情况独热和异或输出不同（两两异或与两两独热输出相同）。
+
+    $\mathrm{OneHot}(1, 1, 1) = 0$
+
+    $\mathrm{OneHot}(\mathrm{OneHot}(1, 1), 1) = \mathrm{OneHot}(0, 1) = 1$
+
+    $\mathrm{OneHot}(1, 1, 1) \neq \mathrm{OneHot}(\mathrm{OneHot}(1, 1), 1)$
+
+    $\mathrm{OneHot}(a_1, a_2, a_3) \neq \mathrm{OneHot}(\mathrm{OneHot}(a_1, a_2), a_3)$
+  \end{example}
+\end{remark}
+
+\begin{note}{}{}
+  独热运算的逻辑表达式也可以用与、异或、非来表示：
+
+  两个变量：$a \oplus b$；
+
+  三个变量：$a \land b \land c \oplus a \oplus b \oplus c$；
+
+  四个变量：$a \land b \land c \oplus a \land b \land d \oplus a \land c \land d \oplus b \land c \land d \oplus a \oplus b \oplus c \oplus d$；
+
+  \dots
+
+  详细推导过程会在后文介绍。
+\end{note}
+
+\begin{note}{}{}
+  泰拉瑞亚的异或逻辑门的逻辑是独热，而不是异或，详细内容会在后文介绍。
+\end{note}
+
+\subsection{与非（NAND）、或非（NOR）、同或（XNOR）、独热非（Not One-hot）}
+
+\textbf{与非、或非、同或、独热非}运算的结果是对与、或、异或、独热运算的结果取反，是对输入先进行与、或、异或、独热运算，再对运算结果进行非运算。
+
+两个变量和 $n$ 个变量与非、或非、同或、独热非运算的逻辑表达式为：
+
+\begin{longtable}{|l|l|l|}
+\hline
+\textbf{运算} & \textbf{两个变量逻辑表达式} & \textbf{$n$ 个变量逻辑表达式} \\ \hline
+\endhead
+与 (AND) & $a \land b$ & $a_1 \land a_2 \land \cdots \land a_n$ \\ \hline
+与非 (NAND) & $\lnot (a \land b)$ & $\lnot (a_1 \land a_2 \land \cdots \land a_n)$ \\ \hline
+或 (OR) & $a \lor b$ & $a_1 \lor a_2 \lor \cdots \lor a_n$ \\ \hline
+或非 (NOR) & $\lnot (a \lor b)$ & $\lnot (a_1 \lor a_2 \lor \cdots \lor a_n)$ \\ \hline
+异或 (XOR) & $a \oplus b$ & $a_1 \oplus a_2 \oplus \cdots \oplus a_n$ \\ \hline
+同或 (XNOR) & $\lnot (a \oplus b)$ & $\lnot (a_1 \oplus a_2 \oplus \cdots \oplus a_n)$ \\ \hline
+独热 (One-hot) & $\mathrm{OneHot}(a, b)$ & $\mathrm{OneHot}(a_1, a_2, \cdots, a_n)$ \\ \hline
+独热非 (Not One-hot) & $\lnot \mathrm{OneHot}(a, b)$ & $\lnot \mathrm{OneHot}(a_1, a_2, \cdots, a_n)$ \\ \hline
+\end{longtable}
+
+与非、或非、同或、独热非运算并没有引入新的运算符，它们的真值表可自行推导。
